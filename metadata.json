@@ -1,0 +1,6 @@
+{
+  "name": "StreamUK IPTV Theme & Portal",
+  "description": "Ultra-responsive UK IPTV streaming portal featuring UK sports packages, 24,000+ live 4K channels, VOD showcase, live fixtures schedule, and a dedicated multi-device & player setup guide hub with individual SEO URLs.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

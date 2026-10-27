@@ -1,0 +1,76 @@
+# GlobalStreamHub VIP Full System Architecture, Hardware Installation & Service Specification
+
+## 1. Executive Summary
+GlobalStreamHub VIP (https://globalstreamhub.net) is an enterprise-grade 4K/UHD Internet Protocol Television (IPTV) broadcasting and Video-on-Demand (VOD) network designed specifically for British, European, and North American viewers. The service delivers ultra-low-latency, zero-buffering live sports and entertainment streams across every major consumer operating system.
+
+## 2. Live Sports Broadcasting Specifications
+- **English Premier League (EPL)**: Full broadcast coverage of all 380 matchday fixtures in genuine 4K UHD 60FPS. Includes full bypass of the UK Saturday 3:00 PM domestic blackout via international feed clustering (NBC Peacock, Optus Sport, Astro SuperSport, DAZN Canada, beIN Sports MENA).
+- **Sky Sports UK**: All 12 channels in 4K UHD 50/60FPS with 5.1 Dolby audio.
+  - Sky Sports Main Event 4K
+  - Sky Sports Premier League 4K
+  - Sky Sports Football HD/4K
+  - Sky Sports F1 (Formula 1 live telemetry & 4K UHD race stream)
+  - Sky Sports Cricket, Golf, Action, Arena, Racing, Mix, News, Tennis
+- **TNT Sports UK**:
+  - TNT Sports Ultimate 4K with HDR & Dolby Atmos
+  - TNT Sports 1, 2, 3, 4 HD/4K (UEFA Champions League, Europa League, Conference League, Serie A, Gallagher Premiership, MotoGP)
+- **North American Sports**:
+  - NFL Sunday Ticket & NFL RedZone (all out-of-market games, zero local blackout)
+  - NBA League Pass (all 30 teams home and away feeds in 60FPS)
+  - NHL Center Ice & regional blackout bypass feeds
+  - MLB Extra Innings
+  - TSN 1, 2, 3, 4, 5 in 4K UHD
+  - Sportsnet Ontario, East, West, Pacific, Sportsnet ONE & 360
+  - Peacock TV Premium 4K
+  - ESPN+ Exclusive Match Streams (Bundesliga, FA Cup, Carabao Cup)
+- **Combat & Pay-Per-View (PPV)**:
+  - UFC Fight Nights & UFC Numbered PPV Main Cards
+  - Matchroom Boxing, Queensberry Promotions, DAZN Boxing, Riyadh Season PPV
+  - WWE Network Premium Live Events (WrestleMania, Royal Rumble, SummerSlam)
+  - AEW All Elite Wrestling PPVs
+
+## 3. Server Infrastructure & Anti-Freeze v9.8 Architecture
+- **Distributed Edge CDN**: Dedicated nodes deployed across Equinix LD4 (Slough) and LD8 (Docklands, London), Equinix FR2 (Frankfurt), Equinix AM4 (Amsterdam), Equinix NY4 (New York), and Equinix TR2 (Toronto).
+- **High-Capacity Bandwidth**: Dual 100Gbps Tier-1 network backbones (Lumen, Telia/Arelion, Cogent) ensuring 99.99% uptime during peak matchday viewership.
+- **Adaptive Bitrate & Load Balancing**: Intelligent round-robin traffic routing that switches edge nodes within 35ms in the event of local ISP packet loss or regional throttling.
+
+## 4. Hardware Installation & Downloader Shortcodes
+### Amazon Fire TV (FireStick 4K / Max / Cube):
+1. Install the official "Downloader" app from the Amazon Appstore.
+2. Enable "Developer Options" -> "Install Unknown Apps" -> Allow Downloader.
+3. Enter one of the verified official codes:
+   - **GlobalStreamHub VIP 4K Custom Player**: `842013` (Official App with integrated 4K sports & automated EPG)
+   - **TiviMate IPTV Player Pro**: `289018` / `272483` (Direct URL: `https://tivimate.com/apk`)
+   - **iMPlayer TV IPTV**: `82375` (Direct URL: `https://implayer.tv/d`)
+   - **IPTV Smarters Pro**: `914207` / `80198` (Direct URL: `https://www.iptvsmarters.com/smarters.apk`)
+   - **XCIPTV Player Pro**: `762019` / `537992` (Direct URL: `https://xciptv.com`)
+   - **IBO Player Pro 4K**: `541890` / `834339` (Direct URL: `https://iboplayer.pro`)
+4. Open the installed application and sign in via Xtream Codes API (Server URL, Username, Password) provided in your activation email.
+
+### Apple TV 4K & Apple iOS (iPhone, iPad, Mac M-Series):
+1. Download **iMPlayer IPTV**, **IPTVX**, or **Smarters Player Lite** from the official Apple App Store.
+2. Select "Xtream Codes API" login.
+3. Enjoy Quad-view multi-screen, native AVPlayer/Metal hardware acceleration, and iCloud playlist synchronization.
+
+### Smart TVs (Samsung Tizen & LG webOS):
+1. Search for **IBO Player**, **Smart One IPTV**, or **Nanomid Player** in the Samsung Apps or LG Content Store.
+2. Enter the device MAC Address and Device Key on the player's web portal to upload your M3U playlist.
+
+### Dedicated Set-Top Boxes (Formuler & MAG):
+- **Formuler**: Open MyTVOnline 2/3, create a new portal using Xtream Codes API or Portal URL.
+- **MAG 254/322/424/524**: Provide your 00:1A:79:XX:XX:XX MAC address during checkout for Stalker Portal authorization.
+
+## 5. Pricing & Subscription Plans
+- **24-Hour VIP Free Trial**: £0.00 / $0.00 (Instant automatic delivery, no card required)
+- **1 Month VIP Pass**: £14.99
+- **3 Months VIP Pass**: £29.99
+- **6 Months VIP Pass**: £44.99
+- **12 Months 4K Season Pass**: £59.99 (Best seller)
+- **24 Months Ultimate Pass**: £89.99
+- Multi-Room options: Up to 5 simultaneous active connections.
+
+## 6. Official Customer Support & Inquiries
+- **Website**: https://globalstreamhub.net
+- **Live WhatsApp Support**: +44 7731 454811
+- **Official Telegram**: @GlobalStreamHub_Support
+- **Email**: support@globalstreamhub.net

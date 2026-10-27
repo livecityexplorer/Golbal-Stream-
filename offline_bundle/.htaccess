@@ -1,0 +1,15 @@
+# Permanent Takedown - Website Offline
+Header set X-Robots-Tag "noindex, nofollow, noarchive, nosnippet"
+Header always set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
+
+RewriteEngine On
+
+# Allow index.html and robots.txt
+RewriteCond %{REQUEST_URI} ^/(robots\.txt)?$ [NC]
+RewriteRule ^ - [L]
+
+RewriteCond %{REQUEST_URI} ^/index\.html$ [NC]
+RewriteRule ^ - [L]
+
+# Redirect all requests to index.html with 302
+RewriteRule ^(.*)$ /index.html [L,R=302]
