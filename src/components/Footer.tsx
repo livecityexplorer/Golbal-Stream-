@@ -10,6 +10,7 @@ interface FooterProps {
   onOpenSpeedTest?: () => void;
   onOpenCookieSettings?: () => void;
   onOpenDomainAdvisor?: () => void;
+  onOpenTrafficBooster?: () => void;
   onOpenFreeTrial?: () => void;
   navigateTo?: (path: string) => void;
 }
@@ -20,6 +21,7 @@ export const Footer: React.FC<FooterProps> = ({
   onOpenSpeedTest,
   onOpenCookieSettings,
   onOpenDomainAdvisor,
+  onOpenTrafficBooster,
   onOpenFreeTrial,
   navigateTo,
 }) => {
@@ -240,6 +242,17 @@ export const Footer: React.FC<FooterProps> = ({
                   <a href="#pricing" className="hover:text-sky-300 transition-colors">{t.footer.trialPass}</a>
                 )}
               </li>
+              {onOpenTrafficBooster && (
+                <li>
+                  <button
+                    onClick={onOpenTrafficBooster}
+                    className="text-cyan-400 hover:text-cyan-300 transition-colors flex items-center gap-1.5 cursor-pointer font-bold"
+                  >
+                    <Zap className="w-3.5 h-3.5 text-amber-400" />
+                    <span>🚀 Get Visitors &amp; Growth Strategy</span>
+                  </button>
+                </li>
+              )}
               {onOpenCookieSettings && (
                 <li>
                   <button

@@ -20,6 +20,7 @@ import { ThemeCustomizerDrawer } from './components/ThemeCustomizerDrawer';
 import { CookieConsentBanner } from './components/CookieConsentBanner';
 import { DomainAdvisorModal } from './components/DomainAdvisorModal';
 import { NamecheapDeployModal } from './components/NamecheapDeployModal';
+import { TrafficBoosterModal } from './components/TrafficBoosterModal';
 import { LanguageProvider } from './context/LanguageContext';
 import { SUBSCRIPTION_PLANS } from './data/mockData';
 import { fetchLiveSportsFixtures, generateDynamicLiveFixtures, setupMidnightScheduler } from './services/liveSportsService';
@@ -117,6 +118,7 @@ export default function App() {
   const [isCookieSettingsOpen, setIsCookieSettingsOpen] = useState(false);
   const [isDomainAdvisorOpen, setIsDomainAdvisorOpen] = useState(false);
   const [isNamecheapDeployOpen, setIsNamecheapDeployOpen] = useState(false);
+  const [isTrafficBoosterOpen, setIsTrafficBoosterOpen] = useState(false);
 
   // Selected Plan for Checkout
   const [selectedPlan, setSelectedPlan] = useState<PlanPricing>(SUBSCRIPTION_PLANS[4]); // 12 Months
@@ -342,6 +344,7 @@ export default function App() {
           onOpenSpeedTest={() => setIsSpeedTestOpen(true)}
           onOpenCookieSettings={() => setIsCookieSettingsOpen(true)}
           onOpenDomainAdvisor={() => setIsDomainAdvisorOpen(true)}
+          onOpenTrafficBooster={() => setIsTrafficBoosterOpen(true)}
           onOpenFreeTrial={() => setIsFreeTrialOpen(true)}
           navigateTo={navigateTo}
         />
@@ -350,6 +353,12 @@ export default function App() {
         <NamecheapDeployModal
           isOpen={isNamecheapDeployOpen}
           onClose={() => setIsNamecheapDeployOpen(false)}
+        />
+
+        {/* Traffic & Visitor Growth Playbook Modal */}
+        <TrafficBoosterModal
+          isOpen={isTrafficBoosterOpen}
+          onClose={() => setIsTrafficBoosterOpen(false)}
         />
 
         {/* Domain Strategy & SEO Advisory Modal */}
