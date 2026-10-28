@@ -237,7 +237,7 @@ export default function App() {
 
   return (
     <LanguageProvider>
-      <div className="min-h-screen bg-[#060814] text-slate-100 selection:bg-indigo-500 selection:text-white font-sans pb-20 xl:pb-0">
+      <div className="w-full max-w-full overflow-x-hidden min-h-screen bg-[#060814] text-slate-100 selection:bg-indigo-500 selection:text-white font-sans pb-24 xl:pb-0">
         
         {/* Main Navigation */}
         <Navbar

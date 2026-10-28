@@ -43,10 +43,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         {/* Centered Hero Section */}
         <div className="max-w-4xl mx-auto text-center space-y-6 sm:space-y-8">
           
-          <header className="space-y-5 sm:space-y-6">
+          <header className="space-y-4 sm:space-y-6">
             <h1 
               itemProp="name"
-              className="hero-headline font-black text-white text-4xl sm:text-6xl md:text-7xl leading-[1.1] tracking-tight"
+              className="hero-headline font-black text-white text-3xl min-[400px]:text-4xl sm:text-6xl md:text-7xl leading-[1.1] tracking-tight break-words"
             >
               {t.hero.titleStart}{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-sky-300 to-cyan-400">
@@ -57,23 +57,23 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
             <p 
               itemProp="description"
-              className="text-slate-300 text-base sm:text-xl leading-relaxed max-w-2xl mx-auto font-normal"
+              className="text-slate-300 text-sm min-[380px]:text-base sm:text-xl leading-relaxed max-w-2xl mx-auto font-normal"
             >
               {t.hero.description}
             </p>
 
             {/* High-Intent Feature Micro-Pills */}
-            <div className="flex flex-wrap items-center justify-center gap-2.5 pt-2 text-xs font-mono text-slate-300">
-              <span className="px-3.5 py-1.5 rounded-xl bg-indigo-950/70 border border-indigo-500/40 text-indigo-300 font-bold shadow-sm">
+            <div className="flex flex-wrap items-center justify-center gap-2 pt-2 text-[11px] min-[380px]:text-xs font-mono text-slate-300">
+              <span className="max-w-full px-3 py-1.5 rounded-xl bg-indigo-950/70 border border-indigo-500/40 text-indigo-300 font-bold shadow-sm">
                 ⚽ Premier Sports &amp; Live Matchdays
               </span>
-              <span className="px-3.5 py-1.5 rounded-xl bg-sky-950/70 border border-sky-500/40 text-sky-300 font-bold shadow-sm">
+              <span className="max-w-full px-3 py-1.5 rounded-xl bg-sky-950/70 border border-sky-500/40 text-sky-300 font-bold shadow-sm">
                 🌍 18,500+ Global HD Channels
               </span>
-              <span className="px-3.5 py-1.5 rounded-xl bg-emerald-950/70 border border-emerald-500/40 text-emerald-300 font-bold shadow-sm">
+              <span className="max-w-full px-3 py-1.5 rounded-xl bg-emerald-950/70 border border-emerald-500/40 text-emerald-300 font-bold shadow-sm">
                 ⚡ Anti-Freeze v9.8
               </span>
-              <span className="px-3.5 py-1.5 rounded-xl bg-cyan-950/70 border border-cyan-500/40 text-cyan-300 font-bold shadow-sm">
+              <span className="max-w-full px-3 py-1.5 rounded-xl bg-cyan-950/70 border border-cyan-500/40 text-cyan-300 font-bold shadow-sm">
                 🎬 65,000+ VOD Movies
               </span>
             </div>

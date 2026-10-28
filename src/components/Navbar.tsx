@@ -120,13 +120,13 @@ export const Navbar: React.FC<NavbarProps> = ({
 
               {/* Brand Typography */}
               <div className="flex flex-col justify-center">
-                <div className="font-black text-base min-[360px]:text-lg min-[400px]:text-xl sm:text-2xl xl:text-3xl tracking-tight text-white flex items-center drop-shadow-md leading-none">
+                <div className="font-black text-sm min-[360px]:text-base min-[400px]:text-xl sm:text-2xl xl:text-3xl tracking-tight text-white flex items-center drop-shadow-md leading-none">
                   GLOBAL<span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-300">STREAM</span>
-                  <span className="ml-1 text-[8px] min-[360px]:text-[9px] sm:text-[10px] xl:text-xs font-black tracking-wider text-amber-400 bg-amber-400/10 px-1 sm:px-1.5 py-0.5 rounded border border-amber-400/30">
+                  <span className="ml-1 text-[7px] min-[360px]:text-[8px] sm:text-[10px] xl:text-xs font-black tracking-wider text-amber-400 bg-amber-400/10 px-1 sm:px-1.5 py-0.5 rounded border border-amber-400/30">
                     HUB
                   </span>
                 </div>
-                <span className="text-[7.5px] min-[360px]:text-[8px] min-[400px]:text-[9px] sm:text-[10px] font-bold tracking-wider text-sky-400/90 uppercase mt-0.5 drop-shadow-sm">
+                <span className="text-[7px] min-[360px]:text-[8px] min-[400px]:text-[9px] sm:text-[10px] font-bold tracking-wider text-sky-400/90 uppercase mt-0.5 drop-shadow-sm">
                   Ultra HD Media Portal
                 </span>
               </div>
@@ -252,11 +252,11 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* Language Switcher Button on Mobile */}
             <LanguageSwitcher variant="navbar" />
 
-            {/* Always Visible, Compact Free 24H Trial CTA Button */}
+            {/* Free 24H Trial CTA Button (Visible on sm+ screens, mobile handled by bottom navigation bar) */}
             <button
               onClick={() => onSelectPlan('trial-24h')}
               aria-label="Claim Free 24 Hour Trial"
-              className="min-h-[44px] px-2.5 sm:px-3.5 py-2 rounded-xl bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 text-slate-950 font-black text-xs flex items-center justify-center gap-1.5 shadow-md shadow-emerald-500/25 active:scale-95 transition-all shrink-0 cursor-pointer whitespace-nowrap"
+              className="hidden sm:flex min-h-[44px] px-2.5 sm:px-3.5 py-2 rounded-xl bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 text-slate-950 font-black text-xs items-center justify-center gap-1.5 shadow-md shadow-emerald-500/25 active:scale-95 transition-all shrink-0 cursor-pointer whitespace-nowrap"
             >
               <Zap className="w-3.5 h-3.5 fill-slate-950 shrink-0" />
               <span className="leading-none">Free 24h</span>

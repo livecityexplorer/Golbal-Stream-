@@ -102,7 +102,7 @@ export const LiveSalesNotification: React.FC = () => {
   };
 
   return (
-    <div className="fixed bottom-24 left-4 sm:bottom-6 sm:left-6 z-40 max-w-[290px] min-[380px]:max-w-sm w-auto animate-fade-in pointer-events-auto">
+    <div className="fixed bottom-24 left-3 right-3 sm:right-auto sm:bottom-6 sm:left-6 z-40 max-w-[calc(100vw-1.5rem)] sm:max-w-sm w-auto animate-fade-in pointer-events-auto">
       <div className="bg-slate-900/95 backdrop-blur-xl border border-indigo-500/40 rounded-2xl p-3.5 shadow-2xl shadow-black/80 flex items-center gap-3 relative overflow-hidden group">
         
         {/* Glow accent */}

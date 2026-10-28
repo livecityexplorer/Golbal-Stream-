@@ -83,7 +83,7 @@ export const PricingCalculator: React.FC<PricingCalculatorProps> = ({
                         : 'bg-slate-900/90 text-slate-400 hover:text-white border border-white/5'
                     }`}
                   >
-                    <span>{num} {t.pricing.screen}</span>
+                    <span>{num} <span className="hidden min-[400px]:inline">{t.pricing.screen}</span></span>
                     <span className="text-[8px] sm:text-[9px] opacity-80 font-mono">
                       {num === 1 ? t.pricing.standard : `+${Math.round((connectionMultipliers[num] - 1) * 100)}%`}
                     </span>
@@ -128,7 +128,7 @@ export const PricingCalculator: React.FC<PricingCalculatorProps> = ({
               <div
                 key={plan.id}
                 onClick={() => setSelectedPlanId(plan.id)}
-                className={`electric-card rounded-3xl p-7 flex flex-col justify-between space-y-6 cursor-pointer transition-all duration-300 ease-out relative group ${
+                className={`electric-card rounded-3xl p-5 sm:p-7 flex flex-col justify-between space-y-6 cursor-pointer transition-all duration-300 ease-out relative group ${
                   isSelected
                     ? `border-indigo-500 shadow-[0_0_30px_-5px_rgba(99,102,241,0.4)] scale-[1.03] ${isRecommended ? 'animate-subtle-pulse' : ''}`
                     : isRecommended

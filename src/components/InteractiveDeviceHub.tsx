@@ -445,7 +445,7 @@ export const InteractiveDeviceHub: React.FC<InteractiveDeviceHubProps> = ({
         </div>
 
         {/* Active Guide Card */}
-        <div className="bg-slate-900/80 border border-white/10 rounded-2xl p-6 sm:p-8 shadow-2xl backdrop-blur-md">
+        <div className="bg-slate-900/80 border border-white/10 rounded-2xl p-4 sm:p-8 shadow-2xl backdrop-blur-md">
           
           {/* Guide Top Header */}
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-white/10 mb-8">

@@ -30,7 +30,7 @@ export const FeaturesGrid: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
           
           {/* Bento Item 1: High-Speed 10Gbps Streaming Engine */}
-          <div className="md:col-span-2 lg:col-span-2 electric-card rounded-3xl p-8 flex flex-col justify-between space-y-6 hover:border-indigo-500/50">
+          <div className="md:col-span-2 lg:col-span-2 electric-card rounded-3xl p-5 sm:p-8 flex flex-col justify-between space-y-6 hover:border-indigo-500/50">
             <div className="space-y-4">
               <div className="w-12 h-12 rounded-2xl bg-indigo-500/20 text-sky-400 flex items-center justify-center border border-indigo-500/30">
                 <Server className="w-6 h-6" />
@@ -55,7 +55,7 @@ export const FeaturesGrid: React.FC = () => {
           </div>
 
           {/* Bento Item 2: Anti-Freeze 9.8 */}
-          <div className="md:col-span-1 lg:col-span-2 electric-card rounded-3xl p-8 flex flex-col justify-between space-y-6 hover:border-indigo-500/50">
+          <div className="md:col-span-1 lg:col-span-2 electric-card rounded-3xl p-5 sm:p-8 flex flex-col justify-between space-y-6 hover:border-indigo-500/50">
             <div className="space-y-4">
               <div className="w-12 h-12 rounded-2xl bg-sky-500/20 text-sky-400 flex items-center justify-center border border-sky-500/30">
                 <Zap className="w-6 h-6" />
@@ -80,7 +80,7 @@ export const FeaturesGrid: React.FC = () => {
           </div>
 
           {/* Bento Item 3: 4K 60FPS */}
-          <div className="md:col-span-1 lg:col-span-2 electric-card rounded-3xl p-8 space-y-4 hover:border-indigo-500/50">
+          <div className="md:col-span-1 lg:col-span-2 electric-card rounded-3xl p-5 sm:p-8 space-y-4 hover:border-indigo-500/50">
             <div className="w-12 h-12 rounded-2xl bg-amber-500/20 text-amber-400 flex items-center justify-center border border-amber-500/30">
               <Tv className="w-6 h-6" />
             </div>
@@ -91,7 +91,7 @@ export const FeaturesGrid: React.FC = () => {
           </div>
 
           {/* Bento Item 4: Instant Xtream Delivery */}
-          <div className="md:col-span-2 lg:col-span-2 electric-card rounded-3xl p-8 space-y-4 hover:border-indigo-500/50">
+          <div className="md:col-span-2 lg:col-span-2 electric-card rounded-3xl p-5 sm:p-8 space-y-4 hover:border-indigo-500/50">
             <div className="w-12 h-12 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center border border-emerald-500/30">
               <ShieldCheck className="w-6 h-6" />
             </div>
