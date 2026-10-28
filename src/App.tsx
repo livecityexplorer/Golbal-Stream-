@@ -305,7 +305,7 @@ export default function App() {
             <ChannelExplorer onSelectPlan={handleSelectPlan} />
 
             {/* VOD & 2026 Cinema Boxsets Showcase */}
-            <VodShowcase />
+            <VodShowcase onSelectPlan={handleSelectPlan} />
 
             {/* UK Bento Features Grid */}
             <FeaturesGrid />
