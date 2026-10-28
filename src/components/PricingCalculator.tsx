@@ -17,6 +17,7 @@ export const PricingCalculator: React.FC<PricingCalculatorProps> = ({
   const [selectedPlanId, setSelectedPlanId] = useState<string>('trial-24h');
   const [connections, setConnections] = useState<number>(1);
   const [includeAdult, setIncludeAdult] = useState<boolean>(false);
+  const [showSavingsComparison, setShowSavingsComparison] = useState<boolean>(false);
 
   const currencySymbol = currency === 'GBP' ? '£' : currency === 'EUR' ? '€' : currency === 'CAD' ? 'CA$' : '$';
   const connectionMultipliers = CONNECTION_MULTIPLIERS;
@@ -113,6 +114,85 @@ export const PricingCalculator: React.FC<PricingCalculatorProps> = ({
             </div>
 
           </div>
+        </div>
+
+        {/* Sleek, Non-Intrusive Cable vs Portal Savings Comparison Toggle */}
+        <div className="max-w-4xl mx-auto mb-10">
+          <div className="flex justify-center mb-3">
+            <button
+              onClick={() => setShowSavingsComparison(!showSavingsComparison)}
+              className="text-xs font-bold text-slate-300 hover:text-white px-4 py-2 rounded-xl bg-slate-900/80 hover:bg-slate-800 border border-white/10 transition-all flex items-center gap-2 cursor-pointer shadow-md"
+            >
+              <span>💡 Compare with Traditional Cable &amp; Satellite Packages</span>
+              <span className={`text-[10px] px-2 py-0.5 rounded-full font-mono font-bold transition-transform ${
+                showSavingsComparison ? 'bg-emerald-500/20 text-emerald-300' : 'bg-white/10 text-slate-400'
+              }`}>
+                {showSavingsComparison ? 'Hide' : 'Calculate Savings'}
+              </span>
+            </button>
+          </div>
+
+          {showSavingsComparison && (
+            <div className="electric-card rounded-2xl p-5 sm:p-6 border border-emerald-500/30 bg-slate-900/90 shadow-2xl animate-fade-in space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                
+                {/* Traditional Cable Packages */}
+                <div className="p-4 rounded-xl bg-slate-950/70 border border-white/5 space-y-2.5">
+                  <div className="flex items-center justify-between text-xs font-bold text-slate-300 border-b border-white/5 pb-2">
+                    <span>Traditional Cable &amp; Satellite Subscriptions</span>
+                    <span className="text-rose-400 font-mono">Expensive</span>
+                  </div>
+                  <ul className="space-y-1.5 text-xs text-slate-400">
+                    <li className="flex justify-between"><span>Live Sports Tier (Sky / TNT / Cable):</span> <strong className="text-slate-300">~£45/mo</strong></li>
+                    <li className="flex justify-between"><span>Cinema &amp; Movies Tier:</span> <strong className="text-slate-300">~£20/mo</strong></li>
+                    <li className="flex justify-between"><span>Multi-Room Box Rentals &amp; 4K Fee:</span> <strong className="text-slate-300">~£15/mo</strong></li>
+                    <li className="flex justify-between"><span>Streaming Apps (Netflix / Disney+ / Prime):</span> <strong className="text-slate-300">~£28/mo</strong></li>
+                  </ul>
+                  <div className="pt-2 border-t border-white/5 flex justify-between items-center text-xs">
+                    <span className="font-semibold text-slate-300">Average Total Cost:</span>
+                    <span className="text-rose-400 font-mono font-extrabold text-sm">~£108/mo (£1,296/yr)</span>
+                  </div>
+                </div>
+
+                {/* GlobalStreamHub Media Portal */}
+                <div className="p-4 rounded-xl bg-gradient-to-br from-indigo-950/40 to-slate-950/80 border border-emerald-500/30 space-y-2.5">
+                  <div className="flex items-center justify-between text-xs font-bold text-emerald-300 border-b border-white/5 pb-2">
+                    <span>GlobalStreamHub Digital Media Portal</span>
+                    <span className="text-emerald-400 font-mono bg-emerald-500/20 px-1.5 py-0.2 rounded font-bold">12M Pass</span>
+                  </div>
+                  <ul className="space-y-1.5 text-xs text-slate-300">
+                    <li className="flex justify-between"><span>18,500+ Live Channels (UK, USA, CA, EU):</span> <strong className="text-emerald-400">Included</strong></li>
+                    <li className="flex justify-between"><span>65,000+ 4K VOD Movies &amp; Cinema Boxsets:</span> <strong className="text-emerald-400">Included</strong></li>
+                    <li className="flex justify-between"><span>Anti-Freeze v9.8 &amp; Zero Blackout Coverage:</span> <strong className="text-emerald-400">Included</strong></li>
+                    <li className="flex justify-between"><span>No Contracts, No Dish, Works on Any Device:</span> <strong className="text-emerald-400">Included</strong></li>
+                  </ul>
+                  <div className="pt-2 border-t border-white/5 flex justify-between items-center text-xs">
+                    <span className="font-semibold text-slate-200">12-Month Season Pass:</span>
+                    <span className="text-emerald-400 font-mono font-extrabold text-sm">~£4.99/mo (£59.99/yr)</span>
+                  </div>
+                </div>
+
+              </div>
+
+              {/* Bottom Savings Badge & Legal Disclaimer */}
+              <div className="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <div className="flex items-center gap-2 text-xs font-black text-emerald-300">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <span>Estimated Annual Household Savings: Over £1,236 / $1,550 Every Year</span>
+                </div>
+                <button
+                  onClick={() => onSelectPlanAndConnections(SUBSCRIPTION_PLANS[4], connections, includeAdult)}
+                  className="px-3.5 py-1.5 rounded-lg bg-emerald-400 text-slate-950 font-black text-xs hover:bg-emerald-300 active:scale-95 transition-all text-center cursor-pointer shadow shrink-0"
+                >
+                  Claim 12M Season Pass
+                </button>
+              </div>
+
+              <p className="text-[10px] text-slate-500 leading-tight">
+                * Nominative descriptive comparison based on 2026 UK/US standalone broadcast rates. All trademarks belong to their respective owners. GlobalStreamHub is an independent media software protocol index.
+              </p>
+            </div>
+          )}
         </div>
 
         {/* Pricing Cards Grid */}

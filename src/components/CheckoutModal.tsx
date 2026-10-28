@@ -158,9 +158,20 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
   // Support Contacts
   const whatsappNumberClean = (themeConfig?.whatsappNumber || '+44 7731 454811').replace(/[^\d]/g, '');
   const discordUrl = themeConfig?.discordUrl || 'https://discord.gg/QyNQRYwJj3';
+  const orderRef = useMemo(() => 'GSH-' + Math.floor(100000 + Math.random() * 900000), []);
 
   const alternativePaymentMessage = encodeURIComponent(
-    `Hello StreamUK Support! I would like to subscribe to the "${plan?.name || 'IPTV Plan'}" (${connections} Device${connections > 1 ? 's' : ''}) for ${currencySymbol}${finalPrice}, but I do not have cryptocurrency. Can I please pay via an alternative method (Credit/Debit Card, PayPal, Revolut, or Bank Transfer)? My Email is: ${email || 'pending'}.`
+    `Hello GlobalStreamHub VIP Support!
+
+📌 ACTIVATION TICKET #${orderRef}
+• Service: GlobalStreamHub Digital Media Portal
+• Package: ${plan?.name || 'VIP Pass'}
+• Screens: ${connections} Simultaneous Connection${connections > 1 ? 's' : ''}
+• Device: ${deviceType}
+• Rate: ${currencySymbol}${finalPrice}
+• Client Email: ${email || 'pending'}
+
+I would like to activate this plan via Credit/Debit Card, PayPal, Revolut, or Bank Transfer. Please send the secure payment link.`
   );
   const whatsappDirectUrl = `https://wa.me/${whatsappNumberClean}?text=${alternativePaymentMessage}`;
 

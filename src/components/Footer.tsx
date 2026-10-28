@@ -403,12 +403,34 @@ export const Footer: React.FC<FooterProps> = ({
 
         {/* Legal Disclaimer & DMCA Notice */}
         <div className="mt-8 p-4 rounded-xl bg-slate-900/60 border border-white/5 text-[11px] text-slate-500 leading-relaxed">
-          <p className="font-semibold text-slate-400 mb-1">
-            ⚖️ Legal Disclaimer &amp; Copyright Compliance (DMCA Policy):
+          <p className="font-semibold text-slate-400 mb-1 flex items-center justify-between">
+            <span>⚖️ Legal Disclaimer &amp; Copyright Compliance (DMCA Policy):</span>
+            <span className="text-[10px] text-sky-400 font-mono">17 U.S.C. § 512 / EU 2000/31/EC</span>
           </p>
           <p>
-            {brandName} is an informational media software index and middleware portal. We do not host, broadcast, archive, or transmit any audio/video media streams or copyrighted content on or through our servers. All product names, logos, sports leagues, and trademarks referenced are property of their respective owners and are used purely for nominative descriptive identification under Fair Use principles. If you are a copyright owner or authorized agent wishing to request immediate removal of references, please contact our designated compliance agent at <a href="mailto:dmca@globalstreamhub.net" className="text-sky-400 hover:underline">dmca@globalstreamhub.net</a>. All valid requests are processed within 24–48 hours.
+            {brandName} operates strictly as an informational digital middleware software portal and protocol index. We do not host, store, broadcast, archive, or retransmit any audio/video media streams or proprietary broadcast content on our servers. All referenced third-party product names, sports leagues, event titles, and broadcaster marks remain the exclusive property of their respective trademark holders and are utilized solely for nominative descriptive identification under Fair Use doctrine.
           </p>
+          <details className="group mt-2 text-slate-400">
+            <summary className="cursor-pointer text-sky-400 hover:text-sky-300 font-semibold text-[10px] flex items-center gap-1">
+              <span>View Designated Copyright Agent &amp; Statutory Takedown Guidelines</span>
+              <span className="text-[9px] group-open:rotate-180 transition-transform">▼</span>
+            </summary>
+            <div className="mt-2 pt-2 border-t border-white/5 space-y-1.5 text-[10px] text-slate-500">
+              <p>
+                In accordance with 17 U.S.C. § 512(c)(3) and international digital copyright treaties, copyright owners or their designated legal representatives may submit formal removal requests to our compliance team. To expedite processing, please provide:
+              </p>
+              <ul className="list-disc list-inside space-y-0.5 pl-1 text-slate-400">
+                <li>Identification of the copyrighted work claimed to be infringed.</li>
+                <li>Exact URL or technical location within our index referencing the disputed material.</li>
+                <li>Sufficient contact information (authorized agent name, address, telephone number, and official corporate email).</li>
+                <li>A statement of good faith belief that the disputed use is not authorized by the copyright owner, its agent, or the law.</li>
+                <li>A statement under penalty of perjury that the information in the notification is accurate and authorized.</li>
+              </ul>
+              <p className="pt-1 text-slate-400">
+                Designated Legal Agent Contact: <a href="mailto:dmca@globalstreamhub.net" className="text-sky-400 hover:underline font-mono">dmca@globalstreamhub.net</a>. Valid statutory notifications are reviewed and processed within 24–48 hours.
+              </p>
+            </div>
+          </details>
         </div>
 
         {/* Bottom Bar */}
