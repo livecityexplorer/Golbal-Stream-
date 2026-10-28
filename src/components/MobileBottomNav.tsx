@@ -6,17 +6,22 @@ interface MobileBottomNavProps {
   themeConfig: ThemeCustomization;
   onOpenFreeTrial: () => void;
   navigateTo?: (path: string) => void;
+  onOpenSupport?: () => void;
+  isSupportOpen?: boolean;
 }
 
 export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
   themeConfig,
   onOpenFreeTrial,
   navigateTo,
+  onOpenSupport,
+  isSupportOpen
 }) => {
   const [activeTab, setActiveTab] = useState<'home' | 'sports' | 'trial' | 'channels' | 'support'>('home');
 
   useEffect(() => {
     const handleScroll = () => {
+      if (isSupportOpen) return;
       const scrollY = window.scrollY;
       const sportsEl = document.getElementById('sports');
       const channelsEl = document.getElementById('channels');
@@ -35,7 +40,7 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isSupportOpen]);
 
   const cleanWhatsapp = (themeConfig.whatsappNumber || '+44 7731 454811').replace(/[^0-9]/g, '');
 
@@ -60,10 +65,14 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
     }
   };
 
-  const handleWhatsApp = () => {
+  const handleSupportClick = () => {
     setActiveTab('support');
-    const msg = encodeURIComponent('Hi GlobalStreamHub team, I need instant assistance with a 4K subscription or free trial.');
-    window.open(`https://wa.me/${cleanWhatsapp}?text=${msg}`, '_blank', 'noopener,noreferrer');
+    if (onOpenSupport) {
+      onOpenSupport();
+    } else {
+      const msg = encodeURIComponent('Hi GlobalStreamHub team, I need instant assistance with a 4K subscription or free trial.');
+      window.open(`https://wa.me/${cleanWhatsapp}?text=${msg}`, '_blank', 'noopener,noreferrer');
+    }
   };
 
   return (
@@ -77,7 +86,7 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
         <button
           onClick={() => scrollTo('top', 'home')}
           className={`min-h-[48px] py-1 px-1 flex flex-col items-center justify-center gap-1 rounded-xl transition-all cursor-pointer ${
-            activeTab === 'home'
+            !isSupportOpen && activeTab === 'home'
               ? 'text-cyan-400 font-bold'
               : 'text-slate-400 hover:text-slate-200 active:scale-95'
           }`}
@@ -90,7 +99,7 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
         <button
           onClick={() => scrollTo('sports', 'sports')}
           className={`min-h-[48px] py-1 px-1 flex flex-col items-center justify-center gap-1 rounded-xl transition-all relative cursor-pointer ${
-            activeTab === 'sports'
+            !isSupportOpen && activeTab === 'sports'
               ? 'text-sky-400 font-bold'
               : 'text-slate-400 hover:text-slate-200 active:scale-95'
           }`}
@@ -117,7 +126,7 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
         <button
           onClick={() => scrollTo('channels', 'channels')}
           className={`min-h-[48px] py-1 px-1 flex flex-col items-center justify-center gap-1 rounded-xl transition-all cursor-pointer ${
-            activeTab === 'channels'
+            !isSupportOpen && activeTab === 'channels'
               ? 'text-indigo-400 font-bold'
               : 'text-slate-400 hover:text-slate-200 active:scale-95'
           }`}
@@ -126,14 +135,16 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
           <span className="text-[10px] tracking-tight leading-none">Channels</span>
         </button>
 
-        {/* 5. Live WhatsApp Chat */}
+        {/* 5. Live Support Dialog (Opens Live Support options) */}
         <button
-          onClick={handleWhatsApp}
+          onClick={handleSupportClick}
           className={`min-h-[48px] py-1 px-1 flex flex-col items-center justify-center gap-1 rounded-xl transition-all cursor-pointer ${
-            activeTab === 'support'
-              ? 'text-emerald-400 font-bold'
+            isSupportOpen
+              ? 'text-emerald-300 font-bold bg-emerald-500/15 border border-emerald-500/30 shadow-sm'
               : 'text-slate-400 hover:text-slate-200 active:scale-95'
           }`}
+          title="Open VIP Support"
+          aria-label="Open Live Support"
         >
           <MessageCircle className="w-5 h-5 shrink-0 text-emerald-400" />
           <span className="text-[10px] tracking-tight leading-none">Support</span>

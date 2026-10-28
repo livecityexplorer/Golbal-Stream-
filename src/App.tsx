@@ -119,6 +119,7 @@ export default function App() {
   const [isDomainAdvisorOpen, setIsDomainAdvisorOpen] = useState(false);
   const [isNamecheapDeployOpen, setIsNamecheapDeployOpen] = useState(false);
   const [isTrafficBoosterOpen, setIsTrafficBoosterOpen] = useState(false);
+  const [isSupportOpen, setIsSupportOpen] = useState(false);
 
   // Selected Plan for Checkout
   const [selectedPlan, setSelectedPlan] = useState<PlanPricing>(SUBSCRIPTION_PLANS[4]); // 12 Months
@@ -420,12 +421,17 @@ export default function App() {
         <LiveSupportWidget
           themeConfig={themeConfig}
           onOpenFreeTrial={() => setIsFreeTrialOpen(true)}
+          isOpen={isSupportOpen}
+          onToggle={() => setIsSupportOpen(!isSupportOpen)}
+          onClose={() => setIsSupportOpen(false)}
         />
 
         {/* Sticky Thumb-Friendly Mobile Navigation Bar */}
         <MobileBottomNav
           themeConfig={themeConfig}
           onOpenFreeTrial={() => setIsFreeTrialOpen(true)}
+          onOpenSupport={() => setIsSupportOpen(!isSupportOpen)}
+          isSupportOpen={isSupportOpen}
           navigateTo={navigateTo}
         />
 
