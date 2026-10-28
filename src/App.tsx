@@ -301,8 +301,8 @@ export default function App() {
               onSelectPlanAndConnections={handleSelectPlanAndConnections}
             />
 
-            {/* Channel Matrix Explorer */}
-            <ChannelExplorer />
+            {/* Channel Matrix Explorer & Live Matchday Finder */}
+            <ChannelExplorer onSelectPlan={handleSelectPlan} />
 
             {/* VOD & 2026 Cinema Boxsets Showcase */}
             <VodShowcase />
