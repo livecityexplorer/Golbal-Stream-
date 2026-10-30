@@ -27,6 +27,24 @@ export const ShareReferralBar: React.FC<ShareReferralBarProps> = ({
     }
   };
 
+  const handleNativeShare = async () => {
+    if (typeof navigator !== 'undefined' && navigator.share) {
+      try {
+        await navigator.share({
+          title: title,
+          text: shareText,
+          url: currentUrl,
+        });
+      } catch (err) {
+        // User cancelled or share dismissed
+      }
+    } else {
+      handleCopy();
+    }
+  };
+
+  const hasNativeShare = typeof navigator !== 'undefined' && typeof navigator.share === 'function';
+
   return (
     <div className="w-full max-w-5xl mx-auto my-8 px-4">
       <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-slate-900 via-[#0a0f2b] to-slate-900 border border-indigo-500/30 p-4 sm:p-6 shadow-2xl shadow-indigo-950/40">
@@ -51,7 +69,7 @@ export const ShareReferralBar: React.FC<ShareReferralBarProps> = ({
                 <span className="text-[10px] font-mono text-emerald-400 font-bold">1 Friend = 1 Month FREE</span>
               </div>
               <h4 className="text-base sm:text-lg font-black text-white mt-1">
-                Share GlobalStreamHub with Friends & Groups
+                Share GlobalStreamHub with Friends &amp; Groups
               </h4>
               <p className="text-xs sm:text-sm text-slate-300 max-w-xl mt-0.5 leading-relaxed">
                 Invite friends or share in your messaging groups. When someone subscribes, message our Telegram/WhatsApp to receive <strong className="text-amber-300">1 free bonus month</strong> added to your plan!
@@ -62,6 +80,18 @@ export const ShareReferralBar: React.FC<ShareReferralBarProps> = ({
           {/* Right Action Sharing Buttons */}
           <div className="flex flex-wrap items-center gap-2 w-full md:w-auto justify-start md:justify-end shrink-0">
             
+            {/* Native Mobile Share Drawer (iOS & Android) */}
+            {hasNativeShare && (
+              <button
+                onClick={handleNativeShare}
+                className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-500 hover:from-cyan-400 hover:to-indigo-400 text-slate-950 font-black text-xs transition-all shadow-md active:scale-95 cursor-pointer"
+                title="Share via native mobile apps"
+              >
+                <Share2 className="w-4 h-4 text-slate-950" />
+                <span>Share Pass</span>
+              </button>
+            )}
+
             {/* WhatsApp Share */}
             <a
               href={`https://api.whatsapp.com/send?text=${encodedText}`}
