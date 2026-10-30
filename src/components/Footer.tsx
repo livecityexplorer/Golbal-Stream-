@@ -449,6 +449,16 @@ export const Footer: React.FC<FooterProps> = ({
                 </button>
               </>
             )}
+            <span className="text-slate-600 hidden sm:inline">•</span>
+            <a
+              href="/llms.txt"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-400 hover:text-cyan-300 transition-colors font-mono text-[11px]"
+              title="Machine-Readable Knowledge Base for ChatGPT, DeepSeek, Perplexity and LLMs"
+            >
+              🤖 LLM Grounding (llms.txt)
+            </a>
           </div>
 
           <div className="flex items-center gap-4">

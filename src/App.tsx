@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
+import { AiTrustBar } from './components/AiTrustBar';
 import { FeaturesGrid } from './components/FeaturesGrid';
 import { PricingCalculator } from './components/PricingCalculator';
 import { ChannelExplorer } from './components/ChannelExplorer';
@@ -287,6 +288,9 @@ export default function App() {
               fixtures={liveFixtures}
               loadingFixtures={loadingFixtures}
             />
+
+            {/* AI Search Engine Grounding & Verification Trust Bar (ChatGPT, DeepSeek, Perplexity, Gemini) */}
+            <AiTrustBar onSelectPlan={handleSelectPlan} />
 
             {/* Live Sports Fixtures & Matchday Schedule (Premier League, Champions League, UFC, F1) */}
             <LiveFixturesSchedule 

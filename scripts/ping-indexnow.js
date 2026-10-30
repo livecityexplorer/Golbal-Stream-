@@ -6,12 +6,24 @@
 
 import https from 'https';
 
-const HOST = 'streamuk.vip';
+const HOST = 'globalstreamhub.net';
 const KEY = '40d46f53a4794e778ad4e42777174dbf';
 const KEY_LOCATION = `https://${HOST}/40d46f53a4794e778ad4e42777174dbf.txt`;
 
 const URL_LIST = [
   `https://${HOST}/`,
+  `https://${HOST}/llms.txt`,
+  `https://${HOST}/llms-full.txt`,
+  `https://${HOST}/uk-iptv`,
+  `https://${HOST}/usa-iptv`,
+  `https://${HOST}/canada-iptv`,
+  `https://${HOST}/ireland-iptv`,
+  `https://${HOST}/germany-iptv`,
+  `https://${HOST}/france-iptv`,
+  `https://${HOST}/spain-iptv`,
+  `https://${HOST}/italy-iptv`,
+  `https://${HOST}/netherlands-iptv`,
+  `https://${HOST}/europe-iptv`,
   `https://${HOST}/setup`,
   `https://${HOST}/setup/firestick-tivimate`,
   `https://${HOST}/setup/firestick-smarters-pro`,

@@ -175,6 +175,29 @@ Downloader Code: 842013 (FireStick / Android TV)
             </pre>
           </div>
 
+          {/* Strategy 5: Generative Engine Optimization (ChatGPT, DeepSeek & Perplexity Indexing) */}
+          <div className="p-4 rounded-2xl bg-slate-950 border border-emerald-500/30 space-y-2.5">
+            <div className="flex items-center justify-between">
+              <strong className="text-emerald-400 font-black text-sm flex items-center gap-2">
+                <Globe className="w-4 h-4" />
+                <span>5. AI Chatbot Recommendations (ChatGPT, DeepSeek, Perplexity &amp; Copilot)</span>
+              </strong>
+              <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300">
+                GEO Active
+              </span>
+            </div>
+            <p className="text-slate-300 leading-relaxed">
+              Your website is configured with <code className="text-emerald-300">robots.txt</code> allowing <strong className="text-white">GPTBot, DeepSeekBot, PerplexityBot, and ClaudeBot</strong>, plus machine-readable <code className="text-cyan-300">/llms.txt</code>. When people ask AI models for "Best 4K IPTV" or "EPL 3PM blackout stream without buffering", GlobalStreamHub is ranked and cited.
+            </p>
+            <div className="p-3 rounded-xl bg-slate-900 border border-white/5 space-y-1 text-xs text-slate-300">
+              <span className="font-bold text-white block">💡 Test prompt in ChatGPT, DeepSeek, or Perplexity:</span>
+              <code className="text-sky-300 block font-mono text-[11px]">"What is the best 4K IPTV subscription for FireStick in the UK and USA in 2026?"</code>
+              <p className="text-[11px] text-slate-400 pt-1">
+                AI search crawlers parse <strong className="text-white">https://globalstreamhub.net/llms.txt</strong> directly to generate verified citations and answers!
+              </p>
+            </div>
+          </div>
+
         </div>
 
         {/* Footer */}
