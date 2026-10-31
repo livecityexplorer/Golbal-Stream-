@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { BlogPost } from '../types';
 import { BLOG_POSTS } from '../data/blogData';
+import premierLeagueStadiumImg from '../assets/images/premier_league_stadium_1793368233393.jpg';
 import { 
   X, 
   Clock, 
@@ -195,6 +196,9 @@ export const BlogPostModal: React.FC<BlogPostModalProps> = ({
                 <img
                   src={post.author.avatar}
                   alt={post.author.name}
+                  onError={(e) => {
+                    (e.currentTarget as HTMLImageElement).src = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&h=120&q=80';
+                  }}
                   className="w-10 h-10 rounded-full object-cover border border-indigo-500/40"
                 />
                 <div>
@@ -222,6 +226,9 @@ export const BlogPostModal: React.FC<BlogPostModalProps> = ({
               src={post.coverImage}
               alt={post.title}
               referrerPolicy="no-referrer"
+              onError={(e) => {
+                (e.currentTarget as HTMLImageElement).src = premierLeagueStadiumImg;
+              }}
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
@@ -358,6 +365,9 @@ export const BlogPostModal: React.FC<BlogPostModalProps> = ({
                           src={rPost.coverImage}
                           alt={rPost.title}
                           referrerPolicy="no-referrer"
+                          onError={(e) => {
+                            (e.currentTarget as HTMLImageElement).src = premierLeagueStadiumImg;
+                          }}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         />
                         <div className="absolute top-2 left-2 px-2 py-0.5 rounded text-[9px] font-black uppercase tracking-wider bg-indigo-950/90 text-sky-300 border border-indigo-500/30">

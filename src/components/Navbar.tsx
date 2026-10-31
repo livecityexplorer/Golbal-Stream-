@@ -1,24 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { ThemeCustomization, Currency } from '../types';
 import { useTranslation } from '../context/LanguageContext';
-import { LanguageSwitcher } from './LanguageSwitcher';
-import { CountrySelector } from './CountrySelector';
 import { 
   Tv, 
   HelpCircle, 
   Phone, 
   Menu, 
   X, 
-  Sparkles, 
-  ShieldCheck, 
-  Globe, 
-  Flame, 
-  Radio, 
-  Layers, 
-  Check, 
-  ChevronDown,
-  Zap,
-  Play
+  Zap
 } from 'lucide-react';
 
 interface NavbarProps {
@@ -70,8 +59,8 @@ export const Navbar: React.FC<NavbarProps> = ({
       {/* Top ambient micro-line */}
       <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-cyan-500/60 to-transparent pointer-events-none" />
 
-      <div className="w-full max-w-[90rem] mx-auto px-2.5 min-[380px]:px-3.5 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between gap-1.5 min-[380px]:gap-2 sm:gap-4 xl:gap-8 w-full">
+      <div className="w-full max-w-[90rem] mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between gap-2 sm:gap-4 lg:gap-8 w-full">
           
           {/* ======================================================== */}
           {/* ENHANCED BRAND LOGO & BADGE                              */}
@@ -136,7 +125,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* ======================================================== */}
           {/* DESKTOP NAVIGATION MENU ITEMS                            */}
           {/* ======================================================== */}
-          <nav className="hidden xl:flex items-center gap-4 xl:gap-6 text-[12px] xl:text-[13px] font-semibold text-slate-300">
+          <nav className="hidden lg:flex items-center gap-5 xl:gap-7 text-[13px] xl:text-sm font-semibold text-slate-300">
             <a href="#sports" className="hover:text-white transition-colors duration-200 flex items-center gap-1.5 whitespace-nowrap text-sky-200 hover:text-white">
               <span>Live Sports</span>
               <span className="px-1.5 py-0.5 rounded text-rose-300 text-[10px] font-black font-mono bg-rose-500/20 border border-rose-400/30 animate-pulse">
@@ -192,24 +181,8 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* ======================================================== */}
           {/* RIGHT ACTION CONTROLS (DESKTOP)                          */}
           {/* ======================================================== */}
-          <div className="hidden xl:flex items-center gap-2 xl:gap-3 shrink-0">
-            
-            {/* Country & Currency Selector */}
-            <CountrySelector 
-              currentPath={currentPath}
-              navigateTo={navigateTo || (() => {})}
-              currency={currency}
-              onCurrencyChange={onCurrencyChange}
-              variant="navbar"
-            />
-
-            {/* Language Switcher */}
-            <LanguageSwitcher variant="navbar" />
-
-            {/* Divider */}
-            <div className="w-px h-5 bg-white/10" />
-
-            {/* Enhanced Social Icons */}
+          <div className="hidden lg:flex items-center gap-3 shrink-0">
+            {/* Social Icons */}
             <div className="flex items-center gap-2">
               <a
                 href={`https://wa.me/${whatsapp.replace(/[^0-9]/g, '')}`}
@@ -236,7 +209,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* High-Converting Free Trial Button */}
             <button
               onClick={() => onSelectPlan('trial-24h')}
-              className="relative group overflow-hidden px-3 xl:px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 hover:from-emerald-300 hover:to-cyan-300 text-slate-950 font-black text-xs shadow-lg shadow-emerald-500/25 hover:shadow-emerald-400/40 hover:scale-[1.03] active:scale-[0.98] transition-all cursor-pointer flex items-center gap-1.5 ml-1 xl:ml-2 whitespace-nowrap"
+              className="relative group overflow-hidden px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 hover:from-emerald-300 hover:to-cyan-300 text-slate-950 font-black text-xs shadow-lg shadow-emerald-500/25 hover:shadow-emerald-400/40 hover:scale-[1.03] active:scale-[0.98] transition-all cursor-pointer flex items-center gap-1.5 whitespace-nowrap"
             >
               <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/40 to-transparent" />
               <Zap className="w-3.5 h-3.5 fill-slate-950" />
@@ -247,16 +220,12 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* ======================================================== */}
           {/* MOBILE ACTION CONTROLS & PINNED HAMBURGER                */}
           {/* ======================================================== */}
-          <div className="flex items-center gap-1 min-[360px]:gap-1.5 sm:gap-2 xl:hidden shrink-0">
-            
-            {/* Language Switcher Button on Mobile */}
-            <LanguageSwitcher variant="navbar" />
-
+          <div className="flex items-center gap-2 lg:hidden shrink-0">
             {/* Free 24H Trial CTA Button (Visible on sm+ screens, mobile handled by bottom navigation bar) */}
             <button
               onClick={() => onSelectPlan('trial-24h')}
               aria-label="Claim Free 24 Hour Trial"
-              className="hidden sm:flex min-h-[44px] px-2.5 sm:px-3.5 py-2 rounded-xl bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 text-slate-950 font-black text-xs items-center justify-center gap-1.5 shadow-md shadow-emerald-500/25 active:scale-95 transition-all shrink-0 cursor-pointer whitespace-nowrap"
+              className="hidden sm:flex min-h-[44px] px-3.5 py-2 rounded-xl bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 text-slate-950 font-black text-xs items-center justify-center gap-1.5 shadow-md shadow-emerald-500/25 active:scale-95 transition-all shrink-0 cursor-pointer whitespace-nowrap"
             >
               <Zap className="w-3.5 h-3.5 fill-slate-950 shrink-0" />
               <span className="leading-none">Free 24h</span>
@@ -288,7 +257,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         <nav 
           id="mobile-nav-drawer"
           aria-label="Mobile Navigation Menu"
-          className="xl:hidden bg-[#050713]/98 backdrop-blur-2xl border-b border-indigo-500/30 px-3.5 min-[380px]:px-4 py-4 space-y-4 animate-fade-in shadow-2xl overflow-y-auto max-h-[calc(100dvh-4rem)] w-full max-w-full"
+          className="lg:hidden bg-[#050713]/98 backdrop-blur-2xl border-b border-indigo-500/30 px-3.5 min-[380px]:px-4 py-4 space-y-4 animate-fade-in shadow-2xl overflow-y-auto max-h-[calc(100dvh-4rem)] w-full max-w-full"
         >
           {/* Top VIP Free Trial CTA inside drawer */}
           <div className="p-3 rounded-2xl bg-gradient-to-r from-emerald-950/80 via-slate-900/90 to-teal-950/80 border border-emerald-500/40 shadow-lg space-y-2">
@@ -312,21 +281,6 @@ export const Navbar: React.FC<NavbarProps> = ({
               <span>Claim Free 24h VIP Pass</span>
             </button>
           </div>
-          
-          {/* Country & Region Selector in Mobile Drawer */}
-          <CountrySelector 
-            currentPath={currentPath}
-            navigateTo={(path) => {
-              setMobileMenuOpen(false);
-              if (navigateTo) navigateTo(path);
-            }}
-            currency={currency}
-            onCurrencyChange={onCurrencyChange}
-            variant="mobile"
-          />
-
-          {/* Language Switcher in Mobile Drawer */}
-          <LanguageSwitcher variant="mobile" />
 
           {/* Navigation Links with 48px Touch Heights */}
           <div className="flex flex-col gap-1 text-sm font-extrabold text-slate-200 pt-1">

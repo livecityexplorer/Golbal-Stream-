@@ -1,24 +1,32 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { BlogPost } from '../types';
 import { BLOG_POSTS } from '../data/blogData';
+import premierLeagueStadiumImg from '../assets/images/premier_league_stadium_1793368233393.jpg';
+import championsLeagueStadiumImg from '../assets/images/champions_league_stadium_1793376020117.jpg';
+import elClasicoStadiumImg from '../assets/images/el_clasico_match_1793376033022.jpg';
+import sanSiroStadiumImg from '../assets/images/serie_a_san_siro_1793434726269.jpg';
+import bundesligaStadiumImg from '../assets/images/bundesliga_match_1793434775833.jpg';
+import topFourStadiumImg from '../assets/images/german_stadium_1793434761672.jpg';
 import { ShareReferralBar } from './ShareReferralBar';
 import { 
   ArrowLeft, 
   Calendar, 
   Clock, 
-  User, 
   Share2, 
   Check, 
   ChevronRight, 
   Zap, 
-  Sparkles, 
   ShieldCheck, 
   ArrowRight, 
   Tag, 
   HelpCircle,
   TrendingUp,
-  Award,
-  Link as LinkIcon
+  Link as LinkIcon,
+  BookmarkCheck,
+  ListOrdered,
+  BadgeCheck,
+  Tv,
+  Globe2
 } from 'lucide-react';
 
 interface BlogPostPageProps {
@@ -33,13 +41,41 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
   navigateTo,
 }) => {
   const [copiedLink, setCopiedLink] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [activeSectionIdx, setActiveSectionIdx] = useState<number>(0);
 
   const baseUrl = typeof window !== 'undefined' && window.location.origin ? window.location.origin : 'https://globalstreamhub.net';
+
+  // Dynamic Scroll Progress Tracker
+  useEffect(() => {
+    const handleScroll = () => {
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (totalHeight > 0) {
+        const currentProgress = (window.scrollY / totalHeight) * 100;
+        setScrollProgress(Math.min(100, Math.max(0, currentProgress)));
+      }
+
+      // Check which section is in view
+      const sections = post.content.sections || [];
+      sections.forEach((_, idx) => {
+        const el = document.getElementById(`article-section-${idx}`);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 200 && rect.bottom >= 200) {
+            setActiveSectionIdx(idx);
+          }
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [post]);
 
   // Dynamic SEO Title & Meta Tag Injection for Current Blog Post URL
   useEffect(() => {
     const originalTitle = document.title;
-    document.title = `${post.title} | GlobalStreamHub 4K VIP Blog`;
+    document.title = `${post.title} | GlobalStreamHub 4K VIP`;
 
     // Dynamic Canonical Link Update
     let canonicalTag = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
@@ -72,7 +108,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
       },
       "headline": post.title,
       "description": post.excerpt,
-      "image": post.coverImage,
+      "image": typeof post.coverImage === 'string' ? post.coverImage : `${baseUrl}/assets/images/premier_league_stadium.jpg`,
       "datePublished": post.isoDate,
       "dateModified": post.isoDate,
       "author": {
@@ -82,13 +118,13 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
       },
       "publisher": {
         "@type": "Organization",
-        "name": "GlobalStreamHub VIP",
+        "name": "GlobalStreamHub 4K VIP",
         "logo": {
           "@type": "ImageObject",
           "url": "https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=1200&h=630&q=80"
         }
       },
-      "keywords": post.targetKeywords.join(', ')
+      "keywords": post.targetKeywords ? post.targetKeywords.join(', ') : ''
     };
 
     existingScript.textContent = JSON.stringify(articleSchema);
@@ -122,6 +158,29 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
     onSelectPlan('trial-24h');
   };
 
+  const scrollToSection = (idx: number) => {
+    const el = document.getElementById(`article-section-${idx}`);
+    if (el) {
+      const topOffset = 100;
+      const elementPosition = el.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({
+        top: elementPosition - topOffset,
+        behavior: 'smooth'
+      });
+      setActiveSectionIdx(idx);
+    }
+  };
+
+  // Find image fallback based on slug/category
+  const coverFallback = useMemo(() => {
+    if (post.slug.includes('champions-league')) return championsLeagueStadiumImg;
+    if (post.slug.includes('la-liga') || post.slug.includes('clasico')) return elClasicoStadiumImg;
+    if (post.slug.includes('serie-a') || post.slug.includes('scudetto')) return sanSiroStadiumImg;
+    if (post.slug.includes('bundesliga')) return bundesligaStadiumImg;
+    if (post.slug.includes('top-four') || post.slug.includes('top-4')) return topFourStadiumImg;
+    return premierLeagueStadiumImg;
+  }, [post.slug]);
+
   // Dynamic algorithm to find top 3 related posts based on shared tags, keywords, and category
   const relatedPostsData = useMemo(() => {
     const currentTags = post.tags || [];
@@ -134,19 +193,16 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
         const candidateTags = candidate.tags || [];
         const candidateKeywords = candidate.targetKeywords || [];
 
-        // Find direct or partial tag overlaps
         const matchedTags = candidateTags.filter(cTag => {
           const cLower = cTag.toLowerCase().trim();
           return currentTagsLower.some(curr => curr === cLower || curr.includes(cLower) || cLower.includes(curr));
         });
 
-        // Find keyword overlaps
         const matchedKeywords = candidateKeywords.filter(cKw => {
           const cLower = cKw.toLowerCase().trim();
           return currentKeywordsLower.some(curr => curr === cLower || curr.includes(cLower) || cLower.includes(curr));
         });
 
-        // Compute relevance score
         let score = (matchedTags.length * 10) + (matchedKeywords.length * 4);
         if (candidate.category === post.category) score += 6;
         if (candidate.geoFocus === post.geoFocus) score += 3;
@@ -159,7 +215,6 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
         };
       });
 
-    // Sort by highest matchScore descending, then by newest date
     scored.sort((a, b) => {
       if (b.matchScore !== a.matchScore) {
         return b.matchScore - a.matchScore;
@@ -170,253 +225,413 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
     return scored.slice(0, 3);
   }, [post]);
 
-  const geoBadge = (post.geoFocus && {
-    UK: { text: '🇬🇧 UK Focused', color: 'border-rose-500/30 text-rose-300 bg-rose-500/10' },
-    USA: { text: '🇺🇸 USA Focused', color: 'border-blue-500/30 text-blue-300 bg-blue-500/10' },
-    Canada: { text: '🇨🇦 Canada Focused', color: 'border-red-500/30 text-red-300 bg-red-500/10' },
-    Global: { text: '🌍 Global Edition', color: 'border-emerald-500/30 text-emerald-300 bg-emerald-500/10' },
-  }[post.geoFocus]) || { text: '🌍 Global Edition', color: 'border-emerald-500/30 text-emerald-300 bg-emerald-500/10' };
-
   return (
-    <main className="min-h-screen pt-24 pb-16 bg-[#060814] text-slate-200 selection:bg-indigo-500 selection:text-white relative overflow-hidden">
-      {/* Decorative background glow */}
-      <div className="absolute top-10 left-1/4 w-[600px] h-[300px] bg-indigo-600/10 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute top-1/2 right-10 w-[500px] h-[250px] bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none" />
+    <main className="min-h-screen pt-20 pb-20 bg-[#080a10] text-zinc-200 selection:bg-cyan-500/20 selection:text-cyan-200 relative overflow-hidden font-sans">
+      
+      {/* Top Fixed Reading Progress Indicator */}
+      <div 
+        className="fixed top-0 left-0 right-0 z-50 h-1 bg-gradient-to-r from-cyan-400 via-sky-400 to-indigo-500 transition-all duration-150"
+        style={{ width: `${scrollProgress}%` }}
+      />
+
+      {/* Subtle Ambient Background Gradient Lighting */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-6xl h-96 bg-gradient-to-b from-cyan-950/20 via-indigo-950/10 to-transparent blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Back Link Breadcrumb & Permanent URL */}
-        <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
-          <button
-            onClick={() => navigateTo('/')}
-            className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-slate-400 hover:text-white transition-colors cursor-pointer group"
-          >
-            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform text-cyan-400" />
-            <span>Back to Home Dashboard</span>
-          </button>
-
-          <div className="flex items-center gap-2 text-[11px] font-mono text-slate-400 bg-slate-900/80 px-3 py-1.5 rounded-xl border border-white/5">
-            <LinkIcon className="w-3.5 h-3.5 text-cyan-400" />
-            <span className="text-slate-300">{baseUrl.replace(/^https?:\/\//, '')}/blog/{post.slug}</span>
-          </div>
-        </div>
-
-        {/* Outer Layout Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          
-          {/* Left Column: Deep-dive Article Content (8 Cols) */}
-          <article className="lg:col-span-8 bg-gradient-to-b from-slate-900/60 to-[#090d21]/80 border border-white/5 rounded-3xl p-6 sm:p-10 space-y-8 shadow-2xl">
-            
-            {/* Category & Geo Badges */}
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-indigo-500/10 text-sky-300 border border-indigo-500/30">
-                {post.categoryLabel}
-              </span>
-              <span className={`px-2.5 py-1 rounded-full text-xs font-bold border ${geoBadge.color}`}>
-                {geoBadge.text}
-              </span>
-              {post.featured && (
-                <span className="px-2.5 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-amber-500/20 text-amber-300 border border-amber-500/30 flex items-center gap-1">
-                  <Award className="w-3.5 h-3.5 fill-amber-400/20" />
-                  Featured Guide
-                </span>
-              )}
-            </div>
-
-            {/* Main Heading H1 */}
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight">
+        {/* Navigation Breadcrumb & Link Header */}
+        <nav aria-label="Breadcrumb" className="mb-8 pt-4 flex flex-wrap items-center justify-between gap-4 border-b border-zinc-800/60 pb-4">
+          <div className="flex items-center gap-2 text-xs font-medium text-zinc-400">
+            <button
+              onClick={() => navigateTo('/')}
+              className="inline-flex items-center gap-1.5 text-zinc-400 hover:text-white transition-colors cursor-pointer group"
+            >
+              <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-0.5 transition-transform text-cyan-400" />
+              <span>Dashboard</span>
+            </button>
+            <span className="text-zinc-600">/</span>
+            <button
+              onClick={() => navigateTo('/')}
+              className="hover:text-zinc-200 transition-colors cursor-pointer"
+            >
+              {post.categoryLabel || 'Editorial'}
+            </button>
+            <span className="text-zinc-600">/</span>
+            <span className="text-zinc-300 font-semibold truncate max-w-[200px] sm:max-w-xs md:max-w-md">
               {post.title}
-            </h1>
+            </span>
+          </div>
 
-            {/* Excerpt Summary */}
-            <p className="text-slate-300 text-sm sm:text-base md:text-lg leading-relaxed border-l-2 border-cyan-400 pl-4 py-1 italic font-medium">
-              {post.excerpt}
-            </p>
+          <button
+            onClick={handleCopyLink}
+            className="inline-flex items-center gap-2 text-xs font-medium text-zinc-300 hover:text-white bg-zinc-900/90 hover:bg-zinc-800/90 px-3.5 py-1.5 rounded-lg border border-zinc-700/60 transition-all cursor-pointer shadow-sm active:scale-95"
+            title="Copy Direct Link to Article"
+          >
+            {copiedLink ? (
+              <>
+                <Check className="w-3.5 h-3.5 text-emerald-400" />
+                <span className="text-emerald-400 font-semibold">Link Copied!</span>
+              </>
+            ) : (
+              <>
+                <Share2 className="w-3.5 h-3.5 text-zinc-400" />
+                <span>Share Guide</span>
+              </>
+            )}
+          </button>
+        </nav>
 
-            {/* Author & Timestamp Bar */}
-            <div className="flex flex-wrap items-center justify-between gap-4 pt-4 pb-6 border-b border-white/10 text-xs sm:text-sm text-slate-400">
-              <div className="flex items-center gap-3">
-                <img
-                  src={post.author.avatar}
-                  alt={post.author.name}
-                  className="w-11 h-11 rounded-full object-cover border border-indigo-500/40"
-                />
-                <div>
-                  <div className="font-bold text-white text-sm sm:text-base">{post.author.name}</div>
-                  <div className="text-[11px] sm:text-xs text-slate-400">{post.author.role}</div>
+        {/* 2-Column Responsive Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          
+          {/* Main Reading Column (8 Cols) */}
+          <article className="lg:col-span-8 bg-[#0d1017]/95 border border-zinc-800/80 rounded-3xl p-6 sm:p-10 md:p-12 shadow-2xl space-y-10">
+            
+            {/* Editorial Header Section */}
+            <header className="space-y-6">
+              
+              {/* Unboxed Typographic Metadata */}
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs text-zinc-400">
+                <span className="text-xs font-mono uppercase tracking-widest text-cyan-400 font-semibold flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-cyan-400 inline-block animate-pulse" />
+                  {post.categoryLabel}
+                </span>
+                <span className="text-zinc-600">·</span>
+                <span className="flex items-center gap-1 text-zinc-300">
+                  <Globe2 className="w-3.5 h-3.5 text-zinc-400" />
+                  {post.geoFocus ? `${post.geoFocus} Broadcast Edition` : 'Global 4K Edition'}
+                </span>
+                <span className="text-zinc-600">·</span>
+                <span className="flex items-center gap-1 text-zinc-300">
+                  <Clock className="w-3.5 h-3.5 text-amber-400/80" />
+                  {post.readTime}
+                </span>
+                {post.featured && (
+                  <>
+                    <span className="text-zinc-600">·</span>
+                    <span className="text-amber-400 font-medium flex items-center gap-1">
+                      <BookmarkCheck className="w-3.5 h-3.5" />
+                      Editor's Pick
+                    </span>
+                  </>
+                )}
+              </div>
+
+              {/* Main Headline H1 */}
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.65rem] font-black text-zinc-50 tracking-tight leading-[1.2] font-sans">
+                {post.title}
+              </h1>
+
+              {/* Standfirst / Excerpt */}
+              <p className="text-base sm:text-lg md:text-xl text-zinc-300/90 leading-relaxed font-normal">
+                {post.excerpt}
+              </p>
+
+              {/* Author Attribution Bar */}
+              <div className="pt-4 border-t border-zinc-800/80 flex flex-wrap items-center justify-between gap-4">
+                <div className="flex items-center gap-3.5">
+                  <img
+                    src={post.author.avatar}
+                    alt={post.author.name}
+                    onError={(e) => {
+                      (e.currentTarget as HTMLImageElement).src = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&h=120&q=80';
+                    }}
+                    className="w-11 h-11 rounded-full object-cover border border-zinc-700/80 shadow-md"
+                  />
+                  <div>
+                    <div className="flex items-center gap-1.5 font-bold text-zinc-100 text-sm sm:text-base">
+                      <span>{post.author.name}</span>
+                      <BadgeCheck className="w-4 h-4 text-cyan-400 shrink-0" title="Verified Sports Analyst" />
+                    </div>
+                    <div className="text-xs text-zinc-400 font-normal">
+                      {post.author.role} · Published {post.date}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="text-xs text-zinc-400 font-mono flex items-center gap-1.5 bg-zinc-900 px-3 py-1.5 rounded-lg border border-zinc-800">
+                  <Tv className="w-3.5 h-3.5 text-cyan-400" />
+                  <span>4K UHD 60FPS Verified</span>
                 </div>
               </div>
 
-              <div className="flex items-center gap-4">
-                <span className="flex items-center gap-1.5">
-                  <Calendar className="w-4 h-4 text-sky-400" />
-                  {post.date}
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <Clock className="w-4 h-4 text-amber-400" />
-                  {post.readTime}
-                </span>
-                <button
-                  onClick={handleCopyLink}
-                  className="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300 transition-all flex items-center gap-1.5 cursor-pointer border border-white/5 active:scale-95"
-                  title="Copy Article URL Link"
-                >
-                  {copiedLink ? (
-                    <>
-                      <Check className="w-3.5 h-3.5 text-emerald-400" />
-                      <span className="text-emerald-400">Copied URL!</span>
-                    </>
-                  ) : (
-                    <>
-                      <Share2 className="w-3.5 h-3.5 text-slate-400" />
-                      <span>Share Article</span>
-                    </>
-                  )}
-                </button>
-              </div>
-            </div>
+            </header>
 
-            {/* High-Res Cinematic Cover Image */}
-            <div className="relative rounded-2xl overflow-hidden border border-white/10 aspect-video max-h-[440px] w-full shadow-lg">
-              <img
-                src={post.coverImage}
-                alt={post.title}
-                referrerPolicy="no-referrer"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
-              <div className="absolute bottom-4 left-4 right-4 flex flex-wrap gap-2">
-                {post.tags.map((tag) => (
-                  <span key={tag} className="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-950/80 backdrop-blur-md border border-white/10 text-cyan-300">
-                    #{tag}
-                  </span>
-                ))}
+            {/* High-Resolution Cinematic Hero Cover */}
+            <div className="space-y-2">
+              <div className="relative rounded-2xl overflow-hidden border border-zinc-800 shadow-xl aspect-[16/9] max-h-[440px] w-full bg-zinc-950">
+                <img
+                  src={post.coverImage}
+                  alt={post.title}
+                  referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    (e.currentTarget as HTMLImageElement).src = coverFallback;
+                  }}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-transparent pointer-events-none" />
+                
+                {/* Embedded tags on image */}
+                {post.tags && post.tags.length > 0 && (
+                  <div className="absolute bottom-4 left-4 right-4 flex flex-wrap gap-2 pointer-events-none">
+                    {post.tags.slice(0, 4).map((tag) => (
+                      <span 
+                        key={tag} 
+                        className="px-2.5 py-1 rounded-md text-xs font-medium bg-zinc-900/90 backdrop-blur-md border border-zinc-700/60 text-zinc-200"
+                      >
+                        #{tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
-            </div>
-
-            {/* Key Takeaways Highlight Box */}
-            <div className="p-6 rounded-2xl bg-indigo-950/30 border border-indigo-500/30 space-y-3.5">
-              <div className="flex items-center gap-2 text-sky-300 font-bold text-sm sm:text-base">
-                <Sparkles className="w-5 h-5 text-cyan-400" />
-                <span>Executive Highlights & Key Takeaways</span>
-              </div>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm text-slate-300">
-                {post.content.keyTakeaways.map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-2.5">
-                    <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Article Sections Parser */}
-            <div className="prose prose-invert max-w-none text-slate-300 text-sm sm:text-base leading-relaxed space-y-6">
-              
-              {/* Summary Paragraph */}
-              <p className="font-medium text-slate-200 text-base sm:text-lg leading-relaxed bg-slate-900/60 p-5 rounded-2xl border border-white/5">
-                {post.content.summary}
+              <p className="text-[11px] text-zinc-500 italic text-right pr-1">
+                Broadcast photo ingest: European & UK sports feed telemetry.
               </p>
+            </div>
 
-              {/* Loop Sections */}
-              {post.content.sections.map((section, sIdx) => (
-                <div key={sIdx} className="space-y-4 pt-4">
-                  <h2 className="text-xl sm:text-2xl font-black text-white tracking-tight flex items-center gap-2">
-                    <span className="text-cyan-400 font-mono text-base sm:text-lg">0{sIdx + 1}.</span>
-                    {section.heading}
-                  </h2>
+            {/* Executive Highlights & Key Takeaways Card */}
+            {post.content.keyTakeaways && post.content.keyTakeaways.length > 0 && (
+              <section aria-label="Key Takeaways" className="p-6 sm:p-8 rounded-2xl bg-zinc-900/70 border border-zinc-800 space-y-4 shadow-sm">
+                <div className="flex items-center gap-2 text-zinc-100 font-bold text-base sm:text-lg">
+                  <BookmarkCheck className="w-5 h-5 text-cyan-400" />
+                  <span>Key Findings & Tactical Takeaways</span>
+                </div>
+                <ul className="grid grid-cols-1 gap-3 text-sm text-zinc-300">
+                  {post.content.keyTakeaways.map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-3">
+                      <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-1" />
+                      <span className="leading-relaxed">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
+            {/* In-Article Mobile Table of Contents Quick Jump */}
+            {post.content.sections && post.content.sections.length > 0 && (
+              <div className="lg:hidden p-5 rounded-2xl bg-zinc-900/60 border border-zinc-800 space-y-3">
+                <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-zinc-300 font-bold">
+                  <ListOrdered className="w-4 h-4 text-cyan-400" />
+                  <span>Table of Contents (Jump to Section)</span>
+                </div>
+                <div className="space-y-1.5 text-xs">
+                  {post.content.sections.map((sec, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => scrollToSection(idx)}
+                      className="block w-full text-left py-1 text-zinc-400 hover:text-cyan-300 transition-colors truncate"
+                    >
+                      <span className="text-zinc-600 font-mono mr-2">0{idx + 1}.</span>
+                      {sec.heading}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Long-Form Editorial Article Body */}
+            <div className="space-y-10 text-zinc-300 text-base leading-relaxed">
+              
+              {/* Executive Summary Standfirst */}
+              {post.content.summary && (
+                <div className="p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800/60 text-zinc-200 text-base sm:text-lg leading-relaxed font-normal">
+                  {post.content.summary}
+                </div>
+              )}
+
+              {/* Sequential Sections */}
+              {post.content.sections && post.content.sections.map((section, sIdx) => (
+                <section 
+                  key={sIdx} 
+                  id={`article-section-${sIdx}`}
+                  className="space-y-5 pt-4 scroll-mt-24 border-t border-zinc-800/60 first:border-0"
+                >
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-cyan-400 font-semibold">
+                      <span className="w-4 h-[1px] bg-cyan-400/50" />
+                      <span>Section 0{sIdx + 1}</span>
+                    </div>
+
+                    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-zinc-100 tracking-tight">
+                      {section.heading}
+                    </h2>
+                  </div>
 
                   {section.subheading && (
-                    <h3 className="text-sm sm:text-base font-bold text-sky-300">
+                    <h3 className="text-sm sm:text-base font-semibold text-zinc-200">
                       {section.subheading}
                     </h3>
                   )}
 
+                  {/* Body Paragraphs */}
                   {section.body && section.body.map((p, pIdx) => (
-                    <p key={pIdx} className="text-slate-300 leading-relaxed text-sm sm:text-base">
+                    <p key={pIdx} className="text-zinc-300 leading-relaxed text-sm sm:text-base font-normal">
                       {p}
                     </p>
                   ))}
 
-                  {/* Bullet Points */}
-                  {section.listItems && section.listItems.length > 0 && (
-                    <ul className="space-y-2.5 pl-2 pt-1 text-sm sm:text-base text-slate-300">
-                      {section.listItems.map((li, liIdx) => (
-                        <li key={liIdx} className="flex items-start gap-2">
-                          <ChevronRight className="w-4 h-4 text-cyan-400 shrink-0 mt-1" />
-                          <span>{li}</span>
-                        </li>
+                  {/* Key Stats Cards Grid */}
+                  {section.statCards && section.statCards.length > 0 && (
+                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 my-4">
+                      {section.statCards.map((stat, stIdx) => (
+                        <div 
+                          key={stIdx}
+                          className="p-4 rounded-xl bg-gradient-to-br from-zinc-900/90 to-zinc-950/90 border border-zinc-800/80 hover:border-cyan-500/30 transition-all shadow-sm"
+                        >
+                          <div className="text-[11px] font-mono font-medium text-zinc-400 uppercase tracking-wider mb-1 truncate">
+                            {stat.label}
+                          </div>
+                          <div className="text-xl sm:text-2xl font-black text-white tracking-tight font-mono flex items-baseline gap-1.5">
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-200 to-sky-400">
+                              {stat.value}
+                            </span>
+                            {stat.change && (
+                              <span className="text-[10px] font-bold text-emerald-400 font-sans">
+                                {stat.change}
+                              </span>
+                            )}
+                          </div>
+                          {stat.description && (
+                            <div className="text-[11px] text-zinc-400 mt-1 leading-snug">
+                              {stat.description}
+                            </div>
+                          )}
+                        </div>
                       ))}
-                    </ul>
-                  )}
-
-                  {/* Highlight Tip Box */}
-                  {section.tipBox && (
-                    <div className="p-5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-200 text-xs sm:text-sm font-medium flex items-start gap-3 mt-3 shadow-sm">
-                      <Zap className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
-                      <div>{section.tipBox}</div>
                     </div>
                   )}
-                </div>
+
+                  {/* Statistical Comparison Data Table */}
+                  {section.table && section.table.headers && section.table.rows && (
+                    <div className="my-6 space-y-2">
+                      {section.table.caption && (
+                        <div className="text-xs font-mono font-semibold text-cyan-400 flex items-center gap-1.5">
+                          <TrendingUp className="w-3.5 h-3.5 text-cyan-400" />
+                          <span>{section.table.caption}</span>
+                        </div>
+                      )}
+                      <div className="overflow-x-auto rounded-xl border border-zinc-800 bg-zinc-950/60 shadow-lg">
+                        <table className="w-full text-left text-xs sm:text-sm border-collapse min-w-[500px]">
+                          <thead>
+                            <tr className="bg-zinc-900/90 border-b border-zinc-800 text-zinc-300 font-mono text-[11px] uppercase tracking-wider">
+                              {section.table.headers.map((th, thIdx) => (
+                                <th 
+                                  key={thIdx} 
+                                  className={`py-3 px-3.5 font-bold ${thIdx === 0 ? 'text-zinc-100' : 'text-right'}`}
+                                >
+                                  {th}
+                                </th>
+                              ))}
+                            </tr>
+                          </thead>
+                          <tbody className="divide-y divide-zinc-800/60 font-mono text-zinc-300">
+                            {section.table.rows.map((row, rIdx) => (
+                              <tr 
+                                key={rIdx} 
+                                className="hover:bg-cyan-500/5 transition-colors group"
+                              >
+                                {row.map((cell, cIdx) => (
+                                  <td 
+                                    key={cIdx} 
+                                    className={`py-2.5 px-3.5 ${
+                                      cIdx === 0 
+                                        ? 'font-sans font-semibold text-zinc-100 group-hover:text-cyan-300' 
+                                        : 'text-right text-zinc-400 font-mono'
+                                    }`}
+                                  >
+                                    {cell}
+                                  </td>
+                                ))}
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Structured List Items */}
+                  {section.listItems && section.listItems.length > 0 && (
+                    <div className="space-y-3 pl-1 pt-1">
+                      {section.listItems.map((li, liIdx) => (
+                        <div key={liIdx} className="flex items-start gap-3 text-sm sm:text-base text-zinc-300">
+                          <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0 mt-2.5" />
+                          <span className="leading-relaxed">{li}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* Callout / Insight Box */}
+                  {section.tipBox && (
+                    <div className="p-5 rounded-2xl bg-amber-950/20 border border-amber-500/25 text-amber-200/90 text-sm font-medium flex items-start gap-3.5 mt-4 shadow-sm">
+                      <Zap className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
+                      <div className="leading-relaxed">{section.tipBox}</div>
+                    </div>
+                  )}
+                </section>
               ))}
 
-              {/* Embedded Q&A FAQ Block */}
+              {/* Embedded Frequently Asked Questions (FAQ) */}
               {post.content.faq && post.content.faq.length > 0 && (
-                <div className="space-y-4 pt-8 border-t border-white/10">
-                  <h3 className="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
+                <section aria-label="Frequently Asked Questions" className="space-y-5 pt-8 border-t border-zinc-800">
+                  <div className="flex items-center gap-2 text-lg sm:text-xl font-bold text-zinc-100">
                     <HelpCircle className="w-5 h-5 text-indigo-400" />
-                    Frequently Asked Questions
-                  </h3>
-                  <div className="space-y-3.5">
+                    <span>Frequently Asked Questions</span>
+                  </div>
+                  <div className="space-y-3">
                     {post.content.faq.map((faqItem, fIdx) => (
-                      <div key={fIdx} className="p-5 rounded-xl bg-slate-900/80 border border-white/5 space-y-2 shadow-inner">
-                        <div className="font-bold text-white text-sm sm:text-base">{faqItem.q}</div>
-                        <div className="text-xs sm:text-sm text-slate-400 leading-relaxed">{faqItem.a}</div>
+                      <div key={fIdx} className="p-5 rounded-xl bg-zinc-900/60 border border-zinc-800/80 space-y-2">
+                        <h4 className="font-bold text-zinc-100 text-sm sm:text-base">{faqItem.q}</h4>
+                        <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">{faqItem.a}</p>
                       </div>
                     ))}
                   </div>
-                </div>
+                </section>
               )}
 
             </div>
 
-            {/* High-Impact SEO Hashtags & Target Keywords */}
-            <div className="pt-6 border-t border-white/10 space-y-3">
-              <div className="text-xs font-bold text-slate-400 flex items-center gap-1.5">
-                <Tag className="w-3.5 h-3.5 text-cyan-400" />
-                <span>SEO Target Keywords & Hashtags for Search Indexing:</span>
+            {/* SEO Keyword & Search Tags */}
+            {post.targetKeywords && post.targetKeywords.length > 0 && (
+              <div className="pt-6 border-t border-zinc-800/80 space-y-3">
+                <div className="text-xs font-mono uppercase tracking-wider text-zinc-400 flex items-center gap-1.5">
+                  <Tag className="w-3.5 h-3.5 text-cyan-400" />
+                  <span>Search Index Topics:</span>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {post.targetKeywords.map((kw) => (
+                    <span 
+                      key={kw} 
+                      className="px-2.5 py-1 rounded-md text-xs font-mono text-zinc-400 bg-zinc-900 border border-zinc-800"
+                    >
+                      {kw}
+                    </span>
+                  ))}
+                </div>
               </div>
-              <div className="flex flex-wrap gap-2">
-                {post.targetKeywords.map((kw) => (
-                  <span 
-                    key={kw} 
-                    className="px-2.5 py-1 rounded-md text-xs font-mono font-medium bg-slate-950/90 border border-cyan-500/20 text-cyan-300 hover:border-cyan-400/50 transition-colors shadow-sm"
-                  >
-                    {kw}
-                  </span>
-                ))}
-              </div>
-            </div>
+            )}
 
-            {/* Bottom Conversion Action Pitch Box */}
-            <div className="p-6 sm:p-10 rounded-3xl bg-gradient-to-br from-indigo-950/70 via-indigo-900/40 to-slate-950 border border-indigo-500/40 text-center space-y-4 shadow-xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-bold">
-                <ShieldCheck className="w-3.5 h-3.5" />
-                <span>Zero-Risk 100% Free 24-Hour Trial Included</span>
+            {/* Single End-of-Article Free Trial VIP CTA (Prompt 9 & 10 Compliance: Clean, authoritative, single CTA) */}
+            <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-zinc-900 via-zinc-900/90 to-indigo-950/40 border border-indigo-500/30 text-center space-y-5 shadow-2xl relative overflow-hidden">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/30 text-xs font-bold">
+                <ShieldCheck className="w-4 h-4 text-emerald-400" />
+                <span>Instant 24-Hour Free Pass — No Credit Card Required</span>
               </div>
 
-              <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-white">
-                Unleash Liquid-Smooth 4K Streaming Today
+              <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
+                Stream Every Match in 4K UHD 60FPS
               </h3>
 
-              <p className="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto leading-relaxed">
-                Connect your Smart TV, FireStick, or Mobile instantly. Gain instant access to all UK channels, Premium 4K sports events, anti-freeze buffers, and unthrottled streams.
+              <p className="text-sm text-zinc-300 max-w-xl mx-auto leading-relaxed">
+                Connect your FireStick, Smart TV, Apple TV, or mobile device in under 60 seconds. Test unthrottled live football, interactive EPGs, and anti-freeze streams risk-free before kickoff.
               </p>
 
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 pt-2">
                 <button
                   onClick={handleStartTrial}
-                  className="w-full sm:w-auto px-6 py-3 rounded-2xl bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white font-black text-sm transition-all shadow-lg shadow-cyan-500/25 flex items-center justify-center gap-2 cursor-pointer group"
+                  className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white font-bold text-sm transition-all shadow-lg shadow-cyan-500/20 flex items-center justify-center gap-2 cursor-pointer group"
                 >
                   <span>Start Free 24h VIP Trial</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -424,91 +639,109 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
 
                 <button
                   onClick={() => navigateTo('/')}
-                  className="w-full sm:w-auto px-5 py-3 rounded-2xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-sm transition-colors cursor-pointer border border-white/5"
+                  className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-medium text-sm transition-colors cursor-pointer border border-zinc-700/60"
                 >
-                  Back to Home Page
+                  Back to Dashboard
                 </button>
+              </div>
+
+              <div className="flex flex-wrap items-center justify-center gap-6 text-[11px] text-zinc-400 pt-2">
+                <span className="flex items-center gap-1.5">
+                  <Check className="w-3.5 h-3.5 text-emerald-400" />
+                  Zero commitments
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <Check className="w-3.5 h-3.5 text-emerald-400" />
+                  Instant automated login
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <Check className="w-3.5 h-3.5 text-emerald-400" />
+                  All 4K sports channels
+                </span>
               </div>
             </div>
 
           </article>
 
-          {/* Right Column: Sticky Sidebar & Related Guides (4 Cols) */}
+          {/* Right Column: Sticky Table of Contents & Related Articles (4 Cols) */}
           <aside className="lg:col-span-4 space-y-6 lg:sticky lg:top-24">
             
-            {/* Quick Conversion Widget */}
-            <div className="p-6 bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 border-2 border-emerald-500/40 rounded-3xl space-y-4 text-center shadow-xl">
-              <div className="w-12 h-12 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center mx-auto">
-                <Zap className="w-6 h-6 fill-emerald-400" />
-              </div>
-              <div className="space-y-1">
-                <span className="text-[10px] font-black uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
-                  Instant Test Pass
-                </span>
-                <h3 className="font-black text-lg text-white">Free 24H VIP Trial</h3>
-              </div>
-              <p className="text-xs text-slate-300 leading-relaxed">
-                Test all 4K sports channels and unthrottled matchday feeds before kickoff. Zero payment details required.
-              </p>
-              <button
-                onClick={handleStartTrial}
-                className="w-full py-3 rounded-xl bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 hover:from-emerald-300 hover:to-cyan-300 text-slate-950 font-black text-xs transition-all shadow-lg shadow-emerald-500/20 cursor-pointer hover:scale-105 active:scale-95"
-              >
-                Start Free 24h Trial Now
-              </button>
-            </div>
+            {/* Desktop Interactive Table of Contents */}
+            {post.content.sections && post.content.sections.length > 0 && (
+              <div className="p-6 bg-[#0d1017]/95 border border-zinc-800/80 rounded-3xl space-y-4 shadow-lg hidden lg:block">
+                <div className="flex items-center gap-2 pb-3 border-b border-zinc-800 text-xs font-mono uppercase tracking-wider text-zinc-300 font-bold">
+                  <ListOrdered className="w-4 h-4 text-cyan-400" />
+                  <span>On This Page</span>
+                </div>
 
-            {/* Related Articles list */}
-            <div className="p-6 bg-slate-900/50 border border-white/5 rounded-3xl space-y-5">
-              
-              <div className="flex items-center gap-2 pb-3 border-b border-white/5">
+                <nav className="space-y-1">
+                  {post.content.sections.map((sec, idx) => {
+                    const isActive = activeSectionIdx === idx;
+                    return (
+                      <button
+                        key={idx}
+                        onClick={() => scrollToSection(idx)}
+                        className={`w-full text-left py-2 px-3 rounded-lg text-xs transition-all flex items-start gap-2 cursor-pointer ${
+                          isActive 
+                            ? 'bg-zinc-800 text-cyan-300 font-semibold border-l-2 border-cyan-400' 
+                            : 'text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900/60'
+                        }`}
+                      >
+                        <span className="font-mono text-zinc-500 shrink-0">0{idx + 1}.</span>
+                        <span className="line-clamp-2 leading-snug">{sec.heading}</span>
+                      </button>
+                    );
+                  })}
+                </nav>
+              </div>
+            )}
+
+            {/* Related Articles in Same Category / Shared Tags */}
+            <div className="p-6 bg-[#0d1017]/95 border border-zinc-800/80 rounded-3xl space-y-4 shadow-lg">
+              <div className="flex items-center gap-2 pb-3 border-b border-zinc-800">
                 <TrendingUp className="w-4 h-4 text-cyan-400" />
-                <h4 className="font-black text-sm text-white uppercase tracking-wider">Related Guides & Updates</h4>
+                <h3 className="font-bold text-xs uppercase tracking-wider text-zinc-200">More Match Guides</h3>
               </div>
 
-              <div className="space-y-4">
-                {relatedPostsData.map(({ post: rPost, sharedTags }) => (
+              <div className="space-y-3.5">
+                {relatedPostsData.map(({ post: rPost }) => (
                   <div
                     key={rPost.id}
                     onClick={() => navigateTo('/blog/' + rPost.slug)}
-                    className="group cursor-pointer flex gap-3 items-start hover:bg-white/5 p-2 rounded-xl transition-colors"
+                    className="group cursor-pointer flex gap-3.5 items-start hover:bg-zinc-900/60 p-2 rounded-xl transition-colors"
                   >
                     <img
                       src={rPost.coverImage}
                       alt={rPost.title}
                       referrerPolicy="no-referrer"
-                      className="w-16 h-16 rounded-lg object-cover border border-white/10 shrink-0 group-hover:border-cyan-500/40 transition-colors"
+                      onError={(e) => {
+                        (e.currentTarget as HTMLImageElement).src = premierLeagueStadiumImg;
+                      }}
+                      className="w-16 h-16 rounded-xl object-cover border border-zinc-800 shrink-0 group-hover:border-cyan-500/40 transition-colors"
                     />
                     <div className="space-y-1 min-w-0">
-                      <h5 className="text-xs font-bold text-slate-200 group-hover:text-cyan-300 transition-colors line-clamp-2 leading-snug">
+                      <h4 className="text-xs font-semibold text-zinc-200 group-hover:text-cyan-300 transition-colors line-clamp-2 leading-snug">
                         {rPost.title}
-                      </h5>
-                      <div className="flex items-center gap-1.5 text-[10px] text-slate-400">
+                      </h4>
+                      <div className="flex items-center gap-1.5 text-[10px] text-zinc-400">
                         <span>{rPost.readTime}</span>
-                        <span>•</span>
+                        <span>·</span>
                         <span>{rPost.date}</span>
                       </div>
-                      {sharedTags.length > 0 && (
-                        <div className="flex items-center gap-1 text-[10px] text-cyan-400/90 font-medium truncate pt-0.5">
-                          <Tag className="w-2.5 h-2.5 shrink-0" />
-                          <span>#{sharedTags[0]}</span>
-                        </div>
-                      )}
                     </div>
                   </div>
                 ))}
               </div>
-
             </div>
 
-            {/* UK VPN & Anti-Throttling Quick Proof Widget */}
-            <div className="p-6 bg-gradient-to-b from-indigo-950/20 to-slate-900/40 border border-indigo-500/10 rounded-3xl space-y-3.5">
-              <h4 className="text-xs font-black text-sky-300 uppercase tracking-wider flex items-center gap-1.5">
+            {/* ISP Anti-Throttling Architecture Technical Notice */}
+            <div className="p-6 bg-zinc-900/50 border border-zinc-800/80 rounded-3xl space-y-3 shadow-md">
+              <div className="flex items-center gap-2 text-xs font-bold text-zinc-200">
                 <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                <span>Virgin/BT Throttling Notice</span>
-              </h4>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                UK internet service providers automatically block or throttle standard server streams during major match times. Our **Anti-Freeze v9.8** bypass routes streams dynamically, ensuring you won't experience blank screens or buffers.
+                <span>Anti-Freeze Edge Architecture</span>
+              </div>
+              <p className="text-xs text-zinc-400 leading-relaxed font-normal">
+                Major match broadcasts routinely cause ISP congestion on Virgin Media, BT, and Sky broadband. Our private 10Gbps London and European edge peering automatically routes around congested ISP gates, preventing stream freezing.
               </p>
             </div>
 
@@ -516,31 +749,32 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
 
         </div>
 
-        {/* Viral Referral & Quick Sharing Bar */}
-        <ShareReferralBar
-          currentUrl={`${baseUrl}/blog/${post.slug}`}
-          title={`${post.title} | GlobalStreamHub 4K VIP`}
-        />
+        {/* Viral Social Referral Bar */}
+        <div className="mt-12">
+          <ShareReferralBar
+            currentUrl={`${baseUrl}/blog/${post.slug}`}
+            title={`${post.title} | GlobalStreamHub 4K VIP`}
+          />
+        </div>
 
         {/* Dynamic Related Articles Section at Bottom of Blog Post */}
-        <section className="mt-16 pt-12 border-t border-white/10 space-y-8">
+        <section aria-label="Recommended Articles" className="mt-16 pt-12 border-t border-zinc-800 space-y-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div className="space-y-2">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-bold uppercase tracking-wider">
-                <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
-                <span>Tag-Matched Recommendations</span>
+              <div className="text-xs font-mono uppercase tracking-widest text-cyan-400 font-semibold flex items-center gap-1.5">
+                <span>Recommended Reading</span>
               </div>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight">
-                Related Articles & Recommended Guides
+              <h2 className="text-2xl sm:text-3xl font-bold text-zinc-100 tracking-tight">
+                Recommended Match & Streaming Guides
               </h2>
-              <p className="text-xs sm:text-sm text-slate-400 max-w-2xl leading-relaxed">
-                Explore more streaming setups, sports blackout bypasses, and 4K tutorials dynamically suggested based on shared tags, categories, and keywords with this guide.
+              <p className="text-xs sm:text-sm text-zinc-400 max-w-2xl leading-relaxed">
+                Explore our comprehensive library of 4K match previews, tactical predictions, and buffer-free streaming walkthroughs.
               </p>
             </div>
 
             <button
               onClick={() => navigateTo('/')}
-              className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-slate-400 hover:text-cyan-300 transition-colors shrink-0 group self-start sm:self-auto cursor-pointer"
+              className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-zinc-400 hover:text-cyan-300 transition-colors shrink-0 group self-start sm:self-auto cursor-pointer"
             >
               <span>Explore All Guides</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform text-cyan-400" />
@@ -548,92 +782,66 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
           </div>
 
           {/* 3 Related Posts Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-            {relatedPostsData.map(({ post: rPost, sharedTags, matchScore }) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {relatedPostsData.map(({ post: rPost }) => (
               <article
                 key={rPost.id}
                 onClick={() => navigateTo('/blog/' + rPost.slug)}
-                className="group relative flex flex-col bg-gradient-to-b from-slate-900/90 via-slate-900/60 to-[#090d21] border border-white/10 hover:border-cyan-500/50 rounded-3xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/10 cursor-pointer"
+                className="group relative flex flex-col bg-[#0d1017] border border-zinc-800 hover:border-zinc-700 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-xl cursor-pointer"
               >
-                {/* Cover Image with hover scale */}
-                <div className="relative aspect-[16/9] w-full overflow-hidden bg-slate-950">
+                {/* Cover Image */}
+                <div className="relative aspect-[16/9] w-full overflow-hidden bg-zinc-950">
                   <img
                     src={rPost.coverImage}
                     alt={rPost.title}
                     referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      (e.currentTarget as HTMLImageElement).src = premierLeagueStadiumImg;
+                    }}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80 pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-transparent pointer-events-none" />
                   
-                  <div className="absolute top-3 left-3 flex items-center gap-1.5 pointer-events-none">
-                    <span className="px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-indigo-950/90 backdrop-blur-md text-sky-300 border border-indigo-500/30">
+                  <div className="absolute top-3 left-3 pointer-events-none">
+                    <span className="px-2.5 py-1 rounded-md text-[10px] font-semibold bg-zinc-900/90 backdrop-blur-md text-zinc-200 border border-zinc-700/60">
                       {rPost.categoryLabel}
                     </span>
                   </div>
 
                   <div className="absolute top-3 right-3 pointer-events-none">
-                    <span className="px-2 py-1 rounded-full text-[10px] font-bold bg-slate-950/90 backdrop-blur-md text-slate-300 border border-white/10 flex items-center gap-1">
-                      <Clock className="w-3 h-3 text-amber-400" />
+                    <span className="px-2 py-1 rounded-md text-[10px] font-medium bg-zinc-900/90 backdrop-blur-md text-zinc-300 border border-zinc-700/60 flex items-center gap-1">
+                      <Clock className="w-3 h-3 text-amber-400/80" />
                       {rPost.readTime}
                     </span>
                   </div>
-
-                  {/* Shared Tag Badges over Image */}
-                  {sharedTags.length > 0 && (
-                    <div className="absolute bottom-3 left-3 right-3 flex flex-wrap gap-1.5 pointer-events-none">
-                      {sharedTags.slice(0, 2).map((tag) => (
-                        <span
-                          key={tag}
-                          className="px-2 py-0.5 rounded-md text-[10px] font-bold bg-cyan-950/95 backdrop-blur-md text-cyan-300 border border-cyan-500/40 flex items-center gap-1 shadow-sm"
-                        >
-                          <Tag className="w-2.5 h-2.5" />
-                          <span>#{tag}</span>
-                        </span>
-                      ))}
-                      {sharedTags.length > 2 && (
-                        <span className="px-1.5 py-0.5 rounded-md text-[10px] font-bold bg-slate-900/90 text-slate-300 border border-white/10">
-                          +{sharedTags.length - 2} more
-                        </span>
-                      )}
-                    </div>
-                  )}
                 </div>
 
                 {/* Card Content */}
                 <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
-                  <div className="space-y-2.5">
-                    <div className="flex items-center gap-2 text-[11px] text-slate-400">
-                      <Calendar className="w-3.5 h-3.5 text-sky-400" />
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2 text-[11px] text-zinc-400">
+                      <Calendar className="w-3.5 h-3.5 text-zinc-500" />
                       <span>{rPost.date}</span>
-                      <span>•</span>
-                      <span className="text-cyan-400 font-medium">{rPost.geoFocus || 'UK'} Edition</span>
                     </div>
 
-                    <h3 className="text-base sm:text-lg font-black text-white group-hover:text-cyan-300 transition-colors line-clamp-2 leading-snug">
+                    <h3 className="text-sm sm:text-base font-bold text-zinc-100 group-hover:text-cyan-300 transition-colors line-clamp-2 leading-snug">
                       {rPost.title}
                     </h3>
 
-                    <p className="text-xs sm:text-sm text-slate-400 line-clamp-2 leading-relaxed font-normal">
+                    <p className="text-xs text-zinc-400 line-clamp-2 leading-relaxed font-normal">
                       {rPost.excerpt}
                     </p>
                   </div>
 
-                  {/* Bottom Card Bar: Author and Read Button */}
-                  <div className="pt-4 border-t border-white/5 flex items-center justify-between gap-3">
-                    <div className="flex items-center gap-2">
-                      <img
-                        src={rPost.author.avatar}
-                        alt={rPost.author.name}
-                        className="w-7 h-7 rounded-full object-cover border border-indigo-500/30"
-                      />
-                      <span className="text-xs font-semibold text-slate-300 truncate max-w-[120px]">
-                        {rPost.author.name}
-                      </span>
-                    </div>
+                  {/* Bottom Author Row */}
+                  <div className="pt-3 border-t border-zinc-800/80 flex items-center justify-between gap-3 text-xs">
+                    <span className="text-zinc-400 font-medium truncate">
+                      {rPost.author.name}
+                    </span>
 
-                    <span className="text-xs font-bold text-cyan-400 flex items-center gap-1 group-hover:underline">
+                    <span className="text-cyan-400 font-semibold flex items-center gap-1 group-hover:underline">
                       <span>Read Guide</span>
-                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                     </span>
                   </div>
                 </div>
@@ -643,31 +851,6 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
         </section>
 
       </div>
-
-      {/* Floating 1-Click Free 24H VIP Trial Bar */}
-      <div className="fixed bottom-5 left-1/2 -translate-x-1/2 z-40 w-[92%] max-w-xl bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 border-2 border-emerald-500/50 shadow-[0_10px_35px_rgba(16,185,129,0.3)] p-3 sm:p-3.5 rounded-2xl flex items-center justify-between gap-3 backdrop-blur-xl animate-fade-in">
-        <div className="flex items-center gap-2.5 min-w-0">
-          <div className="w-8 h-8 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center shrink-0">
-            <Zap className="w-4 h-4 fill-emerald-400" />
-          </div>
-          <div className="min-w-0">
-            <span className="text-xs sm:text-sm font-black text-white truncate block">
-              Watch Today's 4K Match Free
-            </span>
-            <span className="text-[10px] sm:text-[11px] text-slate-300 truncate block">
-              Instant 24H VIP trial • Zero credit card • 60FPS
-            </span>
-          </div>
-        </div>
-
-        <button
-          onClick={handleStartTrial}
-          className="px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 hover:from-emerald-300 hover:to-cyan-300 text-slate-950 font-black text-xs sm:text-sm whitespace-nowrap shadow-md shadow-emerald-500/20 active:scale-95 transition-all cursor-pointer shrink-0"
-        >
-          Get 24H Pass
-        </button>
-      </div>
-
     </main>
   );
 };

@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { BlogPost, BlogCategory } from '../types';
 import { BLOG_POSTS } from '../data/blogData';
+import premierLeagueStadiumImg from '../assets/images/premier_league_stadium_1793368233393.jpg';
 import { BlogPostModal } from './BlogPostModal';
 import { 
   Newspaper, 
@@ -170,6 +171,9 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onSelectPlan, navigate
                     src={featuredPost.coverImage}
                     alt={featuredPost.title}
                     referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      (e.currentTarget as HTMLImageElement).src = premierLeagueStadiumImg;
+                    }}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#080d22] via-transparent to-transparent lg:hidden opacity-80" />
@@ -293,6 +297,9 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onSelectPlan, navigate
                         src={post.coverImage}
                         alt={post.title}
                         referrerPolicy="no-referrer"
+                        onError={(e) => {
+                          (e.currentTarget as HTMLImageElement).src = premierLeagueStadiumImg;
+                        }}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         loading="lazy"
                       />

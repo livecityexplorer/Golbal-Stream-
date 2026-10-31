@@ -274,6 +274,17 @@ export interface BlogPost {
       listItems?: string[];
       tipBox?: string;
       codeOrParams?: string;
+      table?: {
+        headers: string[];
+        rows: string[][];
+        caption?: string;
+      };
+      statCards?: {
+        label: string;
+        value: string;
+        change?: string;
+        description?: string;
+      }[];
     }[];
     faq?: {
       q: string;

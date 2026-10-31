@@ -67,18 +67,18 @@ export const LiveSalesNotification: React.FC = () => {
 
     const showNotification = () => {
       setIsVisible(true);
-      // Keep visible for 8 seconds, then hide
+      // Keep visible for 7 seconds, then hide
       showTimeout = setTimeout(() => {
         setIsVisible(false);
         // Rotate to the next item
         setCurrentIndex((prev) => (prev + 1) % purchases.length);
-        // Wait 25 seconds of quiet time before showing the next one
-        hideTimeout = setTimeout(showNotification, 25000);
-      }, 8000);
+        // Wait 2 minutes (120,000 ms) of quiet time before showing the next notification
+        hideTimeout = setTimeout(showNotification, 120000);
+      }, 7000);
     };
 
-    // First appearance after 12 seconds of landing
-    const initialTimer = setTimeout(showNotification, 12000);
+    // First appearance after 2 minutes (120,000 ms) of landing
+    const initialTimer = setTimeout(showNotification, 120000);
 
     return () => {
       clearTimeout(initialTimer);
