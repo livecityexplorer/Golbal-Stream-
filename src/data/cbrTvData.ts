@@ -1,4 +1,4 @@
-import { AppScreenshotItem, AppSettingSection, DetailedSetupGuide, RemoteShortcut } from '../types';
+import { AppScreenshotItem, AppSettingSection, CbrTvDesktopRelease, DetailedSetupGuide, RemoteShortcut } from '../types';
 
 // WebP screenshots extracted directly from the official guide
 import img01 from '../assets/images/cbr/cbr_01_screenshot_for_live_tv_guide.webp';
@@ -665,3 +665,170 @@ export const CBR_TV_OFFICIAL_GUIDE_FIRESTICK: DetailedSetupGuide = {
   downloaderCode: '626198',
   appUrl: 'https://streamuk.vip/cbr-tv.apk',
 };
+
+// Official Desktop releases for Windows, macOS, and Linux
+export const CBR_TV_DESKTOP_DOWNLOADS: CbrTvDesktopRelease[] = [
+  {
+    platformId: 'windows',
+    osCategory: 'windows',
+    osName: 'Windows',
+    targetHardware: 'Windows 10 and 11 (PC and laptop)',
+    badge: 'Recommended for you',
+    recommended: true,
+    description: 'Live TV, movies, series, TV guide and sports fixtures in one sleek app. Windows includes a built-in 4K/8K player, so streams look sharp. The installer adds a desktop shortcut and a Start Menu entry, and it removes any older version for you. If your ISP blocks the connection, tap the Proxy button to switch to the secure proxy layer and keep watching.',
+    filename: 'CBR-TV-Setup.exe',
+    fileSize: '117 MB',
+    updatedDate: '10/30/2026',
+    downloadUrl: 'https://cbrtv.com/download/CBR-TV-Setup.exe'
+  },
+  {
+    platformId: 'mac-silicon',
+    osCategory: 'mac',
+    osName: 'Mac – Apple Silicon',
+    targetHardware: 'Mac with M1, M2, M3 or M4',
+    badge: 'Native Apple Silicon',
+    recommended: false,
+    description: 'The native version for newer Macs, so it’s fast and light on battery. Open the disk image and drag CBR TV into Applications. The first time, right-click the app and choose Open (macOS asks for this with apps from outside the App Store). Got blocked by your ISP? Tap Proxy on the home screen to route everything through the proxy layer.',
+    filename: 'CBR-TV-Mac-AppleSilicon.dmg',
+    fileSize: '99.8 MB',
+    updatedDate: '10/30/2026',
+    downloadUrl: 'https://cbrtv.com/download/CBR-TV-Mac-AppleSilicon.dmg'
+  },
+  {
+    platformId: 'mac-intel',
+    osCategory: 'mac',
+    osName: 'Mac – Intel',
+    targetHardware: 'Mac with an Intel processor',
+    badge: 'Intel Processors',
+    recommended: false,
+    description: 'The same full app for older Macs. To check which Mac you have, go to Apple menu → About This Mac. The install steps match the Apple Silicon version. The built-in Proxy switch helps you get around ISP blocks, so your channels, movies and sports stay available.',
+    filename: 'CBR-TV-Mac-Intel.dmg',
+    fileSize: '106 MB',
+    updatedDate: '10/30/2026',
+    downloadUrl: 'https://cbrtv.com/download/CBR-TV-Mac-Intel.dmg'
+  },
+  {
+    platformId: 'linux-deb',
+    osCategory: 'linux',
+    osName: 'Linux PC – .deb',
+    targetHardware: 'Ubuntu, Debian and Linux Mint (64-bit PCs)',
+    badge: 'Ubuntu / Debian (.deb)',
+    recommended: false,
+    description: 'The easiest way to run CBR TV on Ubuntu and its relatives. Install it with sudo apt install ./CBR-TV-Linux-PC.deb and it appears in your apps menu with the logo. Add mpv for the external 4K/8K player. If your ISP interferes, tap Proxy to use the proxy layer.',
+    filename: 'CBR-TV-Linux-PC.deb',
+    fileSize: '77.8 MB',
+    updatedDate: '10/30/2026',
+    downloadUrl: 'https://cbrtv.com/download/CBR-TV-Linux-PC.deb',
+    installCommand: 'sudo apt install ./CBR-TV-Linux-PC.deb'
+  },
+  {
+    platformId: 'linux-appimage',
+    osCategory: 'linux',
+    osName: 'Linux – AppImage',
+    targetHardware: 'Any other Linux (Fedora, Arch, openSUSE and more)',
+    badge: 'Universal AppImage',
+    recommended: false,
+    description: 'One portable file with nothing to install: make it executable and run it. On Ubuntu 24.04 you first need sudo apt install libfuse2t64. It has the same features as every other version, including the Proxy layer against ISP blocks.',
+    filename: 'CBR-TV-Linux.AppImage',
+    fileSize: '99.4 MB',
+    updatedDate: '10/30/2026',
+    downloadUrl: 'https://cbrtv.com/download/CBR-TV-Linux.AppImage',
+    installCommand: 'chmod +x CBR-TV-Linux.AppImage && ./CBR-TV-Linux.AppImage'
+  },
+  {
+    platformId: 'linux-arm',
+    osCategory: 'linux',
+    osName: 'Linux ARM – .deb',
+    targetHardware: 'Raspberry Pi 5, ARM laptops and ARM servers (64-bit)',
+    badge: 'ARM & Raspberry Pi 5',
+    recommended: false,
+    description: 'CBR TV for ARM-based Linux devices, installed the same way as the PC version: sudo apt install ./CBR-TV-Linux-ARM.deb. It’s good for a living-room mini PC. Use Proxy when your provider’s network blocks access.',
+    filename: 'CBR-TV-Linux-ARM.deb',
+    fileSize: '76.3 MB',
+    updatedDate: '10/30/2026',
+    downloadUrl: 'https://cbrtv.com/download/CBR-TV-Linux-ARM.deb',
+    installCommand: 'sudo apt install ./CBR-TV-Linux-ARM.deb'
+  }
+];
+
+// Official Desktop Guide for Windows, macOS, Linux, and Web Browser
+export const CBR_TV_OFFICIAL_GUIDE_DESKTOP: DetailedSetupGuide = {
+  ...CBR_TV_OFFICIAL_GUIDE,
+  id: 'guide-cbr-tv-desktop',
+  slug: 'cbr-tv-desktop',
+  title: 'CBR TV Official App for Windows, macOS, Linux & Web Player',
+  shortTitle: 'CBR TV Desktop & Web',
+  deviceCategory: 'pc-web',
+  deviceCategoryLabel: 'Windows PC, Mac & Web Player',
+  playerName: 'CBR TV Official Desktop App',
+  playerType: 'Official 4K/8K Desktop & Web',
+  appUrl: 'https://cbrtv.com/download/CBR-TV-Setup.exe',
+  rating: 5.0,
+  difficulty: 'Quick',
+  timeEstimate: '1 Min',
+  badge: '⭐ Official PC & Mac App',
+  popular: true,
+  summary: 'Live TV, movies, series, TV guide and sports fixtures in one sleek app. Includes a built-in 4K/8K player engine and one-tap secure Proxy layer to bypass UK ISP blocks on Windows 10/11, macOS Apple Silicon/Intel, Linux, and Web Browser.',
+  desktopReleases: CBR_TV_DESKTOP_DOWNLOADS,
+  targetKeywords: [
+    'cbr tv windows download',
+    'cbr tv mac apple silicon dmg',
+    'cbr tv pc app',
+    'cbr tv proxy layer iptv',
+    'cbr tv linux deb appimage',
+    'official iptv player for windows 11',
+    'streamuk desktop app'
+  ],
+  steps: [
+    {
+      stepNumber: 1,
+      title: 'Download CBR TV for Your Operating System',
+      description: 'Choose your operating system: Windows 10/11 (CBR-TV-Setup.exe · 117 MB), Mac Apple Silicon (CBR-TV-Mac-AppleSilicon.dmg · 99.8 MB), Mac Intel (CBR-TV-Mac-Intel.dmg · 106 MB), or Linux (.deb / AppImage).',
+      actionUrl: 'https://cbrtv.com/download/CBR-TV-Setup.exe',
+      tip: 'The SHA-256 code under each download lets you check that a file was not changed.'
+    },
+    {
+      stepNumber: 2,
+      title: 'Install & Launch the Application',
+      description: 'On Windows, run the installer: it adds a desktop shortcut, Start Menu entry, and removes any older version automatically. On Mac, open the .dmg and drag CBR TV into Applications (right-click and choose Open the first time). On Linux, install with sudo apt install ./CBR-TV-Linux-PC.deb.',
+    },
+    {
+      stepNumber: 3,
+      title: 'Sign In With Your StreamUK Account',
+      description: 'Enter your Server URL, Username, and Password. All 18,500+ live channels, sports fixtures, EPG guide, and 4K cinema sync instantly in under 15 seconds.',
+    },
+    {
+      stepNumber: 4,
+      title: 'ISP Blocked? Tap the Built-in Proxy Switch',
+      description: 'If your UK internet provider blocks streams during Saturday 3pm Premier League games, simply click the Proxy button on the home screen to route traffic through the secure proxy layer and keep watching.',
+      tip: 'The proxy layer helps with ISP blocks but does not guarantee a bypass in every case. Some networks may block the relay too. Prefer the browser? Use the web player, with nothing to install.'
+    }
+  ],
+  pros: [
+    'Built-in 4K / 8K hardware-accelerated video player',
+    'One-tap Proxy layer button to bypass UK broadband ISP blocks',
+    'Live TV, Movies, Series, TV guide, and Sports fixtures in one app',
+    'Native Apple Silicon (M1/M2/M3/M4) and Intel support for macOS',
+    'Lightweight Ubuntu/Debian .deb, AppImage, and Raspberry Pi ARM builds',
+    'Zero-install instant Web Player fallback in any browser'
+  ],
+  faqs: [
+    {
+      q: 'What features are included in CBR TV for PC and Mac?',
+      a: 'CBR TV Desktop packs 7 core pillars: Live TV, Movies on Demand, TV Series box sets, interactive TV Guide (EPG), Sports fixtures schedule, 4K/8K hardware-accelerated player, and the one-tap Proxy layer.'
+    },
+    {
+      q: 'How does the Proxy layer protect against UK ISP blocks?',
+      a: 'The Proxy button routes stream requests through a dedicated encrypted proxy relay. This prevents UK ISPs like Virgin Media, BT, Sky, and TalkTalk from intercepting and blocking live football feeds during matchday windows.'
+    },
+    {
+      q: 'Can I use the Web Player without downloading any app?',
+      a: 'Yes! Prefer the browser? You can use our zero-install Web Player directly in Google Chrome, Microsoft Edge, Safari, or Firefox on any computer or tablet.'
+    },
+    {
+      q: 'How do I install CBR TV on macOS for the first time?',
+      a: 'Open the downloaded .dmg file and drag the CBR TV icon into your Applications folder. Because the app is downloaded outside the Mac App Store, macOS requires that you right-click the app icon the first time and choose "Open", then confirm by clicking Open.'
+    }
+  ]
+};
+

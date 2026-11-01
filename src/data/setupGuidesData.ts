@@ -11,6 +11,8 @@ import {
   CBR_TV_OFFICIAL_GUIDE,
   CBR_TV_OFFICIAL_GUIDE_ANDROID,
   CBR_TV_OFFICIAL_GUIDE_FIRESTICK,
+  CBR_TV_OFFICIAL_GUIDE_DESKTOP,
+  CBR_TV_DESKTOP_DOWNLOADS,
   img01 as iconCbrTv
 } from './cbrTvData';
 
@@ -23,7 +25,9 @@ export {
   iconPcWeb,
   iconTivimate,
   iconSmarters,
-  iconCbrTv
+  iconCbrTv,
+  CBR_TV_DESKTOP_DOWNLOADS,
+  CBR_TV_OFFICIAL_GUIDE_DESKTOP
 };
 
 export interface DeviceCategoryMeta {
@@ -233,20 +237,21 @@ export const DEVICE_CATEGORIES: DeviceCategoryMeta[] = [
     id: 'pc-web',
     name: 'Windows PC, Mac & Web Player',
     shortName: 'PC & Web Browser',
-    tagline: 'Instant Browser Streaming, Windows & MacOS',
+    tagline: 'Official CBR TV App, Windows, macOS, Linux & Web',
     iconName: 'Laptop',
     imageUrl: iconPcWeb,
-    badge: 'Instant Play',
-    devices: ['Windows 11 / 10 PC & Laptop', 'Apple MacOS (M-series & Intel)', 'Google Chrome / Edge / Safari', 'Linux Ubuntu / Fedora'],
-    recommendedPlayerSlug: 'webtv-browser-player',
+    badge: '⭐ Official App Available',
+    devices: ['Windows 11 / 10 PC & Laptop', 'Apple macOS (Apple Silicon & Intel)', 'Linux (Debian / Ubuntu / AppImage)', 'Google Chrome / Edge / Safari'],
+    recommendedPlayerSlug: 'cbr-tv-desktop',
   },
 ];
 
 export const ALL_SETUP_GUIDES: DetailedSetupGuide[] = [
-  // 0. Official App - CBR TV (FireStick & Android TV)
+  // 0. Official App - CBR TV (FireStick, Android TV, PC & Web)
   CBR_TV_OFFICIAL_GUIDE,
   CBR_TV_OFFICIAL_GUIDE_FIRESTICK,
   CBR_TV_OFFICIAL_GUIDE_ANDROID,
+  CBR_TV_OFFICIAL_GUIDE_DESKTOP,
 
   // 1. FireStick - TiviMate 4K
   {

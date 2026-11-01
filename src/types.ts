@@ -173,7 +173,24 @@ export interface DetailedSetupGuide {
   officialBadge?: string;
   screenshotsGallery?: AppScreenshotItem[];
   appSettingsSections?: AppSettingSection[];
+  desktopReleases?: CbrTvDesktopRelease[];
 }
+
+export interface CbrTvDesktopRelease {
+  platformId: 'windows' | 'mac-silicon' | 'mac-intel' | 'linux-deb' | 'linux-appimage' | 'linux-arm';
+  osCategory: 'windows' | 'mac' | 'linux';
+  osName: string;
+  targetHardware: string;
+  badge?: string;
+  recommended?: boolean;
+  description: string;
+  filename: string;
+  fileSize: string;
+  updatedDate: string;
+  downloadUrl: string;
+  installCommand?: string;
+}
+
 
 export interface AppScreenshotItem {
   id: string;

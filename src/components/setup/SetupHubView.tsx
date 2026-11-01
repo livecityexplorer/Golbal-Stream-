@@ -6,6 +6,7 @@ import {
   UK_ISP_OPTIMIZATIONS 
 } from '../../data/setupGuidesData';
 import { ShareReferralBar } from '../ShareReferralBar';
+import { CbrTvDesktopDownloads } from './CbrTvDesktopDownloads';
 import { DeviceCategoryType, DetailedSetupGuide } from '../../types';
 import { 
   Tv, 
@@ -465,7 +466,7 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
                       }`}>
                         {renderCategoryIcon(cat.iconName, 'w-5 h-5')}
                       </div>
-                      {cat.id === 'firestick' || cat.id === 'android-tv' ? (
+                      {cat.id === 'firestick' || cat.id === 'android-tv' || cat.id === 'pc-web' ? (
                         <span className="text-[9px] font-black uppercase text-amber-300 bg-amber-500/15 px-1.5 py-0.5 rounded border border-amber-400/30">
                           Official App
                         </span>
@@ -502,7 +503,41 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
               </span>
             </div>
 
-            {spotlightGuide && (
+            {selectedCategory === 'pc-web' ? (
+              <div className="space-y-4">
+                <div className="p-6 sm:p-7 rounded-3xl bg-gradient-to-br from-amber-950/40 via-slate-900 to-slate-950 border-2 border-amber-400/50 shadow-2xl relative overflow-hidden">
+                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-white/10 pb-5">
+                    <div className="space-y-1.5">
+                      <div className="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-amber-500/20 text-amber-300 text-[10px] font-black uppercase tracking-wider border border-amber-400/40">
+                        ⭐ Official StreamUK App for PC & Mac
+                      </div>
+                      <h3 className="text-xl sm:text-2xl font-black text-white">
+                        CBR TV for Windows, macOS, Linux & Web
+                      </h3>
+                      <p className="text-xs sm:text-sm text-slate-300 max-w-2xl">
+                        Live TV, movies, series, TV guide and sports fixtures in one sleek app. Includes built-in 4K/8K hardware video decoding and a one-tap Proxy button to bypass UK broadband ISP blocks.
+                      </p>
+                    </div>
+
+                    <button
+                      onClick={() => {
+                        navigateTo('/setup/cbr-tv-desktop');
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                      }}
+                      className="px-5 py-3 rounded-xl bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-black text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-md shrink-0 cursor-pointer active:scale-95"
+                    >
+                      <Play className="w-4 h-4 fill-slate-950" />
+                      <span>Open Complete Desktop Guide</span>
+                      <ChevronRight className="w-4 h-4" />
+                    </button>
+                  </div>
+
+                  <div className="pt-5">
+                    <CbrTvDesktopDownloads />
+                  </div>
+                </div>
+              </div>
+            ) : spotlightGuide ? (
               <div className={`p-6 sm:p-7 rounded-3xl border transition-all relative overflow-hidden shadow-2xl ${
                 spotlightGuide.isOfficialApp
                   ? 'bg-gradient-to-br from-amber-950/40 via-slate-900 to-slate-950 border-amber-400/50 shadow-amber-500/10'
@@ -633,7 +668,7 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
                   </div>
                 </div>
               </div>
-            )}
+            ) : null}
           </section>
 
           {/* STEP 3: Alternative Compatible Players (Clean, non-overwhelming grid) */}

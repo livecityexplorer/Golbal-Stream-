@@ -24,6 +24,9 @@ export const SetupGuidePage: React.FC<SetupGuidePageProps> = ({
     if (normalized === 'cbr' || normalized === 'cbrtv' || normalized === 'boss-media-player' || normalized === 'boss-player') {
       return ALL_SETUP_GUIDES.find(g => g.slug === 'cbr-tv') || null;
     }
+    if (normalized === 'cbr-tv-desktop' || normalized === 'cbr-desktop' || normalized === 'cbr-pc' || normalized === 'cbr-mac' || normalized === 'cbr-windows') {
+      return ALL_SETUP_GUIDES.find(g => g.slug === 'cbr-tv-desktop') || null;
+    }
     return ALL_SETUP_GUIDES.find(g => g.slug === normalized) || null;
   }, [currentSlug]);
 

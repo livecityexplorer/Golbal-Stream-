@@ -3,6 +3,7 @@ import { DetailedSetupGuide } from '../../types';
 import { ALL_SETUP_GUIDES, DEVICE_CATEGORIES } from '../../data/setupGuidesData';
 import { ShareReferralBar } from '../ShareReferralBar';
 import { CbrTvAppShowcase } from './CbrTvAppShowcase';
+import { CbrTvDesktopDownloads } from './CbrTvDesktopDownloads';
 import { 
   Tv, 
   Flame, 
@@ -252,8 +253,26 @@ export const DedicatedGuideView: React.FC<DedicatedGuideViewProps> = ({
         {/* Key Quick Action Highlights (Downloader Code / Store Link + Plan CTA) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-6 border-t border-white/10 relative z-10">
           
-          {/* Downloader / App Code Card */}
-          {guide.downloaderCode ? (
+          {/* Downloader / Desktop App Card */}
+          {guide.desktopReleases && guide.desktopReleases.length > 0 ? (
+            <div className="p-4 rounded-2xl bg-gradient-to-br from-amber-500/15 via-slate-950 to-slate-950 border border-amber-400/40 flex items-center justify-between gap-3 shadow-lg">
+              <div className="space-y-0.5">
+                <span className="text-[11px] font-bold text-amber-300 uppercase tracking-wider block">
+                  ⭐ Official Desktop Installer
+                </span>
+                <span className="text-sm font-black text-white">
+                  Windows, Mac, Linux & Web
+                </span>
+              </div>
+              <a
+                href="#desktop-releases-section"
+                className="px-3.5 py-2 rounded-xl bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 text-xs font-black flex items-center gap-1.5 transition-all shadow-md shadow-amber-500/20"
+              >
+                <Download className="w-4 h-4" />
+                <span>Get Downloads</span>
+              </a>
+            </div>
+          ) : guide.downloaderCode ? (
             <div className="p-4 rounded-2xl bg-slate-950/80 border border-cyan-500/30 flex items-center justify-between gap-3 shadow-lg">
               <div className="space-y-0.5">
                 <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">
@@ -361,6 +380,22 @@ export const DedicatedGuideView: React.FC<DedicatedGuideViewProps> = ({
           </div>
         </div>
       </header>
+
+      {/* 4A. OFFICIAL DESKTOP RELEASES SECTION */}
+      {guide.desktopReleases && guide.desktopReleases.length > 0 && (
+        <section id="desktop-releases-section" className="space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-3">
+            <h2 className="text-xl sm:text-2xl font-black text-white flex items-center gap-2.5">
+              <Download className="w-6 h-6 text-amber-400" />
+              <span>Official Download Packages (Windows, Mac, Linux & Web)</span>
+            </h2>
+            <span className="text-xs text-amber-300 font-bold px-3 py-1 rounded-full bg-amber-500/15 border border-amber-400/30 self-start sm:self-auto">
+              Updated October 30, 2026
+            </span>
+          </div>
+          <CbrTvDesktopDownloads />
+        </section>
+      )}
 
       {/* 4. MAIN STEP-BY-STEP TUTORIAL STEPS */}
       <section className="space-y-6">
