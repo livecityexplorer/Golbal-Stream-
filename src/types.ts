@@ -169,6 +169,30 @@ export interface DetailedSetupGuide {
   remoteShortcuts?: RemoteShortcut[];
   faqs?: SetupFaq[];
   pros?: string[];
+  isOfficialApp?: boolean;
+  officialBadge?: string;
+  screenshotsGallery?: AppScreenshotItem[];
+  appSettingsSections?: AppSettingSection[];
+}
+
+export interface AppScreenshotItem {
+  id: string;
+  title: string;
+  caption: string;
+  imageUrl: string;
+  category: 'Live TV' | 'MultiView & Sports' | 'VOD & Series' | 'Settings & Playlists' | 'Household & Security';
+  tag?: string;
+}
+
+export interface AppSettingSection {
+  title: string;
+  category: string;
+  iconName?: string;
+  summary: string;
+  keyInstructions: string[];
+  recommendedBadge?: string;
+  warningNote?: string;
+  screenshotUrl?: string;
 }
 
 export interface DeviceGuide {

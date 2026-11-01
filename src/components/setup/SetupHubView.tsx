@@ -205,7 +205,26 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
               </button>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+            <div className="grid grid-cols-2 sm:grid-cols-5 gap-2.5">
+              {/* CBR TV - Official App */}
+              <div className="p-2.5 rounded-xl bg-gradient-to-br from-amber-500/15 via-slate-900 to-cyan-500/10 border-2 border-amber-400/50 flex flex-col justify-between gap-1.5 group hover:border-amber-400 transition-colors shadow-lg shadow-amber-500/10 col-span-2 sm:col-span-1">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-black text-amber-300 truncate">⭐ CBR TV</span>
+                  <span className="text-[10px] font-black uppercase text-amber-300 bg-amber-500/20 px-1.5 py-0.5 rounded border border-amber-400/30">
+                    Official
+                  </span>
+                </div>
+                <div className="flex items-center justify-between pt-1">
+                  <span className="font-mono text-sm font-black text-amber-300">626198</span>
+                  <button
+                    onClick={() => handleCopy('626198', 'top-626198')}
+                    className="text-[11px] px-2 py-0.5 rounded bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 font-black hover:from-amber-300 hover:to-amber-400 transition-colors cursor-pointer"
+                  >
+                    {copiedKey === 'top-626198' ? 'Copied' : 'Copy'}
+                  </button>
+                </div>
+              </div>
+
               {/* TiviMate Pro */}
               <div className="p-2.5 rounded-xl bg-slate-900/90 border border-white/5 flex flex-col justify-between gap-1.5 group hover:border-cyan-500/40 transition-colors">
                 <div className="flex items-center justify-between">
@@ -218,7 +237,7 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
                   <span className="font-mono text-sm font-black text-cyan-300">272483</span>
                   <button
                     onClick={() => handleCopy('272483', 'top-272483')}
-                    className="text-[11px] px-2 py-0.5 rounded bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-colors"
+                    className="text-[11px] px-2 py-0.5 rounded bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-colors cursor-pointer"
                   >
                     {copiedKey === 'top-272483' ? 'Copied' : 'Copy'}
                   </button>
@@ -237,7 +256,7 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
                   <span className="font-mono text-sm font-black text-cyan-300">80198</span>
                   <button
                     onClick={() => handleCopy('80198', 'top-80198')}
-                    className="text-[11px] px-2 py-0.5 rounded bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-colors"
+                    className="text-[11px] px-2 py-0.5 rounded bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-colors cursor-pointer"
                   >
                     {copiedKey === 'top-80198' ? 'Copied' : 'Copy'}
                   </button>
@@ -256,7 +275,7 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
                   <span className="font-mono text-sm font-black text-cyan-300">537992</span>
                   <button
                     onClick={() => handleCopy('537992', 'top-537992')}
-                    className="text-[11px] px-2 py-0.5 rounded bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-colors"
+                    className="text-[11px] px-2 py-0.5 rounded bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-colors cursor-pointer"
                   >
                     {copiedKey === 'top-537992' ? 'Copied' : 'Copy'}
                   </button>
@@ -275,7 +294,7 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
                   <span className="font-mono text-sm font-black text-cyan-300">82375</span>
                   <button
                     onClick={() => handleCopy('82375', 'top-82375')}
-                    className="text-[11px] px-2 py-0.5 rounded bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-colors"
+                    className="text-[11px] px-2 py-0.5 rounded bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-colors cursor-pointer"
                   >
                     {copiedKey === 'top-82375' ? 'Copied' : 'Copy'}
                   </button>
@@ -418,6 +437,7 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
               {displayedCategoryGuides.map((guide) => {
+                const isOfficial = !!guide.isOfficialApp;
                 return (
                   <article
                     key={guide.id}
@@ -426,11 +446,22 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
                       navigateTo('/setup/' + guide.slug);
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
-                    className="p-5 rounded-2xl border border-white/10 bg-slate-900/70 hover:border-cyan-400 hover:bg-slate-900 hover:shadow-xl hover:shadow-cyan-500/10 transition-all duration-300 flex flex-col justify-between gap-4 cursor-pointer relative group"
+                    className={`p-5 rounded-2xl border transition-all duration-300 flex flex-col justify-between gap-4 cursor-pointer relative group ${
+                      isOfficial
+                        ? 'border-2 border-amber-400/60 bg-gradient-to-b from-amber-500/15 via-slate-900 to-slate-950 shadow-xl shadow-amber-500/10 hover:border-amber-400'
+                        : 'border-white/10 bg-slate-900/70 hover:border-cyan-400 hover:bg-slate-900 hover:shadow-xl hover:shadow-cyan-500/10'
+                    }`}
                   >
+                    {isOfficial && (
+                      <div className="absolute -top-3 left-4 px-3 py-0.5 rounded-full bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 text-[10px] font-black uppercase tracking-wider shadow-md">
+                        ⭐ Official StreamUK App
+                      </div>
+                    )}
                     <div className="space-y-3">
                       <div className="flex items-start justify-between gap-3">
-                        <div className="w-12 h-12 rounded-xl border border-white/10 bg-slate-950 p-1.5 flex items-center justify-center shrink-0 group-hover:border-cyan-500/40 group-hover:bg-slate-900 transition-all">
+                        <div className={`w-12 h-12 rounded-xl border p-1.5 flex items-center justify-center shrink-0 transition-all ${
+                          isOfficial ? 'border-amber-400/40 bg-slate-950 group-hover:border-amber-400' : 'border-white/10 bg-slate-950 group-hover:border-cyan-500/40 group-hover:bg-slate-900'
+                        }`}>
                           {guide.appLogo ? (
                             <img
                               src={guide.appLogo}
@@ -439,11 +470,13 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
                               referrerPolicy="no-referrer"
                             />
                           ) : (
-                            <Tv className="w-6 h-6 text-cyan-400" />
+                            <Tv className={`w-6 h-6 ${isOfficial ? 'text-amber-400' : 'text-cyan-400'}`} />
                           )}
                         </div>
                         <div className="flex flex-col items-end gap-1">
-                          <span className="px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-slate-950 text-cyan-300 border border-cyan-500/20">
+                          <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-slate-950 border ${
+                            isOfficial ? 'text-amber-300 border-amber-400/30' : 'text-cyan-300 border-cyan-500/20'
+                          }`}>
                             {guide.playerType}
                           </span>
                           {guide.badge && (

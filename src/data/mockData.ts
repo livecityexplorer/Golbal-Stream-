@@ -1879,14 +1879,14 @@ export const DEVICE_GUIDES: DeviceGuide[] = [
     icon: 'Tv',
     difficulty: 'Easy',
     timeEstimate: '2 Mins',
-    recommendedApp: 'TiviMate IPTV Player / IPTV Smarters Pro / iMPlayer',
-    downloaderCode: '272483',
-    appUrl: 'https://tivimate.com/apk',
+    recommendedApp: 'CBR TV (Our Official App) / TiviMate 4K / iMPlayer',
+    downloaderCode: '626198',
+    appUrl: 'https://streamuk.vip/cbr-tv.apk',
     steps: [
       {
         title: 'Enable Apps from Unknown Sources',
-        description: 'Turn on your FireStick and navigate to Settings > My Fire TV > Developer Options. Enable "Apps from Unknown Sources".',
-        tip: 'If Developer Options is hidden, click "About" and click "Fire TV Stick" 7 times.'
+        description: 'Turn on your FireStick and navigate to Settings > My Fire TV > Developer Options. Enable "Install Unknown Apps" for Downloader.',
+        tip: 'If Developer Options is hidden, click "About" and press the center select button on "Fire TV Stick" 7 times.'
       },
       {
         title: 'Install the Downloader App',
@@ -1894,13 +1894,14 @@ export const DEVICE_GUIDES: DeviceGuide[] = [
         tip: 'Grant Downloader storage permissions when prompted.'
       },
       {
-        title: 'Enter Quick Download Code',
-        description: 'Open Downloader and enter official shortcode 272483 (for TiviMate), 82375 (for iMPlayer), or 80198 (for IPTV Smarters Pro) and install the app.',
+        title: 'Enter CBR TV Official Code: 626198',
+        description: 'Open Downloader and enter our official shortcode 626198 to install CBR TV (or 272483 for TiviMate / 82375 for iMPlayer).',
+        tip: 'CBR TV features built-in Sports Hub, 4-screen MultiView, and Household Link.'
       },
       {
         title: 'Login with Xtream Codes API',
-        description: 'Open the app, choose "Add Playlist" > "Xtream Codes", and enter the Server URL, Username, and Password received in your instant activation email.',
-        tip: 'Select "Include VOD & EPG" to automatically download all movie posters and 7-day TV guides.'
+        description: 'Open CBR TV, select "Add Playlist" > "Xtream Codes", and enter your Server URL, Username, and Password from your activation email.',
+        tip: 'Important: In Settings > Recording, leave DVR turned OFF. Enable Timeshift if you want live pause & rewind.'
       }
     ]
   },
@@ -1958,21 +1959,23 @@ export const DEVICE_GUIDES: DeviceGuide[] = [
     icon: 'Smartphone',
     difficulty: 'Easy',
     timeEstimate: '2 Mins',
-    recommendedApp: 'TiviMate IPTV Player / iMPlayer',
-    downloaderCode: '272483',
-    appUrl: 'https://tivimate.com/apk',
+    recommendedApp: 'CBR TV (Our Official App) / TiviMate 4K',
+    downloaderCode: '626198',
+    appUrl: 'https://streamuk.vip/cbr-tv.apk',
     steps: [
       {
-        title: 'Open Google Play Store or Downloader',
-        description: 'Open Google Play on your Android TV / Nvidia Shield, or open Downloader and enter verified code 272483 (for TiviMate) or 82375 (for iMPlayer).',
+        title: 'Open Downloader or Browser',
+        description: 'Open Downloader on your Android TV, Chromecast with Google TV, or Nvidia Shield. Enter official code 626198 to download CBR TV.',
+        tip: 'If using Google Play Store, you can also search and download Downloader directly.'
       },
       {
-        title: 'Install TiviMate or iMPlayer',
-        description: 'Install TiviMate for the best cable-style TV guide, or iMPlayer for multi-screen viewing.',
+        title: 'Install CBR TV Official App',
+        description: 'Click Install to finish setup. CBR TV is built for high refresh rates and 4K 60FPS sports playback.',
       },
       {
         title: 'Add Playlist via Xtream Codes',
         description: 'Add a new playlist, enter your Server URL, Username, and Password, and your full channel lineup will load instantly.',
+        tip: 'Check Settings > Recording to keep DVR turned OFF and enjoy cloud catchup.'
       }
     ]
   },

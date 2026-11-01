@@ -20,7 +20,11 @@ export const SetupGuidePage: React.FC<SetupGuidePageProps> = ({
   // Find matching guide if a specific slug is present in the URL
   const matchedGuide = useMemo(() => {
     if (!currentSlug) return null;
-    return ALL_SETUP_GUIDES.find(g => g.slug === currentSlug) || null;
+    const normalized = currentSlug.toLowerCase().trim();
+    if (normalized === 'cbr' || normalized === 'cbrtv' || normalized === 'boss-media-player' || normalized === 'boss-player') {
+      return ALL_SETUP_GUIDES.find(g => g.slug === 'cbr-tv') || null;
+    }
+    return ALL_SETUP_GUIDES.find(g => g.slug === normalized) || null;
   }, [currentSlug]);
 
   return (

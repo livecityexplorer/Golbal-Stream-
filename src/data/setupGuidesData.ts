@@ -7,6 +7,12 @@ import iconFormulerMag from '../assets/images/icon_formuler_mag_1787476437549.jp
 import iconPcWeb from '../assets/images/icon_pc_web_1787476451743.jpg';
 import iconTivimate from '../assets/images/icon_tivimate_1787476396203.jpg';
 import iconSmarters from '../assets/images/icon_smarters_1787476408474.jpg';
+import {
+  CBR_TV_OFFICIAL_GUIDE,
+  CBR_TV_OFFICIAL_GUIDE_ANDROID,
+  CBR_TV_OFFICIAL_GUIDE_FIRESTICK,
+  img01 as iconCbrTv
+} from './cbrTvData';
 
 export {
   iconFirestick,
@@ -16,7 +22,8 @@ export {
   iconFormulerMag,
   iconPcWeb,
   iconTivimate,
-  iconSmarters
+  iconSmarters,
+  iconCbrTv
 };
 
 export interface DeviceCategoryMeta {
@@ -84,6 +91,16 @@ export const UK_ISP_OPTIMIZATIONS: IspOptimizationGuide[] = [
 ];
 
 export const DOWNLOADER_SHORTCODES_VAULT: DownloaderCodeItem[] = [
+  {
+    code: '626198',
+    name: 'CBR TV (Our Official App)',
+    device: 'FireStick / Android TV / Google TV / Shield',
+    version: 'v1.0.39 Official (Boss Engine)',
+    badge: '⭐ Official App',
+    directUrl: 'https://streamuk.vip/cbr-tv.apk',
+    category: 'Official',
+    iconUrl: iconCbrTv
+  },
   {
     code: '272483',
     name: 'TiviMate IPTV Player Pro',
@@ -164,9 +181,9 @@ export const DEVICE_CATEGORIES: DeviceCategoryMeta[] = [
     tagline: 'FireStick 4K Max, Fire TV Cube & Smart TVs',
     iconName: 'Flame',
     imageUrl: iconFirestick,
-    badge: 'Most Popular',
+    badge: '⭐ Official App Available',
     devices: ['FireStick 4K Max (Gen 2)', 'FireStick 4K', 'Fire TV Cube', 'Fire TV 4K Select', 'Fire TV Smart TVs'],
-    recommendedPlayerSlug: 'firestick-tivimate',
+    recommendedPlayerSlug: 'cbr-tv',
   },
   {
     id: 'android-tv',
@@ -175,9 +192,9 @@ export const DEVICE_CATEGORIES: DeviceCategoryMeta[] = [
     tagline: 'Nvidia Shield, Chromecast, Xiaomi & Sony',
     iconName: 'Smartphone',
     imageUrl: iconAndroidTv,
-    badge: '4K 60FPS',
+    badge: '⭐ Official App Available',
     devices: ['Nvidia Shield TV Pro', 'Chromecast with Google TV (4K)', 'Sony Bravia Google TV', 'Xiaomi Mi Box S 4K', 'Mecool / Strong Boxes'],
-    recommendedPlayerSlug: 'android-tv-tivimate',
+    recommendedPlayerSlug: 'cbr-tv',
   },
   {
     id: 'apple',
@@ -226,6 +243,11 @@ export const DEVICE_CATEGORIES: DeviceCategoryMeta[] = [
 ];
 
 export const ALL_SETUP_GUIDES: DetailedSetupGuide[] = [
+  // 0. Official App - CBR TV (FireStick & Android TV)
+  CBR_TV_OFFICIAL_GUIDE,
+  CBR_TV_OFFICIAL_GUIDE_FIRESTICK,
+  CBR_TV_OFFICIAL_GUIDE_ANDROID,
+
   // 1. FireStick - TiviMate 4K
   {
     id: 'guide-firestick-tivimate',

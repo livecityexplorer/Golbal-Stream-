@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { DetailedSetupGuide } from '../../types';
 import { ALL_SETUP_GUIDES, DEVICE_CATEGORIES } from '../../data/setupGuidesData';
 import { ShareReferralBar } from '../ShareReferralBar';
+import { CbrTvAppShowcase } from './CbrTvAppShowcase';
 import { 
   Tv, 
   Flame, 
@@ -194,6 +195,13 @@ export const DedicatedGuideView: React.FC<DedicatedGuideViewProps> = ({
 
         {/* Metadata Chips Bar */}
         <div className="flex flex-wrap items-center gap-2 text-xs font-bold relative z-10">
+          {guide.isOfficialApp && (
+            <span className="px-3 py-1 rounded-full bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 font-black uppercase tracking-wider flex items-center gap-1.5 shadow-lg shadow-amber-500/20">
+              <Sparkles className="w-3.5 h-3.5 fill-current" />
+              <span>Official App</span>
+            </span>
+          )}
+
           <span className="px-3 py-1 rounded-full bg-cyan-500/15 text-cyan-300 border border-cyan-400/30 uppercase tracking-wider flex items-center gap-1.5">
             {getDeviceIcon(guide.icon)}
             <span>{guide.deviceCategoryLabel}</span>
@@ -461,6 +469,11 @@ export const DedicatedGuideView: React.FC<DedicatedGuideViewProps> = ({
           })}
         </div>
       </section>
+
+      {/* 4B. OFFICIAL APP SHOWCASE, SETTINGS WALKTHROUGH & SCREENSHOTS GALLERY */}
+      {guide.screenshotsGallery && guide.screenshotsGallery.length > 0 && (
+        <CbrTvAppShowcase guide={guide} onSelectPlan={onSelectPlan} />
+      )}
 
       {/* 5. STREAMUK SERVER CREDENTIALS VAULT */}
       <section className="p-6 sm:p-8 rounded-3xl bg-slate-900/90 border border-white/10 space-y-6">

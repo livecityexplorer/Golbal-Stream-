@@ -205,18 +205,30 @@ export const DeviceSetupModal: React.FC<DeviceSetupModalProps> = ({ isOpen, onCl
 
         {/* Footer Actions */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
             {navigateTo && (
-              <button
-                onClick={() => {
-                  onClose();
-                  navigateTo('/setup');
-                }}
-                className="px-4 py-2 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5"
-              >
-                <span>Browse All 20+ Dedicated Guides</span>
-                <ChevronRight className="w-3.5 h-3.5" />
-              </button>
+              <>
+                <button
+                  onClick={() => {
+                    onClose();
+                    navigateTo('/setup/cbr-tv');
+                  }}
+                  className="px-3.5 py-2 rounded-xl bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 font-black text-xs transition-all cursor-pointer flex items-center gap-1.5 shadow-md shadow-amber-500/20"
+                >
+                  <span>⭐ Official CBR TV Guide</span>
+                  <ChevronRight className="w-3.5 h-3.5" />
+                </button>
+                <button
+                  onClick={() => {
+                    onClose();
+                    navigateTo('/setup');
+                  }}
+                  className="px-3.5 py-2 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5"
+                >
+                  <span>Setup Hub Directory</span>
+                  <ChevronRight className="w-3.5 h-3.5" />
+                </button>
+              </>
             )}
           </div>
           <div className="flex items-center gap-3 w-full sm:w-auto">
