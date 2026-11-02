@@ -52,12 +52,12 @@ export const Navbar: React.FC<NavbarProps> = ({
   return (
     <header className={`sticky top-0 z-50 transition-all duration-300 ${
       scrolled 
-        ? 'bg-[#050713]/95 backdrop-blur-2xl border-b border-indigo-500/20 shadow-2xl shadow-black/60 py-2.5' 
-        : 'bg-[#060814]/85 backdrop-blur-xl border-b border-white/10 py-3.5'
+        ? 'bg-[#061411]/95 backdrop-blur-2xl border-b border-emerald-500/20 shadow-2xl shadow-black/60 py-2.5' 
+        : 'bg-[#071714]/85 backdrop-blur-xl border-b border-emerald-500/15 py-3.5'
     }`}>
       
       {/* Top ambient micro-line */}
-      <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-cyan-500/60 to-transparent pointer-events-none" />
+      <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-emerald-400/60 to-transparent pointer-events-none" />
 
       <div className="w-full max-w-[90rem] mx-auto px-3 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-2 sm:gap-4 lg:gap-8 w-full">
@@ -78,22 +78,22 @@ export const Navbar: React.FC<NavbarProps> = ({
               className="flex items-center gap-1.5 min-[360px]:gap-2 sm:gap-3 group relative select-none cursor-pointer bg-transparent border-none p-0 text-left"
             >
               
-              {/* Premium 3D Neon 4K Emblem */}
+              {/* Premium 3D Neon 4K Emblem - Eye Comfort Emerald */}
               <div className="relative flex items-center justify-center shrink-0">
                 {/* Ambient glow behind logo */}
-                <div className="absolute -inset-1 bg-gradient-to-tr from-cyan-500 via-indigo-500 to-amber-500 rounded-xl blur-[8px] opacity-70 group-hover:opacity-100 transition-all duration-500" />
+                <div className="absolute -inset-1 bg-gradient-to-tr from-emerald-500 via-teal-500 to-amber-500 rounded-xl blur-[8px] opacity-75 group-hover:opacity-100 transition-all duration-500" />
                 
                 {/* Outer metallic container */}
-                <div className="relative w-9 h-9 min-[360px]:w-10 min-[360px]:h-10 sm:w-12 sm:h-12 xl:w-14 xl:h-14 rounded-[12px] sm:rounded-[18px] bg-gradient-to-br from-slate-900 via-[#0a0f26] to-slate-950 p-[1.5px] shadow-[0_0_12px_rgba(56,189,248,0.25)] border border-white/20 group-hover:scale-105 transition-transform duration-300">
-                  <div className="w-full h-full rounded-[10px] sm:rounded-[16px] bg-[#070b1e] flex flex-col items-center justify-center relative overflow-hidden">
+                <div className="relative w-9 h-9 min-[360px]:w-10 min-[360px]:h-10 sm:w-12 sm:h-12 xl:w-14 xl:h-14 rounded-[12px] sm:rounded-[18px] bg-gradient-to-br from-slate-900 via-[#08221b] to-slate-950 p-[1.5px] shadow-[0_0_12px_rgba(16,185,129,0.3)] border border-emerald-500/30 group-hover:scale-105 transition-transform duration-300">
+                  <div className="w-full h-full rounded-[10px] sm:rounded-[16px] bg-[#061713] flex flex-col items-center justify-center relative overflow-hidden">
                     
                     {/* Futuristic grid mesh background */}
-                    <div className="absolute inset-0 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:6px_6px] opacity-30" />
+                    <div className="absolute inset-0 bg-[radial-gradient(#10b981_1px,transparent_1px)] [background-size:6px_6px] opacity-30" />
                     
                     {/* TV / Broadcast Core Graphic */}
                     <div className="relative z-10 flex items-center justify-center">
                       <div className="relative">
-                        <Tv className="w-3.5 h-3.5 min-[360px]:w-4 min-[360px]:h-4 sm:w-6 sm:h-6 xl:w-7 xl:h-7 text-cyan-400 group-hover:text-amber-400 transition-colors drop-shadow-[0_0_6px_rgba(56,189,248,0.7)]" />
+                        <Tv className="w-3.5 h-3.5 min-[360px]:w-4 min-[360px]:h-4 sm:w-6 sm:h-6 xl:w-7 xl:h-7 text-emerald-400 group-hover:text-amber-400 transition-colors drop-shadow-[0_0_6px_rgba(16,185,129,0.7)]" />
                         <span className="absolute -bottom-1 -right-2 text-[7px] min-[360px]:text-[8px] sm:text-[9px] xl:text-[10px] font-black tracking-tighter bg-gradient-to-r from-amber-400 to-orange-500 text-slate-950 px-0.5 sm:px-1 rounded-[2px] leading-none py-0.5 shadow-sm border border-amber-200/50">
                           4K
                         </span>
@@ -101,8 +101,8 @@ export const Navbar: React.FC<NavbarProps> = ({
                     </div>
 
                     {/* Laser shine line */}
-                    <div className="absolute top-0 left-0 w-full h-[1.5px] bg-gradient-to-r from-transparent via-cyan-300 to-transparent opacity-80" />
-                    <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-indigo-500 to-transparent opacity-50" />
+                    <div className="absolute top-0 left-0 w-full h-[1.5px] bg-gradient-to-r from-transparent via-emerald-300 to-transparent opacity-80" />
+                    <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-teal-500 to-transparent opacity-50" />
                   </div>
                 </div>
               </div>
@@ -110,12 +110,12 @@ export const Navbar: React.FC<NavbarProps> = ({
               {/* Brand Typography */}
               <div className="flex flex-col justify-center">
                 <div className="font-black text-sm min-[360px]:text-base min-[400px]:text-xl sm:text-2xl xl:text-3xl tracking-tight text-white flex items-center drop-shadow-md leading-none">
-                  GLOBAL<span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-300">STREAM</span>
+                  GLOBAL<span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-200">STREAM</span>
                   <span className="ml-1 text-[7px] min-[360px]:text-[8px] sm:text-[10px] xl:text-xs font-black tracking-wider text-amber-400 bg-amber-400/10 px-1 sm:px-1.5 py-0.5 rounded border border-amber-400/30">
                     HUB
                   </span>
                 </div>
-                <span className="text-[7px] min-[360px]:text-[8px] min-[400px]:text-[9px] sm:text-[10px] font-bold tracking-wider text-sky-400/90 uppercase mt-0.5 drop-shadow-sm">
+                <span className="text-[7px] min-[360px]:text-[8px] min-[400px]:text-[9px] sm:text-[10px] font-bold tracking-wider text-emerald-400/90 uppercase mt-0.5 drop-shadow-sm">
                   Ultra HD Media Portal
                 </span>
               </div>

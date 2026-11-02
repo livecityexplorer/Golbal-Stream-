@@ -129,42 +129,42 @@ export const DedicatedGuideView: React.FC<DedicatedGuideViewProps> = ({
   const currentCategoryMeta = DEVICE_CATEGORIES.find(c => c.id === guide.deviceCategory);
 
   return (
-    <div className="pt-24 pb-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto space-y-10">
+    <div className="pt-24 pb-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto space-y-10 text-slate-100">
       
       {/* Toast Notification */}
       {shareToast && (
-        <div className="fixed bottom-6 right-6 z-50 bg-cyan-500 text-slate-950 font-bold px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-3 animate-bounce">
+        <div className="fixed bottom-6 right-6 z-50 bg-emerald-500 text-slate-950 font-bold px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-3 animate-bounce">
           <Check className="w-5 h-5" />
           <span>Direct Guide URL copied to clipboard!</span>
         </div>
       )}
 
       {/* 1. Breadcrumb Navigation */}
-      <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-slate-400 flex-wrap">
+      <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-emerald-200/60 flex-wrap">
         <button
           onClick={() => navigateTo('/')}
-          className="hover:text-cyan-400 transition-colors flex items-center gap-1 cursor-pointer"
+          className="hover:text-emerald-300 transition-colors flex items-center gap-1 cursor-pointer"
         >
           Home
         </button>
-        <ChevronRight className="w-3.5 h-3.5 text-slate-600" />
+        <ChevronRight className="w-3.5 h-3.5 text-emerald-800" />
         <button
           onClick={() => navigateTo('/setup')}
-          className="hover:text-cyan-400 transition-colors font-medium cursor-pointer"
+          className="hover:text-emerald-300 transition-colors font-medium cursor-pointer"
         >
           Setup Guides Hub
         </button>
-        <ChevronRight className="w-3.5 h-3.5 text-slate-600" />
+        <ChevronRight className="w-3.5 h-3.5 text-emerald-800" />
         <button
           onClick={() => {
             navigateTo('/setup');
           }}
-          className="hover:text-cyan-400 transition-colors text-slate-300 font-medium cursor-pointer"
+          className="hover:text-emerald-300 transition-colors text-emerald-100 font-medium cursor-pointer"
         >
           {guide.deviceCategoryLabel}
         </button>
-        <ChevronRight className="w-3.5 h-3.5 text-slate-600" />
-        <span className="text-cyan-300 font-bold truncate max-w-[200px] sm:max-w-none">
+        <ChevronRight className="w-3.5 h-3.5 text-emerald-800" />
+        <span className="text-emerald-300 font-bold truncate max-w-[200px] sm:max-w-none">
           {guide.playerName}
         </span>
       </nav>
@@ -173,85 +173,81 @@ export const DedicatedGuideView: React.FC<DedicatedGuideViewProps> = ({
       <div className="flex items-center justify-between gap-4">
         <button
           onClick={() => navigateTo('/setup')}
-          className="inline-flex items-center gap-2 text-xs font-bold text-slate-300 hover:text-cyan-300 bg-slate-900/80 hover:bg-slate-900 px-4 py-2 rounded-xl border border-white/10 transition-all cursor-pointer group"
+          className="inline-flex items-center gap-2 text-xs font-semibold text-emerald-100 hover:text-white bg-[#091b17] hover:bg-[#0c2621] px-3.5 py-2 rounded-xl border border-emerald-900/40 transition-all cursor-pointer group min-h-[38px]"
         >
-          <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
-          <span>Browse All Device Guides</span>
+          <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1 text-emerald-400 group-hover:text-white" />
+          <span>Browse All Guides</span>
         </button>
 
         {/* Share Button Pill */}
         <button
           onClick={handleShare}
-          className="inline-flex items-center gap-2 text-xs font-bold text-cyan-300 hover:text-white bg-cyan-500/10 hover:bg-cyan-500/20 px-4 py-2 rounded-xl border border-cyan-500/30 transition-all cursor-pointer shadow-lg shadow-cyan-500/5"
+          className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-300 hover:text-white bg-[#091b17] hover:bg-[#0c2621] px-3.5 py-2 rounded-xl border border-emerald-900/40 transition-all cursor-pointer min-h-[38px]"
         >
-          <Share2 className="w-4 h-4" />
-          <span>Share Tutorial</span>
+          <Share2 className="w-3.5 h-3.5" />
+          <span>Share</span>
         </button>
       </div>
 
-      {/* 2. DEDICATED HERO SECTION */}
-      <header className="relative p-6 sm:p-10 rounded-3xl bg-gradient-to-br from-slate-900 via-[#0a0f26] to-slate-950 border border-cyan-500/30 shadow-2xl shadow-cyan-500/10 overflow-hidden space-y-8">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none -ml-20 -mb-20" />
-
+      {/* 2. DEDICATED HERO SECTION - Eye-Comfort Emerald Palette */}
+      <header className="relative p-5 sm:p-8 rounded-3xl bg-[#091b17] border border-emerald-900/50 shadow-sm overflow-hidden space-y-6">
         {/* Metadata Chips Bar */}
-        <div className="flex flex-wrap items-center gap-2 text-xs font-bold relative z-10">
+        <div className="flex flex-wrap items-center gap-2 text-xs font-medium relative z-10">
           {guide.isOfficialApp && (
-            <span className="px-3 py-1 rounded-full bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 font-black uppercase tracking-wider flex items-center gap-1.5 shadow-lg shadow-amber-500/20">
-              <Sparkles className="w-3.5 h-3.5 fill-current" />
+            <span className="px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-400/40 font-bold uppercase tracking-wider flex items-center gap-1.5">
+              <Sparkles className="w-3.5 h-3.5" />
               <span>Official App</span>
             </span>
           )}
 
-          <span className="px-3 py-1 rounded-full bg-cyan-500/15 text-cyan-300 border border-cyan-400/30 uppercase tracking-wider flex items-center gap-1.5">
+          <span className="px-2.5 py-1 rounded-full bg-[#061411] text-emerald-300 border border-emerald-900/60 font-semibold uppercase tracking-wider flex items-center gap-1.5">
             {getDeviceIcon(guide.icon)}
             <span>{guide.deviceCategoryLabel}</span>
           </span>
 
-          <span className="px-3 py-1 rounded-full bg-slate-950/80 text-amber-400 border border-amber-500/30 flex items-center gap-1">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>{guide.badge || 'Verified 2026 Tutorial'}</span>
+          <span className="px-2.5 py-1 rounded-full bg-[#061411] text-emerald-100 border border-emerald-900/60 flex items-center gap-1">
+            <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+            <span>{guide.badge || 'Verified 2026'}</span>
           </span>
 
-          <span className="px-3 py-1 rounded-full bg-slate-950/80 text-slate-300 border border-white/10 flex items-center gap-1.5">
-            <Clock className="w-3.5 h-3.5 text-cyan-400" />
-            <span>Setup Time: {guide.timeEstimate}</span>
+          <span className="px-2.5 py-1 rounded-full bg-[#061411] text-emerald-100 border border-emerald-900/60 flex items-center gap-1.5">
+            <Clock className="w-3.5 h-3.5 text-emerald-400" />
+            <span>{guide.timeEstimate}</span>
           </span>
 
-          <span className="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center gap-1.5">
+          <span className="px-2.5 py-1 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 flex items-center gap-1.5">
             <ShieldCheck className="w-3.5 h-3.5" />
-            <span>Anti-Freeze v9.8 Ready</span>
+            <span>Anti-Freeze v9.8</span>
           </span>
         </div>
 
         {/* Main Title & App Branding Header */}
-        <div className="flex flex-col md:flex-row md:items-center gap-6 relative z-10">
-          <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-3xl bg-slate-950/90 border border-cyan-500/40 p-3 flex items-center justify-center shadow-xl shadow-cyan-500/10 shrink-0 relative overflow-hidden group">
-            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-indigo-500/10 pointer-events-none" />
+        <div className="flex flex-col md:flex-row md:items-center gap-5 relative z-10">
+          <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-[#061411] border border-emerald-900/60 p-2.5 flex items-center justify-center shrink-0">
             {guide.appLogo ? (
               <img
                 src={guide.appLogo}
                 alt={guide.playerName}
-                className="w-full h-full object-contain filter drop-shadow-md"
+                className="w-full h-full object-contain filter drop-shadow-sm"
                 referrerPolicy="no-referrer"
               />
             ) : (
-              <Tv className="w-10 h-10 text-cyan-400" />
+              <Tv className="w-8 h-8 text-emerald-400" />
             )}
           </div>
 
-          <div className="space-y-3 flex-1">
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight leading-snug">
+          <div className="space-y-2 flex-1">
+            <h1 className="text-xl sm:text-2xl lg:text-3xl font-black text-white tracking-tight leading-snug">
               {guide.title}
             </h1>
-            <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-4xl">
+            <p className="text-xs sm:text-sm text-emerald-100/80 leading-relaxed max-w-4xl">
               {guide.summary}
             </p>
           </div>
         </div>
 
         {/* Key Quick Action Highlights (Downloader Code / Store Link + Plan CTA) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-6 border-t border-white/10 relative z-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 pt-5 border-t border-emerald-900/40 relative z-10">
           
           {/* Downloader / Desktop App Card */}
           {guide.desktopReleases && guide.desktopReleases.length > 0 ? (
@@ -273,30 +269,30 @@ export const DedicatedGuideView: React.FC<DedicatedGuideViewProps> = ({
               </a>
             </div>
           ) : guide.downloaderCode ? (
-            <div className="p-4 rounded-2xl bg-slate-950/80 border border-cyan-500/30 flex items-center justify-between gap-3 shadow-lg">
+            <div className="p-4 rounded-2xl bg-[#061411] border border-emerald-900/50 flex items-center justify-between gap-3 shadow-sm">
               <div className="space-y-0.5">
-                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">
+                <span className="text-[11px] font-bold text-emerald-200/60 uppercase tracking-wider block">
                   Quick Downloader Code
                 </span>
-                <span className="font-mono text-xl sm:text-2xl font-black text-cyan-300 tracking-wider">
+                <span className="font-mono text-xl sm:text-2xl font-bold text-emerald-300 tracking-wider">
                   {guide.downloaderCode}
                 </span>
               </div>
               <button
                 onClick={() => handleCopy(guide.downloaderCode!, 'hero-code')}
-                className="px-3.5 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 text-xs font-black flex items-center gap-1.5 transition-all cursor-pointer active:scale-95 shadow-md shadow-cyan-500/20"
+                className="px-3.5 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer active:scale-95 shadow-sm"
               >
                 {copiedKey === 'hero-code' ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                 <span>{copiedKey === 'hero-code' ? 'Copied' : 'Copy'}</span>
               </button>
             </div>
           ) : (
-            <div className="p-4 rounded-2xl bg-slate-950/80 border border-white/10 flex items-center justify-between gap-3 shadow-lg">
+            <div className="p-4 rounded-2xl bg-[#061411] border border-emerald-900/50 flex items-center justify-between gap-3 shadow-sm">
               <div className="space-y-0.5">
-                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">
+                <span className="text-[11px] font-bold text-emerald-200/60 uppercase tracking-wider block">
                   Installation Source
                 </span>
-                <span className="text-sm font-black text-white">
+                <span className="text-sm font-bold text-white">
                   {guide.playerType}
                 </span>
               </div>
@@ -305,7 +301,7 @@ export const DedicatedGuideView: React.FC<DedicatedGuideViewProps> = ({
                   href={guide.appUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-cyan-300 text-xs font-bold flex items-center gap-1.5 transition-all"
+                  className="px-3.5 py-2 rounded-xl bg-emerald-950/80 hover:bg-emerald-900 text-emerald-300 text-xs font-semibold flex items-center gap-1.5 transition-all border border-emerald-800/40"
                 >
                   <ExternalLink className="w-4 h-4" />
                   <span>Store Link</span>
@@ -315,66 +311,66 @@ export const DedicatedGuideView: React.FC<DedicatedGuideViewProps> = ({
           )}
 
           {/* Player Protocol Type */}
-          <div className="p-4 rounded-2xl bg-slate-950/80 border border-white/10 flex items-center justify-between gap-3 shadow-lg">
+          <div className="p-4 rounded-2xl bg-[#061411] border border-emerald-900/50 flex items-center justify-between gap-3 shadow-sm">
             <div className="space-y-0.5">
-              <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">
+              <span className="text-[11px] font-bold text-emerald-200/60 uppercase tracking-wider block">
                 Connection Protocol
               </span>
-              <span className="text-sm font-black text-indigo-300 uppercase">
+              <span className="text-sm font-bold text-slate-200 uppercase">
                 {guide.loginType === 'xtream_codes' ? 'Xtream Codes API' :
                  guide.loginType === 'mac_portal' ? 'MAC / Portal Middleware' :
                  guide.loginType === 'm3u_url' ? 'M3U Plus Playlist URL' : 'Instant Web Player'}
               </span>
             </div>
-            <Zap className="w-6 h-6 text-amber-400" />
+            <Zap className="w-5 h-5 text-amber-400" />
           </div>
 
-          {/* Instant Activation Button - Free 24H Trial Priority */}
-          <div className="p-4 rounded-2xl bg-gradient-to-r from-emerald-500/20 via-teal-500/10 to-cyan-500/20 border-2 border-emerald-400/40 flex items-center justify-between gap-3 shadow-lg sm:col-span-2 lg:col-span-1">
+          {/* Instant Activation Button - Free 24H Trial */}
+          <div className="p-4 rounded-2xl bg-[#061411] border border-emerald-500/30 flex items-center justify-between gap-3 shadow-sm sm:col-span-2 lg:col-span-1">
             <div className="space-y-0.5">
-              <span className="text-[11px] font-black text-emerald-300 uppercase tracking-wider block">
-                Zero-Risk 24H Pass
+              <span className="text-[11px] font-bold text-emerald-300 uppercase tracking-wider block">
+                Free 24H Pass
               </span>
-              <span className="text-xs font-bold text-white">
+              <span className="text-xs text-emerald-200/70">
                 No Card Required • Instant
               </span>
             </div>
             <button
               onClick={() => onSelectPlan('trial-24h')}
-              className="px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 hover:from-emerald-300 hover:to-cyan-300 text-slate-950 font-black text-xs transition-all shadow-md shadow-emerald-500/25 cursor-pointer whitespace-nowrap hover:scale-105 active:scale-95"
+              className="px-4 py-2 rounded-xl bg-emerald-400 hover:bg-emerald-300 text-slate-950 font-bold text-xs transition-all shadow-sm cursor-pointer whitespace-nowrap active:scale-95"
             >
-              Start Free 24H Trial
+              Start Free Trial
             </button>
           </div>
         </div>
 
         {/* 3. Interactive Checklist Progress Tracker */}
-        <div className="pt-4 border-t border-white/5 space-y-3">
+        <div className="pt-4 border-t border-emerald-900/40 space-y-3">
           <div className="flex items-center justify-between text-xs">
             <span className="text-slate-300 font-bold flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-cyan-400" />
+              <CheckCircle2 className="w-4 h-4 text-emerald-400" />
               <span>Tutorial Progress: {completedCount} of {guide.steps.length} Steps Completed</span>
             </span>
             <div className="flex items-center gap-3">
               <button
                 onClick={() => markAllSteps(true)}
-                className="text-cyan-400 hover:text-cyan-300 text-xs font-semibold cursor-pointer underline underline-offset-4"
+                className="text-emerald-400 hover:text-emerald-300 text-xs font-semibold cursor-pointer underline underline-offset-4"
               >
                 Mark All Done
               </button>
-              <span className="text-slate-600">|</span>
+              <span className="text-emerald-900">|</span>
               <button
                 onClick={() => markAllSteps(false)}
-                className="text-slate-400 hover:text-slate-200 text-xs font-semibold cursor-pointer"
+                className="text-emerald-200/60 hover:text-white text-xs font-semibold cursor-pointer"
               >
                 Reset
               </button>
             </div>
           </div>
 
-          <div className="w-full h-2.5 bg-slate-950 rounded-full overflow-hidden border border-white/5">
+          <div className="w-full h-2.5 bg-[#061411] rounded-full overflow-hidden border border-emerald-900/40">
             <div
-              className="h-full bg-gradient-to-r from-cyan-400 via-indigo-500 to-emerald-400 transition-all duration-500 ease-out"
+              className="h-full bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-300 transition-all duration-500 ease-out"
               style={{ width: `${progressPercent}%` }}
             />
           </div>

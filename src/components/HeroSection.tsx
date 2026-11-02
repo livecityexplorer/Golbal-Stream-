@@ -29,14 +29,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   return (
     <section 
       aria-label="StreamUK 4K IPTV Hero Showcase"
-      className="relative pt-4 sm:pt-12 pb-14 sm:pb-24 overflow-hidden bg-[#060814] w-full max-w-full"
+      className="relative pt-4 sm:pt-12 pb-14 sm:pb-24 overflow-hidden bg-[#071412] w-full max-w-full"
       itemScope 
       itemType="https://schema.org/BroadcastService"
     >
       
-      {/* Radiant Background Ambience */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] sm:w-[1100px] h-[350px] sm:h-[550px] bg-gradient-to-b from-indigo-600/25 via-sky-600/15 to-transparent blur-[100px] sm:blur-[120px] pointer-events-none max-w-full" />
-      <div className="absolute -top-24 right-1/4 w-[280px] sm:w-[400px] h-[200px] sm:h-[300px] bg-rose-600/10 blur-[80px] sm:blur-[100px] pointer-events-none max-w-full" />
+      {/* Radiant Background Ambience - Eye Comfort Emerald & Teal */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] sm:w-[1100px] h-[350px] sm:h-[550px] bg-gradient-to-b from-emerald-600/25 via-teal-600/15 to-transparent blur-[100px] sm:blur-[120px] pointer-events-none max-w-full" />
+      <div className="absolute -top-24 right-1/4 w-[280px] sm:w-[400px] h-[200px] sm:h-[300px] bg-amber-600/10 blur-[80px] sm:blur-[100px] pointer-events-none max-w-full" />
 
       <div className="w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
         
@@ -49,7 +49,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               className="hero-headline font-black text-white text-3xl min-[400px]:text-4xl sm:text-6xl md:text-7xl leading-[1.1] tracking-tight break-words"
             >
               {t.hero.titleStart}{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-sky-300 to-cyan-400">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 via-teal-200 to-emerald-400">
                 {t.hero.titleHighlight}
               </span>{' '}
               {t.hero.titleEnd}
