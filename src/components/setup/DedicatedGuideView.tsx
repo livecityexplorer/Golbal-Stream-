@@ -140,31 +140,31 @@ export const DedicatedGuideView: React.FC<DedicatedGuideViewProps> = ({
       )}
 
       {/* 1. Breadcrumb Navigation */}
-      <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-emerald-200/60 flex-wrap">
+      <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-slate-400 flex-wrap">
         <button
           onClick={() => navigateTo('/')}
-          className="hover:text-emerald-300 transition-colors flex items-center gap-1 cursor-pointer"
+          className="hover:text-indigo-300 transition-colors flex items-center gap-1 cursor-pointer"
         >
           Home
         </button>
-        <ChevronRight className="w-3.5 h-3.5 text-emerald-800" />
+        <ChevronRight className="w-3.5 h-3.5 text-slate-600" />
         <button
           onClick={() => navigateTo('/setup')}
-          className="hover:text-emerald-300 transition-colors font-medium cursor-pointer"
+          className="hover:text-indigo-300 transition-colors font-medium cursor-pointer"
         >
           Setup Guides Hub
         </button>
-        <ChevronRight className="w-3.5 h-3.5 text-emerald-800" />
+        <ChevronRight className="w-3.5 h-3.5 text-slate-600" />
         <button
           onClick={() => {
             navigateTo('/setup');
           }}
-          className="hover:text-emerald-300 transition-colors text-emerald-100 font-medium cursor-pointer"
+          className="hover:text-indigo-300 transition-colors text-slate-300 font-medium cursor-pointer"
         >
           {guide.deviceCategoryLabel}
         </button>
-        <ChevronRight className="w-3.5 h-3.5 text-emerald-800" />
-        <span className="text-emerald-300 font-bold truncate max-w-[200px] sm:max-w-none">
+        <ChevronRight className="w-3.5 h-3.5 text-slate-600" />
+        <span className="text-indigo-300 font-bold truncate max-w-[200px] sm:max-w-none">
           {guide.playerName}
         </span>
       </nav>
@@ -173,49 +173,49 @@ export const DedicatedGuideView: React.FC<DedicatedGuideViewProps> = ({
       <div className="flex items-center justify-between gap-4">
         <button
           onClick={() => navigateTo('/setup')}
-          className="inline-flex items-center gap-2 text-xs font-semibold text-emerald-100 hover:text-white bg-[#091b17] hover:bg-[#0c2621] px-3.5 py-2 rounded-xl border border-emerald-900/40 transition-all cursor-pointer group min-h-[38px]"
+          className="inline-flex items-center gap-2 text-xs font-semibold text-slate-200 hover:text-white bg-[#131622] hover:bg-[#181d2e] px-3.5 py-2 rounded-xl border border-white/[0.08] transition-all cursor-pointer group min-h-[38px]"
         >
-          <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1 text-emerald-400 group-hover:text-white" />
+          <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1 text-indigo-400 group-hover:text-white" />
           <span>Browse All Guides</span>
         </button>
 
         {/* Share Button Pill */}
         <button
           onClick={handleShare}
-          className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-300 hover:text-white bg-[#091b17] hover:bg-[#0c2621] px-3.5 py-2 rounded-xl border border-emerald-900/40 transition-all cursor-pointer min-h-[38px]"
+          className="inline-flex items-center gap-1.5 text-xs font-semibold text-indigo-300 hover:text-white bg-[#131622] hover:bg-[#181d2e] px-3.5 py-2 rounded-xl border border-white/[0.08] transition-all cursor-pointer min-h-[38px]"
         >
           <Share2 className="w-3.5 h-3.5" />
           <span>Share</span>
         </button>
       </div>
 
-      {/* 2. DEDICATED HERO SECTION - Eye-Comfort Emerald Palette */}
-      <header className="relative p-5 sm:p-8 rounded-3xl bg-[#091b17] border border-emerald-900/50 shadow-sm overflow-hidden space-y-6">
+      {/* 2. DEDICATED HERO SECTION - Cinema Obsidian Palette */}
+      <header className="relative p-5 sm:p-8 rounded-3xl bg-[#131622] border border-white/[0.08] shadow-xl overflow-hidden space-y-6">
         {/* Metadata Chips Bar */}
         <div className="flex flex-wrap items-center gap-2 text-xs font-medium relative z-10">
           {guide.isOfficialApp && (
-            <span className="px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-400/40 font-bold uppercase tracking-wider flex items-center gap-1.5">
+            <span className="px-2.5 py-1 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-400/40 font-bold uppercase tracking-wider flex items-center gap-1.5">
               <Sparkles className="w-3.5 h-3.5" />
               <span>Official App</span>
             </span>
           )}
 
-          <span className="px-2.5 py-1 rounded-full bg-[#061411] text-emerald-300 border border-emerald-900/60 font-semibold uppercase tracking-wider flex items-center gap-1.5">
+          <span className="px-2.5 py-1 rounded-full bg-[#0a0c13] text-indigo-300 border border-white/[0.08] font-semibold uppercase tracking-wider flex items-center gap-1.5">
             {getDeviceIcon(guide.icon)}
             <span>{guide.deviceCategoryLabel}</span>
           </span>
 
-          <span className="px-2.5 py-1 rounded-full bg-[#061411] text-emerald-100 border border-emerald-900/60 flex items-center gap-1">
+          <span className="px-2.5 py-1 rounded-full bg-[#0a0c13] text-slate-200 border border-white/[0.08] flex items-center gap-1">
             <Sparkles className="w-3.5 h-3.5 text-amber-400" />
             <span>{guide.badge || 'Verified 2026'}</span>
           </span>
 
-          <span className="px-2.5 py-1 rounded-full bg-[#061411] text-emerald-100 border border-emerald-900/60 flex items-center gap-1.5">
-            <Clock className="w-3.5 h-3.5 text-emerald-400" />
+          <span className="px-2.5 py-1 rounded-full bg-[#0a0c13] text-slate-200 border border-white/[0.08] flex items-center gap-1.5">
+            <Clock className="w-3.5 h-3.5 text-indigo-400" />
             <span>{guide.timeEstimate}</span>
           </span>
 
-          <span className="px-2.5 py-1 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 flex items-center gap-1.5">
+          <span className="px-2.5 py-1 rounded-full bg-indigo-500/15 text-indigo-300 border border-indigo-500/25 flex items-center gap-1.5">
             <ShieldCheck className="w-3.5 h-3.5" />
             <span>Anti-Freeze v9.8</span>
           </span>
@@ -223,7 +223,7 @@ export const DedicatedGuideView: React.FC<DedicatedGuideViewProps> = ({
 
         {/* Main Title & App Branding Header */}
         <div className="flex flex-col md:flex-row md:items-center gap-5 relative z-10">
-          <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-[#061411] border border-emerald-900/60 p-2.5 flex items-center justify-center shrink-0">
+          <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-[#0a0c13] border border-white/[0.08] p-2.5 flex items-center justify-center shrink-0">
             {guide.appLogo ? (
               <img
                 src={guide.appLogo}
@@ -232,7 +232,7 @@ export const DedicatedGuideView: React.FC<DedicatedGuideViewProps> = ({
                 referrerPolicy="no-referrer"
               />
             ) : (
-              <Tv className="w-8 h-8 text-emerald-400" />
+              <Tv className="w-8 h-8 text-indigo-400" />
             )}
           </div>
 
@@ -240,18 +240,18 @@ export const DedicatedGuideView: React.FC<DedicatedGuideViewProps> = ({
             <h1 className="text-xl sm:text-2xl lg:text-3xl font-black text-white tracking-tight leading-snug">
               {guide.title}
             </h1>
-            <p className="text-xs sm:text-sm text-emerald-100/80 leading-relaxed max-w-4xl">
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-4xl">
               {guide.summary}
             </p>
           </div>
         </div>
 
         {/* Key Quick Action Highlights (Downloader Code / Store Link + Plan CTA) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 pt-5 border-t border-emerald-900/40 relative z-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 pt-5 border-t border-white/[0.08] relative z-10">
           
           {/* Downloader / Desktop App Card */}
           {guide.desktopReleases && guide.desktopReleases.length > 0 ? (
-            <div className="p-4 rounded-2xl bg-gradient-to-br from-amber-500/15 via-slate-950 to-slate-950 border border-amber-400/40 flex items-center justify-between gap-3 shadow-lg">
+            <div className="p-4 rounded-2xl bg-gradient-to-br from-indigo-950/40 via-[#0a0c13] to-[#0a0c13] border border-indigo-500/30 flex items-center justify-between gap-3 shadow-lg">
               <div className="space-y-0.5">
                 <span className="text-[11px] font-bold text-amber-300 uppercase tracking-wider block">
                   ⭐ Official Desktop Installer
@@ -262,34 +262,34 @@ export const DedicatedGuideView: React.FC<DedicatedGuideViewProps> = ({
               </div>
               <a
                 href="#desktop-releases-section"
-                className="px-3.5 py-2 rounded-xl bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 text-xs font-black flex items-center gap-1.5 transition-all shadow-md shadow-amber-500/20"
+                className="px-3.5 py-2 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 text-xs font-black flex items-center gap-1.5 transition-all shadow-md shadow-amber-950/40"
               >
                 <Download className="w-4 h-4" />
                 <span>Get Downloads</span>
               </a>
             </div>
           ) : guide.downloaderCode ? (
-            <div className="p-4 rounded-2xl bg-[#061411] border border-emerald-900/50 flex items-center justify-between gap-3 shadow-sm">
+            <div className="p-4 rounded-2xl bg-[#0a0c13] border border-white/[0.08] flex items-center justify-between gap-3 shadow-sm">
               <div className="space-y-0.5">
-                <span className="text-[11px] font-bold text-emerald-200/60 uppercase tracking-wider block">
+                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">
                   Quick Downloader Code
                 </span>
-                <span className="font-mono text-xl sm:text-2xl font-bold text-emerald-300 tracking-wider">
+                <span className="font-mono text-xl sm:text-2xl font-bold text-amber-300 tracking-wider">
                   {guide.downloaderCode}
                 </span>
               </div>
               <button
                 onClick={() => handleCopy(guide.downloaderCode!, 'hero-code')}
-                className="px-3.5 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer active:scale-95 shadow-sm"
+                className="px-3.5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer active:scale-95 shadow-sm"
               >
                 {copiedKey === 'hero-code' ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                 <span>{copiedKey === 'hero-code' ? 'Copied' : 'Copy'}</span>
               </button>
             </div>
           ) : (
-            <div className="p-4 rounded-2xl bg-[#061411] border border-emerald-900/50 flex items-center justify-between gap-3 shadow-sm">
+            <div className="p-4 rounded-2xl bg-[#0a0c13] border border-white/[0.08] flex items-center justify-between gap-3 shadow-sm">
               <div className="space-y-0.5">
-                <span className="text-[11px] font-bold text-emerald-200/60 uppercase tracking-wider block">
+                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">
                   Installation Source
                 </span>
                 <span className="text-sm font-bold text-white">
@@ -301,7 +301,7 @@ export const DedicatedGuideView: React.FC<DedicatedGuideViewProps> = ({
                   href={guide.appUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-3.5 py-2 rounded-xl bg-emerald-950/80 hover:bg-emerald-900 text-emerald-300 text-xs font-semibold flex items-center gap-1.5 transition-all border border-emerald-800/40"
+                  className="px-3.5 py-2 rounded-xl bg-white/[0.08] hover:bg-white/[0.14] text-indigo-300 text-xs font-semibold flex items-center gap-1.5 transition-all border border-white/[0.1]"
                 >
                   <ExternalLink className="w-4 h-4" />
                   <span>Store Link</span>
@@ -311,9 +311,9 @@ export const DedicatedGuideView: React.FC<DedicatedGuideViewProps> = ({
           )}
 
           {/* Player Protocol Type */}
-          <div className="p-4 rounded-2xl bg-[#061411] border border-emerald-900/50 flex items-center justify-between gap-3 shadow-sm">
+          <div className="p-4 rounded-2xl bg-[#0a0c13] border border-white/[0.08] flex items-center justify-between gap-3 shadow-sm">
             <div className="space-y-0.5">
-              <span className="text-[11px] font-bold text-emerald-200/60 uppercase tracking-wider block">
+              <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">
                 Connection Protocol
               </span>
               <span className="text-sm font-bold text-slate-200 uppercase">
@@ -326,18 +326,18 @@ export const DedicatedGuideView: React.FC<DedicatedGuideViewProps> = ({
           </div>
 
           {/* Instant Activation Button - Free 24H Trial */}
-          <div className="p-4 rounded-2xl bg-[#061411] border border-emerald-500/30 flex items-center justify-between gap-3 shadow-sm sm:col-span-2 lg:col-span-1">
+          <div className="p-4 rounded-2xl bg-[#0a0c13] border border-indigo-500/30 flex items-center justify-between gap-3 shadow-sm sm:col-span-2 lg:col-span-1">
             <div className="space-y-0.5">
-              <span className="text-[11px] font-bold text-emerald-300 uppercase tracking-wider block">
+              <span className="text-[11px] font-bold text-indigo-300 uppercase tracking-wider block">
                 Free 24H Pass
               </span>
-              <span className="text-xs text-emerald-200/70">
+              <span className="text-xs text-slate-400">
                 No Card Required • Instant
               </span>
             </div>
             <button
               onClick={() => onSelectPlan('trial-24h')}
-              className="px-4 py-2 rounded-xl bg-emerald-400 hover:bg-emerald-300 text-slate-950 font-bold text-xs transition-all shadow-sm cursor-pointer whitespace-nowrap active:scale-95"
+              className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs transition-all shadow-sm cursor-pointer whitespace-nowrap active:scale-95"
             >
               Start Free Trial
             </button>
@@ -345,32 +345,32 @@ export const DedicatedGuideView: React.FC<DedicatedGuideViewProps> = ({
         </div>
 
         {/* 3. Interactive Checklist Progress Tracker */}
-        <div className="pt-4 border-t border-emerald-900/40 space-y-3">
+        <div className="pt-4 border-t border-white/[0.08] space-y-3">
           <div className="flex items-center justify-between text-xs">
             <span className="text-slate-300 font-bold flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+              <CheckCircle2 className="w-4 h-4 text-indigo-400" />
               <span>Tutorial Progress: {completedCount} of {guide.steps.length} Steps Completed</span>
             </span>
             <div className="flex items-center gap-3">
               <button
                 onClick={() => markAllSteps(true)}
-                className="text-emerald-400 hover:text-emerald-300 text-xs font-semibold cursor-pointer underline underline-offset-4"
+                className="text-indigo-400 hover:text-indigo-300 text-xs font-semibold cursor-pointer underline underline-offset-4"
               >
                 Mark All Done
               </button>
-              <span className="text-emerald-900">|</span>
+              <span className="text-slate-700">|</span>
               <button
                 onClick={() => markAllSteps(false)}
-                className="text-emerald-200/60 hover:text-white text-xs font-semibold cursor-pointer"
+                className="text-slate-400 hover:text-white text-xs font-semibold cursor-pointer"
               >
                 Reset
               </button>
             </div>
           </div>
 
-          <div className="w-full h-2.5 bg-[#061411] rounded-full overflow-hidden border border-emerald-900/40">
+          <div className="w-full h-2.5 bg-[#0a0c13] rounded-full overflow-hidden border border-white/[0.08]">
             <div
-              className="h-full bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-300 transition-all duration-500 ease-out"
+              className="h-full bg-gradient-to-r from-indigo-600 via-indigo-500 to-sky-400 transition-all duration-500 ease-out"
               style={{ width: `${progressPercent}%` }}
             />
           </div>
@@ -739,7 +739,7 @@ export const DedicatedGuideView: React.FC<DedicatedGuideViewProps> = ({
       />
 
       {/* 10. 24/7 WHATSAPP VIP SUPPORT CTA */}
-      <section className="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-emerald-950/60 via-slate-900 to-cyan-950/60 border border-emerald-500/30 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-2xl">
+      <section className="p-6 sm:p-8 rounded-3xl bg-[#131622] border border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
         <div className="space-y-2 text-center sm:text-left">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-bold uppercase tracking-wider">
             <MessageSquare className="w-4 h-4" />
@@ -757,7 +757,7 @@ export const DedicatedGuideView: React.FC<DedicatedGuideViewProps> = ({
           href={`https://api.whatsapp.com/send?phone=${whatsappNumber.replace(/[^0-9]/g, '')}&text=${encodeURIComponent(`Hi StreamUK support, I need help setting up ${guide.playerName} on my ${guide.deviceCategoryLabel}.`)}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="px-6 py-3.5 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-sm flex items-center gap-2 transition-all shadow-xl shadow-emerald-500/20 shrink-0 whitespace-nowrap cursor-pointer hover:scale-105 active:scale-95"
+          className="px-6 py-3.5 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-sm flex items-center gap-2 transition-all shadow-xl shadow-black/40 shrink-0 whitespace-nowrap cursor-pointer hover:scale-105 active:scale-95"
         >
           <MessageSquare className="w-5 h-5 fill-slate-950" />
           <span>Chat on WhatsApp</span>
@@ -765,16 +765,16 @@ export const DedicatedGuideView: React.FC<DedicatedGuideViewProps> = ({
       </section>
 
       {/* Floating 1-Click Free 24H Trial Bar for quick conversion */}
-      <div className="fixed bottom-5 left-1/2 -translate-x-1/2 z-40 w-[92%] max-w-xl bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 border-2 border-emerald-500/50 shadow-[0_10px_35px_rgba(16,185,129,0.3)] p-3 sm:p-3.5 rounded-2xl flex items-center justify-between gap-3 backdrop-blur-xl animate-fade-in">
+      <div className="fixed bottom-5 left-1/2 -translate-x-1/2 z-40 w-[92%] max-w-xl bg-[#131622]/95 border border-white/[0.12] shadow-2xl p-3 sm:p-3.5 rounded-2xl flex items-center justify-between gap-3 backdrop-blur-xl animate-fade-in">
         <div className="flex items-center gap-2.5 min-w-0">
-          <div className="w-8 h-8 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center shrink-0">
-            <Zap className="w-4 h-4 fill-emerald-400" />
+          <div className="w-8 h-8 rounded-xl bg-indigo-500/20 border border-indigo-500/30 text-indigo-400 flex items-center justify-center shrink-0">
+            <Zap className="w-4 h-4 fill-indigo-400" />
           </div>
           <div className="min-w-0">
             <span className="text-xs sm:text-sm font-black text-white truncate block">
               Free 24H {guide.playerName} Test Line
             </span>
-            <span className="text-[10px] sm:text-[11px] text-slate-300 truncate block">
+            <span className="text-[10px] sm:text-[11px] text-slate-400 truncate block">
               Instant Xtream Codes • No credit card • 4K UHD
             </span>
           </div>
@@ -782,7 +782,7 @@ export const DedicatedGuideView: React.FC<DedicatedGuideViewProps> = ({
 
         <button
           onClick={() => onSelectPlan('trial-24h')}
-          className="px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 hover:from-emerald-300 hover:to-cyan-300 text-slate-950 font-black text-xs sm:text-sm whitespace-nowrap shadow-md shadow-emerald-500/20 active:scale-95 transition-all cursor-pointer shrink-0"
+          className="px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-black text-xs sm:text-sm whitespace-nowrap shadow-md shadow-indigo-950/60 active:scale-95 transition-all cursor-pointer shrink-0"
         >
           Claim 24H Pass
         </button>

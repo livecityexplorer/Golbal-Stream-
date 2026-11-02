@@ -209,54 +209,54 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
   return (
     <div className="pt-20 sm:pt-24 pb-28 px-3.5 sm:px-6 lg:px-8 max-w-6xl mx-auto space-y-8 sm:space-y-10 text-slate-100">
       
-      {/* 1. Sleek, Focused Header - Eye-Friendly Emerald Tones */}
+      {/* 1. Sleek, Focused Header - Cinema Obsidian Palette */}
       <header className="text-center max-w-3xl mx-auto space-y-3.5 sm:space-y-4">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-950/80 border border-emerald-500/30 text-emerald-300 text-xs font-semibold tracking-wide shadow-sm">
-          <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.05] border border-white/10 text-indigo-300 text-xs font-semibold tracking-wide shadow-sm">
+          <Sparkles className="w-3.5 h-3.5 text-indigo-400" />
           <span>Device Setup & App Directory • 2026</span>
         </div>
 
         <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">
-          How to Setup IPTV on <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-200 via-teal-100 to-emerald-400">Any Device</span>
+          How to Setup IPTV on <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-indigo-200">Any Device</span>
         </h1>
 
-        <p className="text-xs sm:text-base text-emerald-100/80 leading-relaxed max-w-2xl mx-auto">
+        <p className="text-xs sm:text-base text-slate-300 leading-relaxed max-w-2xl mx-auto">
           Choose your streaming device below for direct Downloader shortcodes, verified step-by-step app setup, and 4K sports streaming settings.
         </p>
 
         {/* Quick Downloader Code Strip - Horizontally scrollable on mobile */}
         <div className="pt-1">
           <div className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto no-scrollbar py-1 px-1 text-xs">
-            <span className="text-emerald-200/60 font-medium shrink-0 hidden sm:inline">Popular Shortcodes:</span>
+            <span className="text-slate-400 font-medium shrink-0 hidden sm:inline">Popular Shortcodes:</span>
             
             <button
               onClick={() => handleCopy('626198', 'code-cbr')}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500/15 border border-emerald-400/40 text-emerald-300 hover:bg-emerald-500/25 transition-colors cursor-pointer shrink-0 min-h-[36px]"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-amber-500/10 border border-amber-400/25 text-amber-300 hover:bg-amber-500/20 transition-colors cursor-pointer shrink-0 min-h-[36px]"
               title="Click to copy CBR TV code"
             >
-              <span className="font-bold text-emerald-200">⭐ CBR TV:</span>
+              <span className="font-bold text-amber-200">⭐ CBR TV:</span>
               <span className="font-mono font-bold text-white">626198</span>
-              {copiedKey === 'code-cbr' ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3 text-emerald-300" />}
+              {copiedKey === 'code-cbr' ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3 text-amber-300" />}
             </button>
 
             <button
               onClick={() => handleCopy('272483', 'code-tivimate')}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-teal-500/15 border border-teal-400/35 text-teal-300 hover:bg-teal-500/25 transition-colors cursor-pointer shrink-0 min-h-[36px]"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-500/10 border border-indigo-400/25 text-indigo-300 hover:bg-indigo-500/20 transition-colors cursor-pointer shrink-0 min-h-[36px]"
               title="Click to copy TiviMate code"
             >
               <span className="font-bold">TiviMate:</span>
               <span className="font-mono font-bold text-white">272483</span>
-              {copiedKey === 'code-tivimate' ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3 text-teal-300" />}
+              {copiedKey === 'code-tivimate' ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3 text-indigo-300" />}
             </button>
 
             <button
               onClick={() => handleCopy('80198', 'code-smarters')}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#0c241e] border border-emerald-900/50 text-emerald-200/90 hover:bg-[#103027] transition-colors cursor-pointer shrink-0 min-h-[36px]"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/[0.05] border border-white/10 text-slate-300 hover:bg-white/[0.09] transition-colors cursor-pointer shrink-0 min-h-[36px]"
               title="Click to copy Smarters code"
             >
               <span className="font-bold">Smarters:</span>
               <span className="font-mono font-bold text-white">80198</span>
-              {copiedKey === 'code-smarters' ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3 text-emerald-400/70" />}
+              {copiedKey === 'code-smarters' ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3 text-slate-400" />}
             </button>
 
             <button
@@ -264,7 +264,7 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
                 setActiveTab('vault');
                 setSearchQuery('');
               }}
-              className="text-emerald-400 hover:text-emerald-300 font-semibold underline underline-offset-2 ml-1 cursor-pointer shrink-0 whitespace-nowrap min-h-[36px] flex items-center"
+              className="text-indigo-400 hover:text-indigo-300 font-semibold underline underline-offset-2 ml-1 cursor-pointer shrink-0 whitespace-nowrap min-h-[36px] flex items-center"
             >
               All Codes ({DOWNLOADER_SHORTCODES_VAULT.length}) →
             </button>
@@ -274,18 +274,18 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
         {/* Streamlined Search Bar */}
         <div className="pt-1.5 max-w-lg mx-auto">
           <div className="relative">
-            <Search className="w-4 h-4 text-emerald-400/60 absolute left-3.5 top-1/2 -translate-y-1/2" />
+            <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search by device or player (e.g. FireStick, TiviMate, CBR TV, Smarters)..."
-              className="w-full pl-10 pr-10 py-2.5 rounded-xl bg-[#091b17] border border-emerald-500/25 text-slate-100 placeholder:text-emerald-200/40 text-xs sm:text-sm focus:outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400 transition-all shadow-sm"
+              className="w-full pl-10 pr-10 py-2.5 rounded-xl bg-[#131622] border border-white/[0.09] text-slate-100 placeholder:text-slate-500 text-xs sm:text-sm focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all shadow-sm"
             />
             {searchQuery && (
               <button
                 onClick={() => setSearchQuery('')}
-                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-xs text-emerald-300 hover:text-white px-2 py-1 bg-emerald-950/80 border border-emerald-800/60 rounded-md cursor-pointer"
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-xs text-slate-300 hover:text-white px-2 py-1 bg-white/10 border border-white/10 rounded-md cursor-pointer"
               >
                 Clear
               </button>
@@ -294,9 +294,9 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
         </div>
       </header>
 
-      {/* 2. Organized Section Tabs - Mobile Touch Friendly & Eye-Comfort */}
-      <div className="flex justify-center border-b border-emerald-900/40 pb-3">
-        <nav className="grid grid-cols-2 sm:flex sm:flex-row bg-[#081a16] p-1.5 rounded-2xl border border-emerald-900/50 w-full sm:w-auto gap-1">
+      {/* 2. Organized Section Tabs - Mobile Touch Friendly & Clean Cinema Style */}
+      <div className="flex justify-center border-b border-white/[0.08] pb-3">
+        <nav className="grid grid-cols-2 sm:flex sm:flex-row bg-[#11141e] p-1.5 rounded-2xl border border-white/[0.08] w-full sm:w-auto gap-1">
           <button
             onClick={() => {
               setActiveTab('matrix');
@@ -304,8 +304,8 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
             }}
             className={`px-3 sm:px-4 py-2 rounded-xl text-xs font-semibold transition-all flex items-center justify-center gap-1.5 cursor-pointer min-h-[40px] ${
               activeTab === 'matrix' && !searchQuery
-                ? 'bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold shadow-md shadow-emerald-900/40'
-                : 'text-emerald-200/70 hover:text-white hover:bg-emerald-900/30'
+                ? 'bg-indigo-600 hover:bg-indigo-500 text-white font-bold shadow-md shadow-indigo-950/60'
+                : 'text-slate-400 hover:text-white hover:bg-white/[0.05]'
             }`}
           >
             <Layers className="w-3.5 h-3.5 shrink-0" />
@@ -319,8 +319,8 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
             }}
             className={`px-3 sm:px-4 py-2 rounded-xl text-xs font-semibold transition-all flex items-center justify-center gap-1.5 cursor-pointer min-h-[40px] ${
               activeTab === 'vault'
-                ? 'bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold shadow-md shadow-emerald-900/40'
-                : 'text-emerald-200/70 hover:text-white hover:bg-emerald-900/30'
+                ? 'bg-indigo-600 hover:bg-indigo-500 text-white font-bold shadow-md shadow-indigo-950/60'
+                : 'text-slate-400 hover:text-white hover:bg-white/[0.05]'
             }`}
           >
             <Download className="w-3.5 h-3.5 shrink-0" />
@@ -334,8 +334,8 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
             }}
             className={`px-3 sm:px-4 py-2 rounded-xl text-xs font-semibold transition-all flex items-center justify-center gap-1.5 cursor-pointer min-h-[40px] ${
               activeTab === 'isp'
-                ? 'bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold shadow-md shadow-emerald-900/40'
-                : 'text-emerald-200/70 hover:text-white hover:bg-emerald-900/30'
+                ? 'bg-indigo-600 hover:bg-indigo-500 text-white font-bold shadow-md shadow-indigo-950/60'
+                : 'text-slate-400 hover:text-white hover:bg-white/[0.05]'
             }`}
           >
             <Wifi className="w-3.5 h-3.5 shrink-0" />
@@ -349,8 +349,8 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
             }}
             className={`px-3 sm:px-4 py-2 rounded-xl text-xs font-semibold transition-all flex items-center justify-center gap-1.5 cursor-pointer min-h-[40px] ${
               activeTab === 'diagnostic'
-                ? 'bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold shadow-md shadow-emerald-900/40'
-                : 'text-emerald-200/70 hover:text-white hover:bg-emerald-900/30'
+                ? 'bg-indigo-600 hover:bg-indigo-500 text-white font-bold shadow-md shadow-indigo-950/60'
+                : 'text-slate-400 hover:text-white hover:bg-white/[0.05]'
             }`}
           >
             <Activity className="w-3.5 h-3.5 shrink-0" />
@@ -364,20 +364,20 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
         <section className="space-y-5">
           <div className="flex items-center justify-between">
             <h2 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-300">
-              Results for <span className="text-emerald-300">"{searchQuery}"</span>
+              Results for <span className="text-indigo-300">"{searchQuery}"</span>
             </h2>
-            <span className="text-xs text-emerald-200/60">
+            <span className="text-xs text-slate-400">
               {searchMatchedGuides.length} {searchMatchedGuides.length === 1 ? 'guide found' : 'guides found'}
             </span>
           </div>
 
           {searchMatchedGuides.length === 0 ? (
-            <div className="text-center py-10 bg-[#091b17] rounded-2xl border border-emerald-900/40 space-y-3">
-              <HelpCircle className="w-8 h-8 text-emerald-500/50 mx-auto" />
+            <div className="text-center py-10 bg-[#131622] rounded-2xl border border-white/[0.08] space-y-3">
+              <HelpCircle className="w-8 h-8 text-indigo-400/50 mx-auto" />
               <p className="text-sm text-slate-300">No setup guides found matching your search term.</p>
               <button
                 onClick={() => setSearchQuery('')}
-                className="text-xs font-semibold text-emerald-400 hover:underline cursor-pointer"
+                className="text-xs font-semibold text-indigo-400 hover:underline cursor-pointer"
               >
                 Clear search and view all devices
               </button>
@@ -391,24 +391,24 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
                     navigateTo('/setup/' + guide.slug);
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }}
-                  className="p-4 sm:p-5 rounded-2xl bg-[#091b17] border border-emerald-900/40 hover:border-emerald-500/40 hover:bg-[#0d2621] transition-all cursor-pointer group flex flex-col justify-between gap-3 shadow-sm"
+                  className="p-4 sm:p-5 rounded-2xl bg-[#131622] border border-white/[0.08] hover:border-indigo-500/40 hover:bg-[#181d2e] transition-all cursor-pointer group flex flex-col justify-between gap-3 shadow-sm"
                 >
                   <div className="space-y-2.5">
                     <div className="flex items-start justify-between gap-2.5">
-                      <div className="w-10 h-10 rounded-xl bg-[#061411] border border-emerald-900/50 p-1 flex items-center justify-center shrink-0">
+                      <div className="w-10 h-10 rounded-xl bg-[#0a0c13] border border-white/[0.08] p-1 flex items-center justify-center shrink-0">
                         {guide.appLogo ? (
                           <img src={guide.appLogo} alt={guide.playerName} className="w-full h-full object-contain" referrerPolicy="no-referrer" />
                         ) : (
-                          <Tv className="w-5 h-5 text-emerald-400" />
+                          <Tv className="w-5 h-5 text-indigo-400" />
                         )}
                       </div>
-                      <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-emerald-950/80 text-emerald-300 border border-emerald-800/50">
+                      <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-indigo-500/15 text-indigo-300 border border-indigo-500/25">
                         {guide.deviceCategoryLabel.split('&')[0]}
                       </span>
                     </div>
 
                     <div>
-                      <h3 className="text-sm font-bold text-white group-hover:text-emerald-300 transition-colors">
+                      <h3 className="text-sm font-bold text-white group-hover:text-indigo-300 transition-colors">
                         {guide.title}
                       </h3>
                       <p className="text-xs text-slate-300 line-clamp-2 mt-1 leading-relaxed">
@@ -417,12 +417,12 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between text-xs text-emerald-200/70 pt-2.5 border-t border-emerald-900/40">
+                  <div className="flex items-center justify-between text-xs text-slate-400 pt-2.5 border-t border-white/[0.08]">
                     <span className="flex items-center gap-1 text-[11px]">
-                      <Clock className="w-3 h-3 text-emerald-400" />
+                      <Clock className="w-3 h-3 text-indigo-400" />
                       <span>{guide.timeEstimate}</span>
                     </span>
-                    <span className="font-semibold text-emerald-400 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                    <span className="font-semibold text-indigo-400 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
                       <span>View Guide</span>
                       <ChevronRight className="w-3.5 h-3.5" />
                     </span>
@@ -441,14 +441,14 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
           {/* STEP 1: Streamlined Device Platform Selector - Horizontal swipe on mobile, grid on desktop */}
           <section className="space-y-2.5">
             <div className="flex items-center justify-between">
-              <h2 className="text-xs font-bold uppercase tracking-wider text-emerald-200/90 flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-emerald-500/25 text-emerald-300 flex items-center justify-center text-[11px] font-black">1</span>
+              <h2 className="text-xs font-bold uppercase tracking-wider text-slate-300 flex items-center gap-2">
+                <span className="w-5 h-5 rounded-full bg-indigo-500/25 text-indigo-300 flex items-center justify-center text-[11px] font-black">1</span>
                 <span>Choose Your Streaming Device:</span>
               </h2>
-              <span className="text-xs text-emerald-200/60 hidden sm:inline">
+              <span className="text-xs text-slate-400 hidden sm:inline">
                 Selected: <strong className="text-white">{currentCategoryMeta.name}</strong>
               </span>
-              <span className="text-[11px] text-emerald-400/70 sm:hidden">
+              <span className="text-[11px] text-indigo-400 sm:hidden">
                 Swipe to browse →
               </span>
             </div>
@@ -463,13 +463,13 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
                     onClick={() => setSelectedCategory(cat.id)}
                     className={`shrink-0 min-w-[125px] sm:min-w-[140px] md:min-w-0 snap-start p-3 rounded-xl border text-left transition-all flex flex-col justify-between gap-2 cursor-pointer relative group min-h-[72px] sm:min-h-[80px] ${
                       isSelected
-                        ? 'bg-[#0e2c24] border-emerald-400 shadow-md ring-1 ring-emerald-400/40'
-                        : 'bg-[#091b17]/80 border-emerald-900/40 hover:border-emerald-600/50 hover:bg-[#0c241e]'
+                        ? 'bg-[#1a2136] border-indigo-500 shadow-md ring-1 ring-indigo-500/40'
+                        : 'bg-[#131622] border-white/[0.08] hover:border-white/[0.18] hover:bg-[#181d2e]'
                     }`}
                   >
                     <div className="flex items-center justify-between gap-1">
                       <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center transition-all ${
-                        isSelected ? 'text-emerald-300' : 'text-emerald-400/60 group-hover:text-emerald-200'
+                        isSelected ? 'text-indigo-300' : 'text-slate-400 group-hover:text-white'
                       }`}>
                         {renderCategoryIcon(cat.iconName, 'w-4 h-4 sm:w-5 sm:h-5')}
                       </div>
@@ -489,7 +489,7 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
                     </div>
 
                     {isSelected && (
-                      <div className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-emerald-400 rounded-full" />
+                      <div className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-indigo-500 rounded-full" />
                     )}
                   </button>
                 );
@@ -500,11 +500,11 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
           {/* STEP 2: Recommended App Spotlight Card (The "Best Pick") */}
           <section className="space-y-3.5">
             <div className="flex items-center justify-between">
-              <h2 className="text-xs font-bold uppercase tracking-wider text-emerald-200/90 flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-emerald-500/25 text-emerald-300 flex items-center justify-center text-[11px] font-black">2</span>
+              <h2 className="text-xs font-bold uppercase tracking-wider text-slate-300 flex items-center gap-2">
+                <span className="w-5 h-5 rounded-full bg-indigo-500/25 text-indigo-300 flex items-center justify-center text-[11px] font-black">2</span>
                 <span>Recommended App for {currentCategoryMeta.shortName}</span>
               </h2>
-              <span className="text-xs text-emerald-400 font-semibold flex items-center gap-1">
+              <span className="text-xs text-indigo-400 font-semibold flex items-center gap-1">
                 <ShieldCheck className="w-3.5 h-3.5" />
                 <span>Verified 4K 60FPS</span>
               </span>
@@ -513,16 +513,16 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
             {/* If PC & Web is selected: dedicated CBR TV Desktop Suite */}
             {selectedCategory === 'pc-web' ? (
               <div className="space-y-4">
-                <div className="p-4 sm:p-6 md:p-7 rounded-3xl bg-[#091b17] border border-emerald-500/30 shadow-md relative overflow-hidden">
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-emerald-900/40 pb-4 sm:pb-5">
+                <div className="p-4 sm:p-6 md:p-7 rounded-3xl bg-[#131622] border border-white/[0.12] shadow-xl relative overflow-hidden">
+                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-white/[0.08] pb-4 sm:pb-5">
                     <div className="space-y-1.5">
-                      <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-emerald-950/80 text-emerald-300 text-[10px] font-bold uppercase tracking-wider border border-emerald-500/30">
+                      <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-indigo-500/15 text-indigo-300 text-[10px] font-bold uppercase tracking-wider border border-indigo-500/25">
                         ⭐ Official StreamUK App for PC & Mac
                       </div>
                       <h3 className="text-lg sm:text-2xl font-black text-white">
                         CBR TV for Windows, macOS, Linux & Web
                       </h3>
-                      <p className="text-xs sm:text-sm text-emerald-100/80 max-w-2xl leading-relaxed">
+                      <p className="text-xs sm:text-sm text-slate-300 max-w-2xl leading-relaxed">
                         Live TV, movies, series, TV guide and sports fixtures in one sleek app. Includes built-in 4K/8K hardware video decoding and a one-tap Proxy button to bypass UK broadband ISP blocks.
                       </p>
                     </div>
@@ -532,9 +532,9 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
                         navigateTo('/setup/cbr-tv-desktop');
                         window.scrollTo({ top: 0, behavior: 'smooth' });
                       }}
-                      className="px-4 py-2.5 sm:px-5 sm:py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-md shadow-emerald-950/50 shrink-0 cursor-pointer active:scale-95 min-h-[44px]"
+                      className="px-4 py-2.5 sm:px-5 sm:py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-md shadow-indigo-950/60 shrink-0 cursor-pointer active:scale-95 min-h-[44px]"
                     >
-                      <Play className="w-3.5 h-3.5 fill-slate-950" />
+                      <Play className="w-3.5 h-3.5 fill-white" />
                       <span>Open Full Desktop Guide</span>
                       <ChevronRight className="w-4 h-4" />
                     </button>
@@ -547,10 +547,10 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
               </div>
             ) : spotlightGuide ? (
               /* Spotlight Card for FireStick, Android TV, Apple TV, Smart TV, Formuler */
-              <div className={`p-4 sm:p-6 md:p-7 rounded-3xl border transition-all relative overflow-hidden shadow-sm ${
+              <div className={`p-4 sm:p-6 md:p-7 rounded-3xl border transition-all relative overflow-hidden shadow-xl ${
                 spotlightGuide.isOfficialApp
-                  ? 'bg-gradient-to-br from-[#0c241e] via-[#091a16] to-[#071512] border-emerald-500/35'
-                  : 'bg-[#091a16] border-emerald-900/40'
+                  ? 'bg-gradient-to-br from-[#161c2e] via-[#121624] to-[#0d101a] border-white/[0.14]'
+                  : 'bg-[#131622] border-white/[0.08]'
               }`}>
                 <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-5 sm:gap-6">
                   {/* Left: App Identity & Summary */}
@@ -558,21 +558,21 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
                     <div className="flex items-center gap-2 flex-wrap">
                       <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider ${
                         spotlightGuide.isOfficialApp
-                          ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-400/35'
-                          : 'bg-teal-500/20 text-teal-300 border border-teal-400/35'
+                          ? 'bg-indigo-500/20 text-indigo-300 border border-indigo-400/35'
+                          : 'bg-sky-500/20 text-sky-300 border border-sky-400/35'
                       }`}>
                         {spotlightGuide.isOfficialApp ? '⭐ Official StreamUK App' : '★ Recommended Player'}
                       </span>
-                      <span className="text-xs text-emerald-200/70">
+                      <span className="text-xs text-slate-400">
                         Setup: <strong className="text-white">{spotlightGuide.timeEstimate}</strong>
                       </span>
-                      <span className="text-xs text-emerald-200/70">
-                        Difficulty: <strong className="text-emerald-400">{spotlightGuide.difficulty}</strong>
+                      <span className="text-xs text-slate-400">
+                        Difficulty: <strong className="text-indigo-400">{spotlightGuide.difficulty}</strong>
                       </span>
                     </div>
 
                     <div className="flex items-start gap-3.5">
-                      <div className="w-13 h-13 sm:w-16 sm:h-16 rounded-2xl bg-[#061411] border border-emerald-900/50 p-2 flex items-center justify-center shrink-0">
+                      <div className="w-13 h-13 sm:w-16 sm:h-16 rounded-2xl bg-[#0a0c13] border border-white/[0.08] p-2 flex items-center justify-center shrink-0">
                         {spotlightGuide.appLogo ? (
                           <img
                             src={spotlightGuide.appLogo}
@@ -581,7 +581,7 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
                             referrerPolicy="no-referrer"
                           />
                         ) : (
-                          <Tv className="w-7 h-7 sm:w-8 sm:h-8 text-emerald-400" />
+                          <Tv className="w-7 h-7 sm:w-8 sm:h-8 text-indigo-400" />
                         )}
                       </div>
 
@@ -589,7 +589,7 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
                         <h3 className="text-base sm:text-xl lg:text-2xl font-black text-white leading-tight">
                           {spotlightGuide.title}
                         </h3>
-                        <p className="text-xs sm:text-sm text-emerald-100/80 leading-relaxed">
+                        <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
                           {spotlightGuide.summary}
                         </p>
                       </div>
@@ -599,30 +599,30 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-0.5 text-xs">
                       {spotlightGuide.isOfficialApp ? (
                         <>
-                          <div className="p-2 sm:p-2.5 rounded-xl bg-[#061411] border border-emerald-900/40 flex items-center gap-2 text-emerald-100">
+                          <div className="p-2 sm:p-2.5 rounded-xl bg-[#0a0c13] border border-white/[0.08] flex items-center gap-2 text-slate-200">
                             <span className="text-amber-400">🏆</span>
                             <span>Dedicated Sports Hub</span>
                           </div>
-                          <div className="p-2 sm:p-2.5 rounded-xl bg-[#061411] border border-emerald-900/40 flex items-center gap-2 text-emerald-100">
-                            <span className="text-teal-300">📺</span>
+                          <div className="p-2 sm:p-2.5 rounded-xl bg-[#0a0c13] border border-white/[0.08] flex items-center gap-2 text-slate-200">
+                            <span className="text-sky-300">📺</span>
                             <span>4-Screen MultiView</span>
                           </div>
-                          <div className="p-2 sm:p-2.5 rounded-xl bg-[#061411] border border-emerald-900/40 flex items-center gap-2 text-emerald-100">
-                            <span className="text-emerald-400">⚡</span>
+                          <div className="p-2 sm:p-2.5 rounded-xl bg-[#0a0c13] border border-white/[0.08] flex items-center gap-2 text-slate-200">
+                            <span className="text-indigo-400">⚡</span>
                             <span>Zero Stutter Engine</span>
                           </div>
                         </>
                       ) : (
                         <>
-                          <div className="p-2 sm:p-2.5 rounded-xl bg-[#061411] border border-emerald-900/40 flex items-center gap-2 text-emerald-100">
-                            <span className="text-teal-300">⚡</span>
+                          <div className="p-2 sm:p-2.5 rounded-xl bg-[#0a0c13] border border-white/[0.08] flex items-center gap-2 text-slate-200">
+                            <span className="text-sky-300">⚡</span>
                             <span>Fast Channel Zapping</span>
                           </div>
-                          <div className="p-2 sm:p-2.5 rounded-xl bg-[#061411] border border-emerald-900/40 flex items-center gap-2 text-emerald-100">
-                            <span className="text-emerald-400">📅</span>
+                          <div className="p-2 sm:p-2.5 rounded-xl bg-[#0a0c13] border border-white/[0.08] flex items-center gap-2 text-slate-200">
+                            <span className="text-indigo-400">📅</span>
                             <span>7-Day Full UK EPG</span>
                           </div>
-                          <div className="p-2 sm:p-2.5 rounded-xl bg-[#061411] border border-emerald-900/40 flex items-center gap-2 text-emerald-100">
+                          <div className="p-2 sm:p-2.5 rounded-xl bg-[#0a0c13] border border-white/[0.08] flex items-center gap-2 text-slate-200">
                             <span className="text-amber-400">🎬</span>
                             <span>4K Cinema & VOD</span>
                           </div>
@@ -632,23 +632,23 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
                   </div>
 
                   {/* Right: Quick Shortcode + Action Button (Mobile-Full-Width) */}
-                  <div className="flex flex-col sm:flex-row lg:flex-col items-stretch justify-center gap-2.5 shrink-0 lg:min-w-[230px] pt-2 lg:pt-0 border-t lg:border-t-0 border-emerald-900/40">
+                  <div className="flex flex-col sm:flex-row lg:flex-col items-stretch justify-center gap-2.5 shrink-0 lg:min-w-[230px] pt-2 lg:pt-0 border-t lg:border-t-0 border-white/[0.08]">
                     {spotlightGuide.downloaderCode && (
-                      <div className="p-3 rounded-2xl bg-[#061411] border border-emerald-900/50 flex items-center justify-between gap-3">
+                      <div className="p-3 rounded-2xl bg-[#0a0c13] border border-white/[0.08] flex items-center justify-between gap-3">
                         <div>
-                          <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-200/70 block">Downloader Code</span>
+                          <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">Downloader Code</span>
                           <span className="font-mono text-base font-bold text-amber-300">
                             {spotlightGuide.downloaderCode}
                           </span>
                         </div>
                         <button
                           onClick={() => handleCopy(spotlightGuide.downloaderCode!, `spotlight-${spotlightGuide.slug}`)}
-                          className="px-3 py-1.5 rounded-lg bg-emerald-950/80 hover:bg-emerald-900/90 text-emerald-200 font-semibold text-xs flex items-center gap-1.5 transition-colors cursor-pointer border border-emerald-800/50 min-h-[36px]"
+                          className="px-3 py-1.5 rounded-lg bg-white/[0.08] hover:bg-white/[0.14] text-slate-200 font-semibold text-xs flex items-center gap-1.5 transition-colors cursor-pointer border border-white/[0.1] min-h-[36px]"
                         >
                           {copiedKey === `spotlight-${spotlightGuide.slug}` ? (
                             <>
-                              <Check className="w-3.5 h-3.5 text-emerald-400" />
-                              <span className="text-emerald-400">Copied</span>
+                              <Check className="w-3.5 h-3.5 text-indigo-400" />
+                              <span className="text-indigo-400">Copied</span>
                             </>
                           ) : (
                             <>
@@ -665,9 +665,9 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
                         navigateTo('/setup/' + spotlightGuide.slug);
                         window.scrollTo({ top: 0, behavior: 'smooth' });
                       }}
-                      className="w-full py-3 px-5 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-md shadow-emerald-950/50 cursor-pointer active:scale-95 min-h-[46px]"
+                      className="w-full py-3 px-5 rounded-2xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-md shadow-indigo-950/60 cursor-pointer active:scale-95 min-h-[46px]"
                     >
-                      <Play className="w-3.5 h-3.5 fill-slate-950" />
+                      <Play className="w-3.5 h-3.5 fill-white" />
                       <span>Open Setup Guide</span>
                       <ChevronRight className="w-4 h-4" />
                     </button>
@@ -685,11 +685,11 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
                   <h3 className="text-xs sm:text-sm font-bold text-white">
                     Alternative Players for {currentCategoryMeta.shortName}
                   </h3>
-                  <p className="text-xs text-emerald-200/70 mt-0.5">
+                  <p className="text-xs text-slate-400 mt-0.5">
                     Prefer a different app? We support all standard Xtream Codes & M3U players:
                   </p>
                 </div>
-                <span className="text-xs text-emerald-300/60 hidden sm:inline">
+                <span className="text-xs text-slate-400 hidden sm:inline">
                   {alternativeGuides.length} options
                 </span>
               </div>
@@ -702,11 +702,11 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
                       navigateTo('/setup/' + guide.slug);
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
-                    className="p-3.5 sm:p-4 rounded-2xl bg-[#091b17] border border-emerald-900/40 hover:border-emerald-500/40 hover:bg-[#0d2621] transition-all cursor-pointer group flex flex-col justify-between gap-3 shadow-sm"
+                    className="p-3.5 sm:p-4 rounded-2xl bg-[#131622] border border-white/[0.08] hover:border-indigo-500/40 hover:bg-[#181d2e] transition-all cursor-pointer group flex flex-col justify-between gap-3 shadow-sm"
                   >
                     <div className="flex items-start justify-between gap-2.5">
                       <div className="flex items-center gap-3">
-                        <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#061411] border border-emerald-900/50 p-1 flex items-center justify-center shrink-0">
+                        <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#0a0c13] border border-white/[0.08] p-1 flex items-center justify-center shrink-0">
                           {guide.appLogo ? (
                             <img
                               src={guide.appLogo}
@@ -715,22 +715,22 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
                               referrerPolicy="no-referrer"
                             />
                           ) : (
-                            <Tv className="w-4 h-4 text-emerald-400" />
+                            <Tv className="w-4 h-4 text-indigo-400" />
                           )}
                         </div>
 
                         <div>
-                          <h4 className="text-xs sm:text-sm font-bold text-white group-hover:text-emerald-300 transition-colors">
+                          <h4 className="text-xs sm:text-sm font-bold text-white group-hover:text-indigo-300 transition-colors">
                             {guide.playerName}
                           </h4>
-                          <span className="text-[11px] text-emerald-200/60">
+                          <span className="text-[11px] text-slate-400">
                             {guide.playerType}
                           </span>
                         </div>
                       </div>
 
                       {guide.badge && (
-                        <span className="text-[9px] sm:text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#061411] text-emerald-300 border border-emerald-900/60 shrink-0">
+                        <span className="text-[9px] sm:text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#0a0c13] text-indigo-300 border border-white/[0.08] shrink-0">
                           {guide.badge}
                         </span>
                       )}
@@ -740,13 +740,13 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
                       {guide.summary}
                     </p>
 
-                    <div className="flex items-center justify-between text-xs text-emerald-200/70 pt-2 border-t border-emerald-900/40">
+                    <div className="flex items-center justify-between text-xs text-slate-400 pt-2 border-t border-white/[0.08]">
                       <span className="flex items-center gap-1 text-[11px]">
-                        <Clock className="w-3 h-3 text-emerald-400" />
+                        <Clock className="w-3 h-3 text-indigo-400" />
                         <span>{guide.timeEstimate}</span>
                       </span>
 
-                      <span className="font-semibold text-emerald-400 text-xs flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                      <span className="font-semibold text-indigo-400 text-xs flex items-center gap-1 group-hover:translate-x-1 transition-transform">
                         <span>View Guide</span>
                         <ChevronRight className="w-3.5 h-3.5" />
                       </span>
@@ -763,17 +763,17 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
       {/* 5. TAB 2: DOWNLOADER SHORTCODES VAULT (Clean & Compact) */}
       {activeTab === 'vault' && (
         <section className="space-y-5">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-emerald-900/40 pb-3.5">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/[0.08] pb-3.5">
             <div>
               <h2 className="text-lg sm:text-2xl font-black text-white flex items-center gap-2">
-                <Download className="w-5 h-5 text-emerald-400" />
+                <Download className="w-5 h-5 text-indigo-400" />
                 <span>Verified Downloader Shortcodes Vault</span>
               </h2>
-              <p className="text-xs sm:text-sm text-emerald-200/70 mt-1">
+              <p className="text-xs sm:text-sm text-slate-400 mt-1">
                 Enter these 5-6 digit codes into the AFTVnews Downloader app on your FireStick or Android TV for direct APK installation without typing URLs.
               </p>
             </div>
-            <span className="text-xs font-semibold text-emerald-300 px-3 py-1 bg-emerald-500/15 rounded-full border border-emerald-400/30 shrink-0 self-start sm:self-auto">
+            <span className="text-xs font-semibold text-indigo-300 px-3 py-1 bg-indigo-500/15 rounded-full border border-indigo-500/25 shrink-0 self-start sm:self-auto">
               Verified 2026
             </span>
           </div>
@@ -782,11 +782,11 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
             {DOWNLOADER_SHORTCODES_VAULT.map((item) => (
               <div
                 key={item.code}
-                className="bg-[#091b17] p-4 sm:p-5 rounded-2xl border border-emerald-900/40 hover:border-emerald-500/40 transition-all flex flex-col justify-between gap-3.5 group shadow-sm"
+                className="bg-[#131622] p-4 sm:p-5 rounded-2xl border border-white/[0.08] hover:border-indigo-500/40 transition-all flex flex-col justify-between gap-3.5 group shadow-sm"
               >
                 <div className="space-y-2.5">
                   <div className="flex items-start justify-between gap-2.5">
-                    <div className="w-10 h-10 rounded-xl bg-[#061411] border border-emerald-900/50 p-1.5 flex items-center justify-center shrink-0">
+                    <div className="w-10 h-10 rounded-xl bg-[#0a0c13] border border-white/[0.08] p-1.5 flex items-center justify-center shrink-0">
                       {item.iconUrl ? (
                         <img
                           src={item.iconUrl}
@@ -795,11 +795,11 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
                           referrerPolicy="no-referrer"
                         />
                       ) : (
-                        <Download className="w-5 h-5 text-emerald-400" />
+                        <Download className="w-5 h-5 text-indigo-400" />
                       )}
                     </div>
                     <div className="flex flex-col items-end gap-1">
-                      <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-950/80 text-emerald-300 border border-emerald-800/60">
+                      <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-indigo-500/15 text-indigo-300 border border-indigo-500/25">
                         {item.category}
                       </span>
                       {item.badge && (
@@ -811,27 +811,27 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
                   </div>
 
                   <div>
-                    <h3 className="text-sm font-bold text-white group-hover:text-emerald-300 transition-colors">
+                    <h3 className="text-sm font-bold text-white group-hover:text-indigo-300 transition-colors">
                       {item.name}
                     </h3>
-                    <p className="text-xs text-emerald-200/60 mt-0.5">
+                    <p className="text-xs text-slate-400 mt-0.5">
                       {item.device}
                     </p>
                   </div>
                 </div>
 
-                <div className="space-y-2 pt-2.5 border-t border-emerald-900/40">
-                  <div className="flex items-center justify-between bg-[#061411] p-2 rounded-xl border border-emerald-900/50">
+                <div className="space-y-2 pt-2.5 border-t border-white/[0.08]">
+                  <div className="flex items-center justify-between bg-[#0a0c13] p-2 rounded-xl border border-white/[0.08]">
                     <div className="space-y-0.5 pl-1">
-                      <span className="text-[9px] font-bold text-emerald-200/60 uppercase tracking-wider block">Shortcode</span>
-                      <span className="font-mono text-base font-bold text-emerald-300">
+                      <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider block">Shortcode</span>
+                      <span className="font-mono text-base font-bold text-amber-300">
                         {item.code}
                       </span>
                     </div>
 
                     <button
                       onClick={() => handleCopy(item.code, `vault-${item.code}`)}
-                      className="px-3 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs flex items-center gap-1.5 transition-all cursor-pointer min-h-[34px]"
+                      className="px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs flex items-center gap-1.5 transition-all cursor-pointer min-h-[34px]"
                     >
                       {copiedKey === `vault-${item.code}` ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
                       <span>{copiedKey === `vault-${item.code}` ? 'Copied' : 'Copy'}</span>
@@ -839,13 +839,13 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
                   </div>
 
                   {item.directUrl && (
-                    <div className="flex items-center justify-between text-[11px] text-emerald-200/60 px-1">
+                    <div className="flex items-center justify-between text-[11px] text-slate-400 px-1">
                       <span className="truncate max-w-[160px]">{item.directUrl}</span>
                       <a
                         href={item.directUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-emerald-400 hover:text-emerald-300 font-semibold flex items-center gap-1"
+                        className="text-indigo-400 hover:text-indigo-300 font-semibold flex items-center gap-1"
                       >
                         <ExternalLink className="w-3 h-3" />
                         <span>Link</span>
@@ -862,12 +862,12 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
       {/* 6. TAB 3: UK BROADBAND ISP ANTI-BLOCK FIXES */}
       {activeTab === 'isp' && (
         <section className="space-y-5">
-          <div className="border-b border-emerald-900/40 pb-3.5">
+          <div className="border-b border-white/[0.08] pb-3.5">
             <h2 className="text-lg sm:text-2xl font-black text-white flex items-center gap-2">
-              <Wifi className="w-5 h-5 text-emerald-400" />
+              <Wifi className="w-5 h-5 text-indigo-400" />
               <span>UK Broadband ISP Anti-Block & Firewall Settings</span>
             </h2>
-            <p className="text-xs sm:text-sm text-emerald-200/70 mt-1">
+            <p className="text-xs sm:text-sm text-slate-400 mt-1">
               UK broadband providers (Virgin Media, BT, Sky, TalkTalk, Vodafone) have web shields that can interfere with IPTV streams during Premier League matches. Disable them in 30 seconds:
             </p>
           </div>
@@ -881,50 +881,50 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
                   onClick={() => setActiveIspIndex(idx)}
                   className={`shrink-0 min-w-[160px] lg:min-w-0 w-full p-3.5 rounded-xl border text-left transition-all flex items-center justify-between cursor-pointer min-h-[50px] ${
                     activeIspIndex === idx
-                      ? 'bg-[#0d2720] border-emerald-400 shadow-sm text-white'
-                      : 'bg-[#091b17]/70 border-emerald-900/40 text-emerald-200/70 hover:bg-[#0c241e] hover:text-white'
+                      ? 'bg-[#1a2136] border-indigo-500 shadow-sm text-white'
+                      : 'bg-[#131622] border-white/[0.08] text-slate-300 hover:bg-[#181d2e] hover:text-white'
                   }`}
                 >
                   <div className="space-y-0.5">
                     <span className="font-bold text-sm block text-white">{isp.ispName}</span>
-                    <span className="text-xs text-emerald-200/60 truncate max-w-[140px] block">{isp.blockingFeature}</span>
+                    <span className="text-xs text-slate-400 truncate max-w-[140px] block">{isp.blockingFeature}</span>
                   </div>
-                  <ChevronRight className={`w-4 h-4 transition-transform hidden lg:block ${activeIspIndex === idx ? 'rotate-90 text-emerald-400' : 'text-emerald-600'}`} />
+                  <ChevronRight className={`w-4 h-4 transition-transform hidden lg:block ${activeIspIndex === idx ? 'rotate-90 text-indigo-400' : 'text-slate-500'}`} />
                 </button>
               ))}
             </div>
 
             <div className="lg:col-span-2">
               {activeIspIndex !== null && UK_ISP_OPTIMIZATIONS[activeIspIndex] && (
-                <div className="p-5 sm:p-6 rounded-2xl bg-[#091b17] border border-emerald-900/40 space-y-4 shadow-sm">
+                <div className="p-5 sm:p-6 rounded-2xl bg-[#131622] border border-white/[0.08] space-y-4 shadow-sm">
                   <div className="flex items-center justify-between gap-2">
                     <div>
-                      <span className="text-xs font-semibold text-emerald-300 uppercase tracking-wider">
+                      <span className="text-xs font-semibold text-indigo-300 uppercase tracking-wider">
                         {UK_ISP_OPTIMIZATIONS[activeIspIndex].routerModel}
                       </span>
                       <h3 className="text-base sm:text-lg font-black text-white">
                         {UK_ISP_OPTIMIZATIONS[activeIspIndex].ispName} - {UK_ISP_OPTIMIZATIONS[activeIspIndex].blockingFeature}
                       </h3>
                     </div>
-                    <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-xs font-bold shrink-0">
+                    <span className="px-2.5 py-0.5 rounded-full bg-indigo-500/15 text-indigo-300 border border-indigo-500/25 text-xs font-bold shrink-0">
                       {UK_ISP_OPTIMIZATIONS[activeIspIndex].impactLevel} Priority
                     </span>
                   </div>
 
                   <div className="space-y-1.5">
-                    <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-200/70">
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-slate-300">
                       How to Disable Filtering:
                     </h4>
-                    <div className="text-xs sm:text-sm text-slate-200 bg-[#061411] p-3.5 rounded-xl border border-emerald-900/50 leading-relaxed">
+                    <div className="text-xs sm:text-sm text-slate-200 bg-[#0a0c13] p-3.5 rounded-xl border border-white/[0.08] leading-relaxed">
                       {UK_ISP_OPTIMIZATIONS[activeIspIndex].howToDisable}
                     </div>
                   </div>
 
-                  <div className="p-3 rounded-xl bg-[#061411] border border-emerald-900/50 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 text-xs text-slate-200">
-                    <span>Recommended DNS: <strong className="text-emerald-300">{UK_ISP_OPTIMIZATIONS[activeIspIndex].recommendedDns}</strong></span>
+                  <div className="p-3 rounded-xl bg-[#0a0c13] border border-white/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 text-xs text-slate-200">
+                    <span>Recommended DNS: <strong className="text-indigo-300">{UK_ISP_OPTIMIZATIONS[activeIspIndex].recommendedDns}</strong></span>
                     <button
                       onClick={() => handleCopy(UK_ISP_OPTIMIZATIONS[activeIspIndex].recommendedDns, 'dns-copy')}
-                      className="px-3 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold flex items-center gap-1 transition-colors cursor-pointer self-start sm:self-auto min-h-[34px]"
+                      className="px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-bold flex items-center gap-1 transition-colors cursor-pointer self-start sm:self-auto min-h-[34px]"
                     >
                       {copiedKey === 'dns-copy' ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
                       <span>{copiedKey === 'dns-copy' ? 'Copied DNS' : 'Copy DNS'}</span>
@@ -939,14 +939,14 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
 
       {/* 7. TAB 4: DIAGNOSTICS STREAM SIMULATOR */}
       {activeTab === 'diagnostic' && (
-        <section className="p-5 sm:p-6 rounded-2xl bg-[#091b17] border border-emerald-900/40 space-y-4 shadow-sm">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-emerald-900/40 pb-3.5">
+        <section className="p-5 sm:p-6 rounded-2xl bg-[#131622] border border-white/[0.08] space-y-4 shadow-sm">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/[0.08] pb-3.5">
             <div className="space-y-0.5">
               <h2 className="text-lg sm:text-xl font-black text-white flex items-center gap-2">
-                <Activity className="w-5 h-5 text-emerald-400" />
+                <Activity className="w-5 h-5 text-indigo-400" />
                 <span>Live UK Server CDN & Stream Health Diagnostic</span>
               </h2>
-              <p className="text-xs text-emerald-200/70">
+              <p className="text-xs text-slate-400">
                 Test real-time stream packet routing, latency, and EPG feed connectivity to our London & Amsterdam server clusters.
               </p>
             </div>
@@ -956,8 +956,8 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
               disabled={diagRunning}
               className={`px-4 py-2.5 rounded-xl font-bold text-xs flex items-center justify-center gap-2 transition-all cursor-pointer min-h-[42px] ${
                 diagRunning
-                  ? 'bg-[#061411] text-emerald-600 cursor-not-allowed'
-                  : 'bg-emerald-500 hover:bg-emerald-400 text-slate-950 shadow-md shadow-emerald-950/50'
+                  ? 'bg-[#0a0c13] text-slate-500 cursor-not-allowed'
+                  : 'bg-indigo-600 hover:bg-indigo-500 text-white shadow-md shadow-indigo-950/60'
               }`}
             >
               <Activity className={`w-4 h-4 ${diagRunning ? 'animate-spin' : ''}`} />
@@ -965,22 +965,22 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
             </button>
           </div>
 
-          <div className="bg-[#061411] p-3.5 sm:p-4 rounded-xl border border-emerald-900/50 font-mono text-xs text-slate-300 space-y-2 min-h-[130px]">
+          <div className="bg-[#0a0c13] p-3.5 sm:p-4 rounded-xl border border-white/[0.08] font-mono text-xs text-slate-300 space-y-2 min-h-[130px]">
             {diagLogs.length === 0 && !diagRunning && (
-              <div className="text-emerald-500/60 italic py-5 text-center">
+              <div className="text-slate-500 italic py-5 text-center">
                 Click "Run Diagnostics" to test StreamUK London Edge Gateway and 4K UHD stream codecs...
               </div>
             )}
 
             {diagLogs.map((log, idx) => (
               <div key={idx} className="flex items-center gap-2">
-                <span className="text-emerald-400 shrink-0">✔</span>
+                <span className="text-indigo-400 shrink-0">✔</span>
                 <span className="text-slate-200 break-all">{log}</span>
               </div>
             ))}
 
             {diagComplete && (
-              <div className="pt-2 border-t border-emerald-900/50 text-emerald-400 font-bold flex items-center gap-2">
+              <div className="pt-2 border-t border-white/[0.08] text-indigo-400 font-bold flex items-center gap-2">
                 <ShieldCheck className="w-4 h-4 shrink-0" />
                 <span>Diagnostics Complete: All UK Tier-1 Server Clusters are operating at 100% health (0.00% Packet Loss).</span>
               </div>
@@ -990,13 +990,13 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
       )}
 
       {/* 8. Setup FAQ Accordion (Clean & Non-cluttered) */}
-      <section className="p-4 sm:p-6 rounded-3xl bg-[#091b17] border border-emerald-900/40 space-y-3.5">
+      <section className="p-4 sm:p-6 rounded-3xl bg-[#131622] border border-white/[0.08] space-y-3.5">
         <div className="space-y-0.5">
           <h2 className="text-base sm:text-lg font-black text-white flex items-center gap-2">
-            <HelpCircle className="w-4 h-4 text-emerald-400" />
+            <HelpCircle className="w-4 h-4 text-indigo-400" />
             <span>Setup Questions & Answers</span>
           </h2>
-          <p className="text-xs text-emerald-200/70">
+          <p className="text-xs text-slate-400">
             Quick answers about Xtream Codes login, credentials, 3pm matches, and multi-room.
           </p>
         </div>
@@ -1007,20 +1007,20 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
             return (
               <div
                 key={index}
-                className="rounded-xl border border-emerald-900/40 bg-[#061411] overflow-hidden transition-colors"
+                className="rounded-xl border border-white/[0.08] bg-[#0a0c13] overflow-hidden transition-colors"
               >
                 <button
                   onClick={() => setOpenFaqIndex(isOpen ? null : index)}
-                  className="w-full p-3.5 sm:p-4 text-left flex items-center justify-between gap-3 cursor-pointer hover:bg-[#091f1a] transition-colors min-h-[46px]"
+                  className="w-full p-3.5 sm:p-4 text-left flex items-center justify-between gap-3 cursor-pointer hover:bg-white/[0.04] transition-colors min-h-[46px]"
                 >
                   <span className="text-xs sm:text-sm font-bold text-white">
                     {faq.q}
                   </span>
-                  <ChevronDown className={`w-4 h-4 text-emerald-400 shrink-0 transition-transform ${isOpen ? 'rotate-180 text-emerald-300' : ''}`} />
+                  <ChevronDown className={`w-4 h-4 text-indigo-400 shrink-0 transition-transform ${isOpen ? 'rotate-180 text-indigo-300' : ''}`} />
                 </button>
 
                 {isOpen && (
-                  <div className="px-3.5 sm:px-4 pb-3.5 sm:pb-4 pt-1 text-slate-200 border-t border-emerald-900/40">
+                  <div className="px-3.5 sm:px-4 pb-3.5 sm:pb-4 pt-1 text-slate-200 border-t border-white/[0.08]">
                     {faq.a}
                   </div>
                 )}
@@ -1037,16 +1037,16 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
       />
 
       {/* 10. WhatsApp Support Banner */}
-      <section className="p-4 sm:p-6 rounded-2xl bg-[#091b17] border border-emerald-900/40 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
+      <section className="p-4 sm:p-6 rounded-2xl bg-[#131622] border border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
         <div className="space-y-1 text-center sm:text-left">
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-300 text-[10px] font-bold uppercase">
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 text-[10px] font-bold uppercase">
             <MessageSquare className="w-3.5 h-3.5" />
             <span>24/7 UK Setup Support</span>
           </div>
           <h3 className="text-base sm:text-lg font-black text-white">
             Need Live Assistance Setting Up Your Device?
           </h3>
-          <p className="text-xs text-emerald-100/80 max-w-lg leading-relaxed">
+          <p className="text-xs text-slate-300 max-w-lg leading-relaxed">
             Our UK technical team is available on WhatsApp to walk you through installation, provide Downloader shortcodes, and test your connection.
           </p>
         </div>
@@ -1055,7 +1055,7 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
           href={`https://api.whatsapp.com/send?phone=${whatsappNumber.replace(/[^0-9]/g, '')}&text=${encodeURIComponent('Hi StreamUK support, I need help setting up IPTV on my device.')}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-md shadow-emerald-950/50 shrink-0 cursor-pointer min-h-[44px]"
+          className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-md shadow-black/40 shrink-0 cursor-pointer min-h-[44px]"
         >
           <MessageSquare className="w-4 h-4 fill-slate-950" />
           <span>WhatsApp VIP Help</span>
@@ -1064,16 +1064,16 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
 
       {/* 11. Subtle Sticky Bottom Trial Bar - Mobile Compact & Dismissible */}
       {!dismissStickyTrial && (
-        <div className="fixed bottom-3 left-1/2 -translate-x-1/2 z-40 w-[94%] max-w-lg bg-[#061411]/95 border border-emerald-900/60 shadow-xl p-2 sm:p-2.5 rounded-xl flex items-center justify-between gap-2.5 backdrop-blur-md">
+        <div className="fixed bottom-3 left-1/2 -translate-x-1/2 z-40 w-[94%] max-w-lg bg-[#131622]/95 border border-white/[0.12] shadow-2xl p-2 sm:p-2.5 rounded-xl flex items-center justify-between gap-2.5 backdrop-blur-md">
           <div className="flex items-center gap-2 min-w-0">
-            <div className="w-6 h-6 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
-              <Zap className="w-3.5 h-3.5 fill-emerald-400" />
+            <div className="w-6 h-6 rounded-lg bg-indigo-500/20 text-indigo-400 flex items-center justify-center shrink-0">
+              <Zap className="w-3.5 h-3.5 fill-indigo-400" />
             </div>
             <div className="min-w-0">
               <span className="text-xs font-bold text-white truncate block">
                 Free 24H 4K VIP Pass
               </span>
-              <span className="text-[10px] text-emerald-200/60 truncate block">
+              <span className="text-[10px] text-slate-400 truncate block">
                 Instant login • No card required
               </span>
             </div>
@@ -1082,13 +1082,13 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
           <div className="flex items-center gap-1.5 shrink-0">
             <button
               onClick={() => onSelectPlan('trial-24h')}
-              className="px-3 py-1.5 rounded-lg bg-emerald-400 hover:bg-emerald-300 text-slate-950 font-bold text-xs whitespace-nowrap shadow-sm active:scale-95 transition-all cursor-pointer min-h-[32px]"
+              className="px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs whitespace-nowrap shadow-sm active:scale-95 transition-all cursor-pointer min-h-[32px]"
             >
               Claim Pass
             </button>
             <button
               onClick={() => setDismissStickyTrial(true)}
-              className="p-1 text-emerald-400/60 hover:text-white rounded cursor-pointer"
+              className="p-1 text-slate-400 hover:text-white rounded cursor-pointer"
               title="Dismiss"
             >
               <X className="w-3.5 h-3.5" />

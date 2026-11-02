@@ -52,12 +52,12 @@ export const Navbar: React.FC<NavbarProps> = ({
   return (
     <header className={`sticky top-0 z-50 transition-all duration-300 ${
       scrolled 
-        ? 'bg-[#061411]/95 backdrop-blur-2xl border-b border-emerald-500/20 shadow-2xl shadow-black/60 py-2.5' 
-        : 'bg-[#071714]/85 backdrop-blur-xl border-b border-emerald-500/15 py-3.5'
+        ? 'bg-[#0b0d14]/95 backdrop-blur-2xl border-b border-white/[0.08] shadow-2xl shadow-black/70 py-2.5' 
+        : 'bg-[#0b0d14]/85 backdrop-blur-xl border-b border-white/[0.06] py-3.5'
     }`}>
       
       {/* Top ambient micro-line */}
-      <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-emerald-400/60 to-transparent pointer-events-none" />
+      <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-indigo-500/50 to-transparent pointer-events-none" />
 
       <div className="w-full max-w-[90rem] mx-auto px-3 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-2 sm:gap-4 lg:gap-8 w-full">
@@ -78,22 +78,22 @@ export const Navbar: React.FC<NavbarProps> = ({
               className="flex items-center gap-1.5 min-[360px]:gap-2 sm:gap-3 group relative select-none cursor-pointer bg-transparent border-none p-0 text-left"
             >
               
-              {/* Premium 3D Neon 4K Emblem - Eye Comfort Emerald */}
+              {/* Premium 3D Neon 4K Emblem - Cinema Indigo & Violet */}
               <div className="relative flex items-center justify-center shrink-0">
                 {/* Ambient glow behind logo */}
-                <div className="absolute -inset-1 bg-gradient-to-tr from-emerald-500 via-teal-500 to-amber-500 rounded-xl blur-[8px] opacity-75 group-hover:opacity-100 transition-all duration-500" />
+                <div className="absolute -inset-1 bg-gradient-to-tr from-indigo-600 via-sky-500 to-amber-500 rounded-xl blur-[8px] opacity-75 group-hover:opacity-100 transition-all duration-500" />
                 
                 {/* Outer metallic container */}
-                <div className="relative w-9 h-9 min-[360px]:w-10 min-[360px]:h-10 sm:w-12 sm:h-12 xl:w-14 xl:h-14 rounded-[12px] sm:rounded-[18px] bg-gradient-to-br from-slate-900 via-[#08221b] to-slate-950 p-[1.5px] shadow-[0_0_12px_rgba(16,185,129,0.3)] border border-emerald-500/30 group-hover:scale-105 transition-transform duration-300">
-                  <div className="w-full h-full rounded-[10px] sm:rounded-[16px] bg-[#061713] flex flex-col items-center justify-center relative overflow-hidden">
+                <div className="relative w-9 h-9 min-[360px]:w-10 min-[360px]:h-10 sm:w-12 sm:h-12 xl:w-14 xl:h-14 rounded-[12px] sm:rounded-[18px] bg-gradient-to-br from-slate-900 via-[#131728] to-slate-950 p-[1.5px] shadow-[0_0_12px_rgba(99,102,241,0.3)] border border-indigo-500/30 group-hover:scale-105 transition-transform duration-300">
+                  <div className="w-full h-full rounded-[10px] sm:rounded-[16px] bg-[#0c0f1a] flex flex-col items-center justify-center relative overflow-hidden">
                     
                     {/* Futuristic grid mesh background */}
-                    <div className="absolute inset-0 bg-[radial-gradient(#10b981_1px,transparent_1px)] [background-size:6px_6px] opacity-30" />
+                    <div className="absolute inset-0 bg-[radial-gradient(#6366f1_1px,transparent_1px)] [background-size:6px_6px] opacity-25" />
                     
                     {/* TV / Broadcast Core Graphic */}
                     <div className="relative z-10 flex items-center justify-center">
                       <div className="relative">
-                        <Tv className="w-3.5 h-3.5 min-[360px]:w-4 min-[360px]:h-4 sm:w-6 sm:h-6 xl:w-7 xl:h-7 text-emerald-400 group-hover:text-amber-400 transition-colors drop-shadow-[0_0_6px_rgba(16,185,129,0.7)]" />
+                        <Tv className="w-3.5 h-3.5 min-[360px]:w-4 min-[360px]:h-4 sm:w-6 sm:h-6 xl:w-7 xl:h-7 text-indigo-400 group-hover:text-amber-400 transition-colors drop-shadow-[0_0_6px_rgba(99,102,241,0.6)]" />
                         <span className="absolute -bottom-1 -right-2 text-[7px] min-[360px]:text-[8px] sm:text-[9px] xl:text-[10px] font-black tracking-tighter bg-gradient-to-r from-amber-400 to-orange-500 text-slate-950 px-0.5 sm:px-1 rounded-[2px] leading-none py-0.5 shadow-sm border border-amber-200/50">
                           4K
                         </span>
@@ -101,8 +101,8 @@ export const Navbar: React.FC<NavbarProps> = ({
                     </div>
 
                     {/* Laser shine line */}
-                    <div className="absolute top-0 left-0 w-full h-[1.5px] bg-gradient-to-r from-transparent via-emerald-300 to-transparent opacity-80" />
-                    <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-teal-500 to-transparent opacity-50" />
+                    <div className="absolute top-0 left-0 w-full h-[1.5px] bg-gradient-to-r from-transparent via-indigo-300 to-transparent opacity-80" />
+                    <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-sky-500 to-transparent opacity-50" />
                   </div>
                 </div>
               </div>
@@ -110,12 +110,12 @@ export const Navbar: React.FC<NavbarProps> = ({
               {/* Brand Typography */}
               <div className="flex flex-col justify-center">
                 <div className="font-black text-sm min-[360px]:text-base min-[400px]:text-xl sm:text-2xl xl:text-3xl tracking-tight text-white flex items-center drop-shadow-md leading-none">
-                  GLOBAL<span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-200">STREAM</span>
+                  GLOBAL<span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-sky-300 to-indigo-200">STREAM</span>
                   <span className="ml-1 text-[7px] min-[360px]:text-[8px] sm:text-[10px] xl:text-xs font-black tracking-wider text-amber-400 bg-amber-400/10 px-1 sm:px-1.5 py-0.5 rounded border border-amber-400/30">
                     HUB
                   </span>
                 </div>
-                <span className="text-[7px] min-[360px]:text-[8px] min-[400px]:text-[9px] sm:text-[10px] font-bold tracking-wider text-emerald-400/90 uppercase mt-0.5 drop-shadow-sm">
+                <span className="text-[7px] min-[360px]:text-[8px] min-[400px]:text-[9px] sm:text-[10px] font-bold tracking-wider text-indigo-400/90 uppercase mt-0.5 drop-shadow-sm">
                   Ultra HD Media Portal
                 </span>
               </div>
@@ -209,10 +209,10 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* High-Converting Free Trial Button */}
             <button
               onClick={() => onSelectPlan('trial-24h')}
-              className="relative group overflow-hidden px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 hover:from-emerald-300 hover:to-cyan-300 text-slate-950 font-black text-xs shadow-lg shadow-emerald-500/25 hover:shadow-emerald-400/40 hover:scale-[1.03] active:scale-[0.98] transition-all cursor-pointer flex items-center gap-1.5 whitespace-nowrap"
+              className="relative group overflow-hidden px-4 py-2 rounded-xl bg-gradient-to-r from-indigo-600 via-indigo-500 to-sky-500 hover:from-indigo-500 hover:to-sky-400 text-white font-black text-xs shadow-lg shadow-indigo-600/30 hover:scale-[1.03] active:scale-[0.98] transition-all cursor-pointer flex items-center gap-1.5 whitespace-nowrap"
             >
               <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/40 to-transparent" />
-              <Zap className="w-3.5 h-3.5 fill-slate-950" />
+              <Zap className="w-3.5 h-3.5 fill-white" />
               <span>{t.nav.freeTrial}</span>
             </button>
           </div>
@@ -225,9 +225,9 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               onClick={() => onSelectPlan('trial-24h')}
               aria-label="Claim Free 24 Hour Trial"
-              className="hidden sm:flex min-h-[44px] px-3.5 py-2 rounded-xl bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 text-slate-950 font-black text-xs items-center justify-center gap-1.5 shadow-md shadow-emerald-500/25 active:scale-95 transition-all shrink-0 cursor-pointer whitespace-nowrap"
+              className="hidden sm:flex min-h-[44px] px-3.5 py-2 rounded-xl bg-gradient-to-r from-indigo-600 via-indigo-500 to-sky-500 text-white font-black text-xs items-center justify-center gap-1.5 shadow-md shadow-indigo-600/30 active:scale-95 transition-all shrink-0 cursor-pointer whitespace-nowrap"
             >
-              <Zap className="w-3.5 h-3.5 fill-slate-950 shrink-0" />
+              <Zap className="w-3.5 h-3.5 fill-white shrink-0" />
               <span className="leading-none">Free 24h</span>
             </button>
 
@@ -257,16 +257,16 @@ export const Navbar: React.FC<NavbarProps> = ({
         <nav 
           id="mobile-nav-drawer"
           aria-label="Mobile Navigation Menu"
-          className="lg:hidden bg-[#050713]/98 backdrop-blur-2xl border-b border-indigo-500/30 px-3.5 min-[380px]:px-4 py-4 space-y-4 animate-fade-in shadow-2xl overflow-y-auto max-h-[calc(100dvh-4rem)] w-full max-w-full"
+          className="lg:hidden bg-[#0c0f1a]/98 backdrop-blur-2xl border-b border-white/[0.08] px-3.5 min-[380px]:px-4 py-4 space-y-4 animate-fade-in shadow-2xl overflow-y-auto max-h-[calc(100dvh-4rem)] w-full max-w-full"
         >
           {/* Top VIP Free Trial CTA inside drawer */}
-          <div className="p-3 rounded-2xl bg-gradient-to-r from-emerald-950/80 via-slate-900/90 to-teal-950/80 border border-emerald-500/40 shadow-lg space-y-2">
+          <div className="p-3 rounded-2xl bg-gradient-to-r from-indigo-950/80 via-slate-900/90 to-sky-950/80 border border-indigo-500/30 shadow-lg space-y-2">
             <div className="flex items-center justify-between">
-              <span className="text-[11px] font-black uppercase tracking-wider text-emerald-400 flex items-center gap-1">
-                <Zap className="w-3.5 h-3.5 fill-emerald-400" />
+              <span className="text-[11px] font-black uppercase tracking-wider text-indigo-400 flex items-center gap-1">
+                <Zap className="w-3.5 h-3.5 fill-indigo-400" />
                 <span>Instant 24H VIP Access</span>
               </span>
-              <span className="text-[10px] font-mono font-bold bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded-full border border-emerald-500/30">
+              <span className="text-[10px] font-mono font-bold bg-indigo-500/20 text-indigo-300 px-2 py-0.5 rounded-full border border-indigo-500/30">
                 100% Free
               </span>
             </div>
@@ -275,9 +275,9 @@ export const Navbar: React.FC<NavbarProps> = ({
                 setMobileMenuOpen(false);
                 onSelectPlan('trial-24h');
               }}
-              className="w-full min-h-[44px] py-2.5 px-3 rounded-xl bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 text-slate-950 font-black text-xs text-center shadow-md shadow-emerald-500/20 flex items-center justify-center gap-1.5 cursor-pointer active:scale-[0.98] transition-transform"
+              className="w-full min-h-[44px] py-2.5 px-3 rounded-xl bg-gradient-to-r from-indigo-600 via-indigo-500 to-sky-500 text-white font-black text-xs text-center shadow-md shadow-indigo-600/30 flex items-center justify-center gap-1.5 cursor-pointer active:scale-[0.98] transition-transform"
             >
-              <Zap className="w-3.5 h-3.5 fill-slate-950" />
+              <Zap className="w-3.5 h-3.5 fill-white" />
               <span>Claim Free 24h VIP Pass</span>
             </button>
           </div>
@@ -355,7 +355,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 setMobileMenuOpen(false);
                 onSelectPlan('trial-24h');
               }}
-              className="w-full min-h-[48px] py-3 rounded-2xl bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 text-slate-950 font-black text-sm text-center shadow-lg shadow-emerald-500/25 flex items-center justify-center gap-2 cursor-pointer active:scale-[0.98] transition-transform"
+              className="w-full min-h-[48px] py-3 rounded-2xl bg-gradient-to-r from-indigo-600 via-indigo-500 to-sky-500 text-white font-black text-sm text-center shadow-lg shadow-indigo-600/30 flex items-center justify-center gap-2 cursor-pointer active:scale-[0.98] transition-transform"
             >
               <Zap className="w-4 h-4 fill-current" />
               <span>{t.nav.freeTrial}</span>

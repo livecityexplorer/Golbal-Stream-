@@ -29,14 +29,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   return (
     <section 
       aria-label="StreamUK 4K IPTV Hero Showcase"
-      className="relative pt-4 sm:pt-12 pb-14 sm:pb-24 overflow-hidden bg-[#071412] w-full max-w-full"
+      className="relative pt-4 sm:pt-12 pb-14 sm:pb-24 overflow-hidden bg-[#0b0d14] w-full max-w-full"
       itemScope 
       itemType="https://schema.org/BroadcastService"
     >
       
-      {/* Radiant Background Ambience - Eye Comfort Emerald & Teal */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] sm:w-[1100px] h-[350px] sm:h-[550px] bg-gradient-to-b from-emerald-600/25 via-teal-600/15 to-transparent blur-[100px] sm:blur-[120px] pointer-events-none max-w-full" />
-      <div className="absolute -top-24 right-1/4 w-[280px] sm:w-[400px] h-[200px] sm:h-[300px] bg-amber-600/10 blur-[80px] sm:blur-[100px] pointer-events-none max-w-full" />
+      {/* Radiant Background Ambience - Cinema Indigo & Sky Glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] sm:w-[1100px] h-[350px] sm:h-[550px] bg-gradient-to-b from-indigo-600/20 via-sky-600/10 to-transparent blur-[100px] sm:blur-[120px] pointer-events-none max-w-full" />
+      <div className="absolute -top-24 right-1/4 w-[280px] sm:w-[400px] h-[200px] sm:h-[300px] bg-indigo-500/10 blur-[80px] sm:blur-[100px] pointer-events-none max-w-full" />
 
       <div className="w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
         
@@ -49,7 +49,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               className="hero-headline font-black text-white text-3xl min-[400px]:text-4xl sm:text-6xl md:text-7xl leading-[1.1] tracking-tight break-words"
             >
               {t.hero.titleStart}{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 via-teal-200 to-emerald-400">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-sky-300 to-cyan-300">
                 {t.hero.titleHighlight}
               </span>{' '}
               {t.hero.titleEnd}
@@ -70,7 +70,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <span className="max-w-full px-3 py-1.5 rounded-xl bg-sky-950/70 border border-sky-500/40 text-sky-300 font-bold shadow-sm">
                 🌍 18,500+ Global HD Channels
               </span>
-              <span className="max-w-full px-3 py-1.5 rounded-xl bg-emerald-950/70 border border-emerald-500/40 text-emerald-300 font-bold shadow-sm">
+              <span className="max-w-full px-3 py-1.5 rounded-xl bg-[#151a2a] border border-indigo-500/30 text-indigo-200 font-bold shadow-sm">
                 ⚡ Anti-Freeze v9.8
               </span>
               <span className="max-w-full px-3 py-1.5 rounded-xl bg-cyan-950/70 border border-cyan-500/40 text-cyan-300 font-bold shadow-sm">
@@ -83,7 +83,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <button
                 onClick={() => onSelectPlan('trial-24h')}
                 aria-label="Claim Free 24 Hour VIP Streaming Trial"
-                className="w-full sm:w-auto min-h-[56px] px-9 py-4 rounded-2xl bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 hover:from-emerald-300 hover:to-cyan-300 text-slate-950 font-black text-base shadow-xl shadow-emerald-500/25 active:scale-95 transition-all flex items-center justify-center gap-2 group cursor-pointer"
+                className="w-full sm:w-auto min-h-[56px] px-9 py-4 rounded-2xl bg-gradient-to-r from-indigo-600 via-indigo-500 to-sky-500 hover:from-indigo-500 hover:to-sky-400 text-white font-black text-base shadow-xl shadow-indigo-600/30 active:scale-95 transition-all flex items-center justify-center gap-2 group cursor-pointer"
               >
                 <span>{t.hero.freeTrialBtn}</span>
                 <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

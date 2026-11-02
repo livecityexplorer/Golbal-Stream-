@@ -38,12 +38,12 @@ import { Currency, PlanPricing, ThemeCustomization, SportsFixture } from './type
 import { getInstantLocaleCurrency, detectLocationCurrency } from './utils/geoCurrency';
 
 export default function App() {
-  // Theme & branding state - Default Eye-Comfort Emerald Theme
+  // Theme & branding state - Clean Cinema Obsidian & Indigo Theme
   const [themeConfig, setThemeConfig] = useState<ThemeCustomization>(() => ({
     brandName: 'GlobalStreamHub 4K',
     brandTagline: 'Ultra HD Global Sports & Cinema Media Portal',
-    accentColor: '#10b981',
-    accentColorName: 'emerald',
+    accentColor: '#6366f1',
+    accentColorName: 'purple',
     whatsappNumber: '+44 7731 454811',
     telegramUser: '@globalstreamhub',
     supportEmail: 'support@globalstreamhub.net',
@@ -239,7 +239,7 @@ export default function App() {
 
   return (
     <LanguageProvider>
-      <div className="w-full max-w-full overflow-x-hidden min-h-screen bg-[#071412] text-slate-100 selection:bg-emerald-500/30 selection:text-emerald-100 font-sans pb-24 xl:pb-0">
+      <div className="w-full max-w-full overflow-x-hidden min-h-screen bg-[#0b0d14] text-slate-100 selection:bg-indigo-500 selection:text-white font-sans pb-24 xl:pb-0">
         
         {/* Main Navigation */}
         <Navbar
