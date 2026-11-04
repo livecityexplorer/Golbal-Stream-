@@ -209,12 +209,18 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onSelectPlan, navigate
                     </div>
 
                     {/* Title */}
-                    <h3 
-                      onClick={() => handlePostClick(featuredPost)}
-                      className="text-xl sm:text-2xl lg:text-3xl font-black text-white group-hover:text-cyan-300 transition-colors cursor-pointer leading-snug"
+                    <a
+                      href={`/blog/${featuredPost.slug}`}
+                      onClick={(e) => {
+                        if (!e.metaKey && !e.ctrlKey && !e.shiftKey) {
+                          e.preventDefault();
+                          handlePostClick(featuredPost);
+                        }
+                      }}
+                      className="block text-xl sm:text-2xl lg:text-3xl font-black text-white hover:text-cyan-300 transition-colors cursor-pointer leading-snug"
                     >
                       {featuredPost.title}
-                    </h3>
+                    </a>
 
                     {/* Excerpt */}
                     <p className="text-slate-300 text-xs sm:text-sm leading-relaxed line-clamp-3">
@@ -245,13 +251,19 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onSelectPlan, navigate
                       </div>
                     </div>
 
-                    <button
-                      onClick={() => handlePostClick(featuredPost)}
+                    <a
+                      href={`/blog/${featuredPost.slug}`}
+                      onClick={(e) => {
+                        if (!e.metaKey && !e.ctrlKey && !e.shiftKey) {
+                          e.preventDefault();
+                          handlePostClick(featuredPost);
+                        }
+                      }}
                       className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white font-bold text-xs transition-all shadow-lg shadow-cyan-500/25 flex items-center gap-1.5 cursor-pointer group/btn"
                     >
                       <span>Read Full Guide</span>
                       <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
-                    </button>
+                    </a>
                   </div>
 
                 </div>
@@ -324,9 +336,18 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onSelectPlan, navigate
                     </div>
 
                     {/* Title */}
-                    <h4 className="text-base sm:text-lg font-bold text-white group-hover:text-cyan-300 transition-colors leading-snug line-clamp-2">
+                    <a
+                      href={`/blog/${post.slug}`}
+                      onClick={(e) => {
+                        if (!e.metaKey && !e.ctrlKey && !e.shiftKey) {
+                          e.preventDefault();
+                          handlePostClick(post);
+                        }
+                      }}
+                      className="block text-base sm:text-lg font-bold text-white group-hover:text-cyan-300 transition-colors leading-snug line-clamp-2"
+                    >
                       {post.title}
-                    </h4>
+                    </a>
 
                     {/* Excerpt */}
                     <p className="text-slate-400 text-xs leading-relaxed line-clamp-2">
@@ -355,9 +376,19 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onSelectPlan, navigate
                       <span className="text-[11px] font-medium text-slate-300">{post.author.name}</span>
                     </div>
 
-                    <span className="text-xs font-bold text-cyan-400 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                      Read Guide <ArrowRight className="w-3 h-3" />
-                    </span>
+                    <a
+                      href={`/blog/${post.slug}`}
+                      onClick={(e) => {
+                        if (!e.metaKey && !e.ctrlKey && !e.shiftKey) {
+                          e.preventDefault();
+                          handlePostClick(post);
+                        }
+                      }}
+                      className="text-xs font-bold text-cyan-400 flex items-center gap-1 group-hover:translate-x-1 transition-transform"
+                    >
+                      <span>Read Guide</span>
+                      <ArrowRight className="w-3 h-3" />
+                    </a>
                   </div>
 
                 </article>

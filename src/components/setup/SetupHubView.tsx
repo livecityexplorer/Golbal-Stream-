@@ -660,17 +660,21 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
                       </div>
                     )}
 
-                    <button
-                      onClick={() => {
-                        navigateTo('/setup/' + spotlightGuide.slug);
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    <a
+                      href={'/setup/' + spotlightGuide.slug}
+                      onClick={(e) => {
+                        if (!e.metaKey && !e.ctrlKey && !e.shiftKey) {
+                          e.preventDefault();
+                          navigateTo('/setup/' + spotlightGuide.slug);
+                          window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }
                       }}
                       className="w-full py-3 px-5 rounded-2xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-md shadow-indigo-950/60 cursor-pointer active:scale-95 min-h-[46px]"
                     >
                       <Play className="w-3.5 h-3.5 fill-white" />
                       <span>Open Setup Guide</span>
                       <ChevronRight className="w-4 h-4" />
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -746,10 +750,20 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
                         <span>{guide.timeEstimate}</span>
                       </span>
 
-                      <span className="font-semibold text-indigo-400 text-xs flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                      <a
+                        href={'/setup/' + guide.slug}
+                        onClick={(e) => {
+                          if (!e.metaKey && !e.ctrlKey && !e.shiftKey) {
+                            e.preventDefault();
+                            navigateTo('/setup/' + guide.slug);
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                          }
+                        }}
+                        className="font-semibold text-indigo-400 text-xs flex items-center gap-1 group-hover:translate-x-1 transition-transform"
+                      >
                         <span>View Guide</span>
                         <ChevronRight className="w-3.5 h-3.5" />
-                      </span>
+                      </a>
                     </div>
                   </div>
                 ))}

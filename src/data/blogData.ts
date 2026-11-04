@@ -35,6 +35,9 @@ export const BLOG_POSTS: BlogPost[] = [
       'Free Trial IPTV'
     ],
     targetKeywords: [
+      '#UKBestIPTV',
+      '#UKMostStableIPTV',
+      '#MostStableIPTV',
       '#PremierLeague2026',
       '#WhoWillWinThePremierLeague',
       '#ArsenalTitleRace',
@@ -184,6 +187,9 @@ export const BLOG_POSTS: BlogPost[] = [
       'Free Trial IPTV'
     ],
     targetKeywords: [
+      '#USABestIPTV',
+      '#BestIPTVUSA',
+      '#MostStableIPTV',
       '#ChampionsLeague2026',
       '#WhoWillWinTheChampionsLeague',
       '#RealMadridUCL',
@@ -843,6 +849,9 @@ export const BLOG_POSTS: BlogPost[] = [
       'Free Trial IPTV'
     ],
     targetKeywords: [
+      '#UKBestIPTV',
+      '#UKMostStableIPTV',
+      '#TopIPTVUK',
       '#PremierLeague2026',
       '#TopFourRace',
       '#ManchesterUnited4K',

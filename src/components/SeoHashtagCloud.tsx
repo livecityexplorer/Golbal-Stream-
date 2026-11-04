@@ -53,6 +53,33 @@ export const COMPREHENSIVE_SEO_HASHTAGS: SeoTag[] = [
     targetKeywords: ['best iptv provider uk 2026', 'reliable uk iptv service', 'top rated iptv uk', 'uk best iptv']
   },
   { 
+    tag: '#UKBestIPTV', 
+    category: 'uk', 
+    searchVolume: '215,000/mo', 
+    difficulty: 'Medium', 
+    intent: 'Commercial',
+    description: 'Premier UK IPTV service for high-bitrate 4K sports, Premier League, Sky Sports, TNT, and 100+ local BBC/ITV channels.',
+    targetKeywords: ['ukbestiptv', 'uk best iptv', 'best iptv uk', 'uk best iptv provider', 'top uk iptv']
+  },
+  { 
+    tag: '#UKMostStableIPTV', 
+    category: 'uk', 
+    searchVolume: '185,000/mo', 
+    difficulty: 'Medium', 
+    intent: 'Commercial',
+    description: 'The UK\'s most stable IPTV infrastructure with dedicated London Equinix edge servers and zero-buffering Anti-Freeze v9.8.',
+    targetKeywords: ['ukmoststableiptv', 'uk most stable iptv', 'most stable iptv uk', 'freeze free iptv uk', 'reliable uk streaming']
+  },
+  { 
+    tag: '#TopIPTVUK', 
+    category: 'uk', 
+    searchVolume: '165,000/mo', 
+    difficulty: 'Low', 
+    intent: 'Commercial',
+    description: 'Top-tier UK IPTV streaming offering all 380 Premier League games, Saturday 3pm matches and 7-day catchup TV.',
+    targetKeywords: ['topiptvuk', 'top iptv uk', 'best rated iptv uk', 'uk iptv subscription']
+  },
+  { 
     tag: '#CheapIPTVUK', 
     category: 'uk', 
     searchVolume: '145,000/mo', 
@@ -118,6 +145,24 @@ export const COMPREHENSIVE_SEO_HASHTAGS: SeoTag[] = [
     targetKeywords: ['usa iptv subscription', 'best usa iptv', 'american channels iptv', 'nfl sunday ticket iptv', 'espn plus iptv']
   },
   { 
+    tag: '#USABestIPTV', 
+    category: 'us_ca', 
+    searchVolume: '280,000/mo', 
+    difficulty: 'Medium', 
+    intent: 'Commercial',
+    description: 'America\'s top-rated IPTV network featuring full regional sports networks, Peacock 4K, ESPN+, and NFL Sunday coverage.',
+    targetKeywords: ['usabestiptv', 'usa best iptv', 'best iptv usa', 'us best iptv provider', 'top rated american iptv']
+  },
+  { 
+    tag: '#BestIPTVUSA', 
+    category: 'us_ca', 
+    searchVolume: '255,000/mo', 
+    difficulty: 'Medium', 
+    intent: 'Commercial',
+    description: 'Premier USA IPTV streaming service with live NFL RedZone, college football, NBA League Pass, and zero regional blackout restrictions.',
+    targetKeywords: ['bestiptvusa', 'best iptv usa', 'top iptv usa', 'american cable alternative', 'usa live tv stream']
+  },
+  { 
     tag: '#USACanadaIPTVTrial', 
     category: 'us_ca', 
     searchVolume: '310,000/mo', 
@@ -174,6 +219,15 @@ export const COMPREHENSIVE_SEO_HASHTAGS: SeoTag[] = [
 
   // Device & Apps Setup
   { 
+    tag: '#CBRTVApp', 
+    category: 'devices', 
+    searchVolume: '135,000/mo', 
+    difficulty: 'Low', 
+    intent: 'Transactional',
+    description: 'Official CBR TV App player with built-in Anti-ISP proxy bypass layer, 4K/8K hardware decoder and FireStick Downloader code 626198.',
+    targetKeywords: ['cbr tv app', 'cbr tv apk', 'cbrtv downloader code 626198', 'cbr tv windows mac', 'cbr tv proxy layer']
+  },
+  { 
     tag: '#FireStickIPTV', 
     category: 'devices', 
     searchVolume: '310,000/mo', 
@@ -211,6 +265,33 @@ export const COMPREHENSIVE_SEO_HASHTAGS: SeoTag[] = [
   },
 
   // Features & Infrastructure
+  { 
+    tag: '#MostStableIPTV', 
+    category: 'features', 
+    searchVolume: '240,000/mo', 
+    difficulty: 'Medium', 
+    intent: 'Commercial',
+    description: 'Engineered for uninterrupted matchday viewing with redundant 10Gbps load balancing and Anti-Freeze v9.8 technology.',
+    targetKeywords: ['moststableiptv', 'most stable iptv', 'stable iptv service', 'no buffer iptv provider', 'anti freeze 4k stream']
+  },
+  { 
+    tag: '#BestIPTVProvider', 
+    category: 'features', 
+    searchVolume: '310,000/mo', 
+    difficulty: 'High', 
+    intent: 'Commercial',
+    description: 'Globally certified 4K IPTV provider with 18,500+ live channels, 65,000+ VODs, and instant automated activation.',
+    targetKeywords: ['bestiptvprovider', 'best iptv provider', 'top rated iptv service', 'trusted iptv provider']
+  },
+  { 
+    tag: '#StableIPTV', 
+    category: 'features', 
+    searchVolume: '210,000/mo', 
+    difficulty: 'Medium', 
+    intent: 'Commercial',
+    description: 'Rock-solid zero-buffering streaming through direct Tier-1 edge data centers in London, Frankfurt, and New York.',
+    targetKeywords: ['stableiptv', 'stable iptv', 'reliable iptv streams', 'no buffering iptv']
+  },
   { 
     tag: '#4KIPTV', 
     category: 'features', 
@@ -319,27 +400,27 @@ export const SeoHashtagCloud: React.FC = () => {
       case 'uk_sports':
         return {
           title: 'UK Premier League & Sky Sports 4K Optimization Bundle',
-          hashtags: ['#UKIPTV', '#PremierLeagueIPTV', '#SkySports4K', '#TNTSports4K', '#EFLChampionshipIPTV', '#BestIPTVUK', '#4KIPTV', '#NoBufferingIPTV'],
-          snippet: 'Watch every single Premier League matchday, EFL Championship, Sky Sports 4K & TNT Sports Ultimate in 60FPS 4K UHD. Instant 24h free trial. #UKIPTV #PremierLeagueIPTV #SkySports4K'
+          hashtags: ['#UKBestIPTV', '#UKMostStableIPTV', '#UKIPTV', '#BestIPTVUK', '#PremierLeagueIPTV', '#SkySports4K', '#TNTSports4K', '#MostStableIPTV', '#4KIPTV', '#NoBufferingIPTV'],
+          snippet: 'Watch every single Premier League matchday, EFL Championship, Sky Sports 4K & TNT Sports Ultimate in 60FPS 4K UHD with zero buffering. Instant 24h free trial. #UKBestIPTV #UKMostStableIPTV #PremierLeagueIPTV #SkySports4K'
         };
       case 'firestick_setup':
         return {
-          title: 'FireStick & Smart TV Installation SEO Bundle',
-          hashtags: ['#FireStickIPTV', '#SmartTVIPTV', '#TiviMate4K', '#IPTVSubscription', '#XtreamCodes', '#DownloaderCode', '#4KIPTV'],
-          snippet: 'Easy 2-minute setup guide for Amazon FireStick 4K Max, TiviMate & Smart TV. Direct downloader shortcodes with 24/7 instant support. #FireStickIPTV #TiviMate4K'
+          title: 'FireStick, CBR TV & Smart TV Installation SEO Bundle',
+          hashtags: ['#FireStickIPTV', '#CBRTVApp', '#SmartTVIPTV', '#TiviMate4K', '#MostStableIPTV', '#IPTVSubscription', '#XtreamCodes', '#DownloaderCode', '#4KIPTV'],
+          snippet: 'Easy 2-minute setup guide for Amazon FireStick 4K Max, CBR TV App (Downloader: 626198) & TiviMate. Anti-ISP proxy bypass with 24/7 instant support. #CBRTVApp #FireStickIPTV #MostStableIPTV'
         };
       case 'usa_peacock':
         return {
           title: 'USA & Canada Premium Sports Bundle',
-          hashtags: ['#USAIPTV', '#CanadaIPTV', '#PeacockSports4K', '#ESPNPlusStreams', '#TSN4K', '#SportsnetIPTV', '#4KIPTV'],
-          snippet: 'All USA & Canada channels including NBC Peacock 4K, ESPN+, Fox Sports, TSN 1-5 and Crave in crystal clear 4K UHD. #USAIPTV #CanadaIPTV #PeacockSports4K'
+          hashtags: ['#USABestIPTV', '#BestIPTVUSA', '#USAIPTV', '#CanadaIPTV', '#PeacockSports4K', '#ESPNPlusStreams', '#TSN4K', '#MostStableIPTV', '#4KIPTV'],
+          snippet: 'All USA & Canada channels including NBC Peacock 4K, ESPN+, Fox Sports, TSN 1-5 and Crave in crystal clear 4K UHD. #USABestIPTV #BestIPTVUSA #USAIPTV #CanadaIPTV'
         };
       case 'free_trial':
       default:
         return {
           title: 'High-Conversion Free Trial & Activation Bundle',
-          hashtags: ['#IPTVFreeTrial', '#UKIPTV', '#BestIPTVUK', '#4KIPTV', '#NoBufferingIPTV', '#IPTVSubscription', '#FireStickIPTV'],
-          snippet: 'Claim your 100% free 24-hour VIP test pass with instant automated delivery. Full access to 18,500+ channels and 65k VODs. #IPTVFreeTrial #UKIPTV #4KIPTV'
+          hashtags: ['#IPTVFreeTrial', '#UKBestIPTV', '#USABestIPTV', '#UKMostStableIPTV', '#MostStableIPTV', '#BestIPTVUK', '#4KIPTV', '#NoBufferingIPTV'],
+          snippet: 'Claim your 100% free 24-hour VIP test pass with instant automated delivery. Full access to 18,500+ channels and 65k VODs. #UKBestIPTV #USABestIPTV #MostStableIPTV #IPTVFreeTrial'
         };
     }
   };
