@@ -5,6 +5,16 @@ const DOMAIN = 'https://globalstreamhub.net';
 
 // Defined routes with custom targeted SEO metadata for high search rankings
 const ROUTE_METADATA = {
+  '/ukbestiptv': {
+    title: 'Why We Are the Best UK IPTV Subscription in 2026/27: CBR TV App & 4K Streaming',
+    description: 'Discover why thousands of British households rate GlobalStreamHub as the #1 UK IPTV subscription. CBR TV app (Downloader: 626198), Anti-ISP proxy layer & 380 EPL games in 4K.',
+    keywords: 'ukbestiptv, best iptv uk, best uk iptv subscription, cbr tv app, cbr tv downloader 626198, anti freeze iptv uk, premier league 4k'
+  },
+  '/blog/ukbestiptv': {
+    title: 'Why We Are the Best UK IPTV Subscription in 2026/27: CBR TV App & 4K Streaming',
+    description: 'Discover why thousands of British households rate GlobalStreamHub as the #1 UK IPTV subscription. CBR TV app (Downloader: 626198), Anti-ISP proxy layer & 380 EPL games in 4K.',
+    keywords: 'ukbestiptv, best iptv uk, best uk iptv subscription, cbr tv app, cbr tv downloader 626198, anti freeze iptv uk, premier league 4k'
+  },
   // Regional Hubs
   '/uk-iptv': {
     title: 'Best UK IPTV Subscription 2026: 4K Premier League, Sky Sports & 3pm Blackout • GlobalStreamHub',
@@ -236,6 +246,8 @@ const ROUTE_METADATA = {
 
 // Additional routes from sitemap to guarantee 100% coverage
 const ALL_SITEMAP_ROUTES = [
+  '/ukbestiptv',
+  '/blog/ukbestiptv',
   '/uk-iptv',
   '/usa-iptv',
   '/canada-iptv',

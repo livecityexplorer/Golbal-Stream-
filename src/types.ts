@@ -315,6 +315,16 @@ export interface BlogPost {
       listItems?: string[];
       tipBox?: string;
       codeOrParams?: string;
+      image?: {
+        url: string;
+        caption?: string;
+        alt?: string;
+      };
+      gallery?: {
+        url: string;
+        title: string;
+        caption: string;
+      }[];
       table?: {
         headers: string[];
         rows: string[][];

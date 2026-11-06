@@ -26,7 +26,8 @@ import {
   ListOrdered,
   BadgeCheck,
   Tv,
-  Globe2
+  Globe2,
+  Copy
 } from 'lucide-react';
 
 interface BlogPostPageProps {
@@ -41,10 +42,17 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
   navigateTo,
 }) => {
   const [copiedLink, setCopiedLink] = useState(false);
+  const [copiedCodeIdx, setCopiedCodeIdx] = useState<number | null>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [activeSectionIdx, setActiveSectionIdx] = useState<number>(0);
 
   const baseUrl = typeof window !== 'undefined' && window.location.origin ? window.location.origin : 'https://globalstreamhub.net';
+
+  const handleCopyCode = (code: string, idx: number) => {
+    navigator.clipboard.writeText(code);
+    setCopiedCodeIdx(idx);
+    setTimeout(() => setCopiedCodeIdx(null), 2000);
+  };
 
   // Dynamic Scroll Progress Tracker
   useEffect(() => {
@@ -470,6 +478,86 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
                       {p}
                     </p>
                   ))}
+
+                  {/* Section Featured Image / Screenshot */}
+                  {section.image && (
+                    <figure className="my-6 space-y-2">
+                      <div className="rounded-2xl overflow-hidden border border-zinc-700/80 shadow-2xl bg-zinc-950 group relative">
+                        <img
+                          src={section.image.url}
+                          alt={section.image.alt || section.heading}
+                          className="w-full h-auto object-cover max-h-[520px] transition-transform duration-500 group-hover:scale-[1.01]"
+                          loading="lazy"
+                        />
+                        <div className="absolute top-3 right-3 bg-zinc-900/90 backdrop-blur-md px-2.5 py-1 rounded-md text-[10px] font-mono text-cyan-300 border border-zinc-700/60 shadow">
+                          CBR TV 4K/8K Engine
+                        </div>
+                      </div>
+                      {section.image.caption && (
+                        <figcaption className="text-xs text-zinc-400 font-mono flex items-center gap-1.5 px-2">
+                          <Tv className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                          <span>{section.image.caption}</span>
+                        </figcaption>
+                      )}
+                    </figure>
+                  )}
+
+                  {/* Section Screenshot Gallery Grid */}
+                  {section.gallery && section.gallery.length > 0 && (
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5 my-6">
+                      {section.gallery.map((gItem, gIdx) => (
+                        <figure 
+                          key={gIdx}
+                          className="rounded-2xl overflow-hidden border border-zinc-700/80 bg-zinc-950/90 p-3 space-y-3 hover:border-cyan-500/50 transition-all shadow-xl group flex flex-col"
+                        >
+                          <div className="rounded-xl overflow-hidden bg-black/90 border border-zinc-800/80 relative shadow-inner">
+                            <img
+                              src={gItem.url}
+                              alt={gItem.title}
+                              className="w-full h-auto min-h-[180px] sm:min-h-[220px] max-h-[380px] object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                              decoding="async"
+                            />
+                            <div className="absolute top-2.5 right-2.5 bg-zinc-950/85 backdrop-blur-md px-2 py-0.5 rounded text-[10px] font-mono text-cyan-300 border border-zinc-700/60 shadow">
+                              CBR TV
+                            </div>
+                          </div>
+                          <figcaption className="px-1.5 space-y-1">
+                            <div className="text-sm font-bold text-white tracking-tight flex items-center gap-1.5">
+                              <Tv className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                              <span>{gItem.title}</span>
+                            </div>
+                            <div className="text-xs text-zinc-400 leading-relaxed font-sans">{gItem.caption}</div>
+                          </figcaption>
+                        </figure>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* Copyable Code / Download Parameters Box */}
+                  {section.codeOrParams && (
+                    <div className="my-5 p-4 rounded-xl bg-zinc-950/90 border border-cyan-500/30 flex items-center justify-between gap-4 font-mono text-xs sm:text-sm text-cyan-300 shadow-inner">
+                      <div className="truncate font-semibold flex items-center gap-2">
+                        <span className="text-zinc-500">#</span>
+                        <span className="truncate">{section.codeOrParams}</span>
+                      </div>
+                      <button
+                        onClick={() => handleCopyCode(section.codeOrParams!, sIdx)}
+                        className="px-3.5 py-1.5 rounded-lg bg-cyan-500/15 hover:bg-cyan-500/25 border border-cyan-500/30 text-cyan-300 font-bold text-xs flex items-center gap-1.5 shrink-0 transition-colors cursor-pointer active:scale-95"
+                      >
+                        {copiedCodeIdx === sIdx ? (
+                          <>
+                            <Check className="w-3.5 h-3.5 text-emerald-400" />
+                            <span className="text-emerald-400">Copied!</span>
+                          </>
+                        ) : (
+                          <>
+                            <Copy className="w-3.5 h-3.5" />
+                            <span>Copy</span>
+                          </>
+                        )}
+                      </button>
+                    </div>
+                  )}
 
                   {/* Key Stats Cards Grid */}
                   {section.statCards && section.statCards.length > 0 && (

@@ -47,6 +47,24 @@
     <priority>0.85</priority>
   </url>
 
+  <!-- Flagship #UKBestIPTV Promotion & CBR TV Setup Page -->
+  <url>
+    <loc>https://globalstreamhub.net/ukbestiptv</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://globalstreamhub.net/ukbestiptv" />
+    <xhtml:link rel="alternate" hreflang="en-gb" href="https://globalstreamhub.net/ukbestiptv" />
+  </url>
+  <url>
+    <loc>https://globalstreamhub.net/blog/ukbestiptv</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.99</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://globalstreamhub.net/blog/ukbestiptv" />
+    <xhtml:link rel="alternate" hreflang="en-gb" href="https://globalstreamhub.net/blog/ukbestiptv" />
+  </url>
+
   <!-- Dedicated Regional Ranking Hubs (UK, USA, Canada and Europe) with Bidirectional Hreflang Cluster -->
   <url>
     <loc>https://globalstreamhub.net/uk-iptv</loc>
