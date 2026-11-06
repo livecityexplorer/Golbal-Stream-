@@ -65,6 +65,24 @@
     <xhtml:link rel="alternate" hreflang="en-gb" href="https://globalstreamhub.net/blog/ukbestiptv" />
   </url>
 
+  <!-- Flagship #USABestIPTV Promotion & CBR TV Setup Page -->
+  <url>
+    <loc>https://globalstreamhub.net/usabestiptv</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://globalstreamhub.net/usabestiptv" />
+    <xhtml:link rel="alternate" hreflang="en-us" href="https://globalstreamhub.net/usabestiptv" />
+  </url>
+  <url>
+    <loc>https://globalstreamhub.net/blog/usabestiptv</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.99</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://globalstreamhub.net/blog/usabestiptv" />
+    <xhtml:link rel="alternate" hreflang="en-us" href="https://globalstreamhub.net/blog/usabestiptv" />
+  </url>
+
   <!-- Dedicated Regional Ranking Hubs (UK, USA, Canada and Europe) with Bidirectional Hreflang Cluster -->
   <url>
     <loc>https://globalstreamhub.net/uk-iptv</loc>
@@ -263,7 +281,7 @@
     <priority>0.98</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
-      <image:title>CBR TV Official App Setup Guide for Android TV &amp; FireStick (Downloader Code 626198)</image:title>
+      <image:title>CBR TV Official App Setup Guide for Android TV &amp; FireStick (Downloader Code 2130837)</image:title>
       <image:caption>Official CBR TV app installation with built-in 4K/8K player, EPG, and anti-freeze proxy layer</image:caption>
     </image:image>
   </url>

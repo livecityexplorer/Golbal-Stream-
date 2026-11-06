@@ -154,10 +154,13 @@ export default function App() {
     setIsCheckoutOpen(true);
   }, []);
 
-  // Match blog posts or direct /ukbestiptv landing route
+  // Match blog posts or direct /ukbestiptv / /usabestiptv landing route
   const isDirectUkBestIptv = currentPath.toLowerCase().replace(/\/$/, '') === '/ukbestiptv';
+  const isDirectUsaBestIptv = currentPath.toLowerCase().replace(/\/$/, '') === '/usabestiptv';
   const blogMatch = currentPath.match(/^\/blog\/([^/]+)$/);
-  const currentBlogSlug = isDirectUkBestIptv ? 'ukbestiptv' : (blogMatch ? blogMatch[1] : null);
+  const currentBlogSlug = isDirectUkBestIptv 
+    ? 'ukbestiptv' 
+    : (isDirectUsaBestIptv ? 'usabestiptv' : (blogMatch ? blogMatch[1] : null));
   const currentBlogPost = currentBlogSlug ? BLOG_POSTS.find(p => p.slug === currentBlogSlug) : null;
 
   // Real-time Live Sports Fixtures State (Updated Daily & Live Scores)

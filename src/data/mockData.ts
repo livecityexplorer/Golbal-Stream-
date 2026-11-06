@@ -1880,7 +1880,7 @@ export const DEVICE_GUIDES: DeviceGuide[] = [
     difficulty: 'Easy',
     timeEstimate: '2 Mins',
     recommendedApp: 'CBR TV (Our Official App) / TiviMate 4K / iMPlayer',
-    downloaderCode: '626198',
+    downloaderCode: '2130837',
     appUrl: 'https://streamuk.vip/cbr-tv.apk',
     steps: [
       {
@@ -1894,8 +1894,8 @@ export const DEVICE_GUIDES: DeviceGuide[] = [
         tip: 'Grant Downloader storage permissions when prompted.'
       },
       {
-        title: 'Enter CBR TV Official Code: 626198',
-        description: 'Open Downloader and enter our official shortcode 626198 to install CBR TV (or 272483 for TiviMate / 82375 for iMPlayer).',
+        title: 'Enter CBR TV Official Code: 2130837',
+        description: 'Open Downloader and enter our official shortcode 2130837 to install CBR TV (or 272483 for TiviMate / 82375 for iMPlayer).',
         tip: 'CBR TV features built-in Sports Hub, 4-screen MultiView, and Household Link.'
       },
       {
@@ -1960,12 +1960,12 @@ export const DEVICE_GUIDES: DeviceGuide[] = [
     difficulty: 'Easy',
     timeEstimate: '2 Mins',
     recommendedApp: 'CBR TV (Our Official App) / TiviMate 4K',
-    downloaderCode: '626198',
+    downloaderCode: '2130837',
     appUrl: 'https://streamuk.vip/cbr-tv.apk',
     steps: [
       {
         title: 'Open Downloader or Browser',
-        description: 'Open Downloader on your Android TV, Chromecast with Google TV, or Nvidia Shield. Enter official code 626198 to download CBR TV.',
+        description: 'Open Downloader on your Android TV, Chromecast with Google TV, or Nvidia Shield. Enter official code 2130837 to download CBR TV.',
         tip: 'If using Google Play Store, you can also search and download Downloader directly.'
       },
       {

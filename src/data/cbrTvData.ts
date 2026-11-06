@@ -490,7 +490,7 @@ export const CBR_TV_OFFICIAL_GUIDE: DetailedSetupGuide = {
   popular: true,
   isOfficialApp: true,
   officialBadge: 'Official StreamUK Application',
-  downloaderCode: '626198',
+  downloaderCode: '2130837',
   appUrl: 'https://streamuk.vip/cbr-tv.apk',
   summary: 'CBR TV is our flagship, official media player built specifically for Amazon FireStick, Fire TV Cube, Google TV, and Android TV (Nvidia Shield). Engineered on the celebrated Boss Media Player (Jrod edition v1.0.39), it delivers ultra-fast channel zapping, cable-style TV guide, up to 4-screen MultiView, an integrated Sports Hub with multiple live feeds, seamless 7-day catchup, local Timeshift buffer, and revolutionary Household Link multi-TV sync.',
   targetKeywords: [
@@ -525,9 +525,9 @@ export const CBR_TV_OFFICIAL_GUIDE: DetailedSetupGuide = {
     },
     {
       stepNumber: 3,
-      title: 'Enter Official CBR TV Downloader Code: 626198',
-      description: 'In the URL / Search field of Downloader, enter the official CBR TV shortcode: 626198 (or direct mirror URL: https://streamuk.vip/cbr-tv.apk) and press "Go".',
-      codeOrValue: '626198',
+      title: 'Enter Official CBR TV Downloader Code: 2130837',
+      description: 'In the URL / Search field of Downloader, enter the official CBR TV shortcode: 2130837 (or direct mirror URL: https://streamuk.vip/cbr-tv.apk) and press "Go".',
+      codeOrValue: '2130837',
       actionUrl: 'https://streamuk.vip/cbr-tv.apk',
       tip: 'The official CBR TV (Boss Media Player Jrod edition) APK will download directly onto your device.'
     },
@@ -650,7 +650,7 @@ export const CBR_TV_OFFICIAL_GUIDE_ANDROID: DetailedSetupGuide = {
   title: 'CBR TV Official App Setup Guide for Android TV, Google TV & Shield',
   deviceCategory: 'android-tv',
   deviceCategoryLabel: 'Android TV & Google TV',
-  downloaderCode: '626198',
+  downloaderCode: '2130837',
   appUrl: 'https://streamuk.vip/cbr-tv.apk',
 };
 
@@ -662,7 +662,7 @@ export const CBR_TV_OFFICIAL_GUIDE_FIRESTICK: DetailedSetupGuide = {
   title: 'CBR TV Official App Setup Guide for Amazon FireStick & Fire TV 4K',
   deviceCategory: 'firestick',
   deviceCategoryLabel: 'Amazon FireStick & Fire TV',
-  downloaderCode: '626198',
+  downloaderCode: '2130837',
   appUrl: 'https://streamuk.vip/cbr-tv.apk',
 };
 

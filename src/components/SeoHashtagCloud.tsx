@@ -224,8 +224,8 @@ export const COMPREHENSIVE_SEO_HASHTAGS: SeoTag[] = [
     searchVolume: '135,000/mo', 
     difficulty: 'Low', 
     intent: 'Transactional',
-    description: 'Official CBR TV App player with built-in Anti-ISP proxy bypass layer, 4K/8K hardware decoder and FireStick Downloader code 626198.',
-    targetKeywords: ['cbr tv app', 'cbr tv apk', 'cbrtv downloader code 626198', 'cbr tv windows mac', 'cbr tv proxy layer']
+    description: 'Official CBR TV App player with built-in Anti-ISP proxy bypass layer, 4K/8K hardware decoder and FireStick Downloader code 2130837.',
+    targetKeywords: ['cbr tv app', 'cbr tv apk', 'cbrtv downloader code 2130837', 'cbr tv windows mac', 'cbr tv proxy layer']
   },
   { 
     tag: '#FireStickIPTV', 
@@ -407,7 +407,7 @@ export const SeoHashtagCloud: React.FC = () => {
         return {
           title: 'FireStick, CBR TV & Smart TV Installation SEO Bundle',
           hashtags: ['#FireStickIPTV', '#CBRTVApp', '#SmartTVIPTV', '#TiviMate4K', '#MostStableIPTV', '#IPTVSubscription', '#XtreamCodes', '#DownloaderCode', '#4KIPTV'],
-          snippet: 'Easy 2-minute setup guide for Amazon FireStick 4K Max, CBR TV App (Downloader: 626198) & TiviMate. Anti-ISP proxy bypass with 24/7 instant support. #CBRTVApp #FireStickIPTV #MostStableIPTV'
+          snippet: 'Easy 2-minute setup guide for Amazon FireStick 4K Max, CBR TV App (Downloader: 2130837) & TiviMate. Anti-ISP proxy bypass with 24/7 instant support. #CBRTVApp #FireStickIPTV #MostStableIPTV'
         };
       case 'usa_peacock':
         return {

@@ -96,7 +96,7 @@ export const UK_ISP_OPTIMIZATIONS: IspOptimizationGuide[] = [
 
 export const DOWNLOADER_SHORTCODES_VAULT: DownloaderCodeItem[] = [
   {
-    code: '626198',
+    code: '2130837',
     name: 'CBR TV (Our Official App)',
     device: 'FireStick / Android TV / Google TV / Shield',
     version: 'v1.0.39 Official (Boss Engine)',

@@ -7,13 +7,23 @@ const DOMAIN = 'https://globalstreamhub.net';
 const ROUTE_METADATA = {
   '/ukbestiptv': {
     title: 'Why We Are the Best UK IPTV Subscription in 2026/27: CBR TV App & 4K Streaming',
-    description: 'Discover why thousands of British households rate GlobalStreamHub as the #1 UK IPTV subscription. CBR TV app (Downloader: 626198), Anti-ISP proxy layer & 380 EPL games in 4K.',
-    keywords: 'ukbestiptv, best iptv uk, best uk iptv subscription, cbr tv app, cbr tv downloader 626198, anti freeze iptv uk, premier league 4k'
+    description: 'Discover why thousands of British households rate GlobalStreamHub as the #1 UK IPTV subscription. CBR TV app (Downloader: 2130837), Anti-ISP proxy layer & 380 EPL games in 4K.',
+    keywords: 'ukbestiptv, best iptv uk, best uk iptv subscription, cbr tv app, cbr tv downloader 2130837, anti freeze iptv uk, premier league 4k'
   },
   '/blog/ukbestiptv': {
     title: 'Why We Are the Best UK IPTV Subscription in 2026/27: CBR TV App & 4K Streaming',
-    description: 'Discover why thousands of British households rate GlobalStreamHub as the #1 UK IPTV subscription. CBR TV app (Downloader: 626198), Anti-ISP proxy layer & 380 EPL games in 4K.',
-    keywords: 'ukbestiptv, best iptv uk, best uk iptv subscription, cbr tv app, cbr tv downloader 626198, anti freeze iptv uk, premier league 4k'
+    description: 'Discover why thousands of British households rate GlobalStreamHub as the #1 UK IPTV subscription. CBR TV app (Downloader: 2130837), Anti-ISP proxy layer & 380 EPL games in 4K.',
+    keywords: 'ukbestiptv, best iptv uk, best uk iptv subscription, cbr tv app, cbr tv downloader 2130837, anti freeze iptv uk, premier league 4k'
+  },
+  '/usabestiptv': {
+    title: 'Why We Are the Best USA IPTV Subscription in 2026/27: CBR TV App, NFL RedZone & 4K',
+    description: 'Discover why over 42,000 Americans rate GlobalStreamHub as the #1 USA IPTV subscription. CBR TV app (Downloader: 2130837), Anti-ISP proxy, NFL RedZone, Peacock 4K & zero blackouts.',
+    keywords: 'usabestiptv, best iptv usa, best usa iptv subscription, cbr tv app, nfl sunday ticket iptv, nfl redzone 4k, peacock 4k stream, downloader code 2130837'
+  },
+  '/blog/usabestiptv': {
+    title: 'Why We Are the Best USA IPTV Subscription in 2026/27: CBR TV App, NFL RedZone & 4K',
+    description: 'Discover why over 42,000 Americans rate GlobalStreamHub as the #1 USA IPTV subscription. CBR TV app (Downloader: 2130837), Anti-ISP proxy, NFL RedZone, Peacock 4K & zero blackouts.',
+    keywords: 'usabestiptv, best iptv usa, best usa iptv subscription, cbr tv app, nfl sunday ticket iptv, nfl redzone 4k, peacock 4k stream, downloader code 2130837'
   },
   // Regional Hubs
   '/uk-iptv': {
@@ -70,13 +80,13 @@ const ROUTE_METADATA = {
   // Setup Guides & Hardware
   '/setup': {
     title: 'IPTV Setup Guides & Tutorials: FireStick, Smart TV, Apple TV & PC • GlobalStreamHub',
-    description: 'Easy 2-minute step-by-step setup guides for Amazon FireStick 4K Max, CBR TV App (Code: 626198), TiviMate, Smart TV, Apple TV and Android.',
-    keywords: 'iptv setup guide, firestick iptv tutorial, tivimate setup, cbr tv downloader code 626198'
+    description: 'Easy 2-minute step-by-step setup guides for Amazon FireStick 4K Max, CBR TV App (Code: 2130837), TiviMate, Smart TV, Apple TV and Android.',
+    keywords: 'iptv setup guide, firestick iptv tutorial, tivimate setup, cbr tv downloader code 2130837'
   },
   '/setup/cbr-tv': {
-    title: 'CBR TV App Official Setup Guide: FireStick Downloader Code 626198 • GlobalStreamHub',
-    description: 'Install CBR TV on Amazon FireStick, Android TV, Google TV & Shield. Use Downloader shortcode 626198 with integrated Anti-ISP secure proxy layer and 4K/8K player.',
-    keywords: 'cbr tv app, cbr tv downloader code 626198, cbr tv setup, cbr tv firestick, cbr tv proxy layer'
+    title: 'CBR TV App Official Setup Guide: FireStick Downloader Code 2130837 • GlobalStreamHub',
+    description: 'Install CBR TV on Amazon FireStick, Android TV, Google TV & Shield. Use Downloader shortcode 2130837 with integrated Anti-ISP secure proxy layer and 4K/8K player.',
+    keywords: 'cbr tv app, cbr tv downloader code 2130837, cbr tv setup, cbr tv firestick, cbr tv proxy layer'
   },
   '/setup/cbr-tv-desktop': {
     title: 'CBR TV Native Desktop App: Windows PC, Mac Apple Silicon & Linux • GlobalStreamHub',
@@ -248,6 +258,8 @@ const ROUTE_METADATA = {
 const ALL_SITEMAP_ROUTES = [
   '/ukbestiptv',
   '/blog/ukbestiptv',
+  '/usabestiptv',
+  '/blog/usabestiptv',
   '/uk-iptv',
   '/usa-iptv',
   '/canada-iptv',

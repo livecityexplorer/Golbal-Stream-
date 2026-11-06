@@ -384,6 +384,38 @@ export const RegionalLandingPage: React.FC<RegionalLandingPageProps> = ({
             </div>
           </div>
 
+          {/* Flagship Promotional Guide Banner for USA / UK */}
+          {(market === 'usa' || market === 'uk') && (
+            <div className="pt-2">
+              <button
+                onClick={() => navigateTo(market === 'usa' ? '/usabestiptv' : '/ukbestiptv')}
+                className="w-full max-w-3xl mx-auto p-4 rounded-2xl bg-gradient-to-r from-indigo-950/80 via-slate-900/90 to-cyan-950/80 border border-cyan-500/30 hover:border-cyan-400 transition-all text-left flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xl group cursor-pointer"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-cyan-500/20 border border-cyan-500/30 flex items-center justify-center text-cyan-300 shrink-0">
+                    <Tv className="w-5 h-5 text-cyan-300" />
+                  </div>
+                  <div>
+                    <div className="text-xs font-mono uppercase tracking-wider text-cyan-300 font-bold flex items-center gap-1.5">
+                      <span>Official CBR TV App &amp; Service Breakdown</span>
+                      <span className="px-1.5 py-0.5 rounded bg-cyan-500/20 text-[10px]">2026/27</span>
+                    </div>
+                    <div className="text-sm font-bold text-white group-hover:text-cyan-200 transition-colors">
+                      {market === 'usa' 
+                        ? 'Why We Are the Best USA IPTV: CBR TV App, NFL RedZone, Peacock 4K & Anti-ISP Proxy'
+                        : 'Why We Are the Best UK IPTV: CBR TV App, 380 EPL Games & Anti-ISP Proxy Breakdown'
+                      }
+                    </div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-1.5 text-xs font-bold text-cyan-400 group-hover:translate-x-1 transition-transform self-end sm:self-center shrink-0">
+                  <span>Read Full Review</span>
+                  <ArrowRight className="w-4 h-4" />
+                </div>
+              </button>
+            </div>
+          )}
+
         </div>
       </section>
 

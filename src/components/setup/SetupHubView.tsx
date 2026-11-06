@@ -168,7 +168,7 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
       q: 'What is the Downloader shortcode for CBR TV and TiviMate?',
       a: (
         <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-          In the Downloader app on FireStick or Android TV, enter code <strong className="text-amber-300 font-mono font-bold">626198</strong> for our official <strong className="text-slate-100">CBR TV app</strong>, or shortcode <strong className="text-sky-300 font-mono font-bold">272483</strong> for the official <strong className="text-slate-100">TiviMate APK</strong>. Both codes trigger an instant direct installer.
+          In the Downloader app on FireStick or Android TV, enter code <strong className="text-amber-300 font-mono font-bold">2130837</strong> for our official <strong className="text-slate-100">CBR TV app</strong>, or shortcode <strong className="text-sky-300 font-mono font-bold">272483</strong> for the official <strong className="text-slate-100">TiviMate APK</strong>. Both codes trigger an instant direct installer.
         </p>
       )
     },
@@ -230,12 +230,12 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
             <span className="text-slate-400 font-medium shrink-0 hidden sm:inline">Popular Shortcodes:</span>
             
             <button
-              onClick={() => handleCopy('626198', 'code-cbr')}
+              onClick={() => handleCopy('2130837', 'code-cbr')}
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-amber-500/10 border border-amber-400/25 text-amber-300 hover:bg-amber-500/20 transition-colors cursor-pointer shrink-0 min-h-[36px]"
               title="Click to copy CBR TV code"
             >
               <span className="font-bold text-amber-200">⭐ CBR TV:</span>
-              <span className="font-mono font-bold text-white">626198</span>
+              <span className="font-mono font-bold text-white">2130837</span>
               {copiedKey === 'code-cbr' ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3 text-amber-300" />}
             </button>
 
