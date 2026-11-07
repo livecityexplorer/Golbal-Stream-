@@ -157,13 +157,18 @@ export default function App() {
   // Normalize current path by stripping multiple trailing slashes (e.g. /usabestiptv/ -> /usabestiptv)
   const normalizedPath = currentPath.toLowerCase().replace(/\/+$/, '') || '/';
 
-  // Match blog posts or direct /ukbestiptv / /usabestiptv landing route
+  // Match blog posts or direct /ukbestiptv / /usabestiptv / /europemoststableiptv landing route
   const isDirectUkBestIptv = normalizedPath === '/ukbestiptv';
   const isDirectUsaBestIptv = normalizedPath === '/usabestiptv';
+  const isDirectEuropeMostStableIptv = normalizedPath === '/europemoststableiptv' || normalizedPath === '/europe-most-stable-iptv';
   const blogMatch = normalizedPath.match(/^\/blog\/([^/]+)$/);
   const currentBlogSlug = isDirectUkBestIptv 
     ? 'ukbestiptv' 
-    : (isDirectUsaBestIptv ? 'usabestiptv' : (blogMatch ? blogMatch[1] : null));
+    : (isDirectUsaBestIptv 
+        ? 'usabestiptv' 
+        : (isDirectEuropeMostStableIptv 
+            ? 'europemoststableiptv' 
+            : (blogMatch ? blogMatch[1] : null)));
   const currentBlogPost = currentBlogSlug ? BLOG_POSTS.find(p => p.slug === currentBlogSlug) : null;
 
   // Real-time Live Sports Fixtures State (Updated Daily & Live Scores)

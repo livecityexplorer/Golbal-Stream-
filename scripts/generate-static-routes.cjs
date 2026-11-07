@@ -25,6 +25,21 @@ const ROUTE_METADATA = {
     description: 'Discover why over 42,000 Americans rate GlobalStreamHub as the #1 USA IPTV subscription. CBR TV app (Downloader: 2130837), Anti-ISP proxy, NFL RedZone, Peacock 4K & zero blackouts.',
     keywords: 'usabestiptv, best iptv usa, best usa iptv subscription, cbr tv app, nfl sunday ticket iptv, nfl redzone 4k, peacock 4k stream, downloader code 2130837'
   },
+  '/europemoststableiptv': {
+    title: 'Why We Are the Most Stable European IPTV Subscription in 2026/27: CBR TV App & 4K Streaming • GlobalStreamHub',
+    description: 'Discover why European streamers choose GlobalStreamHub as the most stable European IPTV subscription. CBR TV app (Downloader: 2130837), Frankfurt & Amsterdam edge nodes, UCL 4K, Sky Sport, Canal+, Movistar & zero buffering.',
+    keywords: 'europemoststableiptv, europe most stable iptv, best european iptv, iptv europe, cbr tv app, downloader code 2130837, champions league 4k iptv, sky sport bundesliga 4k, canal plus 4k, movistar laliga 4k, anti freeze iptv europe'
+  },
+  '/europe-most-stable-iptv': {
+    title: 'Why We Are the Most Stable European IPTV Subscription in 2026/27: CBR TV App & 4K Streaming • GlobalStreamHub',
+    description: 'Discover why European streamers choose GlobalStreamHub as the most stable European IPTV subscription. CBR TV app (Downloader: 2130837), Frankfurt & Amsterdam edge nodes, UCL 4K, Sky Sport, Canal+, Movistar & zero buffering.',
+    keywords: 'europemoststableiptv, europe most stable iptv, best european iptv, iptv europe, cbr tv app, downloader code 2130837, champions league 4k iptv, sky sport bundesliga 4k, canal plus 4k, movistar laliga 4k, anti freeze iptv europe'
+  },
+  '/blog/europemoststableiptv': {
+    title: 'Why We Are the Most Stable European IPTV Subscription in 2026/27: CBR TV App & 4K Streaming • GlobalStreamHub',
+    description: 'Discover why European streamers choose GlobalStreamHub as the most stable European IPTV subscription. CBR TV app (Downloader: 2130837), Frankfurt & Amsterdam edge nodes, UCL 4K, Sky Sport, Canal+, Movistar & zero buffering.',
+    keywords: 'europemoststableiptv, europe most stable iptv, best european iptv, iptv europe, cbr tv app, downloader code 2130837, champions league 4k iptv, sky sport bundesliga 4k, canal plus 4k, movistar laliga 4k, anti freeze iptv europe'
+  },
   // Regional Hubs
   '/uk-iptv': {
     title: 'Best UK IPTV Subscription 2026: 4K Premier League, Sky Sports & 3pm Blackout • GlobalStreamHub',
@@ -260,6 +275,9 @@ const ALL_SITEMAP_ROUTES = [
   '/blog/ukbestiptv',
   '/usabestiptv',
   '/blog/usabestiptv',
+  '/europemoststableiptv',
+  '/europe-most-stable-iptv',
+  '/blog/europemoststableiptv',
   '/uk-iptv',
   '/usa-iptv',
   '/canada-iptv',

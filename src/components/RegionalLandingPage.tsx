@@ -384,11 +384,15 @@ export const RegionalLandingPage: React.FC<RegionalLandingPageProps> = ({
             </div>
           </div>
 
-          {/* Flagship Promotional Guide Banner for USA / UK */}
-          {(market === 'usa' || market === 'uk') && (
+          {/* Flagship Promotional Guide Banner for USA / UK / Europe */}
+          {(market === 'usa' || market === 'uk' || market === 'europe' || market === 'germany' || market === 'france' || market === 'spain' || market === 'italy' || market === 'netherlands') && (
             <div className="pt-2">
               <button
-                onClick={() => navigateTo(market === 'usa' ? '/usabestiptv' : '/ukbestiptv')}
+                onClick={() => {
+                  if (market === 'usa') navigateTo('/usabestiptv');
+                  else if (market === 'uk') navigateTo('/ukbestiptv');
+                  else navigateTo('/europemoststableiptv');
+                }}
                 className="w-full max-w-3xl mx-auto p-4 rounded-2xl bg-gradient-to-r from-indigo-950/80 via-slate-900/90 to-cyan-950/80 border border-cyan-500/30 hover:border-cyan-400 transition-all text-left flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xl group cursor-pointer"
               >
                 <div className="flex items-center gap-3">
@@ -403,7 +407,9 @@ export const RegionalLandingPage: React.FC<RegionalLandingPageProps> = ({
                     <div className="text-sm font-bold text-white group-hover:text-cyan-200 transition-colors">
                       {market === 'usa' 
                         ? 'Why We Are the Best USA IPTV: CBR TV App, NFL RedZone, Peacock 4K & Anti-ISP Proxy'
-                        : 'Why We Are the Best UK IPTV: CBR TV App, 380 EPL Games & Anti-ISP Proxy Breakdown'
+                        : market === 'uk'
+                        ? 'Why We Are the Best UK IPTV: CBR TV App, 380 EPL Games & Anti-ISP Proxy Breakdown'
+                        : 'Why We Are the Most Stable European IPTV: CBR TV App, Equinix Edge Nodes & 4K Feeds'
                       }
                     </div>
                   </div>
