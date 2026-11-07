@@ -86,7 +86,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
     document.title = `${post.title} | GlobalStreamHub 4K VIP`;
 
     // Dynamic Canonical Link Update
-    const isDirectCleanPath = typeof window !== 'undefined' && window.location.pathname.replace(/\/$/, '') === `/${post.slug}`;
+    const isDirectCleanPath = typeof window !== 'undefined' && window.location.pathname.replace(/\/+$/, '') === `/${post.slug}`;
     const targetUrl = isDirectCleanPath ? `${baseUrl}/${post.slug}` : `${baseUrl}/blog/${post.slug}`;
 
     let canonicalTag = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
@@ -154,7 +154,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
 
   const handleCopyLink = () => {
     try {
-      const isDirectCleanPath = typeof window !== 'undefined' && window.location.pathname.replace(/\/$/, '') === `/${post.slug}`;
+      const isDirectCleanPath = typeof window !== 'undefined' && window.location.pathname.replace(/\/+$/, '') === `/${post.slug}`;
       const articleUrl = isDirectCleanPath ? `${baseUrl}/${post.slug}` : `${baseUrl}/blog/${post.slug}`;
       if (navigator.clipboard) {
         navigator.clipboard.writeText(articleUrl);

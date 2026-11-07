@@ -386,6 +386,16 @@ async function generateStaticRoutes() {
       .replace(/<meta property="twitter:description" content=".*?" \/>/i, `<meta property="twitter:description" content="${meta.description}" />`)
       .replace(/<meta property="twitter:url" content=".*?" \/>/i, `<meta property="twitter:url" content="${canonicalUrl}" />`);
 
+    // Ensure <base href="/" /> is present in head so relative URLs resolve to root domain
+    if (!customHtml.includes('<base href="/"')) {
+      customHtml = customHtml.replace('<head>', '<head>\n    <base href="/" />');
+    }
+
+    // Guarantee all asset script/stylesheet/image links are absolute (/assets/...)
+    customHtml = customHtml
+      .replace(/(href|src)="\.\/assets\//g, '$1="/assets/')
+      .replace(/(href|src)="assets\//g, '$1="/assets/');
+
     fs.writeFileSync(targetFile, customHtml, 'utf-8');
     generatedCount++;
   }

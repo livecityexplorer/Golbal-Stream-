@@ -154,10 +154,13 @@ export default function App() {
     setIsCheckoutOpen(true);
   }, []);
 
+  // Normalize current path by stripping multiple trailing slashes (e.g. /usabestiptv/ -> /usabestiptv)
+  const normalizedPath = currentPath.toLowerCase().replace(/\/+$/, '') || '/';
+
   // Match blog posts or direct /ukbestiptv / /usabestiptv landing route
-  const isDirectUkBestIptv = currentPath.toLowerCase().replace(/\/$/, '') === '/ukbestiptv';
-  const isDirectUsaBestIptv = currentPath.toLowerCase().replace(/\/$/, '') === '/usabestiptv';
-  const blogMatch = currentPath.match(/^\/blog\/([^/]+)$/);
+  const isDirectUkBestIptv = normalizedPath === '/ukbestiptv';
+  const isDirectUsaBestIptv = normalizedPath === '/usabestiptv';
+  const blogMatch = normalizedPath.match(/^\/blog\/([^/]+)$/);
   const currentBlogSlug = isDirectUkBestIptv 
     ? 'ukbestiptv' 
     : (isDirectUsaBestIptv ? 'usabestiptv' : (blogMatch ? blogMatch[1] : null));
@@ -217,13 +220,13 @@ export default function App() {
   };
 
   // Match setup guide pages (/setup, /setup/:slug, /setup-guide, /guides)
-  const setupMatch = currentPath.match(/^\/(?:setup|setup-guide|setup-guides|guides)(?:\/([^/]+))?$/);
+  const setupMatch = normalizedPath.match(/^\/(?:setup|setup-guide|setup-guides|guides)(?:\/([^/]+))?$/);
   const isSetupRoute = !!setupMatch;
   const currentSetupSlug = setupMatch ? setupMatch[1] : undefined;
 
   // Match regional landing pages for UK, USA, Canada, and European markets
   const getMarketFromPath = (path: string): RegionalMarket | null => {
-    const clean = path.toLowerCase().replace(/\/$/, '');
+    const clean = path.toLowerCase().replace(/\/+$/, '') || '/';
     if (clean === '/uk-iptv' || clean === '/uk') return 'uk';
     if (clean === '/usa-iptv' || clean === '/usa' || clean === '/us-iptv' || clean === '/us') return 'usa';
     if (clean === '/canada-iptv' || clean === '/canada' || clean === '/ca-iptv' || clean === '/ca') return 'canada';
