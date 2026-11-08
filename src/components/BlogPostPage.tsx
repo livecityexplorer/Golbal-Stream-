@@ -87,7 +87,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
 
     // Dynamic Canonical Link Update
     const isDirectCleanPath = typeof window !== 'undefined' && window.location.pathname.replace(/\/+$/, '') === `/${post.slug}`;
-    const targetUrl = isDirectCleanPath ? `${baseUrl}/${post.slug}` : `${baseUrl}/blog/${post.slug}`;
+    const targetUrl = isDirectCleanPath ? `${baseUrl}/${post.slug}/` : `${baseUrl}/blog/${post.slug}/`;
 
     let canonicalTag = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
     if (canonicalTag) {

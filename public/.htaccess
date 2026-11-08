@@ -158,7 +158,11 @@ AddType 'text/html; charset=UTF-8' html
   RewriteRule ^api/checkout/nowpayments/?$ api/checkout/nowpayments.php [L]
 
   # Explicitly allow static SEO & discovery assets to be served directly without rewrite
-  RewriteRule ^(sitemap\.xml|robots\.txt|llms\.txt|llms-full\.txt)$ - [L]
+  RewriteRule ^(sitemap\.xml|robots\.txt|rss\.xml|llms\.txt|llms-full\.txt)$ - [L]
+
+  # Clean URLs: If a matching pre-rendered .html file exists, serve it directly with 200 OK (avoids trailing slash 301 redirects)
+  RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+  RewriteRule ^(.*)$ $1.html [L]
 
   # Don't rewrite files or directories that exist physically
   RewriteCond %{REQUEST_FILENAME} -f [OR]

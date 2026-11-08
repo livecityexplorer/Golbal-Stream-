@@ -91,84 +91,115 @@ export const Footer: React.FC<FooterProps> = ({
           <div>
             <h4 className="text-white font-bold text-sm mb-4">Regional Hubs (UK, USA, CA & EU)</h4>
             <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-xs">
-              <button 
-                onClick={() => navigateTo ? navigateTo('/uk-iptv') : (window.location.pathname = '/uk-iptv')}
+              <a 
+                href="/uk-iptv"
+                onClick={(e) => { if (!e.metaKey && !e.ctrlKey && navigateTo) { e.preventDefault(); navigateTo('/uk-iptv'); } }}
                 className="text-sky-400 hover:underline text-left flex items-center gap-1.5 font-bold cursor-pointer"
               >
                 <span>🇬🇧</span> UK IPTV
-              </button>
-              <button 
-                onClick={() => navigateTo ? navigateTo('/usa-iptv') : (window.location.pathname = '/usa-iptv')}
+              </a>
+              <a 
+                href="/usa-iptv"
+                onClick={(e) => { if (!e.metaKey && !e.ctrlKey && navigateTo) { e.preventDefault(); navigateTo('/usa-iptv'); } }}
                 className="text-sky-400 hover:underline text-left flex items-center gap-1.5 font-bold cursor-pointer"
               >
                 <span>🇺🇸</span> USA IPTV
-              </button>
-              <button 
-                onClick={() => navigateTo ? navigateTo('/canada-iptv') : (window.location.pathname = '/canada-iptv')}
+              </a>
+              <a 
+                href="/canada-iptv"
+                onClick={(e) => { if (!e.metaKey && !e.ctrlKey && navigateTo) { e.preventDefault(); navigateTo('/canada-iptv'); } }}
                 className="text-sky-400 hover:underline text-left flex items-center gap-1.5 font-bold cursor-pointer"
               >
                 <span>🇨🇦</span> Canada IPTV
-              </button>
-              <button 
-                onClick={() => navigateTo ? navigateTo('/ireland-iptv') : (window.location.pathname = '/ireland-iptv')}
+              </a>
+              <a 
+                href="/ireland-iptv"
+                onClick={(e) => { if (!e.metaKey && !e.ctrlKey && navigateTo) { e.preventDefault(); navigateTo('/ireland-iptv'); } }}
                 className="text-sky-400 hover:underline text-left flex items-center gap-1.5 font-bold cursor-pointer"
               >
                 <span>🇮🇪</span> Ireland IPTV
-              </button>
-              <button 
-                onClick={() => navigateTo ? navigateTo('/germany-iptv') : (window.location.pathname = '/germany-iptv')}
+              </a>
+              <a 
+                href="/germany-iptv"
+                onClick={(e) => { if (!e.metaKey && !e.ctrlKey && navigateTo) { e.preventDefault(); navigateTo('/germany-iptv'); } }}
                 className="text-sky-400 hover:underline text-left flex items-center gap-1.5 font-bold cursor-pointer"
               >
                 <span>🇩🇪</span> Germany IPTV
-              </button>
-              <button 
-                onClick={() => navigateTo ? navigateTo('/france-iptv') : (window.location.pathname = '/france-iptv')}
+              </a>
+              <a 
+                href="/france-iptv"
+                onClick={(e) => { if (!e.metaKey && !e.ctrlKey && navigateTo) { e.preventDefault(); navigateTo('/france-iptv'); } }}
                 className="text-sky-400 hover:underline text-left flex items-center gap-1.5 font-bold cursor-pointer"
               >
                 <span>🇫🇷</span> France IPTV
-              </button>
-              <button 
-                onClick={() => navigateTo ? navigateTo('/spain-iptv') : (window.location.pathname = '/spain-iptv')}
+              </a>
+              <a 
+                href="/spain-iptv"
+                onClick={(e) => { if (!e.metaKey && !e.ctrlKey && navigateTo) { e.preventDefault(); navigateTo('/spain-iptv'); } }}
                 className="text-sky-400 hover:underline text-left flex items-center gap-1.5 font-bold cursor-pointer"
               >
                 <span>🇪🇸</span> Spain IPTV
-              </button>
-              <button 
-                onClick={() => navigateTo ? navigateTo('/italy-iptv') : (window.location.pathname = '/italy-iptv')}
+              </a>
+              <a 
+                href="/italy-iptv"
+                onClick={(e) => { if (!e.metaKey && !e.ctrlKey && navigateTo) { e.preventDefault(); navigateTo('/italy-iptv'); } }}
                 className="text-sky-400 hover:underline text-left flex items-center gap-1.5 font-bold cursor-pointer"
               >
                 <span>🇮🇹</span> Italy IPTV
-              </button>
-              <button 
-                onClick={() => navigateTo ? navigateTo('/netherlands-iptv') : (window.location.pathname = '/netherlands-iptv')}
+              </a>
+              <a 
+                href="/netherlands-iptv"
+                onClick={(e) => { if (!e.metaKey && !e.ctrlKey && navigateTo) { e.preventDefault(); navigateTo('/netherlands-iptv'); } }}
                 className="text-sky-400 hover:underline text-left flex items-center gap-1.5 font-bold cursor-pointer"
               >
                 <span>🇳🇱</span> Netherlands IPTV
-              </button>
-              <button 
-                onClick={() => navigateTo ? navigateTo('/europe-iptv') : (window.location.pathname = '/europe-iptv')}
+              </a>
+              <a 
+                href="/europe-iptv"
+                onClick={(e) => { if (!e.metaKey && !e.ctrlKey && navigateTo) { e.preventDefault(); navigateTo('/europe-iptv'); } }}
                 className="text-sky-400 hover:underline text-left flex items-center gap-1.5 font-bold cursor-pointer"
               >
                 <span>🇪🇺</span> All Europe IPTV
-              </button>
+              </a>
             </div>
-            <ul className="space-y-1.5 pt-3 border-t border-white/5 text-xs text-slate-400">
-              <li><a href="#sports" className="hover:text-sky-300 transition-colors">Sky Sports & TNT Sports 4K</a></li>
-              <li><a href="#sports" className="hover:text-sky-300 transition-colors">Premier League 3pm Matches Live</a></li>
-              <li><a href="#sports" className="hover:text-sky-300 transition-colors">UEFA Champions League Multi-Audio</a></li>
-            </ul>
+
+            {/* Flagship Reviews & Promotion Hub (Direct Links for Google & Bing Crawlers) */}
+            <div className="pt-3 mt-3 border-t border-white/5 space-y-1.5 text-xs">
+              <div className="text-[11px] font-bold text-slate-300 uppercase tracking-wider">Flagship Guides (2026/27)</div>
+              <div>
+                <a href="/ukbestiptv" onClick={(e) => { if (!e.metaKey && !e.ctrlKey && navigateTo) { e.preventDefault(); navigateTo('/ukbestiptv'); } }} className="text-cyan-400 hover:underline font-medium flex items-center gap-1">
+                  <span>🇬🇧</span> Why We Are Best UK IPTV (CBR TV)
+                </a>
+              </div>
+              <div>
+                <a href="/usabestiptv" onClick={(e) => { if (!e.metaKey && !e.ctrlKey && navigateTo) { e.preventDefault(); navigateTo('/usabestiptv'); } }} className="text-cyan-400 hover:underline font-medium flex items-center gap-1">
+                  <span>🇺🇸</span> Why We Are Best USA IPTV (RedZone 4K)
+                </a>
+              </div>
+              <div>
+                <a href="/europemoststableiptv" onClick={(e) => { if (!e.metaKey && !e.ctrlKey && navigateTo) { e.preventDefault(); navigateTo('/europemoststableiptv'); } }} className="text-cyan-400 hover:underline font-medium flex items-center gap-1">
+                  <span>🇪🇺</span> Europe Most Stable IPTV (Edge CDN)
+                </a>
+              </div>
+              <div>
+                <a href="/arabicbestiptv" onClick={(e) => { if (!e.metaKey && !e.ctrlKey && navigateTo) { e.preventDefault(); navigateTo('/arabicbestiptv'); } }} className="text-cyan-400 hover:underline font-medium flex items-center gap-1">
+                  <span>🌍</span> Best Arabic IPTV (beIN 4K & Shahid)
+                </a>
+              </div>
+            </div>
           </div>
 
           {/* Setup & Tools */}
           <div>
             <h4 className="text-white font-bold text-sm mb-4">{t.footer.deviceSetup}</h4>
             <ul className="space-y-2.5">
-              <li><button onClick={() => navigateTo ? navigateTo('/setup') : onOpenDeviceGuide()} className="text-cyan-400 hover:underline text-left flex items-center gap-1 font-bold cursor-pointer"><span>🛠️</span> All Device Setup Guides</button></li>
-              <li><button onClick={() => navigateTo ? navigateTo('/setup/firestick-smarters-pro') : onOpenDeviceGuide()} className="hover:text-sky-300 transition-colors text-left cursor-pointer">IPTV Smarters Pro FireStick</button></li>
-              <li><button onClick={() => navigateTo ? navigateTo('/setup/firestick-tivimate') : onOpenDeviceGuide()} className="hover:text-sky-300 transition-colors text-left cursor-pointer">TiviMate 4K Sideload Guide</button></li>
-              <li><button onClick={() => navigateTo ? navigateTo('/setup/smart-tv-ibo-player') : onOpenDeviceGuide()} className="hover:text-sky-300 transition-colors text-left cursor-pointer">Samsung & LG Smart TV (IBO)</button></li>
-              <li><button onClick={() => navigateTo ? navigateTo('/setup/apple-tv-iptvx') : onOpenDeviceGuide()} className="hover:text-sky-300 transition-colors text-left cursor-pointer">Apple TV 4K & iPhone (IPTVX)</button></li>
-              <li><button onClick={() => navigateTo ? navigateTo('/setup/formuler-mytvonline3') : onOpenDeviceGuide()} className="hover:text-sky-300 transition-colors text-left cursor-pointer">Formuler Z11 & MAG Stalker</button></li>
+              <li><a href="/setup" onClick={(e) => { if (!e.metaKey && !e.ctrlKey && navigateTo) { e.preventDefault(); navigateTo('/setup'); } }} className="text-cyan-400 hover:underline text-left flex items-center gap-1 font-bold cursor-pointer"><span>🛠️</span> All Device Setup Guides</a></li>
+              <li><a href="/setup/cbr-tv" onClick={(e) => { if (!e.metaKey && !e.ctrlKey && navigateTo) { e.preventDefault(); navigateTo('/setup/cbr-tv'); } }} className="hover:text-sky-300 transition-colors text-left cursor-pointer">CBR TV App (Code: 2130837)</a></li>
+              <li><a href="/setup/firestick-smarters-pro" onClick={(e) => { if (!e.metaKey && !e.ctrlKey && navigateTo) { e.preventDefault(); navigateTo('/setup/firestick-smarters-pro'); } }} className="hover:text-sky-300 transition-colors text-left cursor-pointer">IPTV Smarters Pro FireStick</a></li>
+              <li><a href="/setup/firestick-tivimate" onClick={(e) => { if (!e.metaKey && !e.ctrlKey && navigateTo) { e.preventDefault(); navigateTo('/setup/firestick-tivimate'); } }} className="hover:text-sky-300 transition-colors text-left cursor-pointer">TiviMate 4K Sideload Guide</a></li>
+              <li><a href="/setup/smart-tv-ibo-player" onClick={(e) => { if (!e.metaKey && !e.ctrlKey && navigateTo) { e.preventDefault(); navigateTo('/setup/smart-tv-ibo-player'); } }} className="hover:text-sky-300 transition-colors text-left cursor-pointer">Samsung & LG Smart TV (IBO)</a></li>
+              <li><a href="/setup/apple-tv-iptvx" onClick={(e) => { if (!e.metaKey && !e.ctrlKey && navigateTo) { e.preventDefault(); navigateTo('/setup/apple-tv-iptvx'); } }} className="hover:text-sky-300 transition-colors text-left cursor-pointer">Apple TV 4K & iPhone (IPTVX)</a></li>
+              <li><a href="/setup/formuler-mytvonline3" onClick={(e) => { if (!e.metaKey && !e.ctrlKey && navigateTo) { e.preventDefault(); navigateTo('/setup/formuler-mytvonline3'); } }} className="hover:text-sky-300 transition-colors text-left cursor-pointer">Formuler Z11 & MAG Stalker</a></li>
               <li><button onClick={onOpenSpeedTest} className="text-sky-400 hover:underline text-left flex items-center gap-1 font-bold cursor-pointer"><Zap className="w-3 h-3" /> {t.footer.speedTest}</button></li>
             </ul>
           </div>

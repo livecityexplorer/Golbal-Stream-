@@ -50,6 +50,12 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
+User-agent: msnbot
+Allow: /
+
+User-agent: BingPreview
+Allow: /
+
 # Apple Intelligence & Siri Search
 User-agent: Applebot-Extended
 Allow: /

@@ -40,6 +40,26 @@ const ROUTE_METADATA = {
     description: 'Discover why European streamers choose GlobalStreamHub as the most stable European IPTV subscription. CBR TV app (Downloader: 2130837), Frankfurt & Amsterdam edge nodes, UCL 4K, Sky Sport, Canal+, Movistar & zero buffering.',
     keywords: 'europemoststableiptv, europe most stable iptv, best european iptv, iptv europe, cbr tv app, downloader code 2130837, champions league 4k iptv, sky sport bundesliga 4k, canal plus 4k, movistar laliga 4k, anti freeze iptv europe'
   },
+  '/arabicbestiptv': {
+    title: 'Why We Are the Best Arabic & Middle East IPTV in 2026/27: CBR TV App, beIN Sports 4K & Shahid VIP • GlobalStreamHub',
+    description: 'Discover why thousands across Saudi Arabia, UAE, Qatar, Kuwait, Egypt & the diaspora choose GlobalStreamHub. CBR TV app (Downloader: 2130837), Anti-ISP proxy, beIN Sports 4K, SSC Saudi League & Shahid VIP.',
+    keywords: 'arabicbestiptv, best arabic iptv, middle east iptv, اشتراك iptv, bein sports 4k iptv, ssc sports saudi league, shahid vip iptv, osn iptv, cbr tv app, downloader code 2130837, anti freeze iptv arabic'
+  },
+  '/arabic-best-iptv': {
+    title: 'Why We Are the Best Arabic & Middle East IPTV in 2026/27: CBR TV App, beIN Sports 4K & Shahid VIP • GlobalStreamHub',
+    description: 'Discover why thousands across Saudi Arabia, UAE, Qatar, Kuwait, Egypt & the diaspora choose GlobalStreamHub. CBR TV app (Downloader: 2130837), Anti-ISP proxy, beIN Sports 4K, SSC Saudi League & Shahid VIP.',
+    keywords: 'arabicbestiptv, best arabic iptv, middle east iptv, اشتراك iptv, bein sports 4k iptv, ssc sports saudi league, shahid vip iptv, osn iptv, cbr tv app, downloader code 2130837, anti freeze iptv arabic'
+  },
+  '/middle-east-iptv': {
+    title: 'Why We Are the Best Arabic & Middle East IPTV in 2026/27: CBR TV App, beIN Sports 4K & Shahid VIP • GlobalStreamHub',
+    description: 'Discover why thousands across Saudi Arabia, UAE, Qatar, Kuwait, Egypt & the diaspora choose GlobalStreamHub. CBR TV app (Downloader: 2130837), Anti-ISP proxy, beIN Sports 4K, SSC Saudi League & Shahid VIP.',
+    keywords: 'arabicbestiptv, best arabic iptv, middle east iptv, اشتراك iptv, bein sports 4k iptv, ssc sports saudi league, shahid vip iptv, osn iptv, cbr tv app, downloader code 2130837, anti freeze iptv arabic'
+  },
+  '/blog/arabicbestiptv': {
+    title: 'Why We Are the Best Arabic & Middle East IPTV in 2026/27: CBR TV App, beIN Sports 4K & Shahid VIP • GlobalStreamHub',
+    description: 'Discover why thousands across Saudi Arabia, UAE, Qatar, Kuwait, Egypt & the diaspora choose GlobalStreamHub. CBR TV app (Downloader: 2130837), Anti-ISP proxy, beIN Sports 4K, SSC Saudi League & Shahid VIP.',
+    keywords: 'arabicbestiptv, best arabic iptv, middle east iptv, اشتراك iptv, bein sports 4k iptv, ssc sports saudi league, shahid vip iptv, osn iptv, cbr tv app, downloader code 2130837, anti freeze iptv arabic'
+  },
   // Regional Hubs
   '/uk-iptv': {
     title: 'Best UK IPTV Subscription 2026: 4K Premier League, Sky Sports & 3pm Blackout • GlobalStreamHub',
@@ -278,6 +298,10 @@ const ALL_SITEMAP_ROUTES = [
   '/europemoststableiptv',
   '/europe-most-stable-iptv',
   '/blog/europemoststableiptv',
+  '/arabicbestiptv',
+  '/arabic-best-iptv',
+  '/middle-east-iptv',
+  '/blog/arabicbestiptv',
   '/uk-iptv',
   '/usa-iptv',
   '/canada-iptv',
@@ -384,7 +408,8 @@ async function generateStaticRoutes() {
       keywords: 'best iptv uk, 4k iptv subscription, globalstreamhub'
     };
 
-    const canonicalUrl = `${DOMAIN}${route}`;
+    const normalizedRoute = route === '/' ? '/' : `${route.replace(/\/+$/, '')}/`;
+    const canonicalUrl = `${DOMAIN}${normalizedRoute}`;
 
     // Inject route-specific SEO tags into template HTML
     let customHtml = templateHtml
@@ -415,6 +440,13 @@ async function generateStaticRoutes() {
       .replace(/(href|src)="assets\//g, '$1="/assets/');
 
     fs.writeFileSync(targetFile, customHtml, 'utf-8');
+
+    // Also write clean standalone HTML file (e.g. dist/ukbestiptv.html) for zero-redirect Apache/Nginx direct serving
+    const cleanFile = path.join(distDir, `${cleanRoute}.html`);
+    const cleanParentDir = path.dirname(cleanFile);
+    fs.mkdirSync(cleanParentDir, { recursive: true });
+    fs.writeFileSync(cleanFile, customHtml, 'utf-8');
+
     generatedCount++;
   }
 
