@@ -139,16 +139,16 @@ AddType 'text/html; charset=UTF-8' html
   # 301 Permanent Redirects for Language Query Strings to Clean Canonical URLs
   # Resolves Google Search Console "Alternative page with proper canonical tag" validation
   RewriteCond %{QUERY_STRING} (^|&)lang=fr(&|$) [NC]
-  RewriteRule ^$ /france-iptv [R=301,L,QSD]
+  RewriteRule ^$ /france-iptv/ [R=301,L,QSD]
 
   RewriteCond %{QUERY_STRING} (^|&)lang=de(&|$) [NC]
-  RewriteRule ^$ /germany-iptv [R=301,L,QSD]
+  RewriteRule ^$ /germany-iptv/ [R=301,L,QSD]
 
   RewriteCond %{QUERY_STRING} (^|&)lang=es(&|$) [NC]
-  RewriteRule ^$ /spain-iptv [R=301,L,QSD]
+  RewriteRule ^$ /spain-iptv/ [R=301,L,QSD]
 
   RewriteCond %{QUERY_STRING} (^|&)lang=it(&|$) [NC]
-  RewriteRule ^$ /italy-iptv [R=301,L,QSD]
+  RewriteRule ^$ /italy-iptv/ [R=301,L,QSD]
 
   # Redirect unsupported/invalid query params directly to clean root canonical
   RewriteCond %{QUERY_STRING} (^|&)lang= [NC]

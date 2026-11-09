@@ -84,6 +84,9 @@ export default function App() {
     });
   }, []);
 
+  // Normalize current path by stripping multiple trailing slashes (e.g. /usabestiptv/ -> /usabestiptv)
+  const normalizedPath = currentPath.toLowerCase().replace(/\/+$/, '') || '/';
+
   const navigateTo = useCallback((path: string) => {
     let target = path;
     if (target !== '/' && !target.endsWith('/') && !target.includes('#') && !target.includes('?')) {
@@ -98,21 +101,20 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
-  // Redirect /blog and /news helper
+  // Scroll to blog section when /blog or /news is visited without rewriting URL to /
   useEffect(() => {
-    if (currentPath === '/blog' || currentPath === '/news') {
-      try {
-        window.history.replaceState({}, '', '/');
-      } catch (e) {
-        console.warn('History replaceState is blocked or restricted in this container/iframe:', e);
+    if (normalizedPath === '/blog' || normalizedPath === '/news') {
+      document.title = 'IPTV Blog, Guides & Sports Match Analysis • GlobalStreamHub VIP 4K';
+      let canonicalTag = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
+      if (canonicalTag) {
+        canonicalTag.href = 'https://globalstreamhub.net/blog/';
       }
-      setCurrentPath('/');
       setTimeout(() => {
         const blogEl = document.getElementById('blog');
         blogEl?.scrollIntoView({ behavior: 'smooth' });
       }, 100);
     }
-  }, [currentPath]);
+  }, [normalizedPath]);
 
   // Active Modals
   const [isDeviceGuideOpen, setIsDeviceGuideOpen] = useState(false);
@@ -157,9 +159,6 @@ export default function App() {
     setIncludeAdult(adult);
     setIsCheckoutOpen(true);
   }, []);
-
-  // Normalize current path by stripping multiple trailing slashes (e.g. /usabestiptv/ -> /usabestiptv)
-  const normalizedPath = currentPath.toLowerCase().replace(/\/+$/, '') || '/';
 
   // Match blog posts or direct /ukbestiptv / /usabestiptv / /europemoststableiptv / /arabicbestiptv landing route
   const isDirectUkBestIptv = normalizedPath === '/ukbestiptv';

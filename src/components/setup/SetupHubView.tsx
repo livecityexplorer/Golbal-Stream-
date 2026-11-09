@@ -1046,8 +1046,8 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
 
       {/* 9. Referral & Social Sharing */}
       <ShareReferralBar
-        currentUrl={typeof window !== 'undefined' ? `${window.location.origin}/setup` : 'https://globalstreamhub.net/setup'}
-        title="StreamUK 4K VIP IPTV Setup Hub • FireStick, TiviMate & Device Guides"
+        currentUrl="https://globalstreamhub.net/setup/"
+        title="GlobalStreamHub 4K VIP IPTV Setup Hub • FireStick, TiviMate & Device Guides"
       />
 
       {/* 10. WhatsApp Support Banner */}

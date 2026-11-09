@@ -286,11 +286,17 @@ const ROUTE_METADATA = {
     title: 'Frequently Asked Questions (FAQ) & Knowledge Base • GlobalStreamHub VIP',
     description: 'Find instant answers to common questions about IPTV setup, ISP block bypassing, payment options, device compatibility, and subscription management.',
     keywords: 'iptv faq, iptv questions, how does iptv work, iptv customer support'
+  },
+  '/blog': {
+    title: 'IPTV Knowledge Base, Streaming Guides & Analysis • GlobalStreamHub VIP',
+    description: 'Expert IPTV tutorials, device setup walkthroughs, live sports 4K streaming guides, and anti-buffering masterclasses from the GlobalStreamHub engineering team.',
+    keywords: 'iptv blog, iptv guides, best iptv setup tutorials, 4k streaming guides'
   }
 };
 
 // Additional routes from sitemap to guarantee 100% coverage
 const ALL_SITEMAP_ROUTES = [
+  '/blog',
   '/ukbestiptv',
   '/blog/ukbestiptv',
   '/usabestiptv',
