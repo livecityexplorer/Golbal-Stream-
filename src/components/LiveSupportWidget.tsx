@@ -62,7 +62,7 @@ export const LiveSupportWidget: React.FC<LiveSupportWidgetProps> = ({
     {
       icon: <Flame className="w-4 h-4 text-amber-400" />,
       label: '📺 FireStick Downloader Code Help',
-      message: 'Hi, I need assistance setting up the GlobalStreamHub 4K player on Amazon FireStick using Downloader code 842013.'
+      message: 'Hi, I need assistance setting up the official CBR TV App on Amazon FireStick using Downloader code 2130837.'
     },
     {
       icon: <Tv className="w-4 h-4 text-sky-400" />,

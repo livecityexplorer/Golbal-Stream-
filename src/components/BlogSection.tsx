@@ -33,9 +33,14 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onSelectPlan, navigate
   const [activePost, setActivePost] = useState<BlogPost | null>(null);
   const [isExpanded, setIsExpanded] = useState(false);
 
+  const getPostUrl = (slug: string) => {
+    const isFlagship = ['ukbestiptv', 'usabestiptv', 'europemoststableiptv', 'arabicbestiptv'].includes(slug);
+    return isFlagship ? `/${slug}/` : `/blog/${slug}/`;
+  };
+
   const handlePostClick = (post: BlogPost) => {
     if (navigateTo) {
-      navigateTo('/blog/' + post.slug);
+      navigateTo(getPostUrl(post.slug));
     } else {
       setActivePost(post);
     }
@@ -210,7 +215,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onSelectPlan, navigate
 
                     {/* Title */}
                     <a
-                      href={`/blog/${featuredPost.slug}`}
+                      href={getPostUrl(featuredPost.slug)}
                       onClick={(e) => {
                         if (!e.metaKey && !e.ctrlKey && !e.shiftKey) {
                           e.preventDefault();
@@ -252,7 +257,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onSelectPlan, navigate
                     </div>
 
                     <a
-                      href={`/blog/${featuredPost.slug}`}
+                      href={getPostUrl(featuredPost.slug)}
                       onClick={(e) => {
                         if (!e.metaKey && !e.ctrlKey && !e.shiftKey) {
                           e.preventDefault();
@@ -337,7 +342,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onSelectPlan, navigate
 
                     {/* Title */}
                     <a
-                      href={`/blog/${post.slug}`}
+                      href={getPostUrl(post.slug)}
                       onClick={(e) => {
                         if (!e.metaKey && !e.ctrlKey && !e.shiftKey) {
                           e.preventDefault();
@@ -377,7 +382,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onSelectPlan, navigate
                     </div>
 
                     <a
-                      href={`/blog/${post.slug}`}
+                      href={getPostUrl(post.slug)}
                       onClick={(e) => {
                         if (!e.metaKey && !e.ctrlKey && !e.shiftKey) {
                           e.preventDefault();

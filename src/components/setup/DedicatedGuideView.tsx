@@ -688,7 +688,7 @@ export const DedicatedGuideView: React.FC<DedicatedGuideViewProps> = ({
               <article
                 key={altGuide.id}
                 onClick={() => {
-                  navigateTo('/setup/' + altGuide.slug);
+                  navigateTo('/setup/' + altGuide.slug + '/');
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
                 className="p-5 rounded-2xl bg-slate-900/70 border border-white/10 hover:border-cyan-500/50 hover:bg-slate-900 transition-all duration-300 flex flex-col justify-between gap-4 cursor-pointer group shadow-lg"
@@ -734,7 +734,7 @@ export const DedicatedGuideView: React.FC<DedicatedGuideViewProps> = ({
 
       {/* Referral & Social Sharing Bar */}
       <ShareReferralBar
-        currentUrl={typeof window !== 'undefined' ? `${window.location.origin}/setup/${guide.slug}` : `https://globalstreamhub.net/setup/${guide.slug}`}
+        currentUrl={`https://globalstreamhub.net/setup/${guide.slug}/`}
         title={`${guide.title} | GlobalStreamHub VIP Setup Guide`}
       />
 

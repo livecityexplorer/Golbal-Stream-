@@ -305,12 +305,60 @@
     <xhtml:link rel="alternate" hreflang="en-eu" href="https://globalstreamhub.net/europe-iptv/" />
   </url>
 
-  <!-- Complete Device Setup Hub -->
+  <!-- Complete Device Setup Hub & Category Routers -->
   <url>
     <loc>https://globalstreamhub.net/setup/</loc>
-    <lastmod>2026-11-04</lastmod>
+    <lastmod>2026-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.96</priority>
+  </url>
+  <url>
+    <loc>https://globalstreamhub.net/setup/firestick/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://globalstreamhub.net/setup/tivimate/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://globalstreamhub.net/setup/smarters/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.94</priority>
+  </url>
+  <url>
+    <loc>https://globalstreamhub.net/setup/smart-tv/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.94</priority>
+  </url>
+  <url>
+    <loc>https://globalstreamhub.net/setup/apple-tv/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.94</priority>
+  </url>
+  <url>
+    <loc>https://globalstreamhub.net/setup/android/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.94</priority>
+  </url>
+  <url>
+    <loc>https://globalstreamhub.net/setup/pc-web/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.93</priority>
+  </url>
+  <url>
+    <loc>https://globalstreamhub.net/setup/formuler-mag/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.93</priority>
   </url>
 
   <!-- Official Flagship Applications (CBR TV Official Suite) -->
@@ -473,58 +521,58 @@
     </image:image>
   </url>
   <url>
-    <loc>https://globalstreamhub.net/blog/champions-league-2026-predictions-knockout-draw-4k-uhd-stream-guide/</loc>
-    <lastmod>2026-11-04</lastmod>
+    <loc>https://globalstreamhub.net/blog/who-will-win-uefa-champions-league-2026-2027-predictions-streaming-guide/</loc>
+    <lastmod>2026-11-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.96</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
-      <image:title>UEFA Champions League 2026/27 Predictions, Knockout Draw Bracket &amp; 4K UHD Live Stream Guide</image:title>
+      <image:title>UEFA Champions League 2026/27 Predictions &amp; 4K UHD Live Stream Guide</image:title>
       <image:caption>Tactical breakdown of Real Madrid, Bayern Munich, PSG, Arsenal, and how to watch TNT Sports Ultimate 4K buffer-free</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://globalstreamhub.net/blog/el-clasico-real-madrid-barcelona-tactics-prediction-4k-streaming-guide/</loc>
-    <lastmod>2026-11-04</lastmod>
+    <loc>https://globalstreamhub.net/blog/la-liga-el-clasico-2026-2027-title-race-real-madrid-barcelona-streaming-guide/</loc>
+    <lastmod>2026-11-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.95</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1518091043644-c1d4457512c6?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
-      <image:title>El Clasico: Real Madrid vs Barcelona Tactical Breakdown, Squad Matchups &amp; 4K 60FPS Stream Guide</image:title>
+      <image:title>La Liga 2026/27 Title Race &amp; El Clasico: Real Madrid vs Barcelona 4K 60FPS Stream Guide</image:title>
       <image:caption>La Liga tactical showdown between Real Madrid and Barcelona with 4K UHD HDR multi-language commentary</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://globalstreamhub.net/blog/serie-a-scudetto-race-inter-juventus-napoli-predictions-4k-streaming-guide/</loc>
-    <lastmod>2026-11-04</lastmod>
+    <loc>https://globalstreamhub.net/blog/serie-a-scudetto-race-inter-napoli-juventus-2026-2027-streaming-guide/</loc>
+    <lastmod>2026-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.94</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
-      <image:title>Serie A 2026/27 Scudetto Race: Inter, Juventus, and Napoli Predictions &amp; 4K Stream Guide</image:title>
+      <image:title>Serie A 2026/27 Scudetto Race: Inter, Napoli, and Juventus Predictions &amp; 4K Stream Guide</image:title>
       <image:caption>Italian Calcio title race tactical analysis and 4K 60FPS streaming instructions</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://globalstreamhub.net/blog/der-klassiker-bayern-munich-borussia-dortmund-tactics-4k-streaming-guide/</loc>
-    <lastmod>2026-11-04</lastmod>
+    <loc>https://globalstreamhub.net/blog/bundesliga-title-race-bayern-leverkusen-dortmund-2026-2027-streaming-guide/</loc>
+    <lastmod>2026-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.94</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
-      <image:title>Der Klassiker: Bayern Munich vs Borussia Dortmund Tactical Analysis &amp; Bundesliga 4K Guide</image:title>
+      <image:title>Bundesliga 2026/27 Title Race: Bayern Munich, Leverkusen &amp; Dortmund Tactical Analysis &amp; 4K Guide</image:title>
       <image:caption>Bundesliga title decider tactics, xG stats, and buffer-free 60FPS live streaming</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://globalstreamhub.net/blog/premier-league-top-four-race-aston-villa-newcastle-chelsea-tottenham-predictions/</loc>
-    <lastmod>2026-11-04</lastmod>
+    <loc>https://globalstreamhub.net/blog/premier-league-top-four-race-amorim-man-united-alonso-chelsea-streaming-guide/</loc>
+    <lastmod>2026-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.94</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85</image:loc>
-      <image:title>Premier League 2026/27 Top-Four &amp; Champions League Qualification Race: Contenders &amp; Fixtures</image:title>
-      <image:caption>Battle for European places between Chelsea, Aston Villa, Newcastle, and Tottenham Hotspur</image:caption>
+      <image:title>Premier League 2026/27 Top-Four Race: Ruben Amorim Man United &amp; Xabi Alonso Chelsea</image:title>
+      <image:caption>Battle for Champions League places between Manchester United, Chelsea, Aston Villa, and Tottenham Hotspur</image:caption>
     </image:image>
   </url>
 
@@ -671,5 +719,43 @@
     <lastmod>2026-11-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.90</priority>
+  </url>
+
+  <!-- Core Conversion Pages & Diagnostics -->
+  <url>
+    <loc>https://globalstreamhub.net/free-trial/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.98</priority>
+  </url>
+  <url>
+    <loc>https://globalstreamhub.net/pricing/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.97</priority>
+  </url>
+  <url>
+    <loc>https://globalstreamhub.net/channels/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://globalstreamhub.net/sports/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.96</priority>
+  </url>
+  <url>
+    <loc>https://globalstreamhub.net/speed-test/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.92</priority>
+  </url>
+  <url>
+    <loc>https://globalstreamhub.net/faq/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.92</priority>
   </url>
 </urlset>

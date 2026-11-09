@@ -573,9 +573,9 @@ export const RegionalLandingPage: React.FC<RegionalLandingPageProps> = ({
                 <tr className="bg-sky-500/10">
                   <td className="py-3.5 px-3 font-bold text-white flex items-center gap-2">
                     <Sparkles className="w-4 h-4 text-sky-400" />
-                    <span>StreamUK VIP 4K Custom Player</span>
+                    <span>CBR TV VIP 4K Official App</span>
                   </td>
-                  <td className="py-3.5 px-3 font-black text-sky-400 text-base font-mono">842013</td>
+                  <td className="py-3.5 px-3 font-black text-sky-400 text-base font-mono">2130837</td>
                   <td className="py-3.5 px-3 text-slate-300">FireStick 4K / Max / Cube, Android TV</td>
                   <td className="py-3.5 px-3 text-emerald-400 font-medium">Integrated 4K EPG &amp; Anti-Freeze v9.8</td>
                 </tr>

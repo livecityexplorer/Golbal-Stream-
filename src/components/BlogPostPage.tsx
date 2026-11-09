@@ -86,7 +86,8 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
     document.title = `${post.title} | GlobalStreamHub 4K VIP`;
 
     // Dynamic Canonical Link Update
-    const isDirectCleanPath = typeof window !== 'undefined' && window.location.pathname.replace(/\/+$/, '') === `/${post.slug}`;
+    const isFlagship = ['ukbestiptv', 'usabestiptv', 'europemoststableiptv', 'arabicbestiptv'].includes(post.slug);
+    const isDirectCleanPath = isFlagship || (typeof window !== 'undefined' && window.location.pathname.replace(/\/+$/, '') === `/${post.slug}`);
     const targetUrl = isDirectCleanPath ? `${baseUrl}/${post.slug}/` : `${baseUrl}/blog/${post.slug}/`;
 
     let canonicalTag = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
@@ -152,12 +153,18 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
     };
   }, [post, baseUrl]);
 
+  const isFlagshipPost = ['ukbestiptv', 'usabestiptv', 'europemoststableiptv', 'arabicbestiptv'].includes(post.slug);
+  const canonicalPostUrl = isFlagshipPost ? `${baseUrl}/${post.slug}/` : `${baseUrl}/blog/${post.slug}/`;
+
+  const getPostUrl = (slug: string) => {
+    const isFlagship = ['ukbestiptv', 'usabestiptv', 'europemoststableiptv', 'arabicbestiptv'].includes(slug);
+    return isFlagship ? `/${slug}/` : `/blog/${slug}/`;
+  };
+
   const handleCopyLink = () => {
     try {
-      const isDirectCleanPath = typeof window !== 'undefined' && window.location.pathname.replace(/\/+$/, '') === `/${post.slug}`;
-      const articleUrl = isDirectCleanPath ? `${baseUrl}/${post.slug}` : `${baseUrl}/blog/${post.slug}`;
       if (navigator.clipboard) {
-        navigator.clipboard.writeText(articleUrl);
+        navigator.clipboard.writeText(canonicalPostUrl);
         setCopiedLink(true);
         setTimeout(() => setCopiedLink(false), 2500);
       }
@@ -799,7 +806,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
                 {relatedPostsData.map(({ post: rPost }) => (
                   <div
                     key={rPost.id}
-                    onClick={() => navigateTo('/blog/' + rPost.slug)}
+                    onClick={() => navigateTo(getPostUrl(rPost.slug))}
                     className="group cursor-pointer flex gap-3.5 items-start hover:bg-zinc-900/60 p-2 rounded-xl transition-colors"
                   >
                     <img
@@ -844,7 +851,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
         {/* Viral Social Referral Bar */}
         <div className="mt-12">
           <ShareReferralBar
-            currentUrl={`${baseUrl}/blog/${post.slug}`}
+            currentUrl={canonicalPostUrl}
             title={`${post.title} | GlobalStreamHub 4K VIP`}
           />
         </div>
@@ -878,7 +885,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
             {relatedPostsData.map(({ post: rPost }) => (
               <article
                 key={rPost.id}
-                onClick={() => navigateTo('/blog/' + rPost.slug)}
+                onClick={() => navigateTo(getPostUrl(rPost.slug))}
                 className="group relative flex flex-col bg-[#0d1017] border border-zinc-800 hover:border-zinc-700 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-xl cursor-pointer"
               >
                 {/* Cover Image */}

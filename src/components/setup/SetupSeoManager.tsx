@@ -10,7 +10,7 @@ export const SetupSeoManager: React.FC<SetupSeoManagerProps> = ({ guide, isHub }
   useEffect(() => {
     const originalTitle = document.title;
     const scriptId = 'dynamic-setup-schema-jsonld';
-    const baseUrl = typeof window !== 'undefined' && window.location.origin ? window.location.origin : 'https://globalstreamhub.net';
+    const baseUrl = 'https://globalstreamhub.net';
 
     // Remove any previous schema script
     const prevScript = document.getElementById(scriptId);
@@ -20,7 +20,7 @@ export const SetupSeoManager: React.FC<SetupSeoManagerProps> = ({ guide, isHub }
       // 1. DEDICATED PLAYER & DEVICE GUIDE SEO
       const pageTitle = `${guide.title} (2026 Tutorial) | GlobalStreamHub 4K VIP`;
       const metaDescription = `${guide.summary} Step-by-step setup guide for ${guide.deviceCategoryLabel} using ${guide.playerName}. Verified Downloader codes, Xtream Codes API, and 4K 60FPS sports configuration.`;
-      const canonicalUrl = `${baseUrl}/setup/${guide.slug}`;
+      const canonicalUrl = `${baseUrl}/setup/${guide.slug}/`;
 
       document.title = pageTitle;
 
@@ -143,7 +143,7 @@ export const SetupSeoManager: React.FC<SetupSeoManagerProps> = ({ guide, isHub }
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Setup Guides Hub",
-                "item": `${baseUrl}/setup`
+                "item": `${baseUrl}/setup/`
               },
               {
                 "@type": "ListItem",
@@ -169,7 +169,7 @@ export const SetupSeoManager: React.FC<SetupSeoManagerProps> = ({ guide, isHub }
       // 2. HUB OVERVIEW SEO
       const hubTitle = "IPTV Setup Guides & Downloader Codes (2026 Directory) | GlobalStreamHub 4K";
       const hubDesc = "Complete 2026 Step-by-Step IPTV Setup Guides for FireStick, Android TV, Smart TV, Apple TV 4K, Formuler MAG & PC. Instant Downloader shortcodes, Xtream Codes, and UK ISP anti-block settings.";
-      const canonicalUrl = `${baseUrl}/setup`;
+      const canonicalUrl = `${baseUrl}/setup/`;
 
       document.title = hubTitle;
 

@@ -85,12 +85,16 @@ export default function App() {
   }, []);
 
   const navigateTo = useCallback((path: string) => {
+    let target = path;
+    if (target !== '/' && !target.endsWith('/') && !target.includes('#') && !target.includes('?')) {
+      target = `${target}/`;
+    }
     try {
-      window.history.pushState({}, '', path);
+      window.history.pushState({}, '', target);
     } catch (e) {
       console.warn('History pushState is blocked or restricted in this container/iframe:', e);
     }
-    setCurrentPath(path);
+    setCurrentPath(target);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
@@ -163,7 +167,17 @@ export default function App() {
   const isDirectEuropeMostStableIptv = normalizedPath === '/europemoststableiptv' || normalizedPath === '/europe-most-stable-iptv';
   const isDirectArabicBestIptv = normalizedPath === '/arabicbestiptv' || normalizedPath === '/arabic-best-iptv' || normalizedPath === '/middle-east-iptv';
   const blogMatch = normalizedPath.match(/^\/blog\/([^/]+)$/);
-  const currentBlogSlug = isDirectUkBestIptv 
+  
+  // Crawler legacy alias map
+  const SLUG_ALIASES: Record<string, string> = {
+    'champions-league-2026-predictions-knockout-draw-4k-uhd-stream-guide': 'who-will-win-uefa-champions-league-2026-2027-predictions-streaming-guide',
+    'el-clasico-real-madrid-barcelona-tactics-prediction-4k-streaming-guide': 'la-liga-el-clasico-2026-2027-title-race-real-madrid-barcelona-streaming-guide',
+    'serie-a-scudetto-race-inter-juventus-napoli-predictions-4k-streaming-guide': 'serie-a-scudetto-race-inter-napoli-juventus-2026-2027-streaming-guide',
+    'der-klassiker-bayern-munich-borussia-dortmund-tactics-4k-streaming-guide': 'bundesliga-title-race-bayern-leverkusen-dortmund-2026-2027-streaming-guide',
+    'premier-league-top-four-race-aston-villa-newcastle-chelsea-tottenham-predictions': 'premier-league-top-four-race-amorim-man-united-alonso-chelsea-streaming-guide',
+  };
+
+  const rawBlogSlug = isDirectUkBestIptv 
     ? 'ukbestiptv' 
     : (isDirectUsaBestIptv 
         ? 'usabestiptv' 
@@ -172,6 +186,8 @@ export default function App() {
             : (isDirectArabicBestIptv
                 ? 'arabicbestiptv'
                 : (blogMatch ? blogMatch[1] : null))));
+
+  const currentBlogSlug = rawBlogSlug ? (SLUG_ALIASES[rawBlogSlug] || rawBlogSlug) : null;
   const currentBlogPost = currentBlogSlug ? BLOG_POSTS.find(p => p.slug === currentBlogSlug) : null;
 
   // Real-time Live Sports Fixtures State (Updated Daily & Live Scores)

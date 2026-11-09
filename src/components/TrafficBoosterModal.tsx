@@ -37,19 +37,19 @@ export const TrafficBoosterModal: React.FC<TrafficBoosterModalProps> = ({ isOpen
   const REDDIT_POST = `🔥 Best UK IPTV for Premier League 4K UHD (Zero 3PM Blackout & Free 24H Trial)
 
 If you're looking for a stable UK IPTV provider with zero buffering on Virgin Media / BT, check out GlobalStreamHub:
-🌐 Website: https://globalstreamhub.net
-📺 Official FireStick Downloader Code: 842013
+🌐 Website: https://globalstreamhub.net/
+📺 Official CBR TV Downloader Code: 2130837
 ⚽ All 380 EPL games live in native 4K 60FPS + Sky Sports 4K & TNT Sports Ultimate
 ⚡ Instant 24-Hour Free Trial pass (£0.00 - No credit card required!)`;
 
   const WHATSAPP_PROMO = `⚽ Stream All Premier League Matches in 4K UHD (Zero 3PM Blackout!)
 📺 Sky Sports 4K, TNT Sports, 18,500+ Live Channels & 65,000+ VOD Movies
-🔥 Official FireStick Downloader Code: 842013
-🎁 Claim your 100% Free 24-Hour Trial Pass now at https://globalstreamhub.net`;
+🔥 Official CBR TV Downloader Code: 2130837
+🎁 Claim your 100% Free 24-Hour Trial Pass now at https://globalstreamhub.net/`;
 
   const FORUM_POST = `[RECOMMENDED] GlobalStreamHub 4K IPTV Service 2026
-Website: https://globalstreamhub.net
-Downloader Code: 842013 (FireStick / Android TV)
+Website: https://globalstreamhub.net/
+Downloader Code: 2130837 (FireStick / Android TV)
 - 18,500+ Live Channels (UK, US, Canada, EU)
 - Anti-Freeze v9.8 Private London Equinix CDN
 - Sky Sports 4K, TNT Sports Ultimate, NFL RedZone & TSN
@@ -145,10 +145,10 @@ Downloader Code: 842013 (FireStick / Android TV)
           <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 space-y-2.5">
             <strong className="text-amber-400 font-black text-sm flex items-center gap-2">
               <Tv className="w-4 h-4" />
-              <span>3. FireStick Downloader Code Keyword Targeting (842013)</span>
+              <span>3. FireStick Downloader Code Keyword Targeting (2130837)</span>
             </strong>
             <p className="text-slate-300 leading-relaxed">
-              Over 60% of UK IPTV users search Google for numeric shortcodes like <strong className="text-white">"Downloader code 842013"</strong> or <strong className="text-white">"best downloader code for firestick 2026"</strong>. Mentioning shortcode <code className="text-amber-300">842013</code> on forums, YouTube video titles, and TikTok tutorial videos drives massive direct app installs!
+              Over 60% of UK and global IPTV users search Google for numeric shortcodes like <strong className="text-white">"Downloader code 2130837"</strong> or <strong className="text-white">"best downloader code for firestick 2026"</strong>. Mentioning official CBR TV shortcode <code className="text-amber-300">2130837</code> on forums, YouTube video titles, and TikTok tutorial videos drives massive direct app installs!
             </p>
           </div>
 

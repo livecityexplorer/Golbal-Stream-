@@ -388,7 +388,7 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
                 <div
                   key={guide.id}
                   onClick={() => {
-                    navigateTo('/setup/' + guide.slug);
+                    navigateTo('/setup/' + guide.slug + '/');
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }}
                   className="p-4 sm:p-5 rounded-2xl bg-[#131622] border border-white/[0.08] hover:border-indigo-500/40 hover:bg-[#181d2e] transition-all cursor-pointer group flex flex-col justify-between gap-3 shadow-sm"
@@ -661,11 +661,11 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
                     )}
 
                     <a
-                      href={'/setup/' + spotlightGuide.slug}
+                      href={'/setup/' + spotlightGuide.slug + '/'}
                       onClick={(e) => {
                         if (!e.metaKey && !e.ctrlKey && !e.shiftKey) {
                           e.preventDefault();
-                          navigateTo('/setup/' + spotlightGuide.slug);
+                          navigateTo('/setup/' + spotlightGuide.slug + '/');
                           window.scrollTo({ top: 0, behavior: 'smooth' });
                         }
                       }}
@@ -703,7 +703,7 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
                   <div
                     key={guide.id}
                     onClick={() => {
-                      navigateTo('/setup/' + guide.slug);
+                      navigateTo('/setup/' + guide.slug + '/');
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
                     className="p-3.5 sm:p-4 rounded-2xl bg-[#131622] border border-white/[0.08] hover:border-indigo-500/40 hover:bg-[#181d2e] transition-all cursor-pointer group flex flex-col justify-between gap-3 shadow-sm"
@@ -751,11 +751,11 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
                       </span>
 
                       <a
-                        href={'/setup/' + guide.slug}
+                        href={'/setup/' + guide.slug + '/'}
                         onClick={(e) => {
                           if (!e.metaKey && !e.ctrlKey && !e.shiftKey) {
                             e.preventDefault();
-                            navigateTo('/setup/' + guide.slug);
+                            navigateTo('/setup/' + guide.slug + '/');
                             window.scrollTo({ top: 0, behavior: 'smooth' });
                           }
                         }}

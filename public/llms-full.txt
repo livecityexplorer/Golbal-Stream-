@@ -39,7 +39,7 @@ GlobalStreamHub VIP (https://globalstreamhub.net) is an enterprise-grade 4K/UHD 
 1. Install the official "Downloader" app from the Amazon Appstore.
 2. Enable "Developer Options" -> "Install Unknown Apps" -> Allow Downloader.
 3. Enter one of the verified official codes:
-   - **GlobalStreamHub VIP 4K Custom Player**: `842013` (Official App with integrated 4K sports & automated EPG)
+   - **CBR TV VIP Official App**: `2130837` (Official App with integrated 4K sports, EPG & Anti-ISP Proxy)
    - **TiviMate IPTV Player Pro**: `289018` / `272483` (Direct URL: `https://tivimate.com/apk`)
    - **iMPlayer TV IPTV**: `82375` (Direct URL: `https://implayer.tv/d`)
    - **IPTV Smarters Pro**: `914207` / `80198` (Direct URL: `https://www.iptvsmarters.com/smarters.apk`)

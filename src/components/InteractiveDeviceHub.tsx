@@ -51,8 +51,8 @@ export const DEVICE_GUIDES_DATA: DeviceGuideItem[] = [
     popularLabel: 'Most Popular UK Device',
     badge: '#1 UK Choice',
     iconType: 'flame',
-    downloaderCode: '842013',
-    recommendedApp: 'IPTV Smarters Pro / TiviMate 4K',
+    downloaderCode: '2130837',
+    recommendedApp: 'CBR TV App / TiviMate 4K',
     setupTime: '2 Minutes',
     difficulty: 'Beginner',
     steps: [
@@ -71,8 +71,8 @@ export const DEVICE_GUIDES_DATA: DeviceGuideItem[] = [
       {
         step: 3,
         title: 'Enter Downloader Short Code',
-        description: 'Open Downloader, enter short code 842013 into the URL bar, and press GO. The official GlobalStreamHub 4K Player APK will auto-download and install.',
-        actionHighlight: 'Code: 842013'
+        description: 'Open Downloader, enter short code 2130837 into the URL bar, and press GO. The official CBR TV App APK will auto-download and install.',
+        actionHighlight: 'Code: 2130837'
       },
       {
         step: 4,
@@ -256,7 +256,7 @@ export const DEVICE_GUIDES_DATA: DeviceGuideItem[] = [
 ];
 
 export const POPULAR_DOWNLOADER_CODES = [
-  { name: 'GlobalStreamHub 4K Custom Player', code: '842013', desc: 'Direct 4K APK with pre-loaded Global TV Guide' },
+  { name: 'CBR TV Official App (Anti-ISP Proxy)', code: '2130837', desc: 'Direct 4K/8K APK with pre-loaded Global TV Guide & Anti-Throttling' },
   { name: 'TiviMate IPTV Player Premium', code: '289018', desc: 'Top rated player for FireStick & Android TV' },
   { name: 'IPTV Smarters Pro v3.1.5', code: '914207', desc: 'Clean multi-screen UI with Catch-up & VOD' },
   { name: 'XCIPTV Player Official 4K', code: '762019', desc: 'Fast, responsive player with built-in backup EPG' },

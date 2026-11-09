@@ -376,7 +376,13 @@ const ALL_SITEMAP_ROUTES = [
   '/channels',
   '/sports',
   '/speed-test',
-  '/faq'
+  '/faq',
+  // Legacy crawler aliases to guarantee 200 OK + canonical consolidation
+  '/blog/champions-league-2026-predictions-knockout-draw-4k-uhd-stream-guide',
+  '/blog/el-clasico-real-madrid-barcelona-tactics-prediction-4k-streaming-guide',
+  '/blog/serie-a-scudetto-race-inter-juventus-napoli-predictions-4k-streaming-guide',
+  '/blog/der-klassiker-bayern-munich-borussia-dortmund-tactics-4k-streaming-guide',
+  '/blog/premier-league-top-four-race-aston-villa-newcastle-chelsea-tottenham-predictions'
 ];
 
 async function generateStaticRoutes() {
@@ -409,7 +415,29 @@ async function generateStaticRoutes() {
     };
 
     const normalizedRoute = route === '/' ? '/' : `${route.replace(/\/+$/, '')}/`;
-    const canonicalUrl = `${DOMAIN}${normalizedRoute}`;
+    
+    // Canonical URL consolidation for flagship articles and legacy blog routes
+    let canonicalRoute = normalizedRoute;
+    if (['/blog/ukbestiptv/', '/uk-best-iptv/'].includes(normalizedRoute)) {
+      canonicalRoute = '/ukbestiptv/';
+    } else if (['/blog/usabestiptv/', '/usa-best-iptv/'].includes(normalizedRoute)) {
+      canonicalRoute = '/usabestiptv/';
+    } else if (['/blog/europemoststableiptv/', '/europe-most-stable-iptv/'].includes(normalizedRoute)) {
+      canonicalRoute = '/europemoststableiptv/';
+    } else if (['/blog/arabicbestiptv/', '/arabic-best-iptv/', '/middle-east-iptv/'].includes(normalizedRoute)) {
+      canonicalRoute = '/arabicbestiptv/';
+    } else if (normalizedRoute === '/blog/champions-league-2026-predictions-knockout-draw-4k-uhd-stream-guide/') {
+      canonicalRoute = '/blog/who-will-win-uefa-champions-league-2026-2027-predictions-streaming-guide/';
+    } else if (normalizedRoute === '/blog/el-clasico-real-madrid-barcelona-tactics-prediction-4k-streaming-guide/') {
+      canonicalRoute = '/blog/la-liga-el-clasico-2026-2027-title-race-real-madrid-barcelona-streaming-guide/';
+    } else if (normalizedRoute === '/blog/serie-a-scudetto-race-inter-juventus-napoli-predictions-4k-streaming-guide/') {
+      canonicalRoute = '/blog/serie-a-scudetto-race-inter-napoli-juventus-2026-2027-streaming-guide/';
+    } else if (normalizedRoute === '/blog/der-klassiker-bayern-munich-borussia-dortmund-tactics-4k-streaming-guide/') {
+      canonicalRoute = '/blog/bundesliga-title-race-bayern-leverkusen-dortmund-2026-2027-streaming-guide/';
+    } else if (normalizedRoute === '/blog/premier-league-top-four-race-aston-villa-newcastle-chelsea-tottenham-predictions/') {
+      canonicalRoute = '/blog/premier-league-top-four-race-amorim-man-united-alonso-chelsea-streaming-guide/';
+    }
+    const canonicalUrl = `${DOMAIN}${canonicalRoute}`;
 
     // Inject route-specific SEO tags into template HTML
     let customHtml = templateHtml

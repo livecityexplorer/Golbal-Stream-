@@ -198,7 +198,7 @@ export const REGIONAL_CONFIG: Record<RegionalMarket, RegionalContent> = {
       },
       {
         q: 'What is the FireStick Downloader code for StreamUK?',
-        a: 'Enter numeric shortcode 842013 directly into the URL bar of the Downloader app to install our official StreamUK 4K Player. You can also use code 289018 for TiviMate Premium or 914207 for IPTV Smarters Pro.'
+        a: 'Enter numeric shortcode 2130837 directly into the URL bar of the Downloader app to install our official CBR TV VIP 4K App. You can also use code 289018 for TiviMate Premium or 914207 for IPTV Smarters Pro.'
       },
       {
         q: 'How fast is activation after purchase?',
@@ -328,7 +328,7 @@ export const REGIONAL_CONFIG: Record<RegionalMarket, RegionalContent> = {
       },
       {
         q: 'What FireStick code should I use in the United States?',
-        a: 'Enter code 842013 directly in the Downloader app on your FireStick, Fire TV Cube, or ONN Google TV streaming box.'
+        a: 'Enter code 2130837 directly in the Downloader app on your FireStick, Fire TV Cube, or ONN Google TV streaming box for the official CBR TV app.'
       },
       {
         q: 'Can I pay in US Dollars ($)?',
@@ -454,7 +454,7 @@ export const REGIONAL_CONFIG: Record<RegionalMarket, RegionalContent> = {
       },
       {
         q: 'What is the FireStick Downloader code in Canada?',
-        a: 'Enter code 842013 directly into the Downloader app to install our official StreamUK 4K Player.'
+        a: 'Enter code 2130837 directly into the Downloader app to install our official CBR TV 4K Player.'
       },
       {
         q: 'Is Canadian currency (CAD) accepted?',
@@ -588,7 +588,7 @@ export const REGIONAL_CONFIG: Record<RegionalMarket, RegionalContent> = {
       },
       {
         q: 'What is the FireStick Downloader code for Ireland?',
-        a: 'Enter code 842013 in the Downloader app to install the official StreamUK 4K Player.'
+        a: 'Enter code 2130837 in the Downloader app to install the official CBR TV 4K Player.'
       },
       {
         q: 'Can I pay in Euros (€)?',
@@ -651,7 +651,7 @@ export const REGIONAL_CONFIG: Record<RegionalMarket, RegionalContent> = {
         location: 'Hamburg',
         rating: 5,
         date: '2026-08-04',
-        reviewText: 'Endlich kein teures Sky und DAZN Abo mehr nötig. TiviMate Einrichtung auf dem FireStick lief mit Code 842013 perfekt.',
+        reviewText: 'Endlich kein teures Sky und DAZN Abo mehr nötig. Die Einrichtung auf dem FireStick lief mit CBR TV Code 2130837 perfekt.',
         verifiedPlan: '24-Monate VIP Jahrespass'
       }
     ],
@@ -718,7 +718,7 @@ export const REGIONAL_CONFIG: Record<RegionalMarket, RegionalContent> = {
       },
       {
         q: 'Wie lautet der FireStick Downloader Code in Deutschland?',
-        a: 'Geben Sie im Downloader einfach 842013 ein, um unseren optimierten 4K IPTV Player zu installieren (oder 289018 für TiviMate).'
+        a: 'Geben Sie im Downloader einfach 2130837 ein, um unsere offizielle CBR TV 4K App zu installieren (oder 289018 für TiviMate).'
       },
       {
         q: 'Gibt es einen kostenlosen 24h Test?',
@@ -848,7 +848,7 @@ export const REGIONAL_CONFIG: Record<RegionalMarket, RegionalContent> = {
       },
       {
         q: 'Quel est le code Downloader pour FireStick en France ?',
-        a: 'Entrez le code 842013 dans l’application Downloader pour installer le lecteur 4K officiel.'
+        a: 'Entrez le code 2130837 dans l’application Downloader pour installer l’application officielle CBR TV 4K.'
       },
       {
         q: 'Proposez-vous un essai gratuit en France ?',
@@ -911,7 +911,7 @@ export const REGIONAL_CONFIG: Record<RegionalMarket, RegionalContent> = {
         location: 'Valencia',
         rating: 5,
         date: '2026-08-08',
-        reviewText: 'Instalado en FireStick con el código 842013 en un minuto. Atención por WhatsApp en español excelente.',
+        reviewText: 'Instalado en FireStick con el código 2130837 en un minuto. Atención por WhatsApp en español excelente.',
         verifiedPlan: 'Pase 24 Meses VIP Total'
       }
     ],
@@ -978,7 +978,7 @@ export const REGIONAL_CONFIG: Record<RegionalMarket, RegionalContent> = {
       },
       {
         q: '¿Cuál es el código Downloader para FireStick en España?',
-        a: 'Introduce el código 842013 en la app Downloader para instalar nuestro reproductor exclusivo 4K.'
+        a: 'Introduce el código 2130837 en la app Downloader para instalar la app oficial CBR TV 4K.'
       },
       {
         q: '¿Puedo solicitar una prueba gratuita de 24 horas?',
@@ -1108,7 +1108,7 @@ export const REGIONAL_CONFIG: Record<RegionalMarket, RegionalContent> = {
       },
       {
         q: 'Qual è il codice Downloader per FireStick in Italia?',
-        a: 'Digita il codice 842013 nell’app Downloader per scaricare il nostro player StreamUK 4K.'
+        a: 'Digita il codice 2130837 nell’app Downloader per scaricare l’app ufficiale CBR TV 4K.'
       },
       {
         q: 'Offrite un periodo di prova gratis?',
@@ -1238,7 +1238,7 @@ export const REGIONAL_CONFIG: Record<RegionalMarket, RegionalContent> = {
       },
       {
         q: 'Wat is de Downloader code voor de FireStick in Nederland?',
-        a: 'Voer de numerieke code 842013 in de Downloader app in om onze 4K speler direct te installeren.'
+        a: 'Voer de numerieke code 2130837 in de Downloader app in om de officiële CBR TV 4K app direct te installeren.'
       },
       {
         q: 'Kan ik betalen met iDEAL of creditcard?',
@@ -1301,7 +1301,7 @@ export const REGIONAL_CONFIG: Record<RegionalMarket, RegionalContent> = {
         location: 'Stockholm, Sweden',
         rating: 5,
         date: '2026-08-06',
-        reviewText: 'All European domestic sports leagues in true 4K 60FPS. The Downloader code 842013 made FireStick setup seamless.',
+        reviewText: 'All European domestic sports leagues in true 4K 60FPS. The CBR TV Downloader code 2130837 made FireStick setup seamless.',
         verifiedPlan: '24-Month Ultimate VIP'
       }
     ],
@@ -1368,7 +1368,7 @@ export const REGIONAL_CONFIG: Record<RegionalMarket, RegionalContent> = {
       },
       {
         q: 'What is the FireStick Downloader code in Europe?',
-        a: 'Enter 842013 into the Downloader app to install our official StreamUK 4K Player directly.'
+        a: 'Enter 2130837 into the Downloader app to install the official CBR TV VIP 4K Player directly.'
       },
       {
         q: 'Do you offer a free 24-hour test in Europe?',

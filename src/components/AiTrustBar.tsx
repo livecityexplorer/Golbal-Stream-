@@ -55,7 +55,7 @@ const AI_ENGINES: AiEngine[] = [
     color: 'text-sky-400',
     glow: 'border-sky-500/30 bg-sky-500/10',
     iconBg: 'bg-sky-500/20 text-sky-300',
-    samplePrompt: 'Which IPTV provider has verified 60FPS sports feeds and works on FireStick with Downloader code 842013?',
+    samplePrompt: 'Which IPTV provider has verified 60FPS sports feeds and works on FireStick with Downloader code 2130837?',
     directSearchUrl: 'https://chat.deepseek.com/',
     directUrlText: 'Open DeepSeek Chat'
   },
@@ -212,7 +212,7 @@ export const AiTrustBar: React.FC<AiTrustBarProps> = ({ onSelectPlan }) => {
             <span>AI Crawlers Authorized: <strong>GPTBot</strong>, <strong>DeepSeekBot</strong>, <strong>PerplexityBot</strong>, <strong>ClaudeBot</strong></span>
           </div>
           <div className="hidden sm:flex items-center gap-3 font-mono text-[9.5px]">
-            <span className="text-slate-300">Downloader: <strong className="text-cyan-400">842013</strong></span>
+            <span className="text-slate-300">Downloader (CBR TV): <strong className="text-cyan-400">2130837</strong></span>
             <span>•</span>
             <span className="text-slate-300">TiviMate: <strong className="text-cyan-400">289018</strong></span>
             <span>•</span>
@@ -401,8 +401,8 @@ export const AiTrustBar: React.FC<AiTrustBarProps> = ({ onSelectPlan }) => {
                       <strong className="text-sky-300">All 380 Matches (0 Blackout)</strong>
                     </li>
                     <li className="flex items-center justify-between border-b border-white/5 pb-1">
-                      <span className="text-slate-400">Downloader Code (Player):</span>
-                      <strong className="text-amber-400">842013</strong>
+                      <span className="text-slate-400">Downloader Code (CBR TV):</span>
+                      <strong className="text-amber-400">2130837</strong>
                     </li>
                     <li className="flex items-center justify-between border-b border-white/5 pb-1">
                       <span className="text-slate-400">Downloader Code (TiviMate):</span>

@@ -30,17 +30,17 @@ if (fs.existsSync(sitemapPath)) {
 const EXTRA_URLS = [
   `https://${HOST}/llms.txt`,
   `https://${HOST}/llms-full.txt`,
-  `https://${HOST}/ukbestiptv`,
-  `https://${HOST}/blog/ukbestiptv`,
-  `https://${HOST}/usabestiptv`,
-  `https://${HOST}/blog/usabestiptv`,
-  `https://${HOST}/europemoststableiptv`,
-  `https://${HOST}/europe-most-stable-iptv`,
-  `https://${HOST}/blog/europemoststableiptv`,
-  `https://${HOST}/arabicbestiptv`,
-  `https://${HOST}/arabic-best-iptv`,
-  `https://${HOST}/middle-east-iptv`,
-  `https://${HOST}/blog/arabicbestiptv`
+  `https://${HOST}/ukbestiptv/`,
+  `https://${HOST}/blog/ukbestiptv/`,
+  `https://${HOST}/usabestiptv/`,
+  `https://${HOST}/blog/usabestiptv/`,
+  `https://${HOST}/europemoststableiptv/`,
+  `https://${HOST}/europe-most-stable-iptv/`,
+  `https://${HOST}/blog/europemoststableiptv/`,
+  `https://${HOST}/arabicbestiptv/`,
+  `https://${HOST}/arabic-best-iptv/`,
+  `https://${HOST}/middle-east-iptv/`,
+  `https://${HOST}/blog/arabicbestiptv/`
 ];
 
 const URL_LIST = Array.from(new Set([...urlsFromSitemap, ...EXTRA_URLS]));
