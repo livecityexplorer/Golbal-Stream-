@@ -33,20 +33,6 @@
     </image:image>
   </url>
 
-  <!-- Machine-Readable AI Knowledge Bases for LLMs (ChatGPT, DeepSeek, Perplexity) -->
-  <url>
-    <loc>https://globalstreamhub.net/llms.txt</loc>
-    <lastmod>2026-11-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://globalstreamhub.net/llms-full.txt</loc>
-    <lastmod>2026-11-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-
   <!-- Flagship #UKBestIPTV Promotion & CBR TV Setup Page -->
   <url>
     <loc>https://globalstreamhub.net/ukbestiptv/</loc>
@@ -55,14 +41,6 @@
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://globalstreamhub.net/ukbestiptv/" />
     <xhtml:link rel="alternate" hreflang="en-gb" href="https://globalstreamhub.net/ukbestiptv/" />
-  </url>
-  <url>
-    <loc>https://globalstreamhub.net/blog/ukbestiptv/</loc>
-    <lastmod>2026-11-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.99</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://globalstreamhub.net/blog/ukbestiptv/" />
-    <xhtml:link rel="alternate" hreflang="en-gb" href="https://globalstreamhub.net/blog/ukbestiptv/" />
   </url>
 
   <!-- Flagship #USABestIPTV Promotion & CBR TV Setup Page -->
@@ -74,14 +52,6 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://globalstreamhub.net/usabestiptv/" />
     <xhtml:link rel="alternate" hreflang="en-us" href="https://globalstreamhub.net/usabestiptv/" />
   </url>
-  <url>
-    <loc>https://globalstreamhub.net/blog/usabestiptv/</loc>
-    <lastmod>2026-11-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.99</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://globalstreamhub.net/blog/usabestiptv/" />
-    <xhtml:link rel="alternate" hreflang="en-us" href="https://globalstreamhub.net/blog/usabestiptv/" />
-  </url>
 
   <!-- Flagship #EuropeMostStableIPTV Promotion & CBR TV Setup Page -->
   <url>
@@ -91,14 +61,6 @@
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://globalstreamhub.net/europemoststableiptv/" />
     <xhtml:link rel="alternate" hreflang="en-eu" href="https://globalstreamhub.net/europemoststableiptv/" />
-  </url>
-  <url>
-    <loc>https://globalstreamhub.net/blog/europemoststableiptv/</loc>
-    <lastmod>2026-11-07</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.99</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://globalstreamhub.net/blog/europemoststableiptv/" />
-    <xhtml:link rel="alternate" hreflang="en-eu" href="https://globalstreamhub.net/blog/europemoststableiptv/" />
   </url>
 
   <!-- Flagship #ArabicBestIPTV Promotion & CBR TV Setup Page -->
@@ -111,16 +73,6 @@
     <xhtml:link rel="alternate" hreflang="ar" href="https://globalstreamhub.net/arabicbestiptv/" />
     <xhtml:link rel="alternate" hreflang="ar-sa" href="https://globalstreamhub.net/arabicbestiptv/" />
     <xhtml:link rel="alternate" hreflang="ar-ae" href="https://globalstreamhub.net/arabicbestiptv/" />
-  </url>
-  <url>
-    <loc>https://globalstreamhub.net/blog/arabicbestiptv/</loc>
-    <lastmod>2026-11-07</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.99</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://globalstreamhub.net/blog/arabicbestiptv/" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://globalstreamhub.net/blog/arabicbestiptv/" />
-    <xhtml:link rel="alternate" hreflang="ar-sa" href="https://globalstreamhub.net/blog/arabicbestiptv/" />
-    <xhtml:link rel="alternate" hreflang="ar-ae" href="https://globalstreamhub.net/blog/arabicbestiptv/" />
   </url>
 
   <!-- Dedicated Regional Ranking Hubs (UK, USA, Canada and Europe) with Bidirectional Hreflang Cluster -->

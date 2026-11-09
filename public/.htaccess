@@ -134,7 +134,7 @@ AddType 'text/html; charset=UTF-8' html
 
   # Canonical Domain: 301 Redirect www to non-www dynamically for any active domain
   RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
-  RewriteRule ^(.*)$ https://%1/$1 [L,R=301]
+  RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
 
   # 301 Permanent Redirects for Language Query Strings to Clean Canonical URLs
   # Resolves Google Search Console "Alternative page with proper canonical tag" validation
