@@ -473,6 +473,65 @@ async function generateStaticRoutes() {
       .replace(/(href|src)="\.\/assets\//g, '$1="/assets/')
       .replace(/(href|src)="assets\//g, '$1="/assets/');
 
+    // Construct BreadcrumbList Schema for Google Search mobile rich snippets
+    const pathParts = cleanRoute.split('/').filter(Boolean);
+    const breadcrumbItems = [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": `${DOMAIN}/`
+      }
+    ];
+
+    if (pathParts[0] === 'setup') {
+      breadcrumbItems.push({
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Setup Guides",
+        "item": `${DOMAIN}/setup/`
+      });
+      if (pathParts.length > 1) {
+        breadcrumbItems.push({
+          "@type": "ListItem",
+          "position": 3,
+          "name": meta.title.split('•')[0].split('|')[0].split(':')[0].trim(),
+          "item": canonicalUrl
+        });
+      }
+    } else if (pathParts[0] === 'blog') {
+      breadcrumbItems.push({
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Knowledge Base & Guides",
+        "item": `${DOMAIN}/blog/`
+      });
+      if (pathParts.length > 1) {
+        breadcrumbItems.push({
+          "@type": "ListItem",
+          "position": 3,
+          "name": meta.title.split('•')[0].split('|')[0].split(':')[0].trim(),
+          "item": canonicalUrl
+        });
+      }
+    } else {
+      breadcrumbItems.push({
+        "@type": "ListItem",
+        "position": 2,
+        "name": meta.title.split('•')[0].split('|')[0].split(':')[0].trim(),
+        "item": canonicalUrl
+      });
+    }
+
+    const breadcrumbSchema = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": breadcrumbItems
+    };
+
+    const breadcrumbScriptTag = `\n    <script type="application/ld+json">\n${JSON.stringify(breadcrumbSchema, null, 2)}\n    </script>`;
+    customHtml = customHtml.replace('</head>', `${breadcrumbScriptTag}\n  </head>`);
+
     fs.writeFileSync(targetFile, customHtml, 'utf-8');
 
     // Also write clean standalone HTML file (e.g. dist/ukbestiptv.html) for zero-redirect Apache/Nginx direct serving

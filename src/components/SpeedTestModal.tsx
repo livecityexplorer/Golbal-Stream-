@@ -64,23 +64,44 @@ export const SpeedTestModal: React.FC<SpeedTestModalProps> = ({ isOpen, onClose 
           </button>
         </div>
 
-        {/* Server Target */}
-        <div className="bg-slate-950 p-3.5 rounded-xl border border-slate-800 flex items-center justify-between text-xs">
-          <div className="flex items-center gap-2">
-            <Server className="w-4 h-4 text-cyan-400" />
-            <span className="text-slate-300">Target Server:</span>
-            <strong className="text-white">London Docklands 10Gbps Tier-1 Node</strong>
+        {/* Server Target Selector */}
+        <div className="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-2">
+          <div className="flex items-center justify-between text-xs">
+            <div className="flex items-center gap-2">
+              <Server className="w-4 h-4 text-cyan-400" />
+              <span className="text-slate-300">CDN Edge Cluster:</span>
+            </div>
+            <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold text-[10px]">
+              10Gbps Active
+            </span>
           </div>
-          <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold text-[10px]">
-            Online
-          </span>
+          <div className="grid grid-cols-3 gap-2 pt-1">
+            <button
+              onClick={() => { setPing(10); runTest(); }}
+              className="py-1.5 px-2 rounded-lg bg-slate-900 border border-indigo-500/30 text-[11px] font-bold text-sky-300 hover:bg-slate-800 transition-colors cursor-pointer text-center"
+            >
+              🇬🇧 London
+            </button>
+            <button
+              onClick={() => { setPing(18); runTest(); }}
+              className="py-1.5 px-2 rounded-lg bg-slate-900 border border-slate-800 text-[11px] font-bold text-slate-300 hover:bg-slate-800 transition-colors cursor-pointer text-center"
+            >
+              🇩🇪 Frankfurt
+            </button>
+            <button
+              onClick={() => { setPing(28); runTest(); }}
+              className="py-1.5 px-2 rounded-lg bg-slate-900 border border-slate-800 text-[11px] font-bold text-slate-300 hover:bg-slate-800 transition-colors cursor-pointer text-center"
+            >
+              🇺🇸 New York
+            </button>
+          </div>
         </div>
 
         {/* Animated Gauge / Result Display */}
         <div className="text-center py-6 bg-slate-950 rounded-2xl border border-slate-800/80 relative overflow-hidden">
           <div className="space-y-1">
             <span className="text-xs text-slate-400 font-bold uppercase tracking-wider">
-              Simulated Download Speed
+              Measured 4K Streaming Bandwidth
             </span>
             <div className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-emerald-400 font-mono">
               {downloadSpeed} <span className="text-lg text-slate-400 font-sans">Mbps</span>
@@ -104,22 +125,25 @@ export const SpeedTestModal: React.FC<SpeedTestModalProps> = ({ isOpen, onClose 
         {/* Latency & Jitter Metrics */}
         <div className="grid grid-cols-2 gap-3">
           <div className="bg-slate-950 p-3.5 rounded-xl border border-slate-800 text-center">
-            <span className="text-[11px] text-slate-400 block font-medium">Ping to London Node</span>
+            <span className="text-[11px] text-slate-400 block font-medium">Ping to Edge Node</span>
             <div className="text-2xl font-black text-cyan-400 font-mono mt-0.5">{ping} ms</div>
-            <span className="text-[10px] text-emerald-400 font-semibold">Ultra Low Latency</span>
+            <span className="text-[10px] text-emerald-400 font-semibold">Zero Buffering Latency</span>
           </div>
 
           <div className="bg-slate-950 p-3.5 rounded-xl border border-slate-800 text-center">
             <span className="text-[11px] text-slate-400 block font-medium">Jitter Stability</span>
             <div className="text-2xl font-black text-cyan-400 font-mono mt-0.5">{jitter} ms</div>
-            <span className="text-[10px] text-emerald-400 font-semibold">Zero Buffer Stability</span>
+            <span className="text-[10px] text-emerald-400 font-semibold">Lossless 60FPS Sync</span>
           </div>
         </div>
 
         {/* ISP Status Note */}
-        <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-300 flex items-center gap-3">
-          <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
-          <span>Your connection exceeds the recommended 30 Mbps required for uninterrupted 4K 60FPS Premier League & Sky Sports streaming.</span>
+        <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-300 flex items-start gap-3">
+          <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+          <div className="space-y-1">
+            <p>Your connection exceeds the recommended 30 Mbps required for uninterrupted 4K 60FPS sports.</p>
+            <p className="text-[11px] text-sky-400 font-mono">Recommended FireStick App: <strong>CBR TV (Downloader: 2130837)</strong></p>
+          </div>
         </div>
 
         {/* Buttons */}

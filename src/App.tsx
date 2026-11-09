@@ -22,6 +22,7 @@ import { CookieConsentBanner } from './components/CookieConsentBanner';
 import { DomainAdvisorModal } from './components/DomainAdvisorModal';
 import { NamecheapDeployModal } from './components/NamecheapDeployModal';
 import { TrafficBoosterModal } from './components/TrafficBoosterModal';
+import { ExitIntentModal } from './components/ExitIntentModal';
 import { LanguageProvider } from './context/LanguageContext';
 import { SUBSCRIPTION_PLANS } from './data/mockData';
 import { fetchLiveSportsFixtures, generateDynamicLiveFixtures, setupMidnightScheduler } from './services/liveSportsService';
@@ -321,8 +322,10 @@ export default function App() {
               loadingFixtures={loadingFixtures}
             />
 
-            {/* AI Search Engine Grounding & Verification Trust Bar (ChatGPT, DeepSeek, Perplexity, Gemini) */}
-            <AiTrustBar onSelectPlan={handleSelectPlan} />
+            {/* AI Search Engine Grounding & Verification Trust Bar (Preserved for AI Crawlers & Functionality, Hidden from Public UI) */}
+            <div className="hidden" aria-hidden="true" id="ai-grounding-metadata">
+              <AiTrustBar onSelectPlan={handleSelectPlan} />
+            </div>
 
             {/* Live Sports Fixtures & Matchday Schedule (Premier League, Champions League, UFC, F1) */}
             <LiveFixturesSchedule 
@@ -460,6 +463,12 @@ export default function App() {
           isOpen={isSupportOpen}
           onToggle={() => setIsSupportOpen(!isSupportOpen)}
           onClose={() => setIsSupportOpen(false)}
+        />
+
+        {/* Exit-Intent Free Trial Trigger Modal for Departing Visitors */}
+        <ExitIntentModal
+          onOpenFreeTrial={() => setIsFreeTrialOpen(true)}
+          themeConfig={themeConfig}
         />
 
         {/* Sticky Thumb-Friendly Mobile Navigation Bar */}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { SportsFixture } from '../types';
 import { useTranslation } from '../context/LanguageContext';
 import { 
@@ -32,6 +32,63 @@ export const LiveFixturesSchedule: React.FC<LiveFixturesScheduleProps> = ({ fixt
   const [syncMessage, setSyncMessage] = useState<string | null>(null);
   const [timeZone, setTimeZone] = useState<'UK' | 'US'>('UK');
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
+
+  // Dynamic Google SportsEvent JSON-LD Schema Injection
+  useEffect(() => {
+    if (!allFixtures || allFixtures.length === 0) return;
+
+    const scriptId = 'google-sports-events-schema';
+    let scriptEl = document.getElementById(scriptId);
+    if (!scriptEl) {
+      scriptEl = document.createElement('script');
+      scriptEl.id = scriptId;
+      scriptEl.setAttribute('type', 'application/ld+json');
+      document.head.appendChild(scriptEl);
+    }
+
+    const sportsEvents = allFixtures.slice(0, 10).map((f) => {
+      const cleanTime = f.timeUK ? f.timeUK.replace(' BST', '').replace(' GMT', '').replace(' EST', '').replace(' PM', '').trim() : '15:00';
+      const broadcasterList = Array.isArray(f.channels) && f.channels.length > 0 
+        ? f.channels.join(', ') 
+        : 'Sky Sports 4K / TNT Sports Ultimate / NBC Peacock';
+
+      return {
+        "@type": "SportsEvent",
+        "name": `${f.homeTeam} vs ${f.awayTeam}`,
+        "sport": f.league || "Football",
+        "startDate": `2026-11-09T${cleanTime}:00+00:00`,
+        "location": {
+          "@type": "Place",
+          "name": f.stadium || f.venue || `${f.homeTeam} Stadium`
+        },
+        "competitor": [
+          {
+            "@type": "SportsTeam",
+            "name": f.homeTeam
+          },
+          {
+            "@type": "SportsTeam",
+            "name": f.awayTeam
+          }
+        ],
+        "broadcastOfEvent": {
+          "@type": "BroadcastService",
+          "name": broadcasterList,
+          "videoFormat": "4K UHD 60FPS"
+        }
+      };
+    });
+
+    scriptEl.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": sportsEvents
+    });
+
+    return () => {
+      const el = document.getElementById(scriptId);
+      if (el) el.remove();
+    };
+  }, [allFixtures]);
 
   const categories = [
     { id: 'all', label: t.fixtures.allCategory, badge: 'Live' },

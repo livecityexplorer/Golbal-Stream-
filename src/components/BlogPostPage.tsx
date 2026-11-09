@@ -111,35 +111,83 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
       document.head.appendChild(existingScript);
     }
 
-    const articleSchema = {
+    const graph: any[] = [
+      {
+        "@type": "BlogPosting",
+        "@id": `${targetUrl}#article`,
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": targetUrl
+        },
+        "headline": post.title,
+        "description": post.excerpt,
+        "image": typeof post.coverImage === 'string' ? post.coverImage : `${baseUrl}/assets/images/premier_league_stadium.jpg`,
+        "datePublished": post.isoDate,
+        "dateModified": post.isoDate,
+        "author": {
+          "@type": "Person",
+          "name": post.author.name,
+          "jobTitle": post.author.role
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "GlobalStreamHub 4K VIP",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=1200&h=630&q=80"
+          }
+        },
+        "keywords": post.targetKeywords ? post.targetKeywords.join(', ') : ''
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${targetUrl}#breadcrumb`,
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": `${baseUrl}/`
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": isFlagship ? "Flagship Subscriptions" : "Knowledge Base & Guides",
+            "item": isFlagship ? targetUrl : `${baseUrl}/blog/`
+          },
+          ...(isFlagship ? [] : [
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": post.title,
+              "item": targetUrl
+            }
+          ])
+        ]
+      }
+    ];
+
+    if (post.content.faqs && post.content.faqs.length > 0) {
+      graph.push({
+        "@type": "FAQPage",
+        "@id": `${targetUrl}#faq`,
+        "mainEntity": post.content.faqs.map(faq => ({
+          "@type": "Question",
+          "name": faq.question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.answer
+          }
+        }))
+      });
+    }
+
+    const structuredData = {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": targetUrl
-      },
-      "headline": post.title,
-      "description": post.excerpt,
-      "image": typeof post.coverImage === 'string' ? post.coverImage : `${baseUrl}/assets/images/premier_league_stadium.jpg`,
-      "datePublished": post.isoDate,
-      "dateModified": post.isoDate,
-      "author": {
-        "@type": "Person",
-        "name": post.author.name,
-        "jobTitle": post.author.role
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "GlobalStreamHub 4K VIP",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=1200&h=630&q=80"
-        }
-      },
-      "keywords": post.targetKeywords ? post.targetKeywords.join(', ') : ''
+      "@graph": graph
     };
 
-    existingScript.textContent = JSON.stringify(articleSchema);
+    existingScript.textContent = JSON.stringify(structuredData);
 
     return () => {
       document.title = originalTitle;
