@@ -46,7 +46,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
   const [scrollProgress, setScrollProgress] = useState(0);
   const [activeSectionIdx, setActiveSectionIdx] = useState<number>(0);
 
-  const baseUrl = typeof window !== 'undefined' && window.location.origin ? window.location.origin : 'https://globalstreamhub.net';
+  const baseUrl = 'https://globalstreamhub.net';
 
   const handleCopyCode = (code: string, idx: number) => {
     navigator.clipboard.writeText(code);

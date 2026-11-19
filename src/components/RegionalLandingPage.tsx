@@ -46,7 +46,7 @@ export const RegionalLandingPage: React.FC<RegionalLandingPageProps> = ({
     document.documentElement.lang = content.lang || 'en';
 
     // 3. Dynamic Canonical Link
-    const baseUrl = typeof window !== 'undefined' && window.location.origin ? window.location.origin : 'https://globalstreamhub.net';
+    const baseUrl = 'https://globalstreamhub.net';
     let canonicalLink = document.querySelector('link[rel="canonical"]');
     const canonicalUrl = `${baseUrl}/${content.marketKey}-iptv/`;
     if (!canonicalLink) {

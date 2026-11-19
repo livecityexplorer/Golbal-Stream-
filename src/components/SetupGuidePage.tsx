@@ -40,6 +40,7 @@ export const SetupGuidePage: React.FC<SetupGuidePageProps> = ({
       <SetupSeoManager
         guide={matchedGuide || undefined}
         isHub={!matchedGuide}
+        hubSlug={!matchedGuide ? currentSlug : undefined}
       />
 
       {matchedGuide ? (
@@ -52,12 +53,13 @@ export const SetupGuidePage: React.FC<SetupGuidePageProps> = ({
           themeConfig={themeConfig}
         />
       ) : (
-        // Setup Guides Hub & Directory (e.g. /setup)
+        // Setup Guides Hub & Directory (e.g. /setup/ or /setup/firestick/)
         <SetupHubView
           onSelectPlan={onSelectPlan}
           navigateTo={navigateTo}
           whatsappNumber={whatsappNumber}
           themeConfig={themeConfig}
+          hubSlug={currentSlug}
         />
       )}
     </div>

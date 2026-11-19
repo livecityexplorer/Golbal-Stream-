@@ -128,13 +128,28 @@ AddType 'text/html; charset=UTF-8' html
   # Exclude ACME / SSL Domain Validation directories from redirection
   RewriteRule ^\.well-known/ - [L]
 
-  # Force HTTPS on Namecheap (AutoSSL compatible)
-  RewriteCond %{HTTPS} off
-  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-
-  # Canonical Domain: 301 Redirect www to non-www dynamically for any active domain
-  RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+  # Single-hop 301 Permanent Redirect: Force HTTPS and strip www. in a single redirect (no 2-hop chain)
+  RewriteCond %{HTTPS} off [OR]
+  RewriteCond %{HTTP_HOST} ^www\. [NC]
+  RewriteCond %{HTTP_HOST} ^(?:www\.)?(.+)$ [NC]
   RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+
+  # 301 Permanent Redirects for Legacy Non-Canonical Aliases -> True Canonical URLs
+  # Prevents "Crawled - currently not indexed" and duplicate canonical conflicts
+  RewriteRule ^blog/ukbestiptv/?$ https://globalstreamhub.net/ukbestiptv/ [R=301,L]
+  RewriteRule ^uk-best-iptv/?$ https://globalstreamhub.net/ukbestiptv/ [R=301,L]
+  RewriteRule ^blog/usabestiptv/?$ https://globalstreamhub.net/usabestiptv/ [R=301,L]
+  RewriteRule ^usa-best-iptv/?$ https://globalstreamhub.net/usabestiptv/ [R=301,L]
+  RewriteRule ^blog/europemoststableiptv/?$ https://globalstreamhub.net/europemoststableiptv/ [R=301,L]
+  RewriteRule ^europe-most-stable-iptv/?$ https://globalstreamhub.net/europemoststableiptv/ [R=301,L]
+  RewriteRule ^blog/arabicbestiptv/?$ https://globalstreamhub.net/arabicbestiptv/ [R=301,L]
+  RewriteRule ^arabic-best-iptv/?$ https://globalstreamhub.net/arabicbestiptv/ [R=301,L]
+  RewriteRule ^middle-east-iptv/?$ https://globalstreamhub.net/arabicbestiptv/ [R=301,L]
+  RewriteRule ^blog/champions-league-2026-predictions-knockout-draw-4k-uhd-stream-guide/?$ https://globalstreamhub.net/blog/who-will-win-uefa-champions-league-2026-2027-predictions-streaming-guide/ [R=301,L]
+  RewriteRule ^blog/el-clasico-real-madrid-barcelona-tactics-prediction-4k-streaming-guide/?$ https://globalstreamhub.net/blog/la-liga-el-clasico-2026-2027-title-race-real-madrid-barcelona-streaming-guide/ [R=301,L]
+  RewriteRule ^blog/serie-a-scudetto-race-inter-juventus-napoli-predictions-4k-streaming-guide/?$ https://globalstreamhub.net/blog/serie-a-scudetto-race-inter-napoli-juventus-2026-2027-streaming-guide/ [R=301,L]
+  RewriteRule ^blog/der-klassiker-bayern-munich-borussia-dortmund-tactics-4k-streaming-guide/?$ https://globalstreamhub.net/blog/bundesliga-title-race-bayern-leverkusen-dortmund-2026-2027-streaming-guide/ [R=301,L]
+  RewriteRule ^blog/premier-league-top-four-race-aston-villa-newcastle-chelsea-tottenham-predictions/?$ https://globalstreamhub.net/blog/premier-league-top-four-race-amorim-man-united-alonso-chelsea-streaming-guide/ [R=301,L]
 
   # 301 Permanent Redirects for Language Query Strings to Clean Canonical URLs
   # Resolves Google Search Console "Alternative page with proper canonical tag" validation

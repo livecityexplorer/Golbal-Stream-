@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { 
   ALL_SETUP_GUIDES, 
   DEVICE_CATEGORIES, 
@@ -40,21 +40,80 @@ interface SetupHubViewProps {
   navigateTo: (path: string) => void;
   whatsappNumber?: string;
   themeConfig?: any;
+  hubSlug?: string;
 }
+
+const HUB_SLUGS_TO_CATEGORY: Record<string, { category: DeviceCategoryType; search?: string; h1Highlight: string; subtitle: string }> = {
+  'firestick': {
+    category: 'firestick',
+    h1Highlight: 'Amazon FireStick & Fire TV',
+    subtitle: 'Official CBR TV App (Downloader: 2130837), TiviMate Pro, and IPTV Smarters Pro installation walkthroughs for FireStick 4K Max and Fire TV Cube.'
+  },
+  'tivimate': {
+    category: 'firestick',
+    search: 'TiviMate',
+    h1Highlight: 'TiviMate IPTV Player Pro',
+    subtitle: 'Downloader shortcodes (289018 / 272483), Xtream Codes API setup, 7-day EPG, and multi-view 4K sports playback on FireStick and Android TV.'
+  },
+  'smarters': {
+    category: 'firestick',
+    search: 'Smarters',
+    h1Highlight: 'IPTV Smarters Pro',
+    subtitle: 'Official IPTV Smarters Pro downloaders and Xtream Codes API configuration for FireStick, Android TV, Windows, macOS, and iOS.'
+  },
+  'smart-tv': {
+    category: 'smart-tv',
+    h1Highlight: 'Samsung & LG Smart TVs',
+    subtitle: 'No FireStick required. Direct Smart TV setup using IBO Player Pro, SET IPTV, and Smart One IPTV on Samsung Tizen & LG webOS.'
+  },
+  'apple-tv': {
+    category: 'apple',
+    h1Highlight: 'Apple TV 4K, iPhone & iPad',
+    subtitle: 'Stream 4K 60FPS sports and Dolby Vision VOD on tvOS, iOS, and iPadOS via IPTVX, iMPlayer, Snapp UHD, and Smarters Lite.'
+  },
+  'android': {
+    category: 'android-tv',
+    h1Highlight: 'Android TV & Nvidia Shield',
+    subtitle: 'Official CBR TV App (Downloader: 2130837), TiviMate, and OTT Navigator for Nvidia Shield Pro, Chromecast Google TV, and Sony Bravia.'
+  },
+  'pc-web': {
+    category: 'pc-web',
+    h1Highlight: 'Windows PC, Mac & Browser',
+    subtitle: 'Official CBR TV Desktop suite for Windows, macOS & Linux, plus instant WebTV browser and VLC media player streaming.'
+  },
+  'formuler-mag': {
+    category: 'formuler-mag',
+    h1Highlight: 'Formuler (MOL3) & MAG Boxes',
+    subtitle: 'Hardware-accelerated MyTVOnline 3 setup and Stalker Portal MAC address activation for Formuler Z11 and MAG 524/424 boxes.'
+  }
+};
 
 export const SetupHubView: React.FC<SetupHubViewProps> = ({
   onSelectPlan,
   navigateTo,
   whatsappNumber = '+44 7731 454811',
   themeConfig,
+  hubSlug,
 }) => {
-  const [selectedCategory, setSelectedCategory] = useState<DeviceCategoryType>('firestick');
-  const [searchQuery, setSearchQuery] = useState('');
+  const cleanHubSlug = hubSlug ? hubSlug.toLowerCase().trim() : '';
+  const hubPreset = cleanHubSlug ? HUB_SLUGS_TO_CATEGORY[cleanHubSlug] : undefined;
+
+  const [selectedCategory, setSelectedCategory] = useState<DeviceCategoryType>(hubPreset?.category || 'firestick');
+  const [searchQuery, setSearchQuery] = useState(hubPreset?.search || '');
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
   const [activeIspIndex, setActiveIspIndex] = useState<number>(0);
   const [activeTab, setActiveTab] = useState<'matrix' | 'vault' | 'isp' | 'diagnostic'>('matrix');
   const [dismissStickyTrial, setDismissStickyTrial] = useState(false);
+
+  useEffect(() => {
+    if (hubPreset) {
+      setSelectedCategory(hubPreset.category);
+      setSearchQuery(hubPreset.search || '');
+    } else if (!cleanHubSlug) {
+      setSearchQuery('');
+    }
+  }, [cleanHubSlug]);
 
   // Diagnostic Simulator State
   const [diagRunning, setDiagRunning] = useState(false);
@@ -217,11 +276,13 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
         </div>
 
         <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">
-          How to Setup IPTV on <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-indigo-200">Any Device</span>
+          How to Setup IPTV on <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-indigo-200">{hubPreset ? hubPreset.h1Highlight : 'Any Device'}</span>
         </h1>
 
         <p className="text-xs sm:text-base text-slate-300 leading-relaxed max-w-2xl mx-auto">
-          Choose your streaming device below for direct Downloader shortcodes, verified step-by-step app setup, and 4K sports streaming settings.
+          {hubPreset
+            ? hubPreset.subtitle
+            : 'Choose your streaming device below for direct Downloader shortcodes, verified step-by-step app setup, and 4K sports streaming settings.'}
         </p>
 
         {/* Quick Downloader Code Strip - Horizontally scrollable on mobile */}
@@ -1046,8 +1107,8 @@ export const SetupHubView: React.FC<SetupHubViewProps> = ({
 
       {/* 9. Referral & Social Sharing */}
       <ShareReferralBar
-        currentUrl="https://globalstreamhub.net/setup/"
-        title="GlobalStreamHub 4K VIP IPTV Setup Hub • FireStick, TiviMate & Device Guides"
+        currentUrl={hubPreset ? `https://globalstreamhub.net/setup/${cleanHubSlug}/` : "https://globalstreamhub.net/setup/"}
+        title={hubPreset ? `GlobalStreamHub • ${hubPreset.h1Highlight} Setup Guide` : "GlobalStreamHub 4K VIP IPTV Setup Hub • FireStick, TiviMate & Device Guides"}
       />
 
       {/* 10. WhatsApp Support Banner */}
