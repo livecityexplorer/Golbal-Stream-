@@ -34,6 +34,13 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onSelectPlan, navigate
   const [isExpanded, setIsExpanded] = useState(false);
 
   const getPostUrl = (slug: string) => {
+    const benchmarkMap: Record<string, string> = {
+      'blog-ukbestiptv-benchmark': '/blog/ukbestiptv/',
+      'blog-usabestiptv-benchmark': '/blog/usabestiptv/',
+      'blog-europemoststableiptv-benchmark': '/blog/europemoststableiptv/',
+      'blog-arabicbestiptv-benchmark': '/blog/arabicbestiptv/',
+    };
+    if (benchmarkMap[slug]) return benchmarkMap[slug];
     const isFlagship = ['ukbestiptv', 'usabestiptv', 'europemoststableiptv', 'arabicbestiptv'].includes(slug);
     return isFlagship ? `/${slug}/` : `/blog/${slug}/`;
   };

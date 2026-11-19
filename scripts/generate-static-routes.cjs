@@ -100,15 +100,11 @@ function loadSetupContentMap() {
   return map;
 }
 
-// Legacy non-canonical alias URLs -> consolidated 301 / noindex+meta-refresh redirects
+// Legacy non-canonical alias URLs -> clean canonical consolidation (no noindex / meta-refresh errors on static hosts)
 const LEGACY_ALIAS_REDIRECTS = {
-  '/blog/ukbestiptv': '/ukbestiptv/',
   '/uk-best-iptv': '/ukbestiptv/',
-  '/blog/usabestiptv': '/usabestiptv/',
   '/usa-best-iptv': '/usabestiptv/',
-  '/blog/europemoststableiptv': '/europemoststableiptv/',
   '/europe-most-stable-iptv': '/europemoststableiptv/',
-  '/blog/arabicbestiptv': '/arabicbestiptv/',
   '/arabic-best-iptv': '/arabicbestiptv/',
   '/middle-east-iptv': '/arabicbestiptv/',
   '/blog/champions-league-2026-predictions-knockout-draw-4k-uhd-stream-guide': '/blog/who-will-win-uefa-champions-league-2026-2027-predictions-streaming-guide/',
@@ -139,20 +135,44 @@ const ROUTE_METADATA = {
     description: 'Discover why thousands of British households rate GlobalStreamHub as the #1 UK IPTV subscription. CBR TV app (Downloader: 2130837), Anti-ISP proxy layer & 380 EPL games in 4K.',
     keywords: 'ukbestiptv, best iptv uk, best uk iptv subscription, cbr tv app, cbr tv downloader 2130837, anti freeze iptv uk, premier league 4k'
   },
+  '/blog/ukbestiptv': {
+    title: 'UK IPTV Speed & Anti-ISP Throttling Benchmark 2026/27: Virgin Media, BT & Sky Lab Report',
+    h1: 'UK IPTV Speed & Anti-ISP Throttling Benchmark 2026/27: Virgin Media, BT & Sky Lab Report',
+    description: 'Independent 2026/27 UK engineering benchmark comparing Equinix LD4/LD8 routing, Virgin Media Web Safe vs BT Smart Hub 2 DPI throttling, CBR TV (Downloader 2130837) packet loss, and 3pm Premier League 4K UHD bitrates.',
+    keywords: 'uk iptv speed benchmark, virgin media iptv throttling fix, bt smart hub 2 iptv latency, cbr tv downloader 2130837 benchmark'
+  },
   '/usabestiptv': {
     title: 'Why We Are the Best USA IPTV Subscription in 2026/27: CBR TV App, NFL RedZone & 4K',
     description: 'Discover why over 42,000 Americans rate GlobalStreamHub as the #1 USA IPTV subscription. CBR TV app (Downloader: 2130837), Anti-ISP proxy, NFL RedZone, Peacock 4K & zero blackouts.',
     keywords: 'usabestiptv, best iptv usa, best usa iptv subscription, cbr tv app, nfl sunday ticket iptv, nfl redzone 4k, peacock 4k stream, downloader code 2130837'
+  },
+  '/blog/usabestiptv': {
+    title: 'USA IPTV Review & Cord-Cutting Cost Audit 2026/27: NFL RedZone, NBA & Comcast/AT&T Latency',
+    h1: 'USA IPTV Review & Cord-Cutting Cost Audit 2026/27: NFL RedZone, NBA & Comcast/AT&T Latency',
+    description: 'Complete 2026/27 USA streaming cost breakdown and ISP latency audit. Compare YouTube TV + NFL Sunday Ticket ($820+/yr) against GlobalStreamHub CBR TV (Downloader 2130837) across Xfinity, AT&T Fiber & Verizon Fios nodes.',
+    keywords: 'usa iptv review 2026, youtube tv vs iptv cost audit, nfl redzone 4k latency test, comcast xfinity iptv buffering fix, usabestiptv benchmark'
   },
   '/europemoststableiptv': {
     title: 'Why We Are the Most Stable European IPTV Subscription in 2026/27: CBR TV App & 4K Streaming • GlobalStreamHub',
     description: 'Discover why European streamers choose GlobalStreamHub as the most stable European IPTV subscription. CBR TV app (Downloader: 2130837), Frankfurt & Amsterdam edge nodes, UCL 4K, Sky Sport, Canal+, Movistar & zero buffering.',
     keywords: 'europemoststableiptv, europe most stable iptv, best european iptv, iptv europe, cbr tv app, downloader code 2130837, champions league 4k iptv, sky sport bundesliga 4k, canal plus 4k, movistar laliga 4k, anti freeze iptv europe'
   },
+  '/blog/europemoststableiptv': {
+    title: 'European IPTV Stability & Edge Relay Report 2026/27: Frankfurt DE-CIX & Amsterdam AMS-IX Uptime',
+    h1: 'European IPTV Stability & Edge Relay Report 2026/27: Frankfurt DE-CIX & Amsterdam AMS-IX Uptime',
+    description: 'Multi-country European technical audit across Germany, France, Spain, Italy & the Netherlands. See real DE-CIX Frankfurt & AMS-IX Amsterdam telemetry on Sky Bundesliga UHD, Canal+ 4K, Movistar LaLiga, and DAZN Italia.',
+    keywords: 'europe most stable iptv benchmark, frankfurt amsterdam iptv cdn latency, sky bundesliga 4k iptv test, canal plus movistar 4k uptime'
+  },
   '/arabicbestiptv': {
     title: 'Why We Are the Best Arabic & Middle East IPTV in 2026/27: CBR TV App, beIN Sports 4K & Shahid VIP • GlobalStreamHub',
     description: 'Discover why thousands across Saudi Arabia, UAE, Qatar, Kuwait, Egypt & the diaspora choose GlobalStreamHub. CBR TV app (Downloader: 2130837), Anti-ISP proxy, beIN Sports 4K, SSC Saudi League & Shahid VIP.',
     keywords: 'arabicbestiptv, best arabic iptv, middle east iptv, اشتراك iptv, bein sports 4k iptv, ssc sports saudi league, shahid vip iptv, osn iptv, cbr tv app, downloader code 2130837, anti freeze iptv arabic'
+  },
+  '/blog/arabicbestiptv': {
+    title: 'Middle East & Diaspora Arabic IPTV Network Guide 2026/27: beIN 4K, SSC & MBC Bitrate Audit',
+    h1: 'Middle East & Diaspora Arabic IPTV Network Guide 2026/27: beIN 4K, SSC & MBC Bitrate Audit',
+    description: 'Technical network audit for viewers in Saudi Arabia, UAE, Qatar, Kuwait, Egypt, and Arab expats in Europe & North America. Full benchmarks for beIN SPORTS 4K, SSC Saudi Pro League, Shahid VIP & CBR TV code 2130837.',
+    keywords: 'arabicbestiptv network benchmark, bein sports 4k bitrate iptv, ssc saudi pro league live stream, arabic iptv usa uk europe expats'
   },
   '/uk-iptv': {
     title: 'Best UK IPTV Subscription 2026: 4K Premier League, Sky Sports & 3pm Blackout • GlobalStreamHub',
@@ -296,13 +316,17 @@ const ROUTE_METADATA = {
   }
 };
 
-// All 80 canonical subpages matching public/sitemap.xml 1:1
+// All 84 canonical subpages matching public/sitemap.xml 1:1
 const CANONICAL_ROUTES = [
   '/blog',
   '/ukbestiptv',
+  '/blog/ukbestiptv',
   '/usabestiptv',
+  '/blog/usabestiptv',
   '/europemoststableiptv',
+  '/blog/europemoststableiptv',
   '/arabicbestiptv',
+  '/blog/arabicbestiptv',
   '/uk-iptv',
   '/usa-iptv',
   '/canada-iptv',
@@ -380,23 +404,21 @@ const CANONICAL_ROUTES = [
   '/faq'
 ];
 
-function buildRedirectHtml(targetCanonicalUrl) {
+function buildAliasCanonicalHtml(targetCanonicalUrl, readableTitle) {
   const safeUrl = escapeHtml(targetCanonicalUrl);
+  const safeTitle = escapeHtml(readableTitle);
   return `<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="robots" content="noindex, follow" />
-    <meta name="googlebot" content="noindex, follow" />
+    <meta name="robots" content="index, follow" />
     <link rel="canonical" href="${safeUrl}" />
-    <meta http-equiv="refresh" content="0; url=${safeUrl}" />
-    <title>Moved Permanently • Redirecting to ${safeUrl}</title>
-    <script>window.location.replace(${JSON.stringify(targetCanonicalUrl)});</script>
+    <title>${safeTitle} • GlobalStreamHub 4K VIP</title>
   </head>
   <body style="background:#060814;color:#f8fafc;font-family:system-ui,-apple-system,sans-serif;padding:2rem;">
     <main style="max-width:720px;margin:0 auto;">
-      <h1>Page Moved Permanently</h1>
-      <p>This page has moved permanently to <a href="${safeUrl}" style="color:#38bdf8;">${safeUrl}</a>.</p>
+      <h1>${safeTitle}</h1>
+      <p>View the full updated guide at the canonical page: <a href="${safeUrl}" style="color:#38bdf8;">${safeUrl}</a>.</p>
     </main>
   </body>
 </html>
@@ -469,7 +491,13 @@ async function generateStaticRoutes() {
     const pathParts = cleanRoute.split('/').filter(Boolean);
     const slug = pathParts[pathParts.length - 1] || '';
 
-    const blogEntry = blogMap[slug];
+    const BENCHMARK_BLOG_SLUGS = {
+      '/blog/ukbestiptv': 'blog-ukbestiptv-benchmark',
+      '/blog/usabestiptv': 'blog-usabestiptv-benchmark',
+      '/blog/europemoststableiptv': 'blog-europemoststableiptv-benchmark',
+      '/blog/arabicbestiptv': 'blog-arabicbestiptv-benchmark'
+    };
+    const blogEntry = blogMap[BENCHMARK_BLOG_SLUGS[route] || slug];
     const setupEntry = pathParts[0] === 'setup' ? setupMap[slug] : null;
     const explicitMeta = ROUTE_METADATA[route];
 
@@ -625,25 +653,26 @@ async function generateStaticRoutes() {
     generatedCount++;
   }
 
-  // 2. Write lightweight noindex + meta-refresh redirect files for legacy alias routes (GitHub Pages / static safety)
+  // 2. Write clean canonical-consolidated HTML for the remaining 10 legacy draft/alias routes (no noindex/meta-refresh errors)
   for (const [aliasRoute, targetCanonicalPath] of Object.entries(LEGACY_ALIAS_REDIRECTS)) {
     const cleanAlias = aliasRoute.replace(/^\/+/, '');
     const targetCanonicalUrl = `${DOMAIN}${targetCanonicalPath}`;
-    const redirectHtml = buildRedirectHtml(targetCanonicalUrl);
+    const readableTitle = cleanAlias.split('/').pop().replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+    const aliasHtml = buildAliasCanonicalHtml(targetCanonicalUrl, readableTitle);
 
     const aliasDir = path.join(distDir, cleanAlias);
     fs.mkdirSync(aliasDir, { recursive: true });
-    fs.writeFileSync(path.join(aliasDir, 'index.html'), redirectHtml, 'utf-8');
+    fs.writeFileSync(path.join(aliasDir, 'index.html'), aliasHtml, 'utf-8');
 
     const aliasHtmlFile = path.join(distDir, `${cleanAlias}.html`);
     fs.mkdirSync(path.dirname(aliasHtmlFile), { recursive: true });
-    fs.writeFileSync(aliasHtmlFile, redirectHtml, 'utf-8');
+    fs.writeFileSync(aliasHtmlFile, aliasHtml, 'utf-8');
 
     redirectCount++;
   }
 
   console.log(`✅ Generated ${generatedCount} unique canonical static HTML pages (matching sitemap.xml 1:1)!`);
-  console.log(`↪️  Generated ${redirectCount} permanent noindex/meta-refresh redirect pages for legacy aliases!`);
+  console.log(`🔗 Generated ${redirectCount} canonical-consolidated HTML pages for legacy aliases!`);
 }
 
 generateStaticRoutes().catch(console.error);

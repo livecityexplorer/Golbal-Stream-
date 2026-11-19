@@ -105,13 +105,9 @@ export default function App() {
   // Map any legacy or non-canonical alias path directly to its canonical route
   useEffect(() => {
     const LEGACY_REDIRECT_MAP: Record<string, string> = {
-      '/blog/ukbestiptv': '/ukbestiptv/',
       '/uk-best-iptv': '/ukbestiptv/',
-      '/blog/usabestiptv': '/usabestiptv/',
       '/usa-best-iptv': '/usabestiptv/',
-      '/blog/europemoststableiptv': '/europemoststableiptv/',
       '/europe-most-stable-iptv': '/europemoststableiptv/',
-      '/blog/arabicbestiptv': '/arabicbestiptv/',
       '/arabic-best-iptv': '/arabicbestiptv/',
       '/middle-east-iptv': '/arabicbestiptv/',
       '/blog/champions-league-2026-predictions-knockout-draw-4k-uhd-stream-guide': '/blog/who-will-win-uefa-champions-league-2026-2027-predictions-streaming-guide/',
@@ -257,6 +253,13 @@ export default function App() {
     'premier-league-top-four-race-aston-villa-newcastle-chelsea-tottenham-predictions': 'premier-league-top-four-race-amorim-man-united-alonso-chelsea-streaming-guide',
   };
 
+  const BLOG_COMPANION_VARIANTS: Record<string, string> = {
+    'ukbestiptv': 'blog-ukbestiptv-benchmark',
+    'usabestiptv': 'blog-usabestiptv-benchmark',
+    'europemoststableiptv': 'blog-europemoststableiptv-benchmark',
+    'arabicbestiptv': 'blog-arabicbestiptv-benchmark',
+  };
+
   const rawBlogSlug = isDirectUkBestIptv 
     ? 'ukbestiptv' 
     : (isDirectUsaBestIptv 
@@ -265,7 +268,7 @@ export default function App() {
             ? 'europemoststableiptv' 
             : (isDirectArabicBestIptv
                 ? 'arabicbestiptv'
-                : (blogMatch ? blogMatch[1] : null))));
+                : (blogMatch ? (BLOG_COMPANION_VARIANTS[blogMatch[1]] || blogMatch[1]) : null))));
 
   const currentBlogSlug = rawBlogSlug ? (SLUG_ALIASES[rawBlogSlug] || rawBlogSlug) : null;
   const currentBlogPost = currentBlogSlug ? BLOG_POSTS.find(p => p.slug === currentBlogSlug) : null;

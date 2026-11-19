@@ -86,20 +86,34 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
     document.title = `${post.title} | GlobalStreamHub 4K VIP`;
 
     // Dynamic Canonical Link Update
+    const BENCHMARK_CANONICAL_PATHS: Record<string, string> = {
+      'blog-ukbestiptv-benchmark': '/blog/ukbestiptv/',
+      'blog-usabestiptv-benchmark': '/blog/usabestiptv/',
+      'blog-europemoststableiptv-benchmark': '/blog/europemoststableiptv/',
+      'blog-arabicbestiptv-benchmark': '/blog/arabicbestiptv/',
+    };
     const isFlagship = ['ukbestiptv', 'usabestiptv', 'europemoststableiptv', 'arabicbestiptv'].includes(post.slug);
-    const isDirectCleanPath = isFlagship || (typeof window !== 'undefined' && window.location.pathname.replace(/\/+$/, '') === `/${post.slug}`);
-    const targetUrl = isDirectCleanPath ? `${baseUrl}/${post.slug}/` : `${baseUrl}/blog/${post.slug}/`;
+    const benchmarkOverride = BENCHMARK_CANONICAL_PATHS[post.slug];
+    const targetUrl = benchmarkOverride
+      ? `${baseUrl}${benchmarkOverride}`
+      : (isFlagship ? `${baseUrl}/${post.slug}/` : `${baseUrl}/blog/${post.slug}/`);
 
     let canonicalTag = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
     if (canonicalTag) {
       canonicalTag.href = targetUrl;
     }
 
-    // Dynamic Meta Description
+    // Dynamic Meta Description & OpenGraph sync
     let metaDesc = document.querySelector('meta[name="description"]') as HTMLMetaElement;
     if (metaDesc) {
       metaDesc.content = post.excerpt;
     }
+    const ogTitle = document.querySelector('meta[property="og:title"]') as HTMLMetaElement | null;
+    if (ogTitle) ogTitle.content = `${post.title} • GlobalStreamHub`;
+    const ogDesc = document.querySelector('meta[property="og:description"]') as HTMLMetaElement | null;
+    if (ogDesc) ogDesc.content = post.excerpt;
+    const ogUrl = document.querySelector('meta[property="og:url"]') as HTMLMetaElement | null;
+    if (ogUrl) ogUrl.content = targetUrl;
 
     // Dynamic JSON-LD Structured Data for this specific Article URL
     const scriptId = 'dynamic-article-schema';
@@ -201,10 +215,19 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
     };
   }, [post, baseUrl]);
 
+  const BENCHMARK_PATHS: Record<string, string> = {
+    'blog-ukbestiptv-benchmark': '/blog/ukbestiptv/',
+    'blog-usabestiptv-benchmark': '/blog/usabestiptv/',
+    'blog-europemoststableiptv-benchmark': '/blog/europemoststableiptv/',
+    'blog-arabicbestiptv-benchmark': '/blog/arabicbestiptv/',
+  };
   const isFlagshipPost = ['ukbestiptv', 'usabestiptv', 'europemoststableiptv', 'arabicbestiptv'].includes(post.slug);
-  const canonicalPostUrl = isFlagshipPost ? `${baseUrl}/${post.slug}/` : `${baseUrl}/blog/${post.slug}/`;
+  const canonicalPostUrl = BENCHMARK_PATHS[post.slug]
+    ? `${baseUrl}${BENCHMARK_PATHS[post.slug]}`
+    : (isFlagshipPost ? `${baseUrl}/${post.slug}/` : `${baseUrl}/blog/${post.slug}/`);
 
   const getPostUrl = (slug: string) => {
+    if (BENCHMARK_PATHS[slug]) return BENCHMARK_PATHS[slug];
     const isFlagship = ['ukbestiptv', 'usabestiptv', 'europemoststableiptv', 'arabicbestiptv'].includes(slug);
     return isFlagship ? `/${slug}/` : `/blog/${slug}/`;
   };

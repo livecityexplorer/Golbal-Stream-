@@ -136,13 +136,9 @@ AddType 'text/html; charset=UTF-8' html
 
   # 301 Permanent Redirects for Legacy Non-Canonical Aliases -> True Canonical URLs
   # Prevents "Crawled - currently not indexed" and duplicate canonical conflicts
-  RewriteRule ^blog/ukbestiptv/?$ https://globalstreamhub.net/ukbestiptv/ [R=301,L]
   RewriteRule ^uk-best-iptv/?$ https://globalstreamhub.net/ukbestiptv/ [R=301,L]
-  RewriteRule ^blog/usabestiptv/?$ https://globalstreamhub.net/usabestiptv/ [R=301,L]
   RewriteRule ^usa-best-iptv/?$ https://globalstreamhub.net/usabestiptv/ [R=301,L]
-  RewriteRule ^blog/europemoststableiptv/?$ https://globalstreamhub.net/europemoststableiptv/ [R=301,L]
   RewriteRule ^europe-most-stable-iptv/?$ https://globalstreamhub.net/europemoststableiptv/ [R=301,L]
-  RewriteRule ^blog/arabicbestiptv/?$ https://globalstreamhub.net/arabicbestiptv/ [R=301,L]
   RewriteRule ^arabic-best-iptv/?$ https://globalstreamhub.net/arabicbestiptv/ [R=301,L]
   RewriteRule ^middle-east-iptv/?$ https://globalstreamhub.net/arabicbestiptv/ [R=301,L]
   RewriteRule ^blog/champions-league-2026-predictions-knockout-draw-4k-uhd-stream-guide/?$ https://globalstreamhub.net/blog/who-will-win-uefa-champions-league-2026-2027-predictions-streaming-guide/ [R=301,L]
